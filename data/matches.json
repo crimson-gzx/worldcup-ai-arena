@@ -1,0 +1,4131 @@
+{
+  "updatedAt": "2026-06-04T15:52:52.421Z",
+  "notice": "真实赛程 + Bettors.Club 小组赛 1X2 赔率；竞彩固定奖金和模型概率仍待接入。",
+  "source": {
+    "name": "openfootball/worldcup.json",
+    "url": "https://github.com/openfootball/worldcup.json/blob/master/2026/worldcup.json",
+    "originalName": "2026 世界杯"
+  },
+  "matches": [
+    {
+      "id": "wc26-m001",
+      "round": "A组 - 第1比赛日",
+      "kickoff": "2026-06-12 03:00",
+      "venue": "墨西哥城",
+      "home": "墨西哥",
+      "away": "南非",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.42,
+          "draw": 4.42,
+          "away": 8.51
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.24,
+          "away": 1.6
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.07,
+          "under": 1.71
+        }
+      },
+      "model": {
+        "home": 0.62,
+        "draw": 0.24,
+        "away": 0.14,
+        "xgHome": 1.8,
+        "xgAway": 0.8,
+        "notes": [
+          "主场实力占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m002",
+      "round": "A组 - 第1比赛日",
+      "kickoff": "2026-06-12 10:00",
+      "venue": "瓜达拉哈拉（萨波潘）",
+      "home": "韩国",
+      "away": "捷克",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "38 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.65,
+          "draw": 3.12,
+          "away": 2.81
+        },
+        "asian": {
+          "line": "0",
+          "home": 1.85,
+          "away": 1.99
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.2,
+          "under": 1.62
+        }
+      },
+      "model": {
+        "home": 0.38,
+        "draw": 0.29,
+        "away": 0.33,
+        "xgHome": 1.25,
+        "xgAway": 1.15,
+        "notes": [
+          "双方接近",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m003",
+      "round": "A组 - 第8比赛日",
+      "kickoff": "2026-06-19 00:00",
+      "venue": "亚特兰大",
+      "home": "捷克",
+      "away": "南非",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.98,
+          "draw": 3.29,
+          "away": 4.04
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.96,
+          "away": 1.83
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.21,
+          "under": 1.6
+        }
+      },
+      "model": {
+        "home": 0.56,
+        "draw": 0.27,
+        "away": 0.17,
+        "xgHome": 1.6,
+        "xgAway": 0.85,
+        "notes": [
+          "捷克更稳",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m004",
+      "round": "A组 - 第8比赛日",
+      "kickoff": "2026-06-19 09:00",
+      "venue": "瓜达拉哈拉（萨波潘）",
+      "home": "墨西哥",
+      "away": "韩国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.82,
+          "draw": 3.43,
+          "away": 4.53
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.81,
+          "away": 1.99
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.16,
+          "under": 1.62
+        }
+      },
+      "model": {
+        "home": 0.46,
+        "draw": 0.29,
+        "away": 0.25,
+        "xgHome": 1.35,
+        "xgAway": 1.05,
+        "notes": [
+          "墨西哥小优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m005",
+      "round": "A组 - 第14比赛日",
+      "kickoff": "2026-06-25 09:00",
+      "venue": "墨西哥城",
+      "home": "捷克",
+      "away": "墨西哥",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 4.28,
+          "draw": 3.44,
+          "away": 1.84
+        },
+        "asian": {
+          "line": "+0.75",
+          "home": 1.8,
+          "away": 2.03
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.1,
+          "under": 1.66
+        }
+      },
+      "model": {
+        "home": 0.31,
+        "draw": 0.3,
+        "away": 0.39,
+        "xgHome": 1.1,
+        "xgAway": 1.25,
+        "notes": [
+          "墨西哥稍强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m006",
+      "round": "A组 - 第14比赛日",
+      "kickoff": "2026-06-25 09:00",
+      "venue": "蒙特雷（瓜达卢佩）",
+      "home": "南非",
+      "away": "韩国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 3.73,
+          "draw": 3.31,
+          "away": 2
+        },
+        "asian": {
+          "line": "+0.5",
+          "home": 1.84,
+          "away": 1.96
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.14,
+          "under": 1.63
+        }
+      },
+      "model": {
+        "home": 0.22,
+        "draw": 0.28,
+        "away": 0.5,
+        "xgHome": 0.9,
+        "xgAway": 1.45,
+        "notes": [
+          "韩国速度占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m007",
+      "round": "B组 - 第2比赛日",
+      "kickoff": "2026-06-13 03:00",
+      "venue": "多伦多",
+      "home": "加拿大",
+      "away": "波黑",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.81,
+          "draw": 3.57,
+          "away": 4.57
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.78,
+          "away": 2.03
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.19,
+          "under": 1.63
+        }
+      },
+      "model": {
+        "home": 0.45,
+        "draw": 0.28,
+        "away": 0.27,
+        "xgHome": 1.4,
+        "xgAway": 1.05,
+        "notes": [
+          "主场加成",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m008",
+      "round": "B组 - 第3比赛日",
+      "kickoff": "2026-06-14 03:00",
+      "venue": "旧金山湾区（圣克拉拉）",
+      "home": "卡塔尔",
+      "away": "瑞士",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 13.1,
+          "draw": 6.34,
+          "away": 1.22
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 2.17,
+          "away": 1.67
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.61,
+          "under": 2.2
+        }
+      },
+      "model": {
+        "home": 0.18,
+        "draw": 0.24,
+        "away": 0.58,
+        "xgHome": 0.75,
+        "xgAway": 1.65,
+        "notes": [
+          "瑞士实力强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m009",
+      "round": "B组 - 第8比赛日",
+      "kickoff": "2026-06-19 03:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "瑞士",
+      "away": "波黑",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.57,
+          "draw": 3.97,
+          "away": 5.75
+        },
+        "asian": {
+          "line": "-1",
+          "home": 2.03,
+          "away": 1.81
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.96,
+          "under": 1.77
+        }
+      },
+      "model": {
+        "home": 0.54,
+        "draw": 0.28,
+        "away": 0.18,
+        "xgHome": 1.55,
+        "xgAway": 0.85,
+        "notes": [
+          "瑞士控制力佳",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m010",
+      "round": "B组 - 第8比赛日",
+      "kickoff": "2026-06-19 06:00",
+      "venue": "温哥华",
+      "home": "加拿大",
+      "away": "卡塔尔",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.32,
+          "draw": 4.94,
+          "away": 10.04
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.02,
+          "away": 1.81
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.92,
+          "under": 1.8
+        }
+      },
+      "model": {
+        "home": 0.6,
+        "draw": 0.24,
+        "away": 0.16,
+        "xgHome": 1.75,
+        "xgAway": 0.8,
+        "notes": [
+          "加拿大更快",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m011",
+      "round": "B组 - 第14比赛日",
+      "kickoff": "2026-06-25 03:00",
+      "venue": "温哥华",
+      "home": "瑞士",
+      "away": "加拿大",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.06,
+          "draw": 3.28,
+          "away": 3.56
+        },
+        "asian": {
+          "line": "-0.25",
+          "home": 1.83,
+          "away": 2
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.09,
+          "under": 1.66
+        }
+      },
+      "model": {
+        "home": 0.42,
+        "draw": 0.3,
+        "away": 0.28,
+        "xgHome": 1.25,
+        "xgAway": 1.05,
+        "notes": [
+          "瑞士经验优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m012",
+      "round": "B组 - 第14比赛日",
+      "kickoff": "2026-06-25 03:00",
+      "venue": "西雅图",
+      "home": "波黑",
+      "away": "卡塔尔",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.57,
+          "draw": 3.88,
+          "away": 5.79
+        },
+        "asian": {
+          "line": "-1",
+          "home": 2.03,
+          "away": 1.81
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.97,
+          "under": 1.76
+        }
+      },
+      "model": {
+        "home": 0.47,
+        "draw": 0.28,
+        "away": 0.25,
+        "xgHome": 1.4,
+        "xgAway": 1,
+        "notes": [
+          "波黑锋线优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m013",
+      "round": "C组 - 第3比赛日",
+      "kickoff": "2026-06-14 06:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "巴西",
+      "away": "摩洛哥",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.61,
+          "draw": 3.88,
+          "away": 5.72
+        },
+        "asian": {
+          "line": "-0.75",
+          "home": 1.84,
+          "away": 2.04
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.95,
+          "under": 1.79
+        }
+      },
+      "model": {
+        "home": 0.55,
+        "draw": 0.26,
+        "away": 0.19,
+        "xgHome": 1.65,
+        "xgAway": 0.95,
+        "notes": [
+          "巴西天赋强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m014",
+      "round": "C组 - 第3比赛日",
+      "kickoff": "2026-06-14 09:00",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "海地",
+      "away": "苏格兰",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 6.68,
+          "draw": 4.41,
+          "away": 1.48
+        },
+        "asian": {
+          "line": "+1",
+          "home": 1.99,
+          "away": 1.86
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.86,
+          "under": 1.88
+        }
+      },
+      "model": {
+        "home": 0.16,
+        "draw": 0.24,
+        "away": 0.6,
+        "xgHome": 0.65,
+        "xgAway": 1.7,
+        "notes": [
+          "苏格兰更硬",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m015",
+      "round": "C组 - 第9比赛日",
+      "kickoff": "2026-06-20 06:00",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "苏格兰",
+      "away": "摩洛哥",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 3.97,
+          "draw": 3.23,
+          "away": 1.99
+        },
+        "asian": {
+          "line": "+0.5",
+          "home": 1.8,
+          "away": 1.99
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.25,
+          "under": 1.57
+        }
+      },
+      "model": {
+        "home": 0.28,
+        "draw": 0.31,
+        "away": 0.41,
+        "xgHome": 1,
+        "xgAway": 1.25,
+        "notes": [
+          "摩洛哥小优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m016",
+      "round": "C组 - 第9比赛日",
+      "kickoff": "2026-06-20 08:30",
+      "venue": "费城",
+      "home": "巴西",
+      "away": "海地",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "31 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.06,
+          "draw": 12.6,
+          "away": 31.03
+        },
+        "asian": {
+          "line": "-2.5",
+          "home": 1.64,
+          "away": 2.16
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 1.66,
+          "under": 2.11
+        }
+      },
+      "model": {
+        "home": 0.82,
+        "draw": 0.12,
+        "away": 0.06,
+        "xgHome": 2.55,
+        "xgAway": 0.45,
+        "notes": [
+          "强弱分明",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m017",
+      "round": "C组 - 第14比赛日",
+      "kickoff": "2026-06-25 06:00",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "苏格兰",
+      "away": "巴西",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "32 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 6.69,
+          "draw": 4.54,
+          "away": 1.42
+        },
+        "asian": {
+          "line": "+1",
+          "home": 1.98,
+          "away": 1.84
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.81,
+          "under": 1.91
+        }
+      },
+      "model": {
+        "home": 0.14,
+        "draw": 0.23,
+        "away": 0.63,
+        "xgHome": 0.7,
+        "xgAway": 1.85,
+        "notes": [
+          "巴西优势大",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m018",
+      "round": "C组 - 第14比赛日",
+      "kickoff": "2026-06-25 06:00",
+      "venue": "亚特兰大",
+      "home": "摩洛哥",
+      "away": "海地",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "31 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.27,
+          "draw": 5.62,
+          "away": 10.51
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 1.87,
+          "away": 1.91
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.59,
+          "under": 2.18
+        }
+      },
+      "model": {
+        "home": 0.72,
+        "draw": 0.19,
+        "away": 0.09,
+        "xgHome": 2.1,
+        "xgAway": 0.55,
+        "notes": [
+          "摩洛哥稳胜",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m019",
+      "round": "D组 - 第2比赛日",
+      "kickoff": "2026-06-13 09:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "美国",
+      "away": "巴拉圭",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.97,
+          "draw": 3.41,
+          "away": 3.94
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.98,
+          "away": 1.84
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.19,
+          "under": 1.62
+        }
+      },
+      "model": {
+        "home": 0.55,
+        "draw": 0.27,
+        "away": 0.18,
+        "xgHome": 1.6,
+        "xgAway": 0.85,
+        "notes": [
+          "美国主场优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m020",
+      "round": "D组 - 第3比赛日",
+      "kickoff": "2026-06-14 12:00",
+      "venue": "温哥华",
+      "home": "澳大利亚",
+      "away": "土耳其",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "38 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 4.74,
+          "draw": 3.6,
+          "away": 1.78
+        },
+        "asian": {
+          "line": "+0.5",
+          "home": 2.03,
+          "away": 1.76
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2,
+          "under": 1.77
+        }
+      },
+      "model": {
+        "home": 0.25,
+        "draw": 0.29,
+        "away": 0.46,
+        "xgHome": 1,
+        "xgAway": 1.4,
+        "notes": [
+          "土耳其技术优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m021",
+      "round": "D组 - 第9比赛日",
+      "kickoff": "2026-06-20 03:00",
+      "venue": "西雅图",
+      "home": "美国",
+      "away": "澳大利亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.72,
+          "draw": 3.74,
+          "away": 4.61
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 3.05,
+          "away": 1.35
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.01,
+          "under": 1.74
+        }
+      },
+      "model": {
+        "home": 0.61,
+        "draw": 0.24,
+        "away": 0.15,
+        "xgHome": 1.85,
+        "xgAway": 0.75,
+        "notes": [
+          "美国冲击强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m022",
+      "round": "D组 - 第9比赛日",
+      "kickoff": "2026-06-20 11:00",
+      "venue": "旧金山湾区（圣克拉拉）",
+      "home": "土耳其",
+      "away": "巴拉圭",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "32 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.22,
+          "draw": 3.15,
+          "away": 3.37
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 2.18,
+          "away": 1.66
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.24,
+          "under": 1.6
+        }
+      },
+      "model": {
+        "home": 0.43,
+        "draw": 0.3,
+        "away": 0.27,
+        "xgHome": 1.3,
+        "xgAway": 1.05,
+        "notes": [
+          "土耳其稍优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m023",
+      "round": "D组 - 第15比赛日",
+      "kickoff": "2026-06-26 10:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "土耳其",
+      "away": "美国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "29 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.7,
+          "draw": 3.35,
+          "away": 2.49
+        },
+        "asian": {
+          "line": "0",
+          "home": 1.95,
+          "away": 1.86
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.97,
+          "under": 1.78
+        }
+      },
+      "model": {
+        "home": 0.31,
+        "draw": 0.29,
+        "away": 0.4,
+        "xgHome": 1.1,
+        "xgAway": 1.3,
+        "notes": [
+          "美国阵容深",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m024",
+      "round": "D组 - 第15比赛日",
+      "kickoff": "2026-06-26 10:00",
+      "venue": "旧金山湾区（圣克拉拉）",
+      "home": "巴拉圭",
+      "away": "澳大利亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.15,
+          "draw": 3.18,
+          "away": 3.38
+        },
+        "asian": {
+          "line": "-0.25",
+          "home": 1.87,
+          "away": 1.94
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.23,
+          "under": 1.58
+        }
+      },
+      "model": {
+        "home": 0.34,
+        "draw": 0.31,
+        "away": 0.35,
+        "xgHome": 1.15,
+        "xgAway": 1.15,
+        "notes": [
+          "势均力敌",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m025",
+      "round": "E组 - 第4比赛日",
+      "kickoff": "2026-06-15 01:00",
+      "venue": "休斯敦",
+      "home": "德国",
+      "away": "库拉索",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.04,
+          "draw": 17.73,
+          "away": 49.29
+        },
+        "asian": {
+          "line": "-3.5",
+          "home": 1.9,
+          "away": 1.91
+        },
+        "totals": {
+          "line": 4.5,
+          "over": 2.07,
+          "under": 1.7
+        }
+      },
+      "model": {
+        "home": 0.88,
+        "draw": 0.09,
+        "away": 0.03,
+        "xgHome": 2.8,
+        "xgAway": 0.4,
+        "notes": [
+          "德国实力碾压",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m026",
+      "round": "E组 - 第4比赛日",
+      "kickoff": "2026-06-15 07:00",
+      "venue": "费城",
+      "home": "科特迪瓦",
+      "away": "厄瓜多尔",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "38 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 3.66,
+          "draw": 2.87,
+          "away": 2.33
+        },
+        "asian": {
+          "line": "+0.5",
+          "home": 1.62,
+          "away": 2.27
+        },
+        "totals": {
+          "line": 1.5,
+          "over": 1.54,
+          "under": 2.31
+        }
+      },
+      "model": {
+        "home": 0.31,
+        "draw": 0.3,
+        "away": 0.39,
+        "xgHome": 1.1,
+        "xgAway": 1.3,
+        "notes": [
+          "厄瓜多尔略优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m027",
+      "round": "E组 - 第10比赛日",
+      "kickoff": "2026-06-21 04:00",
+      "venue": "多伦多",
+      "home": "德国",
+      "away": "科特迪瓦",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.53,
+          "draw": 4.24,
+          "away": 5.88
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.4,
+          "away": 1.52
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.75,
+          "under": 1.97
+        }
+      },
+      "model": {
+        "home": 0.63,
+        "draw": 0.23,
+        "away": 0.14,
+        "xgHome": 1.9,
+        "xgAway": 0.9,
+        "notes": [
+          "德国攻守更稳",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m028",
+      "round": "E组 - 第10比赛日",
+      "kickoff": "2026-06-21 08:00",
+      "venue": "堪萨斯城",
+      "home": "厄瓜多尔",
+      "away": "库拉索",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.23,
+          "draw": 6.09,
+          "away": 12.11
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 1.69,
+          "away": 2.14
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.67,
+          "under": 2.1
+        }
+      },
+      "model": {
+        "home": 0.7,
+        "draw": 0.2,
+        "away": 0.1,
+        "xgHome": 2,
+        "xgAway": 0.7,
+        "notes": [
+          "厄瓜多尔占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m029",
+      "round": "E组 - 第15比赛日",
+      "kickoff": "2026-06-26 04:00",
+      "venue": "费城",
+      "home": "库拉索",
+      "away": "科特迪瓦",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "29 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 9.2,
+          "draw": 5.18,
+          "away": 1.3
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 1.87,
+          "away": 1.92
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.75,
+          "under": 1.97
+        }
+      },
+      "model": {
+        "home": 0.12,
+        "draw": 0.22,
+        "away": 0.66,
+        "xgHome": 0.7,
+        "xgAway": 1.8,
+        "notes": [
+          "科特迪瓦更强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m030",
+      "round": "E组 - 第15比赛日",
+      "kickoff": "2026-06-26 04:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "厄瓜多尔",
+      "away": "德国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 4.87,
+          "draw": 3.77,
+          "away": 1.65
+        },
+        "asian": {
+          "line": "+0.75",
+          "home": 1.97,
+          "away": 1.85
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.85,
+          "under": 1.87
+        }
+      },
+      "model": {
+        "home": 0.18,
+        "draw": 0.26,
+        "away": 0.56,
+        "xgHome": 0.9,
+        "xgAway": 1.6,
+        "notes": [
+          "德国优势明显",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m031",
+      "round": "F组 - 第4比赛日",
+      "kickoff": "2026-06-15 04:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "荷兰",
+      "away": "日本",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "38 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.97,
+          "draw": 3.59,
+          "away": 3.71
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.97,
+          "away": 1.84
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.89,
+          "under": 1.86
+        }
+      },
+      "model": {
+        "home": 0.49,
+        "draw": 0.27,
+        "away": 0.24,
+        "xgHome": 1.5,
+        "xgAway": 1.1,
+        "notes": [
+          "荷兰纸面更强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m032",
+      "round": "F组 - 第4比赛日",
+      "kickoff": "2026-06-15 10:00",
+      "venue": "蒙特雷（瓜达卢佩）",
+      "home": "瑞典",
+      "away": "突尼斯",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "38 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.93,
+          "draw": 3.37,
+          "away": 4.2
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.92,
+          "away": 1.89
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.19,
+          "under": 1.62
+        }
+      },
+      "model": {
+        "home": 0.47,
+        "draw": 0.29,
+        "away": 0.24,
+        "xgHome": 1.4,
+        "xgAway": 0.9,
+        "notes": [
+          "瑞典身体占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m033",
+      "round": "F组 - 第10比赛日",
+      "kickoff": "2026-06-21 01:00",
+      "venue": "休斯敦",
+      "home": "荷兰",
+      "away": "瑞典",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.64,
+          "draw": 3.92,
+          "away": 5.17
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.61,
+          "away": 2.2
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.86,
+          "under": 1.86
+        }
+      },
+      "model": {
+        "home": 0.56,
+        "draw": 0.26,
+        "away": 0.18,
+        "xgHome": 1.7,
+        "xgAway": 0.9,
+        "notes": [
+          "荷兰控制力强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m034",
+      "round": "F组 - 第10比赛日",
+      "kickoff": "2026-06-21 12:00",
+      "venue": "蒙特雷（瓜达卢佩）",
+      "home": "突尼斯",
+      "away": "日本",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 4.77,
+          "draw": 3.45,
+          "away": 1.77
+        },
+        "asian": {
+          "line": "+0.5",
+          "home": 2.01,
+          "away": 1.77
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.16,
+          "under": 1.63
+        }
+      },
+      "model": {
+        "home": 0.21,
+        "draw": 0.31,
+        "away": 0.48,
+        "xgHome": 0.8,
+        "xgAway": 1.3,
+        "notes": [
+          "日本节奏更佳",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m035",
+      "round": "F组 - 第15比赛日",
+      "kickoff": "2026-06-26 07:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "日本",
+      "away": "瑞典",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.04,
+          "draw": 3.35,
+          "away": 3.5
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 2.06,
+          "away": 1.76
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.09,
+          "under": 1.67
+        }
+      },
+      "model": {
+        "home": 0.39,
+        "draw": 0.31,
+        "away": 0.3,
+        "xgHome": 1.2,
+        "xgAway": 1.1,
+        "notes": [
+          "日本小幅占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m036",
+      "round": "F组 - 第15比赛日",
+      "kickoff": "2026-06-26 07:00",
+      "venue": "堪萨斯城",
+      "home": "突尼斯",
+      "away": "荷兰",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "29 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 6.13,
+          "draw": 4.07,
+          "away": 1.51
+        },
+        "asian": {
+          "line": "+1",
+          "home": 1.99,
+          "away": 1.83
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.85,
+          "under": 1.88
+        }
+      },
+      "model": {
+        "home": 0.12,
+        "draw": 0.24,
+        "away": 0.64,
+        "xgHome": 0.6,
+        "xgAway": 1.8,
+        "notes": [
+          "荷兰优势大",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m037",
+      "round": "G组 - 第5比赛日",
+      "kickoff": "2026-06-16 03:00",
+      "venue": "西雅图",
+      "home": "比利时",
+      "away": "埃及",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "38 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.67,
+          "draw": 3.89,
+          "away": 5.14
+        },
+        "asian": {
+          "line": "-0.75",
+          "home": 1.89,
+          "away": 1.98
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.89,
+          "under": 1.86
+        }
+      },
+      "model": {
+        "home": 0.55,
+        "draw": 0.26,
+        "away": 0.19,
+        "xgHome": 1.7,
+        "xgAway": 0.9,
+        "notes": [
+          "比利时火力优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m038",
+      "round": "G组 - 第5比赛日",
+      "kickoff": "2026-06-16 09:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "伊朗",
+      "away": "新西兰",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "35 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.89,
+          "draw": 3.44,
+          "away": 4.28
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 1.9,
+          "away": 1.9
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.13,
+          "under": 1.65
+        }
+      },
+      "model": {
+        "home": 0.58,
+        "draw": 0.25,
+        "away": 0.17,
+        "xgHome": 1.6,
+        "xgAway": 0.8,
+        "notes": [
+          "伊朗经验占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m039",
+      "round": "G组 - 第11比赛日",
+      "kickoff": "2026-06-22 03:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "比利时",
+      "away": "伊朗",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.4,
+          "draw": 4.61,
+          "away": 7.72
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.19,
+          "away": 1.65
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.83,
+          "under": 1.9
+        }
+      },
+      "model": {
+        "home": 0.58,
+        "draw": 0.25,
+        "away": 0.17,
+        "xgHome": 1.7,
+        "xgAway": 0.8,
+        "notes": [
+          "比利时压制",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m040",
+      "round": "G组 - 第11比赛日",
+      "kickoff": "2026-06-22 09:00",
+      "venue": "温哥华",
+      "home": "新西兰",
+      "away": "埃及",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "31 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 5.01,
+          "draw": 3.65,
+          "away": 1.71
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 1.38,
+          "away": 2.93
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.16,
+          "under": 1.63
+        }
+      },
+      "model": {
+        "home": 0.18,
+        "draw": 0.28,
+        "away": 0.54,
+        "xgHome": 0.7,
+        "xgAway": 1.5,
+        "notes": [
+          "埃及锋线更强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m041",
+      "round": "G组 - 第16比赛日",
+      "kickoff": "2026-06-27 11:00",
+      "venue": "西雅图",
+      "home": "埃及",
+      "away": "伊朗",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "29 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.3,
+          "draw": 2.99,
+          "away": 3.34
+        },
+        "asian": {
+          "line": "-0.25",
+          "home": 1.91,
+          "away": 1.91
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.27,
+          "under": 1.55
+        }
+      },
+      "model": {
+        "home": 0.36,
+        "draw": 0.31,
+        "away": 0.33,
+        "xgHome": 1.2,
+        "xgAway": 1.1,
+        "notes": [
+          "双方接近",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m042",
+      "round": "G组 - 第16比赛日",
+      "kickoff": "2026-06-27 11:00",
+      "venue": "温哥华",
+      "home": "新西兰",
+      "away": "比利时",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "28 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 9.33,
+          "draw": 5.55,
+          "away": 1.28
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 1.89,
+          "away": 1.89
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.64,
+          "under": 2.12
+        }
+      },
+      "model": {
+        "home": 0.08,
+        "draw": 0.18,
+        "away": 0.74,
+        "xgHome": 0.5,
+        "xgAway": 2.2,
+        "notes": [
+          "比利时明显强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m043",
+      "round": "H组 - 第5比赛日",
+      "kickoff": "2026-06-16 00:00",
+      "venue": "亚特兰大",
+      "home": "西班牙",
+      "away": "佛得角",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "36 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.08,
+          "draw": 10.99,
+          "away": 28.28
+        },
+        "asian": {
+          "line": "-2.5",
+          "home": 1.78,
+          "away": 2.01
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 1.83,
+          "under": 1.92
+        }
+      },
+      "model": {
+        "home": 0.82,
+        "draw": 0.13,
+        "away": 0.05,
+        "xgHome": 2.5,
+        "xgAway": 0.5,
+        "notes": [
+          "西班牙掌控局",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m044",
+      "round": "H组 - 第5比赛日",
+      "kickoff": "2026-06-16 06:00",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "沙特阿拉伯",
+      "away": "乌拉圭",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 6.99,
+          "draw": 4.33,
+          "away": 1.47
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 1.56,
+          "away": 2.31
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.86,
+          "under": 1.89
+        }
+      },
+      "model": {
+        "home": 0.14,
+        "draw": 0.23,
+        "away": 0.63,
+        "xgHome": 0.7,
+        "xgAway": 1.8,
+        "notes": [
+          "乌拉圭硬度强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m045",
+      "round": "H组 - 第11比赛日",
+      "kickoff": "2026-06-22 00:00",
+      "venue": "亚特兰大",
+      "home": "西班牙",
+      "away": "沙特阿拉伯",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.11,
+          "draw": 9.35,
+          "away": 23.17
+        },
+        "asian": {
+          "line": "-2.5",
+          "home": 2.02,
+          "away": 1.76
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 2.16,
+          "under": 1.62
+        }
+      },
+      "model": {
+        "home": 0.8,
+        "draw": 0.15,
+        "away": 0.05,
+        "xgHome": 2.4,
+        "xgAway": 0.5,
+        "notes": [
+          "西班牙优势大",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m046",
+      "round": "H组 - 第11比赛日",
+      "kickoff": "2026-06-22 06:00",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "乌拉圭",
+      "away": "佛得角",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.44,
+          "draw": 4.39,
+          "away": 7.28
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.24,
+          "away": 1.59
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.88,
+          "under": 1.85
+        }
+      },
+      "model": {
+        "home": 0.72,
+        "draw": 0.19,
+        "away": 0.09,
+        "xgHome": 2,
+        "xgAway": 0.6,
+        "notes": [
+          "乌拉圭更全面",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m047",
+      "round": "H组 - 第16比赛日",
+      "kickoff": "2026-06-27 08:00",
+      "venue": "休斯敦",
+      "home": "佛得角",
+      "away": "沙特阿拉伯",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.49,
+          "draw": 3.22,
+          "away": 2.8
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 2.43,
+          "away": 1.53
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.18,
+          "under": 1.61
+        }
+      },
+      "model": {
+        "home": 0.34,
+        "draw": 0.31,
+        "away": 0.35,
+        "xgHome": 1.1,
+        "xgAway": 1.1,
+        "notes": [
+          "实力较均衡",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m048",
+      "round": "H组 - 第16比赛日",
+      "kickoff": "2026-06-27 08:00",
+      "venue": "瓜达拉哈拉（萨波潘）",
+      "home": "乌拉圭",
+      "away": "西班牙",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 5.11,
+          "draw": 3.86,
+          "away": 1.62
+        },
+        "asian": {
+          "line": "+0.75",
+          "home": 2.04,
+          "away": 1.8
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.91,
+          "under": 1.83
+        }
+      },
+      "model": {
+        "home": 0.23,
+        "draw": 0.28,
+        "away": 0.49,
+        "xgHome": 1,
+        "xgAway": 1.5,
+        "notes": [
+          "西班牙略占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m049",
+      "round": "I组 - 第6比赛日",
+      "kickoff": "2026-06-17 03:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "法国",
+      "away": "塞内加尔",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "37 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.43,
+          "draw": 4.58,
+          "away": 7.37
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.22,
+          "away": 1.6
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.81,
+          "under": 1.94
+        }
+      },
+      "model": {
+        "home": 0.62,
+        "draw": 0.23,
+        "away": 0.15,
+        "xgHome": 1.9,
+        "xgAway": 0.8,
+        "notes": [
+          "法国实力占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m050",
+      "round": "I组 - 第6比赛日",
+      "kickoff": "2026-06-17 06:00",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "伊拉克",
+      "away": "挪威",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "37 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 13.18,
+          "draw": 6.6,
+          "away": 1.22
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 2.18,
+          "away": 1.65
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.54,
+          "under": 2.36
+        }
+      },
+      "model": {
+        "home": 0.16,
+        "draw": 0.24,
+        "away": 0.6,
+        "xgHome": 0.8,
+        "xgAway": 1.8,
+        "notes": [
+          "挪威锋线强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m051",
+      "round": "I组 - 第12比赛日",
+      "kickoff": "2026-06-23 05:00",
+      "venue": "费城",
+      "home": "法国",
+      "away": "伊拉克",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "32 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.12,
+          "draw": 8.3,
+          "away": 22.99
+        },
+        "asian": {
+          "line": "-2.25",
+          "home": 1.86,
+          "away": 1.95
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 2.24,
+          "under": 1.57
+        }
+      },
+      "model": {
+        "home": 0.76,
+        "draw": 0.16,
+        "away": 0.08,
+        "xgHome": 2.3,
+        "xgAway": 0.6,
+        "notes": [
+          "法国优势明显",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m052",
+      "round": "I组 - 第12比赛日",
+      "kickoff": "2026-06-23 08:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "挪威",
+      "away": "塞内加尔",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "32 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.09,
+          "draw": 3.46,
+          "away": 3.42
+        },
+        "asian": {
+          "line": "-0.25",
+          "home": 1.83,
+          "away": 2
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.91,
+          "under": 1.81
+        }
+      },
+      "model": {
+        "home": 0.4,
+        "draw": 0.28,
+        "away": 0.32,
+        "xgHome": 1.4,
+        "xgAway": 1.2,
+        "notes": [
+          "对抗较均衡",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m053",
+      "round": "I组 - 第16比赛日",
+      "kickoff": "2026-06-27 03:00",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "挪威",
+      "away": "法国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "29 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 4.31,
+          "draw": 3.55,
+          "away": 1.79
+        },
+        "asian": {
+          "line": "+0.5",
+          "home": 2.01,
+          "away": 1.79
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.95,
+          "under": 1.79
+        }
+      },
+      "model": {
+        "home": 0.23,
+        "draw": 0.25,
+        "away": 0.52,
+        "xgHome": 1.1,
+        "xgAway": 1.7,
+        "notes": [
+          "法国整体更稳",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m054",
+      "round": "I组 - 第16比赛日",
+      "kickoff": "2026-06-27 03:00",
+      "venue": "多伦多",
+      "home": "塞内加尔",
+      "away": "伊拉克",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.45,
+          "draw": 4.24,
+          "away": 6.77
+        },
+        "asian": {
+          "line": "-1",
+          "home": 1.86,
+          "away": 1.96
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.87,
+          "under": 1.87
+        }
+      },
+      "model": {
+        "home": 0.54,
+        "draw": 0.27,
+        "away": 0.19,
+        "xgHome": 1.6,
+        "xgAway": 0.9,
+        "notes": [
+          "塞内加尔占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m055",
+      "round": "J组 - 第6比赛日",
+      "kickoff": "2026-06-17 09:00",
+      "venue": "堪萨斯城",
+      "home": "阿根廷",
+      "away": "阿尔及利亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "39 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.39,
+          "draw": 4.55,
+          "away": 8.64
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 2.16,
+          "away": 1.68
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.86,
+          "under": 1.89
+        }
+      },
+      "model": {
+        "home": 0.67,
+        "draw": 0.21,
+        "away": 0.12,
+        "xgHome": 2,
+        "xgAway": 0.7,
+        "notes": [
+          "阿根廷控制强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m056",
+      "round": "J组 - 第6比赛日",
+      "kickoff": "2026-06-17 12:00",
+      "venue": "旧金山湾区（圣克拉拉）",
+      "home": "奥地利",
+      "away": "约旦",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "37 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.32,
+          "draw": 5.41,
+          "away": 9.38
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 1.92,
+          "away": 1.89
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.58,
+          "under": 2.28
+        }
+      },
+      "model": {
+        "home": 0.62,
+        "draw": 0.24,
+        "away": 0.14,
+        "xgHome": 1.8,
+        "xgAway": 0.7,
+        "notes": [
+          "奥地利更成熟",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m057",
+      "round": "J组 - 第12比赛日",
+      "kickoff": "2026-06-23 01:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "阿根廷",
+      "away": "奥地利",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.65,
+          "draw": 3.76,
+          "away": 5.32
+        },
+        "asian": {
+          "line": "-0.75",
+          "home": 1.84,
+          "away": 1.99
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.91,
+          "under": 1.81
+        }
+      },
+      "model": {
+        "home": 0.58,
+        "draw": 0.25,
+        "away": 0.17,
+        "xgHome": 1.7,
+        "xgAway": 0.9,
+        "notes": [
+          "阿根廷稍优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m058",
+      "round": "J组 - 第12比赛日",
+      "kickoff": "2026-06-23 11:00",
+      "venue": "旧金山湾区（圣克拉拉）",
+      "home": "约旦",
+      "away": "阿尔及利亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 5.7,
+          "draw": 3.94,
+          "away": 1.58
+        },
+        "asian": {
+          "line": "+1",
+          "home": 1.86,
+          "away": 1.95
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.9,
+          "under": 1.82
+        }
+      },
+      "model": {
+        "home": 0.22,
+        "draw": 0.29,
+        "away": 0.49,
+        "xgHome": 0.9,
+        "xgAway": 1.4,
+        "notes": [
+          "阿尔及利亚强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m059",
+      "round": "J组 - 第17比赛日",
+      "kickoff": "2026-06-28 10:00",
+      "venue": "堪萨斯城",
+      "home": "阿尔及利亚",
+      "away": "奥地利",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "29 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 3.32,
+          "draw": 3.16,
+          "away": 2.21
+        },
+        "asian": {
+          "line": "+0.25",
+          "home": 1.85,
+          "away": 1.97
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.16,
+          "under": 1.63
+        }
+      },
+      "model": {
+        "home": 0.3,
+        "draw": 0.29,
+        "away": 0.41,
+        "xgHome": 1.1,
+        "xgAway": 1.3,
+        "notes": [
+          "奥地利略强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m060",
+      "round": "J组 - 第17比赛日",
+      "kickoff": "2026-06-28 10:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "约旦",
+      "away": "阿根廷",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 12.19,
+          "draw": 6.65,
+          "away": 1.19
+        },
+        "asian": {
+          "line": "+1.75",
+          "home": 1.97,
+          "away": 1.85
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 2.35,
+          "under": 1.51
+        }
+      },
+      "model": {
+        "home": 0.06,
+        "draw": 0.13,
+        "away": 0.81,
+        "xgHome": 0.4,
+        "xgAway": 2.5,
+        "notes": [
+          "阿根廷碾压",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m061",
+      "round": "K组 - 第7比赛日",
+      "kickoff": "2026-06-18 01:00",
+      "venue": "休斯敦",
+      "home": "葡萄牙",
+      "away": "刚果民主共和国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "36 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.27,
+          "draw": 5.74,
+          "away": 11.12
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 1.79,
+          "away": 2.03
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.59,
+          "under": 2.22
+        }
+      },
+      "model": {
+        "home": 0.75,
+        "draw": 0.17,
+        "away": 0.08,
+        "xgHome": 2.4,
+        "xgAway": 0.6,
+        "notes": [
+          "葡萄牙火力强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m062",
+      "round": "K组 - 第7比赛日",
+      "kickoff": "2026-06-18 10:00",
+      "venue": "墨西哥城",
+      "home": "乌兹别克斯坦",
+      "away": "哥伦比亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "36 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 7.97,
+          "draw": 4.58,
+          "away": 1.4
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 1.65,
+          "away": 2.19
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.87,
+          "under": 1.87
+        }
+      },
+      "model": {
+        "home": 0.22,
+        "draw": 0.28,
+        "away": 0.5,
+        "xgHome": 0.9,
+        "xgAway": 1.5,
+        "notes": [
+          "哥伦比亚更强",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m063",
+      "round": "K组 - 第13比赛日",
+      "kickoff": "2026-06-24 01:00",
+      "venue": "休斯敦",
+      "home": "葡萄牙",
+      "away": "乌兹别克斯坦",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "33 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.24,
+          "draw": 6.04,
+          "away": 11.29
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 1.74,
+          "away": 2.06
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 2.26,
+          "under": 1.56
+        }
+      },
+      "model": {
+        "home": 0.73,
+        "draw": 0.18,
+        "away": 0.09,
+        "xgHome": 2.2,
+        "xgAway": 0.6,
+        "notes": [
+          "葡萄牙优势大",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m064",
+      "round": "K组 - 第13比赛日",
+      "kickoff": "2026-06-24 10:00",
+      "venue": "瓜达拉哈拉（萨波潘）",
+      "home": "哥伦比亚",
+      "away": "刚果民主共和国",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "34 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.46,
+          "draw": 4.17,
+          "away": 7.41
+        },
+        "asian": {
+          "line": "-1",
+          "home": 1.78,
+          "away": 2.07
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.13,
+          "under": 1.65
+        }
+      },
+      "model": {
+        "home": 0.55,
+        "draw": 0.26,
+        "away": 0.19,
+        "xgHome": 1.6,
+        "xgAway": 0.9,
+        "notes": [
+          "哥伦比亚占先",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m065",
+      "round": "K组 - 第17比赛日",
+      "kickoff": "2026-06-28 07:30",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "哥伦比亚",
+      "away": "葡萄牙",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 3.38,
+          "draw": 3.26,
+          "away": 2.14
+        },
+        "asian": {
+          "line": "+0.25",
+          "home": 1.95,
+          "away": 1.86
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.1,
+          "under": 1.65
+        }
+      },
+      "model": {
+        "home": 0.24,
+        "draw": 0.27,
+        "away": 0.49,
+        "xgHome": 1.1,
+        "xgAway": 1.6,
+        "notes": [
+          "葡萄牙略优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m066",
+      "round": "K组 - 第17比赛日",
+      "kickoff": "2026-06-28 07:30",
+      "venue": "亚特兰大",
+      "home": "刚果民主共和国",
+      "away": "乌兹别克斯坦",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "31 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.35,
+          "draw": 3.19,
+          "away": 2.97
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 2.24,
+          "away": 1.61
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.22,
+          "under": 1.58
+        }
+      },
+      "model": {
+        "home": 0.34,
+        "draw": 0.3,
+        "away": 0.36,
+        "xgHome": 1.1,
+        "xgAway": 1.2,
+        "notes": [
+          "胜负接近",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m067",
+      "round": "L组 - 第7比赛日",
+      "kickoff": "2026-06-18 04:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "英格兰",
+      "away": "克罗地亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "36 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.73,
+          "draw": 3.75,
+          "away": 4.82
+        },
+        "asian": {
+          "line": "-0.75",
+          "home": 1.97,
+          "away": 1.9
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.01,
+          "under": 1.73
+        }
+      },
+      "model": {
+        "home": 0.54,
+        "draw": 0.27,
+        "away": 0.19,
+        "xgHome": 1.6,
+        "xgAway": 0.9,
+        "notes": [
+          "英格兰阵容深",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m068",
+      "round": "L组 - 第7比赛日",
+      "kickoff": "2026-06-18 07:00",
+      "venue": "多伦多",
+      "home": "加纳",
+      "away": "巴拿马",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "37 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 2.03,
+          "draw": 3.47,
+          "away": 3.65
+        },
+        "asian": {
+          "line": "-0.5",
+          "home": 2.03,
+          "away": 1.8
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.08,
+          "under": 1.67
+        }
+      },
+      "model": {
+        "home": 0.49,
+        "draw": 0.29,
+        "away": 0.22,
+        "xgHome": 1.4,
+        "xgAway": 0.9,
+        "notes": [
+          "加纳身体占优",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m069",
+      "round": "L组 - 第13比赛日",
+      "kickoff": "2026-06-24 04:00",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "英格兰",
+      "away": "加纳",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "35 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.32,
+          "draw": 5.17,
+          "away": 9.1
+        },
+        "asian": {
+          "line": "-1.5",
+          "home": 1.88,
+          "away": 1.9
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.67,
+          "under": 2.1
+        }
+      },
+      "model": {
+        "home": 0.7,
+        "draw": 0.19,
+        "away": 0.11,
+        "xgHome": 2.1,
+        "xgAway": 0.7,
+        "notes": [
+          "英格兰优势足",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m070",
+      "round": "L组 - 第13比赛日",
+      "kickoff": "2026-06-24 07:00",
+      "venue": "多伦多",
+      "home": "巴拿马",
+      "away": "克罗地亚",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "35 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 6.94,
+          "draw": 4.05,
+          "away": 1.49
+        },
+        "asian": {
+          "line": "+1",
+          "home": 2,
+          "away": 1.83
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 1.97,
+          "under": 1.76
+        }
+      },
+      "model": {
+        "home": 0.13,
+        "draw": 0.23,
+        "away": 0.64,
+        "xgHome": 0.7,
+        "xgAway": 1.9,
+        "notes": [
+          "克罗地亚稳",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m071",
+      "round": "L组 - 第17比赛日",
+      "kickoff": "2026-06-28 05:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "巴拿马",
+      "away": "英格兰",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 8.39,
+          "draw": 5.84,
+          "away": 1.29
+        },
+        "asian": {
+          "line": "+1.5",
+          "home": 1.9,
+          "away": 1.88
+        },
+        "totals": {
+          "line": 3.5,
+          "over": 2.35,
+          "under": 1.51
+        }
+      },
+      "model": {
+        "home": 0.06,
+        "draw": 0.14,
+        "away": 0.8,
+        "xgHome": 0.4,
+        "xgAway": 2.4,
+        "notes": [
+          "英格兰压制",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m072",
+      "round": "L组 - 第17比赛日",
+      "kickoff": "2026-06-28 05:00",
+      "venue": "费城",
+      "home": "克罗地亚",
+      "away": "加纳",
+      "tags": [
+        "fixture",
+        "group"
+      ],
+      "lottery": null,
+      "offshore": {
+        "source": "the-odds-api",
+        "desc": "30 家博彩均值",
+        "regions": "eu,uk,us",
+        "collectedAt": "2026-06-04T15:52:52.421Z",
+        "oneXTwo": {
+          "home": 1.71,
+          "draw": 3.59,
+          "away": 4.75
+        },
+        "asian": {
+          "line": "-0.75",
+          "home": 1.92,
+          "away": 1.9
+        },
+        "totals": {
+          "line": 2.5,
+          "over": 2.1,
+          "under": 1.67
+        }
+      },
+      "model": {
+        "home": 0.48,
+        "draw": 0.29,
+        "away": 0.23,
+        "xgHome": 1.4,
+        "xgAway": 0.9,
+        "notes": [
+          "克罗地亚经验足",
+          "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m073",
+      "round": "三十二强赛",
+      "kickoff": "2026-06-29 03:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "A组第2名",
+      "away": "B组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m074",
+      "round": "三十二强赛",
+      "kickoff": "2026-06-30 04:30",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "E组第1名",
+      "away": "A/B/C/D/F组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m075",
+      "round": "三十二强赛",
+      "kickoff": "2026-06-30 09:00",
+      "venue": "蒙特雷（瓜达卢佩）",
+      "home": "F组第1名",
+      "away": "C组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m076",
+      "round": "三十二强赛",
+      "kickoff": "2026-06-30 01:00",
+      "venue": "休斯敦",
+      "home": "C组第1名",
+      "away": "F组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m077",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-01 05:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "I组第1名",
+      "away": "C/D/F/G/H组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m078",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-01 01:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "E组第2名",
+      "away": "I组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m079",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-01 09:00",
+      "venue": "墨西哥城",
+      "home": "A组第1名",
+      "away": "C/E/F/H/I组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m080",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-02 00:00",
+      "venue": "亚特兰大",
+      "home": "L组第1名",
+      "away": "E/H/I/J/K组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m081",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-02 08:00",
+      "venue": "旧金山湾区（圣克拉拉）",
+      "home": "D组第1名",
+      "away": "B/E/F/I/J组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m082",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-02 04:00",
+      "venue": "西雅图",
+      "home": "G组第1名",
+      "away": "A/E/H/I/J组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m083",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-03 07:00",
+      "venue": "多伦多",
+      "home": "K组第2名",
+      "away": "L组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m084",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-03 03:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "H组第1名",
+      "away": "J组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m085",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-03 11:00",
+      "venue": "温哥华",
+      "home": "B组第1名",
+      "away": "E/F/G/I/J组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m086",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-04 06:00",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "J组第1名",
+      "away": "H组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m087",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-04 09:30",
+      "venue": "堪萨斯城",
+      "home": "K组第1名",
+      "away": "D/E/I/J/L组第3名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m088",
+      "round": "三十二强赛",
+      "kickoff": "2026-07-04 02:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "D组第2名",
+      "away": "G组第2名",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m089",
+      "round": "十六强赛",
+      "kickoff": "2026-07-05 05:00",
+      "venue": "费城",
+      "home": "第74场胜者",
+      "away": "第77场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m090",
+      "round": "十六强赛",
+      "kickoff": "2026-07-05 01:00",
+      "venue": "休斯敦",
+      "home": "第73场胜者",
+      "away": "第75场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m091",
+      "round": "十六强赛",
+      "kickoff": "2026-07-06 04:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "第76场胜者",
+      "away": "第78场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m092",
+      "round": "十六强赛",
+      "kickoff": "2026-07-06 08:00",
+      "venue": "墨西哥城",
+      "home": "第79场胜者",
+      "away": "第80场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m093",
+      "round": "十六强赛",
+      "kickoff": "2026-07-07 03:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "第83场胜者",
+      "away": "第84场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m094",
+      "round": "十六强赛",
+      "kickoff": "2026-07-07 08:00",
+      "venue": "西雅图",
+      "home": "第81场胜者",
+      "away": "第82场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m095",
+      "round": "十六强赛",
+      "kickoff": "2026-07-08 00:00",
+      "venue": "亚特兰大",
+      "home": "第86场胜者",
+      "away": "第88场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m096",
+      "round": "十六强赛",
+      "kickoff": "2026-07-08 04:00",
+      "venue": "温哥华",
+      "home": "第85场胜者",
+      "away": "第87场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m097",
+      "round": "四分之一决赛",
+      "kickoff": "2026-07-10 04:00",
+      "venue": "波士顿（福克斯伯勒）",
+      "home": "第89场胜者",
+      "away": "第90场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m098",
+      "round": "四分之一决赛",
+      "kickoff": "2026-07-11 03:00",
+      "venue": "洛杉矶（英格尔伍德）",
+      "home": "第93场胜者",
+      "away": "第94场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m099",
+      "round": "四分之一决赛",
+      "kickoff": "2026-07-12 05:00",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "第91场胜者",
+      "away": "第92场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m100",
+      "round": "四分之一决赛",
+      "kickoff": "2026-07-12 09:00",
+      "venue": "堪萨斯城",
+      "home": "第95场胜者",
+      "away": "第96场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m101",
+      "round": "半决赛",
+      "kickoff": "2026-07-15 03:00",
+      "venue": "达拉斯（阿灵顿）",
+      "home": "第97场胜者",
+      "away": "第98场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m102",
+      "round": "半决赛",
+      "kickoff": "2026-07-16 03:00",
+      "venue": "亚特兰大",
+      "home": "第99场胜者",
+      "away": "第100场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m103",
+      "round": "三四名决赛",
+      "kickoff": "2026-07-19 05:00",
+      "venue": "迈阿密（迈阿密花园）",
+      "home": "第101场负者",
+      "away": "第102场负者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    },
+    {
+      "id": "wc26-m104",
+      "round": "决赛",
+      "kickoff": "2026-07-20 03:00",
+      "venue": "纽约/新泽西（东拉瑟福德）",
+      "home": "第101场胜者",
+      "away": "第102场胜者",
+      "tags": [
+        "fixture",
+        "knockout"
+      ],
+      "lottery": null,
+      "offshore": null,
+      "model": {
+        "home": null,
+        "draw": null,
+        "away": null,
+        "xgHome": null,
+        "xgAway": null,
+        "notes": [
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
+        ]
+      }
+    }
+  ],
+  "oddsSource": {
+    "name": "the-odds-api",
+    "market": "h2h+spreads+totals",
+    "regions": "eu,uk,us",
+    "aggregation": "mean across books, consensus line",
+    "collectedAt": "2026-06-04T15:52:52.421Z",
+    "matched": 72
+  }
+}

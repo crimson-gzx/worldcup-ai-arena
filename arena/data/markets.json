@@ -1,0 +1,1230 @@
+{
+  "updatedAt": "2026-06-04T15:52:52.538Z",
+  "markets": [
+    {
+      "matchId": "wc26-m001",
+      "home": "墨西哥",
+      "away": "南非",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-12T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.42,
+        "draw": 4.42,
+        "away": 8.51
+      },
+      "openNow": true
+    },
+    {
+      "matchId": "wc26-m002",
+      "home": "韩国",
+      "away": "捷克",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-12T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.65,
+        "draw": 3.12,
+        "away": 2.81
+      }
+    },
+    {
+      "matchId": "wc26-m003",
+      "home": "捷克",
+      "away": "南非",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-19T00:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.98,
+        "draw": 3.29,
+        "away": 4.04
+      }
+    },
+    {
+      "matchId": "wc26-m004",
+      "home": "墨西哥",
+      "away": "韩国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-19T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.82,
+        "draw": 3.43,
+        "away": 4.53
+      }
+    },
+    {
+      "matchId": "wc26-m005",
+      "home": "捷克",
+      "away": "墨西哥",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-25T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 4.28,
+        "draw": 3.44,
+        "away": 1.84
+      }
+    },
+    {
+      "matchId": "wc26-m006",
+      "home": "南非",
+      "away": "韩国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-25T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 3.73,
+        "draw": 3.31,
+        "away": 2
+      }
+    },
+    {
+      "matchId": "wc26-m007",
+      "home": "加拿大",
+      "away": "波黑",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-13T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.81,
+        "draw": 3.57,
+        "away": 4.57
+      }
+    },
+    {
+      "matchId": "wc26-m008",
+      "home": "卡塔尔",
+      "away": "瑞士",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-14T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 13.1,
+        "draw": 6.34,
+        "away": 1.22
+      }
+    },
+    {
+      "matchId": "wc26-m009",
+      "home": "瑞士",
+      "away": "波黑",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-19T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.57,
+        "draw": 3.97,
+        "away": 5.75
+      }
+    },
+    {
+      "matchId": "wc26-m010",
+      "home": "加拿大",
+      "away": "卡塔尔",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-19T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.32,
+        "draw": 4.94,
+        "away": 10.04
+      }
+    },
+    {
+      "matchId": "wc26-m011",
+      "home": "瑞士",
+      "away": "加拿大",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-25T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.06,
+        "draw": 3.28,
+        "away": 3.56
+      }
+    },
+    {
+      "matchId": "wc26-m012",
+      "home": "波黑",
+      "away": "卡塔尔",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-25T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.57,
+        "draw": 3.88,
+        "away": 5.79
+      }
+    },
+    {
+      "matchId": "wc26-m013",
+      "home": "巴西",
+      "away": "摩洛哥",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-14T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.61,
+        "draw": 3.88,
+        "away": 5.72
+      }
+    },
+    {
+      "matchId": "wc26-m014",
+      "home": "海地",
+      "away": "苏格兰",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-14T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 6.68,
+        "draw": 4.41,
+        "away": 1.48
+      }
+    },
+    {
+      "matchId": "wc26-m015",
+      "home": "苏格兰",
+      "away": "摩洛哥",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-20T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 3.97,
+        "draw": 3.23,
+        "away": 1.99
+      }
+    },
+    {
+      "matchId": "wc26-m016",
+      "home": "巴西",
+      "away": "海地",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-20T08:30:00+08:00",
+      "oneXTwo": {
+        "home": 1.06,
+        "draw": 12.6,
+        "away": 31.03
+      }
+    },
+    {
+      "matchId": "wc26-m017",
+      "home": "苏格兰",
+      "away": "巴西",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-25T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 6.69,
+        "draw": 4.54,
+        "away": 1.42
+      }
+    },
+    {
+      "matchId": "wc26-m018",
+      "home": "摩洛哥",
+      "away": "海地",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-25T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.27,
+        "draw": 5.62,
+        "away": 10.51
+      }
+    },
+    {
+      "matchId": "wc26-m019",
+      "home": "美国",
+      "away": "巴拉圭",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-13T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.97,
+        "draw": 3.41,
+        "away": 3.94
+      }
+    },
+    {
+      "matchId": "wc26-m020",
+      "home": "澳大利亚",
+      "away": "土耳其",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-14T12:00:00+08:00",
+      "oneXTwo": {
+        "home": 4.74,
+        "draw": 3.6,
+        "away": 1.78
+      }
+    },
+    {
+      "matchId": "wc26-m021",
+      "home": "美国",
+      "away": "澳大利亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-20T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.72,
+        "draw": 3.74,
+        "away": 4.61
+      }
+    },
+    {
+      "matchId": "wc26-m022",
+      "home": "土耳其",
+      "away": "巴拉圭",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-20T11:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.22,
+        "draw": 3.15,
+        "away": 3.37
+      }
+    },
+    {
+      "matchId": "wc26-m023",
+      "home": "土耳其",
+      "away": "美国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-26T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.7,
+        "draw": 3.35,
+        "away": 2.49
+      }
+    },
+    {
+      "matchId": "wc26-m024",
+      "home": "巴拉圭",
+      "away": "澳大利亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-26T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.15,
+        "draw": 3.18,
+        "away": 3.38
+      }
+    },
+    {
+      "matchId": "wc26-m025",
+      "home": "德国",
+      "away": "库拉索",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-15T01:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.04,
+        "draw": 17.73,
+        "away": 49.29
+      }
+    },
+    {
+      "matchId": "wc26-m026",
+      "home": "科特迪瓦",
+      "away": "厄瓜多尔",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-15T07:00:00+08:00",
+      "oneXTwo": {
+        "home": 3.66,
+        "draw": 2.87,
+        "away": 2.33
+      }
+    },
+    {
+      "matchId": "wc26-m027",
+      "home": "德国",
+      "away": "科特迪瓦",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-21T04:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.53,
+        "draw": 4.24,
+        "away": 5.88
+      }
+    },
+    {
+      "matchId": "wc26-m028",
+      "home": "厄瓜多尔",
+      "away": "库拉索",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-21T08:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.23,
+        "draw": 6.09,
+        "away": 12.11
+      }
+    },
+    {
+      "matchId": "wc26-m029",
+      "home": "库拉索",
+      "away": "科特迪瓦",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-26T04:00:00+08:00",
+      "oneXTwo": {
+        "home": 9.2,
+        "draw": 5.18,
+        "away": 1.3
+      }
+    },
+    {
+      "matchId": "wc26-m030",
+      "home": "厄瓜多尔",
+      "away": "德国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-26T04:00:00+08:00",
+      "oneXTwo": {
+        "home": 4.87,
+        "draw": 3.77,
+        "away": 1.65
+      }
+    },
+    {
+      "matchId": "wc26-m031",
+      "home": "荷兰",
+      "away": "日本",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-15T04:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.97,
+        "draw": 3.59,
+        "away": 3.71
+      }
+    },
+    {
+      "matchId": "wc26-m032",
+      "home": "瑞典",
+      "away": "突尼斯",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-15T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.93,
+        "draw": 3.37,
+        "away": 4.2
+      }
+    },
+    {
+      "matchId": "wc26-m033",
+      "home": "荷兰",
+      "away": "瑞典",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-21T01:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.64,
+        "draw": 3.92,
+        "away": 5.17
+      }
+    },
+    {
+      "matchId": "wc26-m034",
+      "home": "突尼斯",
+      "away": "日本",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-21T12:00:00+08:00",
+      "oneXTwo": {
+        "home": 4.77,
+        "draw": 3.45,
+        "away": 1.77
+      }
+    },
+    {
+      "matchId": "wc26-m035",
+      "home": "日本",
+      "away": "瑞典",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-26T07:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.04,
+        "draw": 3.35,
+        "away": 3.5
+      }
+    },
+    {
+      "matchId": "wc26-m036",
+      "home": "突尼斯",
+      "away": "荷兰",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-26T07:00:00+08:00",
+      "oneXTwo": {
+        "home": 6.13,
+        "draw": 4.07,
+        "away": 1.51
+      }
+    },
+    {
+      "matchId": "wc26-m037",
+      "home": "比利时",
+      "away": "埃及",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-16T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.67,
+        "draw": 3.89,
+        "away": 5.14
+      }
+    },
+    {
+      "matchId": "wc26-m038",
+      "home": "伊朗",
+      "away": "新西兰",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-16T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.89,
+        "draw": 3.44,
+        "away": 4.28
+      }
+    },
+    {
+      "matchId": "wc26-m039",
+      "home": "比利时",
+      "away": "伊朗",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-22T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.4,
+        "draw": 4.61,
+        "away": 7.72
+      }
+    },
+    {
+      "matchId": "wc26-m040",
+      "home": "新西兰",
+      "away": "埃及",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-22T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 5.01,
+        "draw": 3.65,
+        "away": 1.71
+      }
+    },
+    {
+      "matchId": "wc26-m041",
+      "home": "埃及",
+      "away": "伊朗",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-27T11:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.3,
+        "draw": 2.99,
+        "away": 3.34
+      }
+    },
+    {
+      "matchId": "wc26-m042",
+      "home": "新西兰",
+      "away": "比利时",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-27T11:00:00+08:00",
+      "oneXTwo": {
+        "home": 9.33,
+        "draw": 5.55,
+        "away": 1.28
+      }
+    },
+    {
+      "matchId": "wc26-m043",
+      "home": "西班牙",
+      "away": "佛得角",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-16T00:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.08,
+        "draw": 10.99,
+        "away": 28.28
+      }
+    },
+    {
+      "matchId": "wc26-m044",
+      "home": "沙特阿拉伯",
+      "away": "乌拉圭",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-16T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 6.99,
+        "draw": 4.33,
+        "away": 1.47
+      }
+    },
+    {
+      "matchId": "wc26-m045",
+      "home": "西班牙",
+      "away": "沙特阿拉伯",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-22T00:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.11,
+        "draw": 9.35,
+        "away": 23.17
+      }
+    },
+    {
+      "matchId": "wc26-m046",
+      "home": "乌拉圭",
+      "away": "佛得角",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-22T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.44,
+        "draw": 4.39,
+        "away": 7.28
+      }
+    },
+    {
+      "matchId": "wc26-m047",
+      "home": "佛得角",
+      "away": "沙特阿拉伯",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-27T08:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.49,
+        "draw": 3.22,
+        "away": 2.8
+      }
+    },
+    {
+      "matchId": "wc26-m048",
+      "home": "乌拉圭",
+      "away": "西班牙",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-27T08:00:00+08:00",
+      "oneXTwo": {
+        "home": 5.11,
+        "draw": 3.86,
+        "away": 1.62
+      }
+    },
+    {
+      "matchId": "wc26-m049",
+      "home": "法国",
+      "away": "塞内加尔",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-17T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.43,
+        "draw": 4.58,
+        "away": 7.37
+      }
+    },
+    {
+      "matchId": "wc26-m050",
+      "home": "伊拉克",
+      "away": "挪威",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-17T06:00:00+08:00",
+      "oneXTwo": {
+        "home": 13.18,
+        "draw": 6.6,
+        "away": 1.22
+      }
+    },
+    {
+      "matchId": "wc26-m051",
+      "home": "法国",
+      "away": "伊拉克",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-23T05:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.12,
+        "draw": 8.3,
+        "away": 22.99
+      }
+    },
+    {
+      "matchId": "wc26-m052",
+      "home": "挪威",
+      "away": "塞内加尔",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-23T08:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.09,
+        "draw": 3.46,
+        "away": 3.42
+      }
+    },
+    {
+      "matchId": "wc26-m053",
+      "home": "挪威",
+      "away": "法国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-27T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 4.31,
+        "draw": 3.55,
+        "away": 1.79
+      }
+    },
+    {
+      "matchId": "wc26-m054",
+      "home": "塞内加尔",
+      "away": "伊拉克",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-27T03:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.45,
+        "draw": 4.24,
+        "away": 6.77
+      }
+    },
+    {
+      "matchId": "wc26-m055",
+      "home": "阿根廷",
+      "away": "阿尔及利亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-17T09:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.39,
+        "draw": 4.55,
+        "away": 8.64
+      }
+    },
+    {
+      "matchId": "wc26-m056",
+      "home": "奥地利",
+      "away": "约旦",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-17T12:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.32,
+        "draw": 5.41,
+        "away": 9.38
+      }
+    },
+    {
+      "matchId": "wc26-m057",
+      "home": "阿根廷",
+      "away": "奥地利",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-23T01:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.65,
+        "draw": 3.76,
+        "away": 5.32
+      }
+    },
+    {
+      "matchId": "wc26-m058",
+      "home": "约旦",
+      "away": "阿尔及利亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-23T11:00:00+08:00",
+      "oneXTwo": {
+        "home": 5.7,
+        "draw": 3.94,
+        "away": 1.58
+      }
+    },
+    {
+      "matchId": "wc26-m059",
+      "home": "阿尔及利亚",
+      "away": "奥地利",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-28T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 3.32,
+        "draw": 3.16,
+        "away": 2.21
+      }
+    },
+    {
+      "matchId": "wc26-m060",
+      "home": "约旦",
+      "away": "阿根廷",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-28T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 12.19,
+        "draw": 6.65,
+        "away": 1.19
+      }
+    },
+    {
+      "matchId": "wc26-m061",
+      "home": "葡萄牙",
+      "away": "刚果民主共和国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-18T01:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.27,
+        "draw": 5.74,
+        "away": 11.12
+      }
+    },
+    {
+      "matchId": "wc26-m062",
+      "home": "乌兹别克斯坦",
+      "away": "哥伦比亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-18T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 7.97,
+        "draw": 4.58,
+        "away": 1.4
+      }
+    },
+    {
+      "matchId": "wc26-m063",
+      "home": "葡萄牙",
+      "away": "乌兹别克斯坦",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-24T01:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.24,
+        "draw": 6.04,
+        "away": 11.29
+      }
+    },
+    {
+      "matchId": "wc26-m064",
+      "home": "哥伦比亚",
+      "away": "刚果民主共和国",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-24T10:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.46,
+        "draw": 4.17,
+        "away": 7.41
+      }
+    },
+    {
+      "matchId": "wc26-m065",
+      "home": "哥伦比亚",
+      "away": "葡萄牙",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-28T07:30:00+08:00",
+      "oneXTwo": {
+        "home": 3.38,
+        "draw": 3.26,
+        "away": 2.14
+      }
+    },
+    {
+      "matchId": "wc26-m066",
+      "home": "刚果民主共和国",
+      "away": "乌兹别克斯坦",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-28T07:30:00+08:00",
+      "oneXTwo": {
+        "home": 2.35,
+        "draw": 3.19,
+        "away": 2.97
+      }
+    },
+    {
+      "matchId": "wc26-m067",
+      "home": "英格兰",
+      "away": "克罗地亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-18T04:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.73,
+        "draw": 3.75,
+        "away": 4.82
+      }
+    },
+    {
+      "matchId": "wc26-m068",
+      "home": "加纳",
+      "away": "巴拿马",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-18T07:00:00+08:00",
+      "oneXTwo": {
+        "home": 2.03,
+        "draw": 3.47,
+        "away": 3.65
+      }
+    },
+    {
+      "matchId": "wc26-m069",
+      "home": "英格兰",
+      "away": "加纳",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-24T04:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.32,
+        "draw": 5.17,
+        "away": 9.1
+      }
+    },
+    {
+      "matchId": "wc26-m070",
+      "home": "巴拿马",
+      "away": "克罗地亚",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-24T07:00:00+08:00",
+      "oneXTwo": {
+        "home": 6.94,
+        "draw": 4.05,
+        "away": 1.49
+      }
+    },
+    {
+      "matchId": "wc26-m071",
+      "home": "巴拿马",
+      "away": "英格兰",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-28T05:00:00+08:00",
+      "oneXTwo": {
+        "home": 8.39,
+        "draw": 5.84,
+        "away": 1.29
+      }
+    },
+    {
+      "matchId": "wc26-m072",
+      "home": "克罗地亚",
+      "away": "加纳",
+      "state": "open",
+      "source": "the-odds-api 多家均值",
+      "cutoffAt": "2026-06-28T05:00:00+08:00",
+      "oneXTwo": {
+        "home": 1.71,
+        "draw": 3.59,
+        "away": 4.75
+      }
+    },
+    {
+      "matchId": "wc26-m073",
+      "home": "A组第2名",
+      "away": "B组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-06-29T03:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m074",
+      "home": "E组第1名",
+      "away": "A/B/C/D/F组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-06-30T04:30:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m075",
+      "home": "F组第1名",
+      "away": "C组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-06-30T09:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m076",
+      "home": "C组第1名",
+      "away": "F组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-06-30T01:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m077",
+      "home": "I组第1名",
+      "away": "C/D/F/G/H组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-01T05:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m078",
+      "home": "E组第2名",
+      "away": "I组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-01T01:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m079",
+      "home": "A组第1名",
+      "away": "C/E/F/H/I组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-01T09:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m080",
+      "home": "L组第1名",
+      "away": "E/H/I/J/K组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-02T00:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m081",
+      "home": "D组第1名",
+      "away": "B/E/F/I/J组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-02T08:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m082",
+      "home": "G组第1名",
+      "away": "A/E/H/I/J组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-02T04:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m083",
+      "home": "K组第2名",
+      "away": "L组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-03T07:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m084",
+      "home": "H组第1名",
+      "away": "J组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-03T03:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m085",
+      "home": "B组第1名",
+      "away": "E/F/G/I/J组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-03T11:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m086",
+      "home": "J组第1名",
+      "away": "H组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-04T06:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m087",
+      "home": "K组第1名",
+      "away": "D/E/I/J/L组第3名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-04T09:30:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m088",
+      "home": "D组第2名",
+      "away": "G组第2名",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-04T02:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m089",
+      "home": "第74场胜者",
+      "away": "第77场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-05T05:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m090",
+      "home": "第73场胜者",
+      "away": "第75场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-05T01:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m091",
+      "home": "第76场胜者",
+      "away": "第78场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-06T04:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m092",
+      "home": "第79场胜者",
+      "away": "第80场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-06T08:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m093",
+      "home": "第83场胜者",
+      "away": "第84场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-07T03:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m094",
+      "home": "第81场胜者",
+      "away": "第82场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-07T08:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m095",
+      "home": "第86场胜者",
+      "away": "第88场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-08T00:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m096",
+      "home": "第85场胜者",
+      "away": "第87场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-08T04:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m097",
+      "home": "第89场胜者",
+      "away": "第90场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-10T04:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m098",
+      "home": "第93场胜者",
+      "away": "第94场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-11T03:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m099",
+      "home": "第91场胜者",
+      "away": "第92场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-12T05:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m100",
+      "home": "第95场胜者",
+      "away": "第96场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-12T09:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m101",
+      "home": "第97场胜者",
+      "away": "第98场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-15T03:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m102",
+      "home": "第99场胜者",
+      "away": "第100场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-16T03:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m103",
+      "home": "第101场负者",
+      "away": "第102场负者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-19T05:00:00+08:00",
+      "oneXTwo": null
+    },
+    {
+      "matchId": "wc26-m104",
+      "home": "第101场胜者",
+      "away": "第102场胜者",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": "2026-07-20T03:00:00+08:00",
+      "oneXTwo": null
+    }
+  ]
+}

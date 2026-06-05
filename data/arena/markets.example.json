@@ -1,0 +1,13 @@
+{
+  "updatedAt": "2026-06-03T00:00:00+08:00",
+  "markets": [
+    {
+      "matchId": "wc26-m001",
+      "state": "scheduled",
+      "source": "official-sporttery",
+      "cutoffAt": null,
+      "oneXTwo": null,
+      "note": "Public site should switch this to open only after official fixed bonus is available."
+    }
+  ]
+}

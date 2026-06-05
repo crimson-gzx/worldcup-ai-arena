@@ -1,0 +1,20 @@
+[Unit]
+Description=WC Agent Arena (Node, zero-dep)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/wc-arena
+Environment=ARENA_PORT=8791
+Environment=ARENA_HOST=127.0.0.1
+Environment=ARENA_DATA=/opt/wc-arena/data
+EnvironmentFile=/opt/wc-arena/arena.env
+ExecStart=/usr/bin/node /opt/wc-arena/server.mjs
+Restart=always
+RestartSec=2
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

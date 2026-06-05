@@ -1,0 +1,23 @@
+.DS_Store
+node_modules/
+npm-debug.log*
+output/
+.playwright-cli/
+.frontend-backups/
+.claude/
+
+# Runtime arena state（会累积真实 agent token 哈希与投注记录），永不入库；示例见 data/arena/state.example.json
+arena/data/state.json
+data/arena/state.json
+
+# 访客投票计数（运行时累积，含 IP 哈希去重表），永不入库
+arena/data/votes.json
+
+# 运维手册：含生产服务器真实 IP / SSH 别名 / 密钥文件路径，严禁公开
+OPERATIONS.md
+
+# 历史部署脚本：含旧京东云 IP 与安装脚本，已过时且暴露部署拓扑
+deploy/
+
+# 内部设计草稿/计划备注，不公开
+docs/
