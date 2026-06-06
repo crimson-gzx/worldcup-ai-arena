@@ -417,6 +417,7 @@ async function loadData() {
   state.matches = payload.matches;
   state.selectedId = payload.matches[0]?.id || null;
   render();
+  computeAdvanceProb();
 }
 
 selectors.chips.forEach((chip) => {
@@ -486,9 +487,11 @@ function renderAgentLeaderboard(rows) {
     const name = escapeAgentHtml(row.name || row.agentId || "Agent");
     const model = escapeAgentHtml(row.model || t("未标注模型"));
     const total = escapeAgentHtml(formatAgentMoney(row.totalValue));
-    return '<div class="agent-leader-row">' +
+    const champ = index === 0 ? " is-champion" : "";
+    const nameCls = index === 0 ? ' class="wc-shiny"' : "";
+    return '<div class="agent-leader-row spotlight' + champ + '">' +
       '<b class="agent-rank">' + (index + 1) + '</b>' +
-      '<div><strong>' + name + '</strong><span>' + model + '</span></div>' +
+      '<div><strong' + nameCls + '>' + name + '</strong><span>' + model + '</span></div>' +
       '<div><strong>' + total + '</strong><span>' + escapeAgentHtml(t("虚拟资产")) + '</span></div>' +
       '</div>';
   }).join("");
@@ -498,9 +501,9 @@ function renderAgentArena(payload) {
   if (!agentArena.root) return;
   lastArenaPayload = payload;
   const leaderboard = Array.isArray(payload.leaderboard) ? payload.leaderboard : [];
-  agentArena.openMarkets.textContent = String(Number(payload.openMatches || 0));
-  agentArena.capital.textContent = formatAgentMoney(payload.virtualCapital);
-  agentArena.count.textContent = String(leaderboard.length);
+  countUpWhenVisible(agentArena.openMarkets, Number(payload.openMatches || 0));
+  countUpWhenVisible(agentArena.capital, Number(payload.virtualCapital), { fmt: formatAgentMoney });
+  countUpWhenVisible(agentArena.count, leaderboard.length);
   renderAgentLeaderboard(leaderboard);
 }
 
@@ -536,3 +539,332 @@ window.addEventListener("wc:langchange", () => {
   if (lastArenaPayload) renderAgentArena(lastArenaPayload);
   else renderAgentLeaderboard([]);
 });
+
+/* ===================== 视觉增强（reactbits 风格，原生实现）===================== */
+const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// 数字滚动：从 0 缓动到目标值（尊重 reduce 偏好）
+function animateNumber(el, to, { dur = 1100, fmt = (n) => String(Math.round(n)) } = {}) {
+  if (!el) return;
+  const target = Number(to);
+  if (prefersReduced || !Number.isFinite(target)) { el.textContent = fmt(target); return; }
+  const begin = performance.now();
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const frame = (now) => {
+    const p = Math.min(1, (now - begin) / dur);
+    el.textContent = fmt(target * ease(p));
+    if (p < 1) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
+
+// 进入视口才开始滚：KPI 在第二屏，否则页面一加载就滚完，用户滚下去只看到终值
+function countUpWhenVisible(el, to, opts) {
+  if (!el) return;
+  if (prefersReduced || !("IntersectionObserver" in window)) { animateNumber(el, to, opts); return; }
+  el.textContent = opts && opts.fmt ? opts.fmt(0) : "0"; // 进视口前先归零，跳动更明显
+  const io = new IntersectionObserver((entries, obs) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      animateNumber(el, to, opts);
+      obs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  io.observe(el);
+}
+
+// 光标聚光：单个委托监听，自动覆盖所有 .spotlight（含动态生成的卡片）
+if (!prefersReduced) {
+  document.addEventListener("pointermove", (event) => {
+    const el = event.target.closest && event.target.closest(".spotlight");
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+    el.style.setProperty("--my", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+  }, { passive: true });
+}
+
+// 给静态卡片挂上 spotlight
+document.querySelectorAll(".agent-card, .glossary-grid article").forEach((el) => el.classList.add("spotlight"));
+
+// 滚动入场：进入视口淡入上移（无 JS / reduce 时不隐藏，内容始终可见）
+function setupReveal() {
+  if (prefersReduced || !("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js-reveal");
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".block .section-heading, .agent-arena-grid, .detail-layout, .glossary-grid article")
+    .forEach((el) => { el.classList.add("reveal"); io.observe(el); });
+}
+setupReveal();
+
+/* ===================== 48 强巡礼：小组卡片墙 ===================== */
+const TEAM_ISO = {
+  "阿根廷": "AR", "巴西": "BR", "法国": "FR", "西班牙": "ES", "英格兰": "GB-ENG",
+  "葡萄牙": "PT", "荷兰": "NL", "德国": "DE", "比利时": "BE", "克罗地亚": "HR",
+  "乌拉圭": "UY", "哥伦比亚": "CO", "墨西哥": "MX", "美国": "US", "加拿大": "CA",
+  "日本": "JP", "韩国": "KR", "澳大利亚": "AU", "摩洛哥": "MA", "塞内加尔": "SN",
+  "科特迪瓦": "CI", "加纳": "GH", "埃及": "EG", "阿尔及利亚": "DZ", "突尼斯": "TN",
+  "南非": "ZA", "佛得角": "CV", "刚果民主共和国": "CD", "瑞士": "CH", "奥地利": "AT",
+  "挪威": "NO", "瑞典": "SE", "苏格兰": "GB-SCT", "捷克": "CZ", "波黑": "BA",
+  "土耳其": "TR", "伊朗": "IR", "伊拉克": "IQ", "沙特阿拉伯": "SA", "卡塔尔": "QA",
+  "约旦": "JO", "乌兹别克斯坦": "UZ", "厄瓜多尔": "EC", "巴拉圭": "PY", "巴拿马": "PA",
+  "海地": "HT", "库拉索": "CW", "新西兰": "NZ"
+};
+const WC_GROUPS = [
+  ["A", ["墨西哥", "南非", "韩国", "捷克"]],
+  ["B", ["加拿大", "波黑", "卡塔尔", "瑞士"]],
+  ["C", ["巴西", "摩洛哥", "海地", "苏格兰"]],
+  ["D", ["美国", "巴拉圭", "澳大利亚", "土耳其"]],
+  ["E", ["德国", "库拉索", "科特迪瓦", "厄瓜多尔"]],
+  ["F", ["荷兰", "日本", "瑞典", "突尼斯"]],
+  ["G", ["比利时", "埃及", "伊朗", "新西兰"]],
+  ["H", ["西班牙", "佛得角", "沙特阿拉伯", "乌拉圭"]],
+  ["I", ["法国", "塞内加尔", "伊拉克", "挪威"]],
+  ["J", ["阿根廷", "阿尔及利亚", "奥地利", "约旦"]],
+  ["K", ["葡萄牙", "刚果民主共和国", "乌兹别克斯坦", "哥伦比亚"]],
+  ["L", ["英格兰", "克罗地亚", "加纳", "巴拿马"]]
+];
+function isoToFlag(iso) {
+  if (!iso) return "";
+  return `<img class="gt-flag-img" src="./assets/flags/4x3/${iso.toLowerCase()}.svg" alt="" loading="lazy" width="22" height="16">`;
+}
+function setupGroupParade() {
+  const grid = document.getElementById("group-grid");
+  if (!grid) return;
+  grid.innerHTML = WC_GROUPS.map(([g, teams]) => {
+    const rows = teams.map((zh) =>
+      `<span class="group-team"><span class="gt-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
+      `<span class="gt-name" data-team="${zh}">${tTeam(zh)}</span>` +
+      `<span class="gt-pts" data-team="${zh}">0</span>` +
+      `<span class="gt-prob" data-team="${zh}">—</span></span>`
+    ).join("");
+    return `<button class="group-card spotlight" data-group="group-${g}" type="button">` +
+      `<span class="gc-head"><span class="group-tag">${g}</span><span class="group-sub">GROUP</span></span>` +
+      `<span class="gc-colhead"><span></span><span></span>` +
+      `<span class="col-h" data-i18n="muster.col.pts">积分</span>` +
+      `<span class="col-h" data-i18n="muster.col.adv">出线率</span></span>${rows}</button>`;
+  }).join("");
+  if (window.wcI18n && window.wcI18n.applyStatic) window.wcI18n.applyStatic();
+
+  // 点小组卡 → 放大成中央大卡（出线形势详情）
+  grid.querySelectorAll(".group-card").forEach((card) => {
+    const g = card.dataset.group.replace("group-", "");
+    card.addEventListener("click", () => openGroupModal(g));
+  });
+
+  // 语言切换时同步队名
+  window.addEventListener("wc:langchange", () => {
+    grid.querySelectorAll(".gt-name[data-team]").forEach((el) => {
+      el.textContent = tTeam(el.dataset.team);
+    });
+  });
+}
+setupGroupParade();
+
+// ===== 小组放大卡：点 group-card → View Transitions morph 成屏幕中央大卡 =====
+const GM = (function () {
+  const modal = document.getElementById("group-modal");
+  if (!modal) return null;
+  const cardEl = modal.querySelector(".gm-card");
+  const body = modal.querySelector(".gm-body");
+  const supportsVT = typeof document.startViewTransition === "function";
+  let lastFocus = null;
+
+  const isEn = () => document.documentElement.getAttribute("lang") === "en";
+  const groupTeams = (g) => {
+    const e = WC_GROUPS.find((x) => x[0] === g);
+    return e ? e[1] : [];
+  };
+
+  function build(g) {
+    const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
+    const ptsLabel = isEn() ? "PTS" : "积分";
+    const advLabel = isEn() ? "ADVANCE" : "出线率";
+    const rows = groupTeams(g).map((zh) => {
+      const pe = card && card.querySelector(`.gt-prob[data-team="${zh}"]`);
+      const te = card && card.querySelector(`.gt-pts[data-team="${zh}"]`);
+      const probTxt = pe ? pe.textContent.trim() : "—";
+      const ptsTxt = te ? te.textContent.trim() : "0";
+      const w = Math.max(0, Math.min(100, parseInt(probTxt, 10) || 0));
+      return (
+        `<div class="gm-team">` +
+        `<span class="gm-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
+        `<span class="gm-name">${tTeam(zh)}</span>` +
+        `<span class="gm-stat gm-pts"><b>${ptsTxt}</b><i>${ptsLabel}</i></span>` +
+        `<span class="gm-stat gm-prob"><b>${probTxt}</b><i>${advLabel}</i></span>` +
+        `<span class="gm-bar" data-w="${w}"><i></i></span>` +
+        `</div>`
+      );
+    }).join("");
+    const title = isEn() ? "Race for the Round of 32" : "小组出线形势";
+    const note = isEn()
+      ? "Advance rate = simulated chance of reaching the Round of 32 (top 2 + best thirds). Research only."
+      : "出线率 = 模型推演晋级 32 强（每组前 2 + 8 个最佳第 3）概率，仅供研究。";
+    const cta = isEn() ? `View Group ${g} odds →` : `查看 ${g} 组盘口 →`;
+    body.innerHTML =
+      `<div class="gm-head"><span class="gm-letter">${g}</span>` +
+      `<span class="gm-meta"><span class="gm-grouplabel">GROUP ${g}</span>` +
+      `<h3 id="gm-title">${title}</h3></span></div>` +
+      `<div class="gm-teams">${rows}</div>` +
+      `<p class="gm-note">${note}</p>` +
+      `<button class="gm-cta" type="button" data-gm-go="${g}">${cta}</button>`;
+  }
+
+  function animateBars() {
+    body.querySelectorAll(".gm-bar").forEach((bar) => {
+      const w = (bar.dataset.w || 0) + "%";
+      const fill = bar.querySelector("i");
+      if (!fill) return;
+      if (prefersReduced) { fill.style.width = w; return; }
+      fill.style.width = "0%";
+      requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = w; }));
+    });
+  }
+
+  function open(g) {
+    build(g);
+    lastFocus = document.activeElement;
+    const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
+    const reveal = () => {
+      modal.hidden = false;
+      document.body.classList.add("gm-open");
+      cardEl.focus();
+    };
+    if (!supportsVT || prefersReduced) {
+      modal.removeAttribute("data-vt");
+      reveal(); animateBars(); return;
+    }
+    modal.setAttribute("data-vt", "");
+    if (card) card.style.viewTransitionName = "group-active";
+    const vt = document.startViewTransition(() => {
+      if (card) card.style.viewTransitionName = "";
+      cardEl.style.viewTransitionName = "group-active";
+      reveal();
+    });
+    vt.ready.then(animateBars, animateBars);
+    vt.finished.finally(() => { cardEl.style.viewTransitionName = ""; });
+  }
+
+  function close() {
+    if (modal.hidden) return;
+    const goEl = body.querySelector("[data-gm-go]");
+    const g = goEl && goEl.dataset.gmGo;
+    const card = g && document.querySelector(`.group-card[data-group="group-${g}"]`);
+    const hide = () => {
+      modal.hidden = true;
+      document.body.classList.remove("gm-open");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    if (!supportsVT || prefersReduced) { hide(); return; }
+    cardEl.style.viewTransitionName = "group-active";
+    const vt = document.startViewTransition(() => {
+      cardEl.style.viewTransitionName = "";
+      hide();
+      if (card) card.style.viewTransitionName = "group-active";
+    });
+    vt.finished.finally(() => { if (card) card.style.viewTransitionName = ""; });
+  }
+
+  modal.addEventListener("click", (e) => {
+    if (e.target.closest("[data-gm-close]")) { close(); return; }
+    const go = e.target.closest("[data-gm-go]");
+    if (go) {
+      const g = go.dataset.gmGo;
+      modal.hidden = true;
+      document.body.classList.remove("gm-open");
+      const chip = document.querySelector(`.chip[data-filter="group-${g}"]`);
+      if (chip) chip.click();
+      const radar = document.querySelector("#radar");
+      if (radar) radar.scrollIntoView({ block: "start" });
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) close();
+  });
+
+  return { open, close };
+})();
+function openGroupModal(g) { if (GM) GM.open(g); }
+
+// 晋级 32 强模拟（2026 赛制：每组前 2 + 8 个最佳第 3）。一次全局模拟所有组。
+// 注：模型只有胜平负概率、无净胜球，第 3 名跨组比较只按积分、同分随机（简化）。
+function simulateAdvance(byGroup, iters = 8000) {
+  const keys = Object.keys(byGroup);
+  const teamsOf = {};
+  for (const g of keys) {
+    const ts = [];
+    for (const m of byGroup[g]) {
+      if (!ts.includes(m.homeTeam)) ts.push(m.homeTeam);
+      if (!ts.includes(m.awayTeam)) ts.push(m.awayTeam);
+    }
+    teamsOf[g] = ts;
+  }
+  const adv = {};
+  for (const g of keys) for (const t of teamsOf[g]) adv[t] = 0;
+  for (let it = 0; it < iters; it++) {
+    const thirds = [];
+    for (const g of keys) {
+      const teams = teamsOf[g];
+      const pts = {};
+      teams.forEach((t) => (pts[t] = 0));
+      for (const m of byGroup[g]) {
+        const r = Math.random();
+        if (r < m.home) pts[m.homeTeam] += 3;
+        else if (r < m.home + m.draw) { pts[m.homeTeam] += 1; pts[m.awayTeam] += 1; }
+        else pts[m.awayTeam] += 3;
+      }
+      const ranked = teams.slice().sort((a, b) => (pts[b] - pts[a]) || (Math.random() - 0.5));
+      adv[ranked[0]]++;
+      adv[ranked[1]]++;
+      if (ranked[2] != null) thirds.push({ team: ranked[2], pts: pts[ranked[2]] });
+    }
+    thirds.sort((a, b) => (b.pts - a.pts) || (Math.random() - 0.5));
+    for (let i = 0; i < 8 && i < thirds.length; i++) adv[thirds[i].team]++;
+  }
+  const out = {};
+  for (const t in adv) out[t] = adv[t] / iters;
+  return out;
+}
+
+// 小组实时积分：按已出结果的比赛算（胜 3 平 1 负 0）；赛前无结果则全 0，赛后自动更新
+function computeStandings(ms) {
+  const pts = {};
+  for (const mt of ms) {
+    if (!mt.result) continue;
+    pts[mt.homeTeam] = pts[mt.homeTeam] || 0;
+    pts[mt.awayTeam] = pts[mt.awayTeam] || 0;
+    if (mt.result === "home") pts[mt.homeTeam] += 3;
+    else if (mt.result === "away") pts[mt.awayTeam] += 3;
+    else { pts[mt.homeTeam] += 1; pts[mt.awayTeam] += 1; }
+  }
+  return pts;
+}
+
+function computeAdvanceProb() {
+  if (!state.matches.length) return;
+  const byGroup = {};
+  for (const m of state.matches) {
+    const mm = m.round.match(/^([A-L])组/);
+    if (!mm) continue;
+    const mo = m.model || {};
+    if (!(Number.isFinite(mo.home) && Number.isFinite(mo.draw) && Number.isFinite(mo.away))) continue;
+    (byGroup[mm[1]] ||= []).push({ homeTeam: m.home, awayTeam: m.away, home: mo.home, draw: mo.draw, away: mo.away, result: m.result });
+  }
+  const prob = simulateAdvance(byGroup);
+  for (const [g, teams] of WC_GROUPS) {
+    const ms = byGroup[g];
+    if (!ms || ms.length < 6) continue;
+    const pts = computeStandings(ms);
+    const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
+    if (!card) continue;
+    teams.forEach((zh) => {
+      const pe = card.querySelector(`.gt-prob[data-team="${zh}"]`);
+      if (pe && prob[zh] != null) pe.textContent = `${Math.round(prob[zh] * 100)}%`;
+      const te = card.querySelector(`.gt-pts[data-team="${zh}"]`);
+      if (te) te.textContent = String(pts[zh] || 0);
+    });
+  }
+}

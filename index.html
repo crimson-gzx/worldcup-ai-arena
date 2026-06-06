@@ -16,7 +16,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="stylesheet" href="./styles.css?v=20260605-gh4" />
+    <link rel="stylesheet" href="./styles.css?v=20260607-ui3" />
     
   </head>
   <body>
@@ -217,6 +217,31 @@
       </section>
 
 
+      <section id="muster" class="block">
+        <div class="shell muster-shell">
+          <div class="muster-side">
+            <span class="sec-index">05</span>
+            <h2 class="muster-title" aria-label="48 强巡礼">
+              <span class="muster-num wc-shiny">48</span>
+              <span class="muster-word" data-i18n="muster.word">强巡礼</span>
+            </h2>
+            <p class="eyebrow muster-eyebrow" data-i18n="muster.eyebrow">参赛巡礼</p>
+          </div>
+          <div class="muster-main">
+            <p class="muster-lead" data-i18n="muster.lead">2026 世界杯 12 个小组、48 支球队，点任意小组直达该组盘口。</p>
+            <div class="group-grid" id="group-grid" aria-label="12 个小组"></div>
+            <p class="group-note" data-i18n="muster.note">出线率为自建模型蒙特卡洛推演的晋级 32 强概率（每组前 2 + 8 个最佳第 3）；积分按真实赛果实时更新。仅供研究，不构成预测或投注建议。</p>
+          </div>
+        </div>
+        <div id="group-modal" class="group-modal" hidden>
+          <div class="gm-backdrop" data-gm-close></div>
+          <div class="gm-card" role="dialog" aria-modal="true" aria-labelledby="gm-title" tabindex="-1">
+            <button class="gm-close" type="button" data-gm-close aria-label="关闭 / Close">✕</button>
+            <div class="gm-body"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="block" id="disclaimer" aria-label="风险提示" style="border-bottom: 0">
         <div class="shell">
           <div class="disclaimer">
@@ -250,11 +275,11 @@
     </footer>
 
     <!-- ============ Hero 像素引擎：静止实心字 / 划过撕裂 ============ -->
-    <script src="./pixel-hero.js?v=20260605-gh4" defer></script>
+    <script src="./pixel-hero.js?v=20260607-ui3" defer></script>
 
     
-    <script src="./i18n.js?v=20260605-gh4"></script>
-    <script src="./app.js?v=20260605-gh4" type="module"></script>
+    <script src="./i18n.js?v=20260607-ui3"></script>
+    <script src="./app.js?v=20260607-ui3" type="module"></script>
 
     
   
