@@ -672,6 +672,11 @@ const GM = (function () {
   const body = modal.querySelector(".gm-body");
   const supportsVT = typeof document.startViewTransition === "function";
   let lastFocus = null;
+  let currentG = null;
+  let squads = null;
+  fetch("./data/squads.json").then((r) => (r.ok ? r.json() : null)).then((d) => {
+    squads = d && d.teams ? d.teams : d;
+  }).catch(() => {});
 
   const isEn = () => document.documentElement.getAttribute("lang") === "en";
   const groupTeams = (g) => {
@@ -680,6 +685,7 @@ const GM = (function () {
   };
 
   function build(g) {
+    currentG = g;
     const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
     const ptsLabel = isEn() ? "PTS" : "积分";
     const advLabel = isEn() ? "ADVANCE" : "出线率";
@@ -689,10 +695,11 @@ const GM = (function () {
       const probTxt = pe ? pe.textContent.trim() : "—";
       const ptsTxt = te ? te.textContent.trim() : "0";
       const w = Math.max(0, Math.min(100, parseInt(probTxt, 10) || 0));
+      const hasSquad = !!(squads && squads[zh] && squads[zh].players && squads[zh].players.length);
       return (
-        `<div class="gm-team">` +
+        `<div class="gm-team${hasSquad ? " gm-clk" : ""}"${hasSquad ? ` data-team="${zh}"` : ""}>` +
         `<span class="gm-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
-        `<span class="gm-name">${tTeam(zh)}</span>` +
+        `<span class="gm-name">${tTeam(zh)}${hasSquad ? '<i class="gm-go">›</i>' : ""}</span>` +
         `<span class="gm-stat gm-pts"><b>${ptsTxt}</b><i>${ptsLabel}</i></span>` +
         `<span class="gm-stat gm-prob"><b>${probTxt}</b><i>${advLabel}</i></span>` +
         `<span class="gm-bar" data-w="${w}"><i></i></span>` +
@@ -722,6 +729,44 @@ const GM = (function () {
       fill.style.width = "0%";
       requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = w; }));
     });
+  }
+
+  const POS_ORDER = ["GK", "DF", "MF", "FW"];
+  function renderSquad(zh) {
+    const t = squads && squads[zh];
+    if (!t || !t.players) return;
+    const en = isEn();
+    const posName = en
+      ? { GK: "Goalkeepers", DF: "Defenders", MF: "Midfielders", FW: "Forwards" }
+      : { GK: "门将", DF: "后卫", MF: "中场", FW: "前锋" };
+    const byPos = {};
+    t.players.forEach((p) => { (byPos[p.pos] || (byPos[p.pos] = [])).push(p); });
+    const order = POS_ORDER.filter((k) => byPos[k]).concat(Object.keys(byPos).filter((k) => !POS_ORDER.includes(k)));
+    const sections = order.map((k) => {
+      const rows = byPos[k].slice().sort((a, b) => (a.no || 99) - (b.no || 99)).map((p) => {
+        const name = en ? (p.en || p.zh || "") : (p.zh || p.en || "");
+        const sub = en ? (p.zh || "") : (p.en || "");
+        const club = en ? (p.club_en || p.club_zh || "") : (p.club_zh || p.club_en || "");
+        const bits = [];
+        if (club) bits.push(club);
+        if (p.age) bits.push(en ? `${p.age}y` : `${p.age}岁`);
+        if (p.caps != null) bits.push(en ? `${p.caps} caps${p.goals != null ? `/${p.goals}g` : ""}` : `${p.caps}场${p.goals != null ? `${p.goals}球` : ""}`);
+        return (
+          `<div class="pl-row"><span class="pl-no">${p.no || ""}</span>` +
+          `<span class="pl-main"><span class="pl-name">${name}${sub ? `<small>${sub}</small>` : ""}</span>` +
+          `<span class="pl-meta">${bits.join(" · ")}</span></span></div>`
+        );
+      }).join("");
+      return `<div class="pl-group"><h4>${posName[k] || k}<span>${byPos[k].length}</span></h4>${rows}</div>`;
+    }).join("");
+    const flagIso = t.iso ? t.iso.toUpperCase() : TEAM_ISO[zh];
+    body.innerHTML =
+      `<div class="gm-head sq-head"><button class="sq-back" type="button" data-sq-back aria-label="${en ? "Back" : "返回"}">‹</button>` +
+      `<span class="gm-flag sq-flag">${isoToFlag(flagIso)}</span>` +
+      `<span class="gm-meta"><span class="gm-grouplabel">SQUAD · ${t.players.length}</span>` +
+      `<h3>${tTeam(zh)}${t.en ? `<em>${t.en}</em>` : ""}</h3></span></div>` +
+      `<div class="sq-list">${sections}</div>` +
+      `<p class="gm-note">${en ? "Squad & player data from Chinese sports media + Wikipedia; names in Mandarin." : "名单与球员资料来自国内体育媒体 + 维基百科，译名为普通话。仅供研究。"}</p>`;
   }
 
   function open(g) {
@@ -770,6 +815,9 @@ const GM = (function () {
 
   modal.addEventListener("click", (e) => {
     if (e.target.closest("[data-gm-close]")) { close(); return; }
+    if (e.target.closest("[data-sq-back]")) { build(currentG); animateBars(); cardEl.scrollTop = 0; return; }
+    const teamRow = e.target.closest(".gm-team.gm-clk[data-team]");
+    if (teamRow) { renderSquad(teamRow.dataset.team); cardEl.scrollTop = 0; return; }
     const go = e.target.closest("[data-gm-go]");
     if (go) {
       const g = go.dataset.gmGo;
