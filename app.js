@@ -751,7 +751,7 @@ const GM = (function () {
   function ensureSquads() {
     if (squads || squadsTried) return;
     squadsTried = true;
-    fetch("./data/squads.json?v=20260607-sq2").then((r) => (r.ok ? r.json() : null)).then((d) => {
+    fetch("./data/squads.json?v=20260609-sq3").then((r) => (r.ok ? r.json() : null)).then((d) => {
       squads = d && d.teams ? d.teams : d;
       if (currentG) build(currentG); // 名单到位后重渲染当前组，让有名单的球队变可点
     }).catch(() => {});
