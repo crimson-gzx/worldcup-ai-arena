@@ -1890,3 +1890,9 @@ body.gm-open { overflow: hidden; }
   .gm-bar > i { transition: none; }
   .js-reveal .reveal { opacity: 1; transform: none; }
 }
+
+/* 数据新鲜度（盘口雷达标题下：赔率/竞彩更新时间，陈旧标橙）*/
+.data-freshness{margin-top:8px;font-family:var(--mono,ui-monospace,monospace);font-size:11.5px;color:var(--faint,#7c8190);letter-spacing:.01em;display:flex;flex-wrap:wrap;align-items:center}
+.data-freshness:empty{display:none}
+.data-freshness .fresh-dot{margin:0 8px;opacity:.4;font-style:normal}
+.data-freshness .fresh-stale{color:#e08a4b}

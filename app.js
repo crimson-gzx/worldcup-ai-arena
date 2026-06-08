@@ -402,6 +402,25 @@ function renderChips() {
   });
 }
 
+function fmtFresh(iso) {
+  const d = iso ? new Date(iso) : null;
+  if (!d || isNaN(d.getTime())) return null;
+  const pad = (n) => String(n).padStart(2, "0");
+  return {
+    label: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`,
+    stale: (Date.now() - d.getTime()) / 3600000 > 26
+  };
+}
+function renderDataFreshness() {
+  const el = document.getElementById("data-freshness");
+  if (!el) return;
+  const odds = fmtFresh(state.updatedAt);
+  const lott = fmtFresh(state.lotteryAt);
+  const parts = [];
+  if (odds) parts.push(`<span class="${odds.stale ? "fresh-stale" : ""}">${t("赔率更新")} ${odds.label}</span>`);
+  if (lott) parts.push(`<span class="${lott.stale ? "fresh-stale" : ""}">${t("竞彩更新")} ${lott.label}</span>`);
+  el.innerHTML = parts.join('<i class="fresh-dot">·</i>');
+}
 function render() {
   renderChips();
   renderMatchCards();
@@ -415,8 +434,11 @@ async function loadData() {
   }
   const payload = await response.json();
   state.matches = payload.matches;
+  state.updatedAt = payload.updatedAt || null;
+  state.lotteryAt = (payload.lotterySource && payload.lotterySource.collectedAt) || null;
   state.selectedId = payload.matches[0]?.id || null;
   render();
+  renderDataFreshness();
   computeAdvanceProb();
 }
 
@@ -586,6 +608,7 @@ loadAgentArena().catch((error) => {
 // 语言切换 → 重渲染动态内容
 window.addEventListener("wc:langchange", () => {
   if (state.matches.length) render();
+  renderDataFreshness();
   if (lastArenaPayload) renderAgentArena(lastArenaPayload);
   else renderAgentLeaderboard([]);
 });
@@ -724,9 +747,15 @@ const GM = (function () {
   let lastFocus = null;
   let currentG = null;
   let squads = null;
-  fetch("./data/squads.json?v=20260607-sq2").then((r) => (r.ok ? r.json() : null)).then((d) => {
-    squads = d && d.teams ? d.teams : d;
-  }).catch(() => {});
+  let squadsTried = false;
+  function ensureSquads() {
+    if (squads || squadsTried) return;
+    squadsTried = true;
+    fetch("./data/squads.json?v=20260607-sq2").then((r) => (r.ok ? r.json() : null)).then((d) => {
+      squads = d && d.teams ? d.teams : d;
+      if (currentG) build(currentG); // 名单到位后重渲染当前组，让有名单的球队变可点
+    }).catch(() => {});
+  }
 
   const isEn = () => document.documentElement.getAttribute("lang") === "en";
   const groupTeams = (g) => {
@@ -736,6 +765,7 @@ const GM = (function () {
 
   function build(g) {
     currentG = g;
+    ensureSquads();
     const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
     const ptsLabel = isEn() ? "PTS" : "积分";
     const advLabel = isEn() ? "ADVANCE" : "出线率";
