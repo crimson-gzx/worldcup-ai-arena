@@ -5,13 +5,10 @@
  * 仅小组赛能匹配（淘汰赛球队未定）。app.js fetch 用 cache:no-store，写回即生效、无需 bump 版本。
  */
 import fs from "node:fs";
+import https from "node:https";
 
 const FILE = process.argv[2] || "data/matches.json";
 const API = "https://webapi.sporttery.cn/gateway/jc/football/getMatchCalculatorV1.qry";
-const HEADERS = {
-  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
-  Referer: "https://www.sporttery.cn/"
-};
 // 竞彩简称 → matches.json 全称（仅差异项；其余队名两边一致）
 const ALIAS = { 阿尔及利: "阿尔及利亚", 刚果金: "刚果民主共和国", 乌兹别克: "乌兹别克斯坦", 沙特: "沙特阿拉伯" };
 const norm = (s) => ALIAS[s] || s;
@@ -19,10 +16,24 @@ const pairKey = (a, b) => [a, b].sort().join("::");
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : null; };
 const fmtHcap = (p) => (p > 0 ? "+" : "") + p;
 
+// 用 node:https（零依赖、兼容旧版 Node；中转机 CentOS7 只能跑 Node16、无全局 fetch）
+function getJSON(url) {
+  return new Promise((resolve, reject) => {
+    const req = https.get(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)", Referer: "https://www.sporttery.cn/" },
+      timeout: 15000
+    }, (res) => {
+      if (res.statusCode !== 200) { res.resume(); return reject(new Error(`HTTP ${res.statusCode}`)); }
+      let data = ""; res.setEncoding("utf8");
+      res.on("data", (c) => (data += c));
+      res.on("end", () => { try { resolve(JSON.parse(data)); } catch (e) { reject(e); } });
+    });
+    req.on("timeout", () => req.destroy(new Error("请求超时")));
+    req.on("error", reject);
+  });
+}
 async function fetchPool(poolCode) {
-  const r = await fetch(`${API}?poolCode=${poolCode}&channel=c`, { headers: HEADERS });
-  if (!r.ok) throw new Error(`竞彩 ${poolCode} HTTP ${r.status}`);
-  const d = await r.json();
+  const d = await getJSON(`${API}?poolCode=${poolCode}&channel=c`);
   if (!d?.value?.matchInfoList) throw new Error(`竞彩 ${poolCode} 返回结构异常`);
   return d.value.matchInfoList;
 }

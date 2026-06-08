@@ -19,12 +19,7 @@ cp -f "$MATCHES" "$DIR/matches.prev.json"
 
 if "$NODE" "$DIR/theodds-odds.mjs" "$MATCHES" >> "$LOG" 2>&1; then
   chown www-data:www-data "$MATCHES"
-  # 竞彩固定奖金（中国体育彩票官方源；失败仅记日志，不影响海外赔率与盘口）
-  if "$NODE" "$DIR/lottery-odds.mjs" "$MATCHES" >> "$LOG" 2>&1; then
-    chown www-data:www-data "$MATCHES"
-  else
-    echo "[$(ts)] 竞彩抓取失败（海外赔率不受影响）" >> "$LOG"
-  fi
+  # 注：竞彩固定奖金由国内 VPS 抓取后直接推回 matches.json（美国 IP 被 sporttery 567 拦截）。
   if MATCHES_JSON="$MATCHES" MARKETS_OUT="$MARKETS" "$NODE" "$DIR/build-markets.mjs" >> "$LOG" 2>&1; then
     chown www-data:www-data "$MARKETS"
     systemctl restart wc-arena
