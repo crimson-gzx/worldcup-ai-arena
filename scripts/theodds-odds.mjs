@@ -67,7 +67,7 @@ for (const e of odds) {
   m.offshore = { source: "the-odds-api", desc: `${h.books} 家博彩均值`, regions: REGIONS, collectedAt, oneXTwo, asian: asian || prevOff.asian || null, totals: totals || prevOff.totals || null };
   m.model = m.model || {};
   m.model.notes = (Array.isArray(m.model.notes) ? m.model.notes : []).filter((n) => !n.startsWith("海外欧赔"));
-  m.model.notes.push(`海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（${REGIONS}，${collectedAt.slice(0, 10)}）。竞彩固定奖金与模型概率仍待接入。`);
+  m.model.notes.push(`海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（${REGIONS}，${collectedAt.slice(0, 10)}）。模型概率仍待接入。`);
   matched++;
 }
 payload.updatedAt = collectedAt;
