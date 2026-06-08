@@ -17,17 +17,6 @@
      "club_en": "Atlético Madrid"
     },
     {
-     "no": 2,
-     "pos": "",
-     "zh": "莱昂纳多·巴列尔迪",
-     "en": "",
-     "age": null,
-     "caps": null,
-     "goals": null,
-     "club_zh": "马赛",
-     "club_en": ""
-    },
-    {
      "no": 3,
      "pos": "DF",
      "zh": "尼古拉斯·塔利亚菲科",
@@ -129,7 +118,7 @@
     {
      "no": 12,
      "pos": "GK",
-     "zh": "格罗尼莫·鲁利",
+     "zh": "赫罗尼莫·鲁利",
      "en": "Gerónimo Rulli",
      "age": 34,
      "caps": 7,
@@ -454,7 +443,7 @@
     {
      "no": 15,
      "pos": "DF",
-     "zh": "莱奥-佩雷拉",
+     "zh": "莱奥·佩雷拉",
      "en": "Léo Pereira",
      "age": 30,
      "caps": 4,
@@ -465,7 +454,7 @@
     {
      "no": 16,
      "pos": "DF",
-     "zh": "道格拉斯-桑托斯",
+     "zh": "道格拉斯·桑托斯",
      "en": "Douglas Santos",
      "age": 32,
      "caps": 7,
@@ -487,7 +476,7 @@
     {
      "no": 18,
      "pos": "MF",
-     "zh": "达尼洛-桑托斯",
+     "zh": "达尼洛·桑托斯",
      "en": "Danilo Santos",
      "age": 25,
      "caps": 4,
@@ -520,7 +509,7 @@
     {
      "no": 21,
      "pos": "FW",
-     "zh": "路易斯-恩里克",
+     "zh": "路易斯·恩里克",
      "en": "Luiz Henrique",
      "age": 25,
      "caps": 15,
@@ -564,7 +553,7 @@
     {
      "no": 25,
      "pos": "FW",
-     "zh": "伊戈尔-蒂亚戈",
+     "zh": "伊戈尔·蒂亚戈",
      "en": "Igor Thiago",
      "age": 24,
      "caps": 4,
@@ -652,7 +641,7 @@
      "caps": 13,
      "goals": 0,
      "club_en": "Roma",
-     "zh": "夸迪奥·科内",
+     "zh": "科内",
      "club_zh": "罗马"
     },
     {
@@ -1539,7 +1528,7 @@
      "caps": 227,
      "goals": 143,
      "club_en": "Al-Nassr",
-     "zh": "菲利克斯",
+     "zh": "克里斯蒂亚诺·罗纳尔多",
      "club_zh": "利雅得胜利"
     },
     {
@@ -2079,7 +2068,7 @@
      "caps": 43,
      "goals": 1,
      "club_en": "Atalanta",
-     "zh": "德容恩",
+     "zh": "德罗恩",
      "club_zh": "亚特兰大"
     },
     {
@@ -2795,7 +2784,7 @@
      "caps": 84,
      "goals": 11,
      "club_en": "Atalanta",
-     "zh": "帕萨利奇",
+     "zh": "帕沙利奇",
      "club_zh": "亚特兰大"
     },
     {
@@ -3087,7 +3076,7 @@
      "caps": 10,
      "goals": 0,
      "club_en": "Palmeiras",
-     "zh": "埃米里亚诺·马丁内斯",
+     "zh": "埃米利亚诺·马丁内斯",
      "club_zh": "帕尔梅拉斯"
     },
     {
