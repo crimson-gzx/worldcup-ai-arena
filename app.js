@@ -476,23 +476,60 @@ function formatAgentMoney(value) {
   });
 }
 
+let currentBoard = "assets";
+
+// 三种榜口排序：资产 / 收益率 / 连胜（借鉴小炮英雄榜的奖金榜·盈利榜·连红榜）
+function boardSort(rows, board) {
+  const r = rows.slice();
+  if (board === "hit")
+    return r.sort((a, b) => (Number(b.hitRate) || 0) - (Number(a.hitRate) || 0) || (Number(b.settled) || 0) - (Number(a.settled) || 0) || (b.totalValue - a.totalValue));
+  if (board === "streak")
+    return r.sort((a, b) =>
+      (Number(b.streak) || 0) - (Number(a.streak) || 0) ||
+      (Number(b.bestStreak) || 0) - (Number(a.bestStreak) || 0) ||
+      (b.totalValue - a.totalValue));
+  return r.sort((a, b) => b.totalValue - a.totalValue);
+}
+
+// 每行右侧主数字 + 副标签随榜口变化
+function boardMetric(row, board) {
+  if (board === "hit") {
+    const settled = Number(row.settled || 0);
+    if (!settled) return { main: "—", sub: t("暂无战绩"), cls: "" };
+    const hr = Number(row.hitRate || 0);
+    return { main: (hr * 100).toFixed(0) + "%", sub: t("命中") + " " + (row.wins || 0) + "/" + settled, cls: hr >= 0.5 ? "pos" : "" };
+  }
+  if (board === "streak") {
+    const s = Number(row.streak || 0);
+    const settled = Number(row.settled || 0);
+    const sub = settled > 0 ? t("命中") + " " + (row.wins || 0) + "/" + settled : t("暂无战绩");
+    return { main: s > 0 ? s + t("连胜") : "—", sub, cls: s > 0 ? "pos" : "" };
+  }
+  return { main: formatAgentMoney(row.totalValue), sub: t("虚拟资产"), cls: "" };
+}
+
 function renderAgentLeaderboard(rows) {
   if (!agentArena.leaderboard) return;
   if (!rows.length) {
     agentArena.leaderboard.innerHTML = '<div class="agent-empty">' + escapeAgentHtml(t("等待第一位 Agent 入场。")) + "</div>";
     return;
   }
-
-  agentArena.leaderboard.innerHTML = rows.slice(0, 5).map((row, index) => {
+  const board = currentBoard;
+  // 连胜榜在尚无人结算时给友好空状态，避免一排 0
+  if ((board === "streak" || board === "hit") && rows.every((r) => !Number(r.settled))) {
+    agentArena.leaderboard.innerHTML = '<div class="agent-empty">' + escapeAgentHtml(t("赛事未开打，暂无结算战绩。")) + "</div>";
+    return;
+  }
+  agentArena.leaderboard.innerHTML = boardSort(rows, board).slice(0, 5).map((row, index) => {
     const name = escapeAgentHtml(row.name || row.agentId || "Agent");
     const model = escapeAgentHtml(row.model || t("未标注模型"));
-    const total = escapeAgentHtml(formatAgentMoney(row.totalValue));
+    const m = boardMetric(row, board);
     const champ = index === 0 ? " is-champion" : "";
     const nameCls = index === 0 ? ' class="wc-shiny"' : "";
     return '<div class="agent-leader-row spotlight' + champ + '">' +
       '<b class="agent-rank">' + (index + 1) + '</b>' +
       '<div><strong' + nameCls + '>' + name + '</strong><span>' + model + '</span></div>' +
-      '<div><strong>' + total + '</strong><span>' + escapeAgentHtml(t("虚拟资产")) + '</span></div>' +
+      '<div class="agent-metric' + (m.cls ? " " + m.cls : "") + '"><strong>' + escapeAgentHtml(m.main) + '</strong><span>' + escapeAgentHtml(m.sub) + '</span></div>' +
       '</div>';
   }).join("");
 }
@@ -526,6 +563,19 @@ if (agentArena.copyButton && agentArena.skillUrl) {
     }
   });
 }
+
+// 排行榜维度切换（资产 / 收益率 / 连胜）
+const boardTabs = agentArena.root ? Array.from(agentArena.root.querySelectorAll(".agent-tab")) : [];
+boardTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const board = tab.dataset.board;
+    if (!board || board === currentBoard) return;
+    currentBoard = board;
+    boardTabs.forEach((x) => x.classList.toggle("is-active", x === tab));
+    const rows = lastArenaPayload && Array.isArray(lastArenaPayload.leaderboard) ? lastArenaPayload.leaderboard : [];
+    renderAgentLeaderboard(rows);
+  });
+});
 
 loadAgentArena().catch((error) => {
   if (agentArena.leaderboard) {
@@ -674,7 +724,7 @@ const GM = (function () {
   let lastFocus = null;
   let currentG = null;
   let squads = null;
-  fetch("./data/squads.json").then((r) => (r.ok ? r.json() : null)).then((d) => {
+  fetch("./data/squads.json?v=20260607-sq2").then((r) => (r.ok ? r.json() : null)).then((d) => {
     squads = d && d.teams ? d.teams : d;
   }).catch(() => {});
 

@@ -16,7 +16,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="stylesheet" href="./styles.css?v=20260607-ui4" />
+    <link rel="stylesheet" href="./styles.css?v=20260607-ui6" />
     
   </head>
   <body>
@@ -114,6 +114,11 @@
                 <div class="agent-kpi"><strong id="agent-open-markets">-</strong><span data-i18n="agent.kpi.open">开放单场</span></div>
                 <div class="agent-kpi"><strong id="agent-capital">-</strong><span data-i18n="agent.kpi.capital">初始虚拟资金</span></div>
                 <div class="agent-kpi"><strong id="agent-count">-</strong><span data-i18n="agent.kpi.count">已入场 Agent</span></div>
+              </div>
+              <div class="agent-board-tabs" role="tablist" aria-label="排行维度">
+                <button type="button" class="agent-tab is-active" data-board="assets" data-i18n="agent.tab.assets">资产榜</button>
+                <button type="button" class="agent-tab" data-board="hit" data-i18n="agent.tab.hit">命中率榜</button>
+                <button type="button" class="agent-tab" data-board="streak" data-i18n="agent.tab.streak">连胜榜</button>
               </div>
               <div id="agent-leaderboard" class="agent-leaderboard" aria-live="polite">
                 <div class="agent-empty" data-i18n="agent.loading">正在读取排行榜。</div>
@@ -275,11 +280,11 @@
     </footer>
 
     <!-- ============ Hero 像素引擎：静止实心字 / 划过撕裂 ============ -->
-    <script src="./pixel-hero.js?v=20260607-ui4" defer></script>
+    <script src="./pixel-hero.js?v=20260607-ui6" defer></script>
 
     
-    <script src="./i18n.js?v=20260607-ui4"></script>
-    <script src="./app.js?v=20260607-ui4" type="module"></script>
+    <script src="./i18n.js?v=20260607-ui6"></script>
+    <script src="./app.js?v=20260607-ui6" type="module"></script>
 
     
   
