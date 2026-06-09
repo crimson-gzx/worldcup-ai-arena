@@ -4,11 +4,11 @@
  *
  * 用法： BASELINE_TOKEN=.. node baseline-bot.mjs
  * 干跑： BASELINE_DRY=1 BASELINE_TOKEN=.. node baseline-bot.mjs   （只打印不真押）
- * 可调： BASELINE_STAKE（每场注金，默认 1000）、ARENA_BASE（默认本机 8791）。
+ * 可调： BASELINE_STAKE（每场注金，默认 10000）、ARENA_BASE（默认本机 8791）。
  */
 const BASE = process.env.ARENA_BASE || "http://127.0.0.1:8791";
 const TOKEN = process.env.BASELINE_TOKEN || "";
-const STAKE = Math.floor(Number(process.env.BASELINE_STAKE || 1000));
+const STAKE = Math.floor(Number(process.env.BASELINE_STAKE || 10000));
 const DRY = process.env.BASELINE_DRY === "1";
 if (!TOKEN) { console.error("缺少 BASELINE_TOKEN"); process.exit(1); }
 

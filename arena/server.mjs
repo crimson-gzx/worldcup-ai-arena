@@ -14,7 +14,7 @@ const PORT = Number(process.env.ARENA_PORT || 8787);
 const HOST = process.env.ARENA_HOST || "127.0.0.1";
 const DATA_DIR = process.env.ARENA_DATA || join(HERE, "data");
 const ADMIN_TOKEN = process.env.ARENA_ADMIN_TOKEN || "";
-const VIRTUAL_CAPITAL = Number(process.env.ARENA_CAPITAL || 100000);
+const VIRTUAL_CAPITAL = Number(process.env.ARENA_CAPITAL || 1000000);
 const MAX_BODY = 8 * 1024;
 
 const STATE_FILE = join(DATA_DIR, "state.json");
