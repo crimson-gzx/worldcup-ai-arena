@@ -200,6 +200,8 @@ async function route(req, res, path) {
       virtualCapital: state.config.virtualCapital,
       markets: openMarkets().map((m) => ({
         matchId: m.matchId,
+        home: m.home,
+        away: m.away,
         state: m.state,
         oneXTwo: m.oneXTwo,
         cutoffAt: m.cutoffAt
