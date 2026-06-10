@@ -198,7 +198,7 @@ function cardHtml(match) {
     : t("待接入");
   return `
     <div class="match-card-wrap">
-    <button class="match-card${selected}" data-match-id="${match.id}" type="button">
+    <button class="match-card spotlight${selected}" data-match-id="${match.id}" type="button">
       <span class="match-meta">
         <span>${tRound(match.round)}</span>
         <span>${match.kickoff}</span>
@@ -1018,4 +1018,253 @@ function computeAdvanceProb() {
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
   btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+})();
+
+/* ===================== 视觉增强 II：全站铺开 ===================== */
+
+// 标题金光：错开节拍，依次掠过各 section 标题（muster 竖排标题结构特殊，跳过）
+document.querySelectorAll(".section-heading h2").forEach((el, i) => {
+  if (el.classList.contains("muster-title")) return;
+  el.classList.add("wc-shiny-h");
+  el.style.animationDelay = `${i * 1.2}s`;
+});
+
+// 赔率数字滚动：进入视口时从 0 滚到位（仅纯数字/百分比，亚盘文字盘口跳过）
+const fxNumRe = /^[-+]?\d+(?:\.\d+)?%?$/;
+let fxOddsIO = null;
+function fxRollNumbers(root) {
+  if (prefersReduced || !root || !("IntersectionObserver" in window)) return;
+  if (!fxOddsIO) {
+    fxOddsIO = new IntersectionObserver((entries, obs) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        obs.unobserve(e.target);
+        const raw = e.target.dataset.fxTarget || "";
+        const isPct = raw.endsWith("%");
+        const dec = (raw.replace("%", "").split(".")[1] || "").length;
+        animateNumber(e.target, parseFloat(raw), {
+          dur: 900,
+          fmt: (n) => n.toFixed(dec) + (isPct ? "%" : "")
+        });
+      });
+    }, { threshold: 0.6 });
+  }
+  root.querySelectorAll(".o-val").forEach((el) => {
+    if (el.dataset.fxTarget) return;
+    const text = el.textContent.trim();
+    if (!fxNumRe.test(text)) return;
+    el.dataset.fxTarget = text;
+    el.textContent = (0).toFixed((text.replace("%", "").split(".")[1] || "").length) + (text.endsWith("%") ? "%" : "");
+    fxOddsIO.observe(el);
+  });
+}
+
+// 赔率涨跌闪：与上次访问对比（localStorage），涨绿跌红泛两下
+function fxFlashOddsDiff() {
+  if (prefersReduced || !state.matches.length) return;
+  let seen = {};
+  try { seen = JSON.parse(localStorage.getItem("wc.odds.seen") || "{}"); } catch { /* 损坏即重建 */ }
+  const next = {};
+  state.matches.forEach((m) => {
+    const o = m.offshore?.oneXTwo;
+    if (hasOneXTwo(o)) next[m.id] = [o.home, o.draw, o.away];
+  });
+  document.querySelectorAll(".match-card[data-match-id]").forEach((card) => {
+    const prev = seen[card.dataset.matchId];
+    const cur = next[card.dataset.matchId];
+    if (!prev || !cur) return;
+    const cells = card.querySelectorAll(".odds-1x2 .o-cell");
+    cur.forEach((v, i) => {
+      if (!Number.isFinite(prev[i]) || !cells[i] || v === prev[i]) return;
+      cells[i].classList.add(v > prev[i] ? "fx-up" : "fx-down");
+    });
+  });
+  try { localStorage.setItem("wc.odds.seen", JSON.stringify(next)); } catch { /* 隐私模式忽略 */ }
+}
+
+// 动态渲染区（卡片列表 / 单场详情）每次重建后自动接管新数字
+(() => {
+  if (!("MutationObserver" in window)) return;
+  let queued = false;
+  let flashed = false;
+  const onChange = () => {
+    if (queued) return;
+    queued = true;
+    queueMicrotask(() => {
+      queued = false;
+      fxRollNumbers(document.querySelector("main") || document.body);
+      if (!flashed && state.matches.length && selectors.matchList?.querySelector(".match-card")) {
+        flashed = true;
+        fxFlashOddsDiff();
+      }
+    });
+  };
+  const mo = new MutationObserver((muts) => {
+    // 数字滚动本身每帧都在改 .o-val 文本，过滤掉避免自激
+    if (muts.every((m) => m.target.closest && m.target.closest(".o-val"))) return;
+    onChange();
+  });
+  mo.observe(document.querySelector("main") || document.body, { childList: true, subtree: true });
+  onChange();
+})();
+
+/* ===================== 视觉增强 III：流体金雾 / 乱码解密 / 3D 卡片 / 像素火花 ===================== */
+
+// Hero 流体金雾：域扭曲 fbm 噪声 shader，暗金雾在像素画布下层流动
+(() => {
+  if (prefersReduced) return;
+  const hero = document.querySelector(".hero");
+  if (!hero) return;
+  const cv = document.createElement("canvas");
+  cv.className = "hero-shader";
+  cv.setAttribute("aria-hidden", "true");
+  const gl = cv.getContext("webgl", { alpha: true, antialias: false });
+  if (!gl) return; // 无 WebGL 保持原 hero-glow 背景
+  hero.prepend(cv);
+
+  const VERT = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  const FRAG = `
+precision mediump float;
+uniform float u_t;uniform vec2 u_r;
+float h(vec2 p){return fract(sin(dot(p,vec2(41.3,289.1)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+  return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}
+float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p*=2.03;a*=.5;}return v;}
+void main(){
+  vec2 uv=gl_FragCoord.xy/u_r;
+  vec2 p=uv*vec2(u_r.x/u_r.y,1.)*2.4;
+  float t=u_t*.05;
+  vec2 q=vec2(fbm(p+t),fbm(p+vec2(5.2,1.3)-t));
+  vec2 r=vec2(fbm(p+2.4*q+vec2(1.7,9.2)+t*1.5),fbm(p+2.4*q+vec2(8.3,2.8)-t*1.2));
+  float f=fbm(p+2.4*r);
+  float glow=smoothstep(.46,1.,f);
+  vec3 gold=vec3(.94,.78,.35);
+  vec3 ember=vec3(.5,.32,.1);
+  vec3 col=mix(ember,gold,glow);
+  float a=glow*glow*.34;
+  a*=smoothstep(0.,.22,uv.y)*smoothstep(1.04,.5,uv.y); // 上下渐隐，别压导航和分界线
+  gl_FragColor=vec4(col*a,a);
+}`;
+  const sh = (type, src) => {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+  };
+  const vs = sh(gl.VERTEX_SHADER, VERT);
+  const fs = sh(gl.FRAGMENT_SHADER, FRAG);
+  if (!vs || !fs) { cv.remove(); return; }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, "p");
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const uT = gl.getUniformLocation(prog, "u_t");
+  const uR = gl.getUniformLocation(prog, "u_r");
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+  const SCALE = 0.35; // 降采样渲染，CSS 拉伸，省 GPU
+  const fit = () => {
+    cv.width = Math.max(2, (hero.clientWidth * SCALE) | 0);
+    cv.height = Math.max(2, (hero.clientHeight * SCALE) | 0);
+    gl.viewport(0, 0, cv.width, cv.height);
+  };
+  fit();
+  window.addEventListener("resize", fit, { passive: true });
+
+  let heroVisible = true;
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((es) => { heroVisible = es.some((e) => e.isIntersecting); }).observe(hero);
+  }
+  const frame = (now) => {
+    if (heroVisible && !document.hidden) {
+      gl.uniform1f(uT, now / 1000);
+      gl.uniform2f(uR, cv.width, cv.height);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+})();
+
+// 标题乱码解密：进入视口时谍战终端式逐字破译（全角/半角分集，避免宽度抖动）
+(() => {
+  if (prefersReduced || !("IntersectionObserver" in window)) return;
+  const WIDE = "█▓▒░◆◈▣◉";
+  const SLIM = "<>/\\=+*#01";
+  const isWide = (c) => c.charCodeAt(0) > 0x2e7f;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      const el = e.target;
+      const orig = el.dataset.fxText;
+      const total = Math.max(16, orig.length * 4);
+      let frame = 0;
+      const tick = () => {
+        frame += 1;
+        const reveal = Math.floor((frame / total) * orig.length);
+        if (reveal >= orig.length) { el.textContent = orig; return; }
+        el.textContent = orig.slice(0, reveal) + [...orig.slice(reveal)]
+          .map((c) => {
+            if (c === " ") return " ";
+            const pool = isWide(c) ? WIDE : SLIM;
+            return pool[(Math.random() * pool.length) | 0];
+          })
+          .join("");
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.7 });
+  document.querySelectorAll(".section-heading h2:not(.muster-title), .hero-tag .eyebrow").forEach((el) => {
+    const text = el.textContent.trim();
+    if (!text || el.children.length) return; // 只处理纯文本节点
+    el.dataset.fxText = text;
+    io.observe(el);
+  });
+})();
+
+// 比赛卡片 3D 倾斜：hover 跟手立体转动，离开回弹
+(() => {
+  if (prefersReduced || window.matchMedia("(hover: none)").matches) return;
+  const MAX = 7; // 最大倾角（度）
+  document.addEventListener("pointermove", (event) => {
+    const card = event.target.closest && event.target.closest(".match-card");
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    const x = (event.clientX - r.left) / r.width - 0.5;
+    const y = (event.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `rotateX(${(-y * MAX).toFixed(2)}deg) rotateY(${(x * MAX).toFixed(2)}deg) translateZ(6px)`;
+  }, { passive: true });
+  document.addEventListener("pointerout", (event) => {
+    const card = event.target.closest && event.target.closest(".match-card");
+    if (!card || (event.relatedTarget && card.contains(event.relatedTarget))) return;
+    card.style.transform = "";
+  }, { passive: true });
+})();
+
+// 点击迸金色像素火花：呼应像素信号场
+(() => {
+  if (prefersReduced) return;
+  document.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    for (let i = 0; i < 9; i++) {
+      const s = document.createElement("i");
+      s.className = "fx-spark";
+      const ang = Math.random() * Math.PI * 2;
+      const dist = 16 + Math.random() * 30;
+      const size = 3 + ((Math.random() * 3) | 0);
+      s.style.cssText = `left:${event.clientX}px;top:${event.clientY}px;width:${size}px;height:${size}px;--dx:${(Math.cos(ang) * dist).toFixed(1)}px;--dy:${(Math.sin(ang) * dist).toFixed(1)}px;`;
+      document.body.appendChild(s);
+      s.addEventListener("animationend", () => s.remove());
+      window.setTimeout(() => s.remove(), 900); // animationend 兜底
+    }
+  }, { passive: true });
 })();

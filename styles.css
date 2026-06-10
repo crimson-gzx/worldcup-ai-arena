@@ -1990,3 +1990,111 @@ body.gm-open { overflow: hidden; }
 .data-freshness:empty{display:none}
 .data-freshness .fresh-dot{margin:0 8px;opacity:.4;font-style:normal}
 .data-freshness .fresh-stale{color:#e08a4b}
+
+/* ===================== 视觉增强 II：全站铺开 ===================== */
+
+/* ⑥ 比赛卡片光晕：卡片背景不透明，::before 在背后看不见，改用上层光罩 */
+.match-card { position: relative; }
+.match-card.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%),
+    var(--accent-soft), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.match-card.spotlight:hover::after { opacity: 1; }
+
+/* ⑦ 标题金光：平时原色，周期性一道金光掠过（区别于常金的 .wc-shiny） */
+@keyframes wc-shine-sweep {
+  0% { background-position: 200% center; }
+  45% { background-position: -200% center; }
+  100% { background-position: -200% center; }
+}
+.wc-shiny-h {
+  background: linear-gradient(100deg,
+    var(--ink) 42%, var(--accent-bright) 50%, var(--ink) 58%);
+  background-size: 250% auto;
+  background-position: 200% center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: wc-shine-sweep 8s ease-in-out infinite;
+}
+
+/* ⑧ Hero CRT 扫描线：一道金色亮线周期性掠过像素信号场 */
+@keyframes wc-scan {
+  0% { top: -4%; opacity: 0; }
+  6% { opacity: 0.5; }
+  42% { opacity: 0.5; }
+  55% { top: 104%; opacity: 0; }
+  100% { top: 104%; opacity: 0; }
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -4%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent, var(--accent) 30%, var(--accent-bright) 50%, var(--accent) 70%, transparent);
+  box-shadow: 0 0 16px 2px var(--accent-soft);
+  pointer-events: none;
+  animation: wc-scan 9s linear infinite;
+}
+
+/* ⑨ 赔率涨跌闪：与上次访问对比，涨绿跌红泛两下 */
+@keyframes wc-odds-up {
+  0%, 100% { background: transparent; box-shadow: none; }
+  30% { background: rgba(64, 200, 120, 0.16); box-shadow: 0 0 10px rgba(64, 200, 120, 0.3); }
+}
+@keyframes wc-odds-down {
+  0%, 100% { background: transparent; box-shadow: none; }
+  30% { background: rgba(224, 96, 96, 0.16); box-shadow: 0 0 10px rgba(224, 96, 96, 0.3); }
+}
+.o-cell.fx-up { border-radius: 4px; animation: wc-odds-up 1.6s ease 0.5s 2; }
+.o-cell.fx-down { border-radius: 4px; animation: wc-odds-down 1.6s ease 0.5s 2; }
+
+/* ⑩ Hero 流体金雾：WebGL 域扭曲噪声，垫在像素画布之下 */
+.hero-shader {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+html[data-theme="light"] .hero-shader { display: none; }
+
+/* ⑪ 卡片 3D 倾斜：透视容器在 wrap，倾斜作用在卡片本体 */
+.match-card-wrap { perspective: 950px; }
+.match-card { transform-style: preserve-3d; will-change: transform; }
+
+/* ⑫ 点击金色像素火花 */
+.fx-spark {
+  position: fixed;
+  z-index: 999;
+  pointer-events: none;
+  background: var(--accent-bright);
+  box-shadow: 0 0 6px var(--accent-soft);
+  animation: wc-spark 0.55s ease-out forwards;
+}
+@keyframes wc-spark {
+  0% { opacity: 1; transform: translate(-50%, -50%); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .match-card.spotlight::after { transition: none; opacity: 0; }
+  .wc-shiny-h { animation: none; background: none; -webkit-text-fill-color: currentColor; color: inherit; }
+  .hero::after { animation: none; opacity: 0; }
+  .o-cell.fx-up, .o-cell.fx-down { animation: none; }
+  .hero-shader { display: none; }
+  .fx-spark { animation: none; display: none; }
+}
