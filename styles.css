@@ -1475,7 +1475,7 @@ tr:last-child td {
 
 .agent-kpis {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr 1.4fr 1fr;
   gap: 10px;
 }
 
@@ -1491,8 +1491,10 @@ tr:last-child td {
 .agent-kpi strong {
   color: var(--ink);
   font-family: var(--mono);
-  font-size: clamp(18px, 2.4vw, 26px);
+  font-size: clamp(14px, 2.4vw, 26px);
   line-height: 1;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .agent-kpi span {
