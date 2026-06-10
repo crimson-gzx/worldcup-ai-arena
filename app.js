@@ -102,9 +102,17 @@ function signalText(match) {
   return match.tags.includes("knockout") ? t("赛程席位待定") : t("真实赛程");
 }
 
+function labeledOdds(pairs) {
+  const cells = pairs
+    .map(([lab, val]) => `<span class="o-cell"><span class="o-lab">${lab || "&nbsp;"}</span><span class="o-val">${val}</span></span>`)
+    .join(`<span class="o-sep">/</span>`);
+  return `<strong class="odds-1x2">${cells}</strong>`;
+}
+
 function oddsLine(match) {
   const o = match.offshore?.oneXTwo;
-  return hasOneXTwo(o) ? `${o.home} / ${o.draw} / ${o.away}` : t("待开盘");
+  if (!hasOneXTwo(o)) return `<strong>${t("待开盘")}</strong>`;
+  return labeledOdds([[t("胜"), o.home], [t("平"), o.draw], [t("负"), o.away]]);
 }
 
 function sortedMatches() {
@@ -159,7 +167,7 @@ function renderVoteBar(match) {
         ${btn("away", tTeam(match.away))}
       </div>
       <div class="vote-results">
-        ${voteRow(t("人群"), crowd, t("票"))}
+        ${voteRow(t("人类"), crowd, t("票"))}
         ${voteRow("AI", ai, t("注"))}
       </div>
     </div>`;
@@ -204,7 +212,7 @@ function cardHtml(match) {
       <span class="metric-stack">
         <span class="metric-row">
           <span>${t("欧赔")}</span>
-          <strong>${oddsLine(match)}</strong>
+          ${oddsLine(match)}
         </span>
         <span class="metric-row">
           <span>${t("预期进球")}</span>
@@ -291,11 +299,12 @@ function probabilityRows(match) {
   ];
 
   return rows
-    .map(([label, lotteryProb, offshoreProb, modelProb]) => {
+    .map(([label, lotteryProb, offshoreProb, modelProb], i) => {
+      const h = i === 0 ? [t("竞彩"), t("海外"), t("模型")] : ["", "", ""];
       return `
         <div class="model-row">
           <span>${label}</span>
-          <strong>${percent(lotteryProb)} / ${percent(offshoreProb)} / ${percent(modelProb)}</strong>
+          ${labeledOdds([[h[0], percent(lotteryProb)], [h[1], percent(offshoreProb)], [h[2], percent(modelProb)]])}
         </div>
       `;
     })
@@ -328,13 +337,15 @@ function renderLotteryBlock(match) {
   }
 
   const lottery = impliedProbabilities(match.lottery.oneXTwo);
+  const lo = match.lottery.oneXTwo;
+  const hc = match.lottery.handicap;
   return `
     <section class="detail-block">
       <h3>${t("竞彩固定奖金")}</h3>
-      <div class="odds-line"><span>${t("胜平负")}</span><strong>${match.lottery.oneXTwo.home} / ${match.lottery.oneXTwo.draw} / ${match.lottery.oneXTwo.away}</strong></div>
-      <div class="odds-line"><span>${t("去水概率")}</span><strong>${percent(lottery.fair.home)} / ${percent(lottery.fair.draw)} / ${percent(lottery.fair.away)}</strong></div>
+      <div class="odds-line"><span>${t("胜平负")}</span>${labeledOdds([[t("胜"), lo.home], [t("平"), lo.draw], [t("负"), lo.away]])}</div>
+      <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(lottery.fair.home)], [t("平"), percent(lottery.fair.draw)], [t("负"), percent(lottery.fair.away)]])}</div>
       <div class="odds-line"><span>${t("返还率")}</span><strong>${percent(lottery.returnRate)}</strong></div>
-      <div class="odds-line"><span>${t("让球")} ${match.lottery.handicap.line}</span><strong>${match.lottery.handicap.home} / ${match.lottery.handicap.draw} / ${match.lottery.handicap.away}</strong></div>
+      <div class="odds-line"><span>${t("让球")} ${hc.line}</span>${labeledOdds([[t("胜"), hc.home], [t("平"), hc.draw], [t("负"), hc.away]])}</div>
     </section>
   `;
 }
@@ -350,13 +361,15 @@ function renderOffshoreBlock(match) {
   }
 
   const offshore = impliedProbabilities(match.offshore.oneXTwo);
+  const o = match.offshore.oneXTwo;
+  const v = (m, k) => m?.[k] ?? t("待接入");
   return `
     <section class="detail-block">
       <h3>${t("海外市场均值")}</h3>
-      <div class="odds-line"><span>${t("欧赔")}</span><strong>${match.offshore.oneXTwo.home} / ${match.offshore.oneXTwo.draw} / ${match.offshore.oneXTwo.away}</strong></div>
-      <div class="odds-line"><span>${t("去水概率")}</span><strong>${percent(offshore.fair.home)} / ${percent(offshore.fair.draw)} / ${percent(offshore.fair.away)}</strong></div>
-      <div class="odds-line"><span>${t("亚盘")} ${marketLineLabel(match.offshore.asian)}</span><strong>${marketLine(match.offshore.asian, ["home", "away"])}</strong></div>
-      <div class="odds-line"><span>${t("大小")} ${marketLineLabel(match.offshore.totals)}</span><strong>${marketLine(match.offshore.totals, ["over", "under"])}</strong></div>
+      <div class="odds-line"><span>${t("欧赔")}</span>${labeledOdds([[t("胜"), o.home], [t("平"), o.draw], [t("负"), o.away]])}</div>
+      <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(offshore.fair.home)], [t("平"), percent(offshore.fair.draw)], [t("负"), percent(offshore.fair.away)]])}</div>
+      <div class="odds-line"><span>${t("亚盘")} ${marketLineLabel(match.offshore.asian)}</span>${labeledOdds([[t("主"), v(match.offshore.asian, "home")], [t("客"), v(match.offshore.asian, "away")]])}</div>
+      <div class="odds-line"><span>${t("大小")} ${marketLineLabel(match.offshore.totals)}</span>${labeledOdds([[t("大"), v(match.offshore.totals, "over")], [t("小"), v(match.offshore.totals, "under")]])}</div>
     </section>
   `;
 }
@@ -996,3 +1009,13 @@ function computeAdvanceProb() {
     });
   }
 }
+
+// 回到顶部
+(() => {
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+  const onScroll = () => btn.classList.toggle("is-visible", window.scrollY > 600);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+})();

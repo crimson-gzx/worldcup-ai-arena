@@ -23,7 +23,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="stylesheet" href="./styles.css?v=20260607-ui7" />
+    <link rel="stylesheet" href="./styles.css?v=20260610-ui8" />
     
   </head>
   <body>
@@ -58,7 +58,7 @@
     </header>
 
     <main>
-      <section class="hero" id="top" aria-labelledby="hero-title">
+      <section class="hero" id="top" aria-label="World Cup 2026">
         <div class="hero-inner">
           <div class="hero-tag">
             <span class="dot" aria-hidden="true"></span>
@@ -68,7 +68,6 @@
             <canvas class="pixel-hero" id="pixel-hero" data-cell="6" aria-hidden="true"></canvas>
           </div>
           <div class="hero-copy">
-            <h2 id="hero-title"><span data-i18n="hero.title.a">把赔率当成</span><em data-i18n="hero.title.em">市场信号</em><span data-i18n="hero.title.b">，而不是答案。</span></h2>
             <p data-i18n="hero.lead">
               赛前研究台：去水概率、盘口异动、模型预测和临场变量，都收进同一张视图里。
             </p>
@@ -192,48 +191,11 @@
         </div>
       </section>
 
-      <section id="glossary" class="block">
-        <div class="shell">
-          <div class="section-heading">
-            <span class="sec-index">04</span>
-            <p class="eyebrow" data-i18n="glossary.eyebrow">术语库</p>
-            <h2 data-i18n="glossary.h2">盘口术语库</h2>
-            <p data-i18n="glossary.lead">先把专业感立起来，后续每个术语都可以扩成搜索内容。</p>
-          </div>
-          <div class="glossary-grid">
-            <article>
-              <h3 data-i18n="glossary.t1.h">隐含概率</h3>
-              <p data-i18n="glossary.t1.p">把赔率或固定奖金换算成概率，公式为 1 / 赔率。未去水前会包含庄家利润或发行管理空间。</p>
-            </article>
-            <article>
-              <h3 data-i18n="glossary.t2.h">去水概率</h3>
-              <p data-i18n="glossary.t2.p">将胜平负三项隐含概率归一化，得到更接近市场真实预期的概率结构。</p>
-            </article>
-            <article>
-              <h3 data-i18n="glossary.t3.h">返还率</h3>
-              <p data-i18n="glossary.t3.p">用于观察市场价格的理论回报空间。返还率越低，内含成本越高。</p>
-            </article>
-            <article>
-              <h3 data-i18n="glossary.t4.h">凯利温度</h3>
-              <p data-i18n="glossary.t4.p">用模型概率和市场价格估算方向热度，只做研究指标，不给出投注仓位建议。</p>
-            </article>
-            <article>
-              <h3 data-i18n="glossary.t5.h">临场变盘</h3>
-              <p data-i18n="glossary.t5.p">开赛前赔率或盘口突然变化，可能来自伤停确认、阵容公布、资金流向或风险控制。</p>
-            </article>
-            <article>
-              <h3 data-i18n="glossary.t6.h">冷热指数</h3>
-              <p data-i18n="glossary.t6.p">衡量公众倾向与价格变化是否一致。热门队低赔继续下探时，需要警惕名气溢价。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
 
       <section id="muster" class="block">
         <div class="shell muster-shell">
           <div class="muster-side">
-            <span class="sec-index">05</span>
+            <span class="sec-index">04</span>
             <h2 class="muster-title" aria-label="48 强巡礼">
               <span class="muster-num wc-shiny">48</span>
               <span class="muster-word" data-i18n="muster.word">强巡礼</span>
@@ -252,6 +214,60 @@
             <button class="gm-close" type="button" data-gm-close aria-label="关闭 / Close">✕</button>
             <div class="gm-body"></div>
           </div>
+        </div>
+      </section>
+
+      <section id="glossary" class="block">
+        <div class="shell">
+          <details class="glossary-fold">
+            <summary class="section-heading">
+              <span class="sec-index">05</span>
+              <p class="eyebrow" data-i18n="glossary.eyebrow">术语库</p>
+              <h2 data-i18n="glossary.h2">盘口术语库</h2>
+            </summary>
+            <div class="glossary-grid">
+              <article>
+                <h3 data-i18n="glossary.t7.h">欧赔（1×2）</h3>
+                <p data-i18n="glossary.t7.p">欧洲赔率，对主胜、平局、客胜三种结果分别定价；赔率越低，代表市场认为越可能发生。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t8.h">亚盘（让球盘）</h3>
+                <p data-i18n="glossary.t8.p">用让球数抹平两队强弱，让强队“背”上半球或一球，使双方下注更均衡；让球幅度反映市场对实力差距的判断。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t9.h">大小球</h3>
+                <p data-i18n="glossary.t9.p">只赌两队总进球数高于或低于某条盘线（如 2.5 球），与谁胜谁负无关，反映对比赛节奏与攻防的预期。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t10.h">水位（赔付）</h3>
+                <p data-i18n="glossary.t10.p">亚盘或大小球两边的赔率高低。水位升降透露资金往哪一边走，是盘口异动的关键信号。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t1.h">隐含概率</h3>
+                <p data-i18n="glossary.t1.p">把赔率或固定奖金换算成概率，公式为 1 / 赔率。未去水前会包含庄家利润或发行管理空间。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t2.h">去水概率</h3>
+                <p data-i18n="glossary.t2.p">将胜平负三项隐含概率归一化，得到更接近市场真实预期的概率结构。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t3.h">返还率</h3>
+                <p data-i18n="glossary.t3.p">用于观察市场价格的理论回报空间。返还率越低，内含成本越高。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t4.h">凯利温度</h3>
+                <p data-i18n="glossary.t4.p">用模型概率和市场价格估算方向热度，只做研究指标，不给出投注仓位建议。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t5.h">临场变盘</h3>
+                <p data-i18n="glossary.t5.p">开赛前赔率或盘口突然变化，可能来自伤停确认、阵容公布、资金流向或风险控制。</p>
+              </article>
+              <article>
+                <h3 data-i18n="glossary.t6.h">冷热指数</h3>
+                <p data-i18n="glossary.t6.p">衡量公众倾向与价格变化是否一致。热门队低赔继续下探时，需要警惕名气溢价。</p>
+              </article>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -287,12 +303,14 @@
       </div>
     </footer>
 
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="回到顶部 / Back to top"></button>
+
     <!-- ============ Hero 像素引擎：静止实心字 / 划过撕裂 ============ -->
-    <script src="./pixel-hero.js?v=20260607-ui7" defer></script>
+    <script src="./pixel-hero.js?v=20260610-ui8" defer></script>
 
     
-    <script src="./i18n.js?v=20260607-ui7"></script>
-    <script src="./app.js?v=20260607-ui7" type="module"></script>
+    <script src="./i18n.js?v=20260610-ui8"></script>
+    <script src="./app.js?v=20260610-ui8" type="module"></script>
 
     
   

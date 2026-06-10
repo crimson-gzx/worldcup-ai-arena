@@ -727,6 +727,77 @@ section.block {
   line-height: 1.7;
 }
 
+/* ---------- 术语库折叠 ---------- */
+.glossary-fold > summary {
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 0;
+}
+.glossary-fold > summary::-webkit-details-marker {
+  display: none;
+}
+.glossary-fold > summary::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.glossary-fold[open] > summary::after {
+  transform: rotate(-135deg);
+}
+.glossary-fold > summary:hover h2 {
+  color: var(--accent);
+}
+.glossary-fold[open] > summary {
+  margin-bottom: 28px;
+}
+.glossary-fold:not([open]) .glossary-grid {
+  display: none;
+}
+
+/* ---------- 回到顶部 ---------- */
+.back-to-top {
+  position: fixed;
+  right: clamp(18px, 4vw, 40px);
+  bottom: clamp(18px, 4vw, 40px);
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--accent);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s ease;
+  z-index: 50;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  border-color: var(--accent);
+}
+.back-to-top::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg) translateY(2px);
+}
+
 /* ---------- 筛选 chips ---------- */
 .toolbar {
   display: flex;
@@ -1052,6 +1123,29 @@ section.block {
   font-size: 17px;
   font-weight: 700;
   color: var(--ink);
+}
+
+.odds-1x2 {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.odds-1x2 .o-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.05;
+}
+.odds-1x2 .o-lab {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.odds-1x2 .o-sep {
+  color: var(--line);
 }
 
 .bar {
