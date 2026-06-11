@@ -1180,11 +1180,11 @@ function fxRollNumbers(root) {
     }, { threshold: 0.6 });
   }
   root.querySelectorAll(".o-val").forEach((el) => {
+    if (!el.closest(".match-card")) return;
     if (el.dataset.fxTarget) return;
     const text = el.textContent.trim();
     if (!fxNumRe.test(text)) return;
     el.dataset.fxTarget = text;
-    el.textContent = (0).toFixed((text.replace("%", "").split(".")[1] || "").length) + (text.endsWith("%") ? "%" : "");
     fxOddsIO.observe(el);
   });
 }
