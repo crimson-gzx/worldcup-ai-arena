@@ -764,7 +764,7 @@ const GM = (function () {
   function ensureSquads() {
     if (squads || squadsTried) return;
     squadsTried = true;
-    fetch("./data/squads.json?v=20260609-sq3").then((r) => (r.ok ? r.json() : null)).then((d) => {
+    fetch("./data/squads.json?v=20260611-market-values").then((r) => (r.ok ? r.json() : null)).then((d) => {
       squads = d && d.teams ? d.teams : d;
       if (currentG) build(currentG); // 名单到位后重渲染当前组，让有名单的球队变可点
     }).catch(() => {});
@@ -825,6 +825,17 @@ const GM = (function () {
   }
 
   const POS_ORDER = ["GK", "DF", "MF", "FW"];
+  function formatMarketValue(player, en) {
+    const value = Number(player.market_value_eur);
+    if (!Number.isFinite(value) || value <= 0) return en ? "TM pending" : "德转待接入";
+    if (value >= 1000000) {
+      const millions = value / 1000000;
+      const digits = millions >= 100 ? 0 : millions >= 10 ? 1 : 2;
+      return `德转 €${millions.toFixed(digits).replace(/\.0+$/, "")}M`;
+    }
+    return `德转 €${Math.round(value / 1000)}K`;
+  }
+
   function renderSquad(zh) {
     const t = squads && squads[zh];
     if (!t || !t.players) return;
@@ -843,7 +854,8 @@ const GM = (function () {
         const bits = [];
         if (club) bits.push(club);
         if (p.age) bits.push(en ? `${p.age}y` : `${p.age}岁`);
-        if (p.caps != null) bits.push(en ? `${p.caps} caps${p.goals != null ? `/${p.goals}g` : ""}` : `${p.caps}场${p.goals != null ? `${p.goals}球` : ""}`);
+        if (p.caps != null) bits.push(en ? `${p.caps} caps` : `${p.caps}场`);
+        bits.push(`<b class="pl-value">${formatMarketValue(p, en)}</b>`);
         return (
           `<div class="pl-row"><span class="pl-no">${p.no || ""}</span>` +
           `<span class="pl-main"><span class="pl-name">${name}${sub ? `<small>${sub}</small>` : ""}</span>` +
@@ -859,7 +871,7 @@ const GM = (function () {
       `<span class="gm-meta"><span class="gm-grouplabel">SQUAD · ${t.players.length}</span>` +
       `<h3>${tTeam(zh)}${t.en ? `<em>${t.en}</em>` : ""}</h3></span></div>` +
       `<div class="sq-list">${sections}</div>` +
-      `<p class="gm-note">${en ? "Squad & player data from Chinese sports media + Wikipedia; names in Mandarin." : "名单与球员资料来自国内体育媒体 + 维基百科，译名为普通话。仅供研究。"}</p>`;
+      `<p class="gm-note">${en ? "Squad data from Chinese sports media + Wikipedia; market values from the public Transfermarkt dataset, matched by player name. Research only." : "名单资料来自国内体育媒体 + 维基百科；身价来自公开 Transfermarkt 数据集，按球员英文名匹配。仅供研究。"}</p>`;
   }
 
   function open(g) {

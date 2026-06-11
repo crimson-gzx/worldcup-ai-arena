@@ -1,5 +1,5 @@
 export const ARENA_LIMITS = {
-  initialBalance: 10000,
+  initialBalance: 1000000,
   minStake: 10,
   maxStake: 1000,
   maxExposurePerMatch: 2000

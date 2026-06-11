@@ -1958,6 +1958,13 @@ html[lang="en"] .muster-word { writing-mode: horizontal-tb; text-orientation: mi
 .pl-name { font-size: 14px; color: var(--ink); }
 .pl-name small { color: var(--muted); font-size: 11px; margin-left: 7px; font-family: var(--mono); }
 .pl-meta { font-size: 11px; color: var(--faint); line-height: 1.45; }
+.pl-value {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
 body.gm-open { overflow: hidden; }
 @keyframes gm-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes gm-pop { from { opacity: 0; transform: translateY(14px) scale(0.96); } to { opacity: 1; transform: none; } }
