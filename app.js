@@ -8,7 +8,7 @@ const state = {
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260604-arena6";
+const dataVersion = "20260612-results";
 const SQUADS_DATA_VERSION = "20260611-team-values";
 
 // i18n（i18n.js 先于本模块执行）；缺失时退化为原样返回
@@ -100,8 +100,37 @@ function matchesFilter(match) {
 }
 
 function signalText(match) {
+  const score = matchScore(match);
+  if (score?.completed) return t("已完赛");
+  if (score?.live) return t("进行中");
   if (hasOneXTwo(match.offshore?.oneXTwo)) return t("海外欧赔已接入");
   return match.tags.includes("knockout") ? t("赛程席位待定") : t("真实赛程");
+}
+
+function matchScore(match) {
+  const homeScore = Number(match.homeScore);
+  const awayScore = Number(match.awayScore);
+  if (!Number.isFinite(homeScore) || !Number.isFinite(awayScore)) return null;
+  return { homeScore, awayScore, result: match.result || null, completed: match.completed === true, live: match.live === true };
+}
+
+function matchResult(match) {
+  const score = matchScore(match);
+  if (!score || !score.result || !score.completed) return null;
+  return score;
+}
+
+function resultLine(match) {
+  const r = matchScore(match);
+  if (!r) return "";
+  const label = r.completed ? t("完赛") : t("进行中");
+  return `<span class="result-score${r.live ? " is-live" : ""}"><strong>${r.homeScore}</strong><em>${label}</em><strong>${r.awayScore}</strong></span>`;
+}
+
+function resultDetailText(match) {
+  const r = matchScore(match);
+  if (!r) return t("待接入");
+  return `${tTeam(match.home)} ${r.homeScore} - ${r.awayScore} ${tTeam(match.away)}`;
 }
 
 function labeledOdds(pairs) {
@@ -229,7 +258,7 @@ function cardHtml(match) {
       </span>
       <span class="teams">
         <span>${tTeam(match.home)}</span>
-        <span class="versus">${t("对阵")}</span>
+        ${resultLine(match) || `<span class="versus">${t("对阵")}</span>`}
         <span>${tTeam(match.away)}</span>
       </span>
       <span class="signal">${signalText(match)}</span>
@@ -336,6 +365,9 @@ function probabilityRows(match) {
 }
 
 function marketStatus(match) {
+  const score = matchScore(match);
+  if (score?.completed) return t("已完赛");
+  if (score?.live) return t("进行中");
   if (marketReady(match)) return t("已接入");
   if (hasOneXTwo(match.lottery?.oneXTwo) || hasOneXTwo(match.offshore?.oneXTwo)) return t("部分接入");
   return t("待开盘");
@@ -455,6 +487,7 @@ function renderTeamMarketBlock(match) {
 function renderDetail() {
   const match = state.matches.find((item) => item.id === state.selectedId) || state.matches[0];
   if (!match) return;
+  const score = matchScore(match);
 
   selectors.detailTitle.textContent = `${tTeam(match.home)} ${t("对阵")} ${tTeam(match.away)}`;
   selectors.detailRisk.textContent = marketStatus(match);
@@ -465,6 +498,7 @@ function renderDetail() {
         <div class="odds-line"><span>${t("开球")}</span><strong>${match.kickoff} ${t("北京时间")}</strong></div>
         <div class="odds-line"><span>${t("阶段")}</span><strong>${tRound(match.round)}</strong></div>
         <div class="odds-line"><span>${t("场地")}</span><strong>${tVenue(match.venue)}</strong></div>
+        ${score ? `<div class="odds-line result-line"><span>${score.completed ? t("赛果") : t("比分")}</span><strong>${resultDetailText(match)}</strong></div>` : ""}
         <div class="odds-line"><span>${t("数据状态")}</span><strong>${marketStatus(match)}</strong></div>
       </section>
       ${renderTeamMarketBlock(match)}
@@ -1082,10 +1116,15 @@ function simulateAdvance(byGroup, iters = 8000) {
       const pts = {};
       teams.forEach((t) => (pts[t] = 0));
       for (const m of byGroup[g]) {
-        const r = Math.random();
-        if (r < m.home) pts[m.homeTeam] += 3;
-        else if (r < m.home + m.draw) { pts[m.homeTeam] += 1; pts[m.awayTeam] += 1; }
-        else pts[m.awayTeam] += 3;
+        if (m.result === "home") pts[m.homeTeam] += 3;
+        else if (m.result === "away") pts[m.awayTeam] += 3;
+        else if (m.result === "draw") { pts[m.homeTeam] += 1; pts[m.awayTeam] += 1; }
+        else {
+          const r = Math.random();
+          if (r < m.home) pts[m.homeTeam] += 3;
+          else if (r < m.home + m.draw) { pts[m.homeTeam] += 1; pts[m.awayTeam] += 1; }
+          else pts[m.awayTeam] += 3;
+        }
       }
       const ranked = teams.slice().sort((a, b) => (pts[b] - pts[a]) || (Math.random() - 0.5));
       adv[ranked[0]]++;

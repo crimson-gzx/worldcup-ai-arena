@@ -115,7 +115,7 @@
 
   // ---------- 动态 JS 文案（zh→en）----------
   const DYN = {
-    "待接入": "Pending", "待开盘": "Pre-open", "已接入": "Live", "部分接入": "Partial",
+    "待接入": "Pending", "待开盘": "Pre-open", "已接入": "Live", "部分接入": "Partial", "已完赛": "Final", "进行中": "Live",
     "高温": "Hot", "偏热": "Warm", "中性": "Neutral", "偏冷": "Cool",
     "高分歧": "High edge", "中分歧": "Mid edge", "低分歧": "Low edge",
     "对阵": "vs", "海外欧赔已接入": "Offshore odds in", "赛程席位待定": "Slot TBD", "真实赛程": "Fixture set",
@@ -129,7 +129,7 @@
     "欧赔": "Euro odds", "亚盘": "Asian", "大小": "O/U",
     "主": "Home", "客": "Away", "大": "Over", "小": "Under",
     "竞彩": "Lottery", "海外": "Offshore", "模型": "Model",
-    "赛程信息": "Fixture Info", "开球": "Kickoff", "北京时间": "CST",
+    "赛程信息": "Fixture Info", "开球": "Kickoff", "北京时间": "CST", "赛果": "Result", "比分": "Score", "完赛": "FT",
     "阶段": "Stage", "场地": "Venue", "数据状态": "Data status",
     "模型输出": "Model Output", "凯利温度": "Kelly temp.",
     "全队身价参考": "Squad Value Reference", "身价差": "Value gap",
