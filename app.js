@@ -713,9 +713,24 @@ const WC_GROUPS = [
   ["K", ["葡萄牙", "刚果民主共和国", "乌兹别克斯坦", "哥伦比亚"]],
   ["L", ["英格兰", "克罗地亚", "加纳", "巴拿马"]]
 ];
+const SQUADS_DATA_VERSION = "20260611-team-values";
 function isoToFlag(iso) {
   if (!iso) return "";
   return `<img class="gt-flag-img" src="./assets/flags/4x3/${iso.toLowerCase()}.svg" alt="" loading="lazy" width="22" height="16">`;
+}
+function formatTeamMarketValue(team, en = false) {
+  const value = Number(team?.market_value_eur);
+  if (!Number.isFinite(value) || value <= 0) return en ? "TM pending" : "身价待接入";
+  if (value >= 1000000000) {
+    return `€${(value / 1000000000).toFixed(2).replace(/\.?0+$/, "")}B`;
+  }
+  return `€${Math.round(value / 1000000)}M`;
+}
+function teamMarketCoverage(team, en = false) {
+  const covered = Number(team?.market_value_covered || 0);
+  const total = Number(team?.market_value_players || team?.players?.length || 0);
+  if (!total) return "";
+  return en ? `${covered}/${total} valued` : `${covered}/${total} 已估`;
 }
 function setupGroupParade() {
   const grid = document.getElementById("group-grid");
@@ -723,7 +738,7 @@ function setupGroupParade() {
   grid.innerHTML = WC_GROUPS.map(([g, teams]) => {
     const rows = teams.map((zh) =>
       `<span class="group-team"><span class="gt-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
-      `<span class="gt-name" data-team="${zh}">${tTeam(zh)}</span>` +
+      `<span class="gt-name-wrap"><span class="gt-name" data-team="${zh}">${tTeam(zh)}</span><span class="gt-market">—</span></span>` +
       `<span class="gt-pts" data-team="${zh}">0</span>` +
       `<span class="gt-prob" data-team="${zh}">—</span></span>`
     ).join("");
@@ -746,6 +761,7 @@ function setupGroupParade() {
     grid.querySelectorAll(".gt-name[data-team]").forEach((el) => {
       el.textContent = tTeam(el.dataset.team);
     });
+    window.__wcUpdateGroupMarketBadges?.();
   });
 }
 setupGroupParade();
@@ -761,11 +777,21 @@ const GM = (function () {
   let currentG = null;
   let squads = null;
   let squadsTried = false;
+  function updateGroupMarketBadges() {
+    if (!squads) return;
+    document.querySelectorAll(".group-team .gt-name[data-team]").forEach((el) => {
+      const team = squads[el.dataset.team];
+      const badge = el.closest(".group-team")?.querySelector(".gt-market");
+      if (badge) badge.textContent = formatTeamMarketValue(team, isEn());
+    });
+  }
+  window.__wcUpdateGroupMarketBadges = updateGroupMarketBadges;
   function ensureSquads() {
     if (squads || squadsTried) return;
     squadsTried = true;
-    fetch("./data/squads.json?v=20260611-market-values").then((r) => (r.ok ? r.json() : null)).then((d) => {
+    fetch(`./data/squads.json?v=${SQUADS_DATA_VERSION}`).then((r) => (r.ok ? r.json() : null)).then((d) => {
       squads = d && d.teams ? d.teams : d;
+      updateGroupMarketBadges();
       if (currentG) build(currentG); // 名单到位后重渲染当前组，让有名单的球队变可点
     }).catch(() => {});
   }
@@ -788,11 +814,14 @@ const GM = (function () {
       const probTxt = pe ? pe.textContent.trim() : "—";
       const ptsTxt = te ? te.textContent.trim() : "0";
       const w = Math.max(0, Math.min(100, parseInt(probTxt, 10) || 0));
-      const hasSquad = !!(squads && squads[zh] && squads[zh].players && squads[zh].players.length);
+      const team = squads && squads[zh];
+      const hasSquad = !!(team && team.players && team.players.length);
+      const valueTxt = formatTeamMarketValue(team, isEn());
+      const coverageTxt = teamMarketCoverage(team, isEn());
       return (
         `<div class="gm-team${hasSquad ? " gm-clk" : ""}"${hasSquad ? ` data-team="${zh}"` : ""}>` +
         `<span class="gm-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
-        `<span class="gm-name">${tTeam(zh)}${hasSquad ? '<i class="gm-go">›</i>' : ""}</span>` +
+        `<span class="gm-name"><span class="gm-name-main">${tTeam(zh)}${hasSquad ? '<i class="gm-go">›</i>' : ""}</span><small>${valueTxt}${coverageTxt ? ` · ${coverageTxt}` : ""}</small></span>` +
         `<span class="gm-stat gm-pts"><b>${ptsTxt}</b><i>${ptsLabel}</i></span>` +
         `<span class="gm-stat gm-prob"><b>${probTxt}</b><i>${advLabel}</i></span>` +
         `<span class="gm-bar" data-w="${w}"><i></i></span>` +
@@ -865,11 +894,15 @@ const GM = (function () {
       return `<div class="pl-group"><h4>${posName[k] || k}<span>${byPos[k].length}</span></h4>${rows}</div>`;
     }).join("");
     const flagIso = t.iso ? t.iso.toUpperCase() : TEAM_ISO[zh];
+    const valueLabel = en ? "Squad value" : "全队身价";
+    const valueTxt = formatTeamMarketValue(t, en);
+    const coverageTxt = teamMarketCoverage(t, en);
     body.innerHTML =
       `<div class="gm-head sq-head"><button class="sq-back" type="button" data-sq-back aria-label="${en ? "Back" : "返回"}">‹</button>` +
       `<span class="gm-flag sq-flag">${isoToFlag(flagIso)}</span>` +
       `<span class="gm-meta"><span class="gm-grouplabel">SQUAD · ${t.players.length}</span>` +
       `<h3>${tTeam(zh)}${t.en ? `<em>${t.en}</em>` : ""}</h3></span></div>` +
+      `<div class="sq-value"><span>${valueLabel}</span><strong>${valueTxt}</strong><i>${coverageTxt}</i></div>` +
       `<div class="sq-list">${sections}</div>` +
       `<p class="gm-note">${en ? "Squad data from Chinese sports media + Wikipedia; market values from the public Transfermarkt dataset, matched by player name. Research only." : "名单资料来自国内体育媒体 + 维基百科；身价来自公开 Transfermarkt 数据集，按球员英文名匹配。仅供研究。"}</p>`;
   }
@@ -938,7 +971,8 @@ const GM = (function () {
     if (e.key === "Escape" && !modal.hidden) close();
   });
 
-  return { open, close };
+  ensureSquads();
+  return { open, close, updateGroupMarketBadges };
 })();
 function openGroupModal(g) { if (GM) GM.open(g); }
 

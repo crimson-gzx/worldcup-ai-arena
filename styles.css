@@ -1891,7 +1891,9 @@ html[lang="en"] .muster-word { writing-mode: horizontal-tb; text-orientation: mi
 .gc-colhead .col-h { text-align: right; }
 .group-team .gt-flag { display: inline-flex; flex: none; }
 .group-team .gt-flag-img { width: 22px; height: 16px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08); display: block; }
+.gt-name-wrap { display: flex; flex-direction: column; min-width: 0; gap: 1px; }
 .group-team .gt-name { font-size: 13px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.group-team .gt-market { font-family: var(--mono); font-size: 9px; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .group-team .gt-pts { text-align: right; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .group-team .gt-prob { text-align: right; font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .group-note { margin-top: 14px; font-size: 11px; color: var(--faint); line-height: 1.6; }
@@ -1930,7 +1932,9 @@ html[lang="en"] .muster-word { writing-mode: horizontal-tb; text-orientation: mi
 .gm-teams { display: flex; flex-direction: column; gap: 16px; }
 .gm-team { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 6px 14px; }
 .gm-flag img { width: 34px; height: 24px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1); display: block; }
-.gm-name { font-size: 15px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gm-name { display: flex; flex-direction: column; min-width: 0; font-size: 15px; color: var(--ink); overflow: hidden; }
+.gm-name-main { display: block; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gm-name small { display: block; margin-top: 2px; color: var(--accent); font-family: var(--mono); font-size: 9.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gm-stat { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; line-height: 1; min-width: 52px; }
 .gm-stat b { font-family: var(--mono); font-size: 18px; font-weight: 700; line-height: 1; }
 .gm-stat i { font-style: normal; font-size: 8.5px; letter-spacing: 0.12em; color: var(--faint); }
@@ -1950,6 +1954,20 @@ html[lang="en"] .muster-word { writing-mode: horizontal-tb; text-orientation: mi
 .sq-flag img { width: 30px; height: 21px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1); display: block; }
 .gm-head h3 em { font-style: normal; font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 8px; }
 .sq-list { display: flex; flex-direction: column; gap: 18px; animation: gm-pop 0.3s ease both; }
+.sq-value {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 4px 14px;
+  margin: -4px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--accent-line);
+  border-radius: 10px;
+  background: var(--accent-soft);
+}
+.sq-value span,
+.sq-value i { font-family: var(--mono); font-size: 10px; color: var(--faint); font-style: normal; }
+.sq-value strong { grid-row: span 2; color: var(--accent); font-family: var(--display); font-size: 28px; line-height: 1; }
 .pl-group h4 { margin: 0 0 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 8px; }
 .pl-group h4 span { font-family: var(--mono); font-size: 10px; color: var(--faint); }
 .pl-row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; padding: 8px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }

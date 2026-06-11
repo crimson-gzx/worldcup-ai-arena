@@ -376,7 +376,10 @@
           "market_value_updated": "2026-06-05",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 760500000,
+      "market_value_covered": 24,
+      "market_value_players": 25
     },
     "巴西": {
       "iso": "br",
@@ -760,7 +763,10 @@
           "market_value_updated": "2026-06-03",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 774400000,
+      "market_value_covered": 23,
+      "market_value_players": 26
     },
     "法国": {
       "iso": "fr",
@@ -1156,7 +1162,10 @@
           "market_value_updated": "2026-06-03",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 1523000000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "英格兰": {
       "iso": "gb-eng",
@@ -1552,7 +1561,10 @@
           "market_value_updated": "2026-05-27",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 1363200000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "西班牙": {
       "iso": "es",
@@ -1944,7 +1956,10 @@
           "market_value_updated": "2026-06-05",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 1202800000,
+      "market_value_covered": 25,
+      "market_value_players": 26
     },
     "葡萄牙": {
       "iso": "pt",
@@ -2340,7 +2355,10 @@
           "market_value_updated": "2026-05-29",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 1005500000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "德国": {
       "iso": "de",
@@ -2736,7 +2754,10 @@
           "market_value_updated": "2026-05-27",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 947000000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "荷兰": {
       "iso": "nl",
@@ -3132,7 +3153,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 804200000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "比利时": {
       "iso": "be",
@@ -3528,7 +3552,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 547500000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "克罗地亚": {
       "iso": "hr",
@@ -3924,7 +3951,10 @@
           "market_value_updated": "2026-06-02",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 387300000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "乌拉圭": {
       "iso": "uy",
@@ -4312,7 +4342,10 @@
           "market_value_updated": "2026-05-28",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 315300000,
+      "market_value_covered": 24,
+      "market_value_players": 26
     },
     "美国": {
       "iso": "us",
@@ -4700,7 +4733,10 @@
           "club_zh": "墨西哥美洲",
           "club_en": "América"
         }
-      ]
+      ],
+      "market_value_eur": 370650000,
+      "market_value_covered": 24,
+      "market_value_players": 26
     },
     "捷克": {
       "iso": "cz",
@@ -5096,7 +5132,10 @@
           "market_value_updated": "2026-05-20",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 166275000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "墨西哥": {
       "iso": "mx",
@@ -5492,7 +5531,10 @@
           "market_value_updated": "2026-05-20",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 191850000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "南非": {
       "iso": "za",
@@ -5868,7 +5910,10 @@
           "club_zh": "凯萨酋长",
           "club_en": "Kaizer Chiefs"
         }
-      ]
+      ],
+      "market_value_eur": 44650000,
+      "market_value_covered": 21,
+      "market_value_players": 26
     },
     "韩国": {
       "iso": "kr",
@@ -6164,7 +6209,10 @@
           "club_zh": "蔚山HD",
           "club_en": "Ulsan HD"
         }
-      ]
+      ],
+      "market_value_eur": 10000000,
+      "market_value_covered": 1,
+      "market_value_players": 26
     },
     "波黑": {
       "iso": "ba",
@@ -6556,7 +6604,10 @@
           "market_value_updated": "2026-05-20",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 150900000,
+      "market_value_covered": 25,
+      "market_value_players": 26
     },
     "加拿大": {
       "iso": "ca",
@@ -6929,7 +6980,10 @@
           "club_zh": "皇家安德莱赫特",
           "club_en": "Anderlecht"
         }
-      ]
+      ],
+      "market_value_eur": 184150000,
+      "market_value_covered": 23,
+      "market_value_players": 25
     },
     "卡塔尔": {
       "iso": "qa",
@@ -7297,7 +7351,10 @@
           "club_zh": "艾沙玛",
           "club_en": "Al-Shamal"
         }
-      ]
+      ],
+      "market_value_eur": 17525000,
+      "market_value_covered": 19,
+      "market_value_players": 26
     },
     "瑞士": {
       "iso": "ch",
@@ -7693,7 +7750,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 332500000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "海地": {
       "iso": "ht",
@@ -8057,7 +8117,10 @@
           "club_zh": "紫罗兰",
           "club_en": "Violette"
         }
-      ]
+      ],
+      "market_value_eur": 54550000,
+      "market_value_covered": 18,
+      "market_value_players": 26
     },
     "摩洛哥": {
       "iso": "ma",
@@ -8437,7 +8500,10 @@
           "market_value_updated": "2026-05-28",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 478700000,
+      "market_value_covered": 22,
+      "market_value_players": 26
     },
     "苏格兰": {
       "iso": "gb-sct",
@@ -8821,7 +8887,10 @@
           "market_value_updated": "2026-05-29",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 159750000,
+      "market_value_covered": 23,
+      "market_value_players": 26
     },
     "澳大利亚": {
       "iso": "au",
@@ -9217,7 +9286,10 @@
           "market_value_updated": "2026-06-03",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 77450000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "巴拉圭": {
       "iso": "py",
@@ -9597,7 +9669,10 @@
           "market_value_updated": "2026-05-22",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 148150000,
+      "market_value_covered": 22,
+      "market_value_players": 26
     },
     "土耳其": {
       "iso": "tr",
@@ -9993,7 +10068,10 @@
           "market_value_updated": "2026-05-27",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 473700000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "库拉索": {
       "iso": "cw",
@@ -10385,7 +10463,10 @@
           "market_value_updated": "2026-05-21",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 24775000,
+      "market_value_covered": 25,
+      "market_value_players": 26
     },
     "厄瓜多尔": {
       "iso": "ec",
@@ -10777,7 +10858,10 @@
           "market_value_updated": "2026-06-04",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 366900000,
+      "market_value_covered": 25,
+      "market_value_players": 26
     },
     "科特迪瓦": {
       "iso": "ci",
@@ -11173,7 +11257,10 @@
           "market_value_updated": "2026-05-21",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 522100000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "日本": {
       "iso": "jp",
@@ -11569,7 +11656,10 @@
           "market_value_updated": "2026-05-27",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 270850000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "瑞典": {
       "iso": "se",
@@ -11965,7 +12055,10 @@
           "market_value_updated": "2026-06-05",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 406075000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "突尼斯": {
       "iso": "tn",
@@ -12329,7 +12422,10 @@
           "market_value_updated": "2026-05-20",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 44350000,
+      "market_value_covered": 18,
+      "market_value_players": 26
     },
     "埃及": {
       "iso": "eg",
@@ -12689,7 +12785,10 @@
           "club_zh": "艾尔古纳",
           "club_en": "El Gouna"
         }
-      ]
+      ],
+      "market_value_eur": 102375000,
+      "market_value_covered": 17,
+      "market_value_players": 26
     },
     "伊朗": {
       "iso": "ir",
@@ -13037,7 +13136,10 @@
           "club_zh": "德黑兰独立",
           "club_en": "Esteghlal"
         }
-      ]
+      ],
+      "market_value_eur": 20350000,
+      "market_value_covered": 14,
+      "market_value_players": 26
     },
     "新西兰": {
       "iso": "nz",
@@ -13433,7 +13535,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 34350000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "佛得角": {
       "iso": "cv",
@@ -13793,7 +13898,10 @@
           "market_value_updated": "2026-06-05",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 46050000,
+      "market_value_covered": 17,
+      "market_value_players": 26
     },
     "沙特阿拉伯": {
       "iso": "sa",
@@ -14181,7 +14289,10 @@
           "market_value_updated": "2026-06-04",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 38575000,
+      "market_value_covered": 24,
+      "market_value_players": 26
     },
     "伊拉克": {
       "iso": "iq",
@@ -14561,7 +14672,10 @@
           "club_zh": "万隆",
           "club_en": "Persib"
         }
-      ]
+      ],
+      "market_value_eur": 19275000,
+      "market_value_covered": 22,
+      "market_value_players": 26
     },
     "挪威": {
       "iso": "no",
@@ -14949,7 +15063,10 @@
           "market_value_updated": "2026-05-27",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 582900000,
+      "market_value_covered": 24,
+      "market_value_players": 26
     },
     "塞内加尔": {
       "iso": "sn",
@@ -15345,7 +15462,10 @@
           "market_value_updated": "2026-06-05",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 478100000,
+      "market_value_covered": 26,
+      "market_value_players": 26
     },
     "阿尔及利亚": {
       "iso": "dz",
@@ -15729,7 +15849,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 248800000,
+      "market_value_covered": 23,
+      "market_value_players": 26
     },
     "奥地利": {
       "iso": "at",
@@ -16110,7 +16233,10 @@
           "market_value_updated": "2026-05-26",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 242200000,
+      "market_value_covered": 25,
+      "market_value_players": 25
     },
     "约旦": {
       "iso": "jo",
@@ -16466,7 +16592,10 @@
           "club_zh": "费萨利",
           "club_en": "Al-Faisaly"
         }
-      ]
+      ],
+      "market_value_eur": 8150000,
+      "market_value_covered": 16,
+      "market_value_players": 26
     },
     "哥伦比亚": {
       "iso": "co",
@@ -16858,7 +16987,10 @@
           "market_value_updated": "2026-05-26",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 299850000,
+      "market_value_covered": 25,
+      "market_value_players": 26
     },
     "刚果民主共和国": {
       "iso": "cd",
@@ -17238,7 +17370,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 138200000,
+      "market_value_covered": 22,
+      "market_value_players": 26
     },
     "乌兹别克斯坦": {
       "iso": "uz",
@@ -17610,7 +17745,10 @@
           "market_value_updated": "2026-05-13",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 78675000,
+      "market_value_covered": 20,
+      "market_value_players": 26
     },
     "加纳": {
       "iso": "gh",
@@ -17994,7 +18132,10 @@
           "market_value_updated": "2026-06-01",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 215250000,
+      "market_value_covered": 23,
+      "market_value_players": 26
     },
     "巴拿马": {
       "iso": "pa",
@@ -18370,7 +18511,10 @@
           "market_value_updated": "2026-05-29",
           "market_value_source": "Transfermarkt API"
         }
-      ]
+      ],
+      "market_value_eur": 26350000,
+      "market_value_covered": 21,
+      "market_value_players": 26
     }
   },
   "marketValues": {
@@ -18379,6 +18523,7 @@
     "valuationFile": "player_valuations.csv.gz",
     "matchedPlayers": 1097,
     "totalPlayers": 1245,
-    "note": "Values are latest available market_value_in_eur matched by English player name with country/club disambiguation; unmatched players are displayed as pending."
+    "note": "Values are latest available market_value_in_eur matched by English player name with country/club disambiguation; unmatched players are displayed as pending.",
+    "teamTotals": "market_value_eur is the sum of matched player market_value_eur for each squad; market_value_covered records coverage."
   }
 }
