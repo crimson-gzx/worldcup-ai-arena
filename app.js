@@ -4,10 +4,12 @@ const state = {
   filter: "group-A",
   openDays: new Set(), // 当前展开的比赛日
   dayInitDone: false,
+  squads: null,
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
 const dataVersion = "20260604-arena6";
+const SQUADS_DATA_VERSION = "20260611-team-values";
 
 // i18n（i18n.js 先于本模块执行）；缺失时退化为原样返回
 const _i18n = window.wcI18n || {};
@@ -119,6 +121,28 @@ function sortedMatches() {
   return [...state.matches]
     .filter(matchesFilter)
     .sort((a, b) => kickoffStamp(a) - kickoffStamp(b));
+}
+
+let squadsLoadPromise = null;
+function loadSquadsData() {
+  if (state.squads) return Promise.resolve(state.squads);
+  if (!squadsLoadPromise) {
+    squadsLoadPromise = fetch(`./data/squads.json?v=${SQUADS_DATA_VERSION}`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        state.squads = (d && d.teams ? d.teams : d) || {};
+        return state.squads;
+      })
+      .catch((error) => {
+        squadsLoadPromise = null;
+        throw error;
+      });
+  }
+  return squadsLoadPromise;
+}
+
+function teamMarketData(teamName) {
+  return state.squads && state.squads[teamName] ? state.squads[teamName] : null;
 }
 
 // ---------- 访客投票（人群 vs AI 押注）----------
@@ -374,6 +398,60 @@ function renderOffshoreBlock(match) {
   `;
 }
 
+function formatMarketDelta(value, en = false) {
+  const amount = Number(value);
+  if (!Number.isFinite(amount)) return "—";
+  if (Math.abs(amount) < 1000000) return "€0M";
+  const sign = amount > 0 ? "+" : "-";
+  return `${sign}${formatMarketAmount(Math.abs(amount), en, "—")}`;
+}
+
+function marketValueEdgeText(match, homeValue, awayValue, en) {
+  if (!homeValue || !awayValue) return en ? "Data pending" : "数据待接入";
+  const diff = homeValue - awayValue;
+  if (Math.abs(diff) < 1000000) return en ? "Nearly level" : "基本持平";
+  const leader = diff > 0 ? match.home : match.away;
+  const ratio = Math.max(homeValue, awayValue) / Math.max(Math.min(homeValue, awayValue), 1);
+  const digits = ratio >= 10 ? 0 : 1;
+  return en ? `${tTeam(leader)} about ${ratio.toFixed(digits)}x` : `${tTeam(leader)}约 ${ratio.toFixed(digits)}x`;
+}
+
+function renderTeamMarketBlock(match) {
+  const en = _i18n.getLang && _i18n.getLang() === "en";
+  const homeTeam = teamMarketData(match.home);
+  const awayTeam = teamMarketData(match.away);
+  const homeValue = Number(homeTeam?.market_value_eur) || 0;
+  const awayValue = Number(awayTeam?.market_value_eur) || 0;
+  const maxValue = Math.max(homeValue, awayValue, 1);
+  const side = (teamName, team, value, cls) => {
+    const pct = Math.max(3, Math.round((value / maxValue) * 100));
+    const coverage = teamMarketCoverage(team, en) || (en ? "coverage pending" : "覆盖待接入");
+    return `
+      <div class="team-value-side ${cls}">
+        <span class="team-value-name">${tTeam(teamName)}</span>
+        <strong>${formatTeamMarketValue(team, en)}</strong>
+        <small>${coverage}</small>
+        <span class="team-value-bar" aria-hidden="true"><i style="width:${pct}%"></i></span>
+      </div>
+    `;
+  };
+  return `
+    <section class="detail-block team-value-block">
+      <h3>${t("全队身价参考")}</h3>
+      <div class="team-value-compare">
+        ${side(match.home, homeTeam, homeValue, "home")}
+        <span class="team-value-vs">${t("对阵")}</span>
+        ${side(match.away, awayTeam, awayValue, "away")}
+      </div>
+      <div class="team-value-gap">
+        <span>${t("身价差")}</span>
+        <strong>${formatMarketDelta(homeValue - awayValue, en)} · ${marketValueEdgeText(match, homeValue, awayValue, en)}</strong>
+      </div>
+      <p class="team-value-note">${t("已匹配球员汇总，仅作强弱参考。")}</p>
+    </section>
+  `;
+}
+
 function renderDetail() {
   const match = state.matches.find((item) => item.id === state.selectedId) || state.matches[0];
   if (!match) return;
@@ -389,6 +467,7 @@ function renderDetail() {
         <div class="odds-line"><span>${t("场地")}</span><strong>${tVenue(match.venue)}</strong></div>
         <div class="odds-line"><span>${t("数据状态")}</span><strong>${marketStatus(match)}</strong></div>
       </section>
+      ${renderTeamMarketBlock(match)}
       ${renderLotteryBlock(match)}
       ${renderOffshoreBlock(match)}
       <section class="detail-block">
@@ -453,6 +532,10 @@ async function loadData() {
   render();
   renderDataFreshness();
   computeAdvanceProb();
+  loadSquadsData().then(() => {
+    renderDetail();
+    window.__wcUpdateGroupMarketBadges?.();
+  }).catch(() => {});
 }
 
 selectors.chips.forEach((chip) => {
@@ -713,18 +796,20 @@ const WC_GROUPS = [
   ["K", ["葡萄牙", "刚果民主共和国", "乌兹别克斯坦", "哥伦比亚"]],
   ["L", ["英格兰", "克罗地亚", "加纳", "巴拿马"]]
 ];
-const SQUADS_DATA_VERSION = "20260611-team-values";
 function isoToFlag(iso) {
   if (!iso) return "";
   return `<img class="gt-flag-img" src="./assets/flags/4x3/${iso.toLowerCase()}.svg" alt="" loading="lazy" width="22" height="16">`;
 }
-function formatTeamMarketValue(team, en = false) {
-  const value = Number(team?.market_value_eur);
-  if (!Number.isFinite(value) || value <= 0) return en ? "TM pending" : "身价待接入";
-  if (value >= 1000000000) {
-    return `€${(value / 1000000000).toFixed(2).replace(/\.?0+$/, "")}B`;
+function formatMarketAmount(value, en = false, fallback = null) {
+  const amount = Number(value);
+  if (!Number.isFinite(amount) || amount <= 0) return fallback ?? (en ? "TM pending" : "身价待接入");
+  if (amount >= 1000000000) {
+    return `€${(amount / 1000000000).toFixed(2).replace(/\.?0+$/, "")}B`;
   }
-  return `€${Math.round(value / 1000000)}M`;
+  return `€${Math.round(amount / 1000000)}M`;
+}
+function formatTeamMarketValue(team, en = false) {
+  return formatMarketAmount(team?.market_value_eur, en);
 }
 function teamMarketCoverage(team, en = false) {
   const covered = Number(team?.market_value_covered || 0);
@@ -775,22 +860,21 @@ const GM = (function () {
   const supportsVT = typeof document.startViewTransition === "function";
   let lastFocus = null;
   let currentG = null;
-  let squads = null;
   let squadsTried = false;
   function updateGroupMarketBadges() {
-    if (!squads) return;
+    if (!state.squads) return;
     document.querySelectorAll(".group-team .gt-name[data-team]").forEach((el) => {
-      const team = squads[el.dataset.team];
+      const team = state.squads[el.dataset.team];
       const badge = el.closest(".group-team")?.querySelector(".gt-market");
       if (badge) badge.textContent = formatTeamMarketValue(team, isEn());
     });
   }
   window.__wcUpdateGroupMarketBadges = updateGroupMarketBadges;
   function ensureSquads() {
-    if (squads || squadsTried) return;
+    if (state.squads) { updateGroupMarketBadges(); return; }
+    if (squadsTried) return;
     squadsTried = true;
-    fetch(`./data/squads.json?v=${SQUADS_DATA_VERSION}`).then((r) => (r.ok ? r.json() : null)).then((d) => {
-      squads = d && d.teams ? d.teams : d;
+    loadSquadsData().then(() => {
       updateGroupMarketBadges();
       if (currentG) build(currentG); // 名单到位后重渲染当前组，让有名单的球队变可点
     }).catch(() => {});
@@ -814,7 +898,7 @@ const GM = (function () {
       const probTxt = pe ? pe.textContent.trim() : "—";
       const ptsTxt = te ? te.textContent.trim() : "0";
       const w = Math.max(0, Math.min(100, parseInt(probTxt, 10) || 0));
-      const team = squads && squads[zh];
+      const team = state.squads && state.squads[zh];
       const hasSquad = !!(team && team.players && team.players.length);
       const valueTxt = formatTeamMarketValue(team, isEn());
       const coverageTxt = teamMarketCoverage(team, isEn());
@@ -866,7 +950,7 @@ const GM = (function () {
   }
 
   function renderSquad(zh) {
-    const t = squads && squads[zh];
+    const t = state.squads && state.squads[zh];
     if (!t || !t.players) return;
     const en = isEn();
     const posName = en

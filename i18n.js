@@ -132,6 +132,9 @@
     "赛程信息": "Fixture Info", "开球": "Kickoff", "北京时间": "CST",
     "阶段": "Stage", "场地": "Venue", "数据状态": "Data status",
     "模型输出": "Model Output", "凯利温度": "Kelly temp.",
+    "全队身价参考": "Squad Value Reference", "身价差": "Value gap",
+    "数据待接入": "Data pending", "基本持平": "Nearly level",
+    "已匹配球员汇总，仅作强弱参考。": "Matched players only; strength reference.",
     "待官方开售后导入。当前只展示真实赛程，不展示任何购彩建议。":
       "Imported after the official sale opens. For now only real fixtures are shown — no betting advice.",
     "待赔率接口接入。后续可用接口密钥定时写入欧赔、亚盘和大小球。":

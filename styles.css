@@ -1234,6 +1234,98 @@ section.block {
   background: var(--surface-2);
 }
 
+.team-value-block {
+  grid-column: 1 / -1;
+}
+
+.team-value-compare {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+}
+
+.team-value-side {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.team-value-name {
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-value-side strong {
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1;
+  text-align: left;
+}
+
+.team-value-side small {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.team-value-vs {
+  align-self: center;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.team-value-bar {
+  display: block;
+  height: 6px;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.team-value-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+}
+
+.team-value-gap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.team-value-gap strong {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 600;
+  text-align: right;
+}
+
+.team-value-note {
+  margin: 0;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 .detail-block h3,
 .glossary-grid h3 {
   margin: 0;
@@ -1747,6 +1839,19 @@ footer {
   .agent-arena-grid,
   .agent-kpis {
     grid-template-columns: 1fr;
+  }
+  .team-value-compare {
+    grid-template-columns: 1fr;
+  }
+  .team-value-vs {
+    justify-self: start;
+  }
+  .team-value-gap {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .team-value-gap strong {
+    text-align: left;
   }
   .agent-command {
     flex-direction: column;
