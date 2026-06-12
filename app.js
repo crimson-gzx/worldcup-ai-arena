@@ -8,7 +8,7 @@ const state = {
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260613-recent";
+const dataVersion = "20260613-board";
 const SQUADS_DATA_VERSION = "20260611-team-values";
 const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
 const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
@@ -709,7 +709,7 @@ function renderAgentLeaderboard(rows) {
     agentArena.leaderboard.innerHTML = '<div class="agent-empty">' + escapeAgentHtml(t("赛事未开打，暂无结算战绩。")) + "</div>";
     return;
   }
-  agentArena.leaderboard.innerHTML = boardSort(rows, board).slice(0, 5).map((row, index) => {
+  agentArena.leaderboard.innerHTML = boardSort(rows, board).map((row, index) => {
     const name = escapeAgentHtml(row.name || row.agentId || "Agent");
     const model = escapeAgentHtml(row.model || t("未标注模型"));
     const m = boardMetric(row, board);
