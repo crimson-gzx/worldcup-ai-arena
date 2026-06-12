@@ -8,8 +8,8 @@ const state = {
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260613-board-toggle";
-const SQUADS_DATA_VERSION = "20260611-team-values";
+const dataVersion = "20260613-standings";
+const SQUADS_DATA_VERSION = "20260613-team-values";
 const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
 const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
 
@@ -881,9 +881,48 @@ const WC_GROUPS = [
   ["K", ["葡萄牙", "刚果民主共和国", "乌兹别克斯坦", "哥伦比亚"]],
   ["L", ["英格兰", "克罗地亚", "加纳", "巴拿马"]]
 ];
+const groupStandingsState = new Map();
+
 function isoToFlag(iso) {
   if (!iso) return "";
   return `<img class="gt-flag-img" src="./assets/flags/4x3/${iso.toLowerCase()}.svg" alt="" loading="lazy" width="22" height="16">`;
+}
+function groupSeedTeams(g) {
+  const entry = WC_GROUPS.find((item) => item[0] === g);
+  return entry ? entry[1] : [];
+}
+function groupSeedIndex(g, team) {
+  const teams = groupSeedTeams(g);
+  const index = teams.indexOf(team);
+  return index === -1 ? 99 : index;
+}
+function compareStandings(a, b) {
+  return (b.pts - a.pts) ||
+    (b.gd - a.gd) ||
+    (b.gf - a.gf) ||
+    (a.seed - b.seed);
+}
+function standingRowsForGroup(g) {
+  return groupStandingsState.get(g) || groupSeedTeams(g).map((team, seed) => ({
+    team, seed, played: 0, pts: 0, gf: 0, ga: 0, gd: 0
+  }));
+}
+function groupTeamRowHtml(zh, standing = {}, probText = "—") {
+  return `<span class="group-team"><span class="gt-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
+    `<span class="gt-name-wrap"><span class="gt-name" data-team="${zh}">${tTeam(zh)}</span><span class="gt-market">—</span></span>` +
+    `<span class="gt-pts" data-team="${zh}">${standing.pts || 0}</span>` +
+    `<span class="gt-prob" data-team="${zh}">${probText}</span></span>`;
+}
+function renderGroupCardRows(g, rows, prob = {}) {
+  const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
+  if (!card) return;
+  const currentProb = prob;
+  card.querySelectorAll(".group-team").forEach((row) => row.remove());
+  card.insertAdjacentHTML("beforeend", rows.map((standing) => {
+    const p = currentProb[standing.team];
+    return groupTeamRowHtml(standing.team, standing, p == null ? "—" : `${Math.round(p * 100)}%`);
+  }).join(""));
+  window.__wcUpdateGroupMarketBadges?.();
 }
 function formatMarketAmount(value, en = false, fallback = null) {
   const amount = Number(value);
@@ -906,12 +945,7 @@ function setupGroupParade() {
   const grid = document.getElementById("group-grid");
   if (!grid) return;
   grid.innerHTML = WC_GROUPS.map(([g, teams]) => {
-    const rows = teams.map((zh) =>
-      `<span class="group-team"><span class="gt-flag">${isoToFlag(TEAM_ISO[zh])}</span>` +
-      `<span class="gt-name-wrap"><span class="gt-name" data-team="${zh}">${tTeam(zh)}</span><span class="gt-market">—</span></span>` +
-      `<span class="gt-pts" data-team="${zh}">0</span>` +
-      `<span class="gt-prob" data-team="${zh}">—</span></span>`
-    ).join("");
+    const rows = teams.map((zh, seed) => groupTeamRowHtml(zh, { pts: 0, seed })).join("");
     return `<button class="group-card spotlight" data-group="group-${g}" type="button">` +
       `<span class="gc-head"><span class="group-tag">${g}</span><span class="group-sub">GROUP</span></span>` +
       `<span class="gc-colhead"><span></span><span></span>` +
@@ -966,18 +1000,13 @@ const GM = (function () {
   }
 
   const isEn = () => document.documentElement.getAttribute("lang") === "en";
-  const groupTeams = (g) => {
-    const e = WC_GROUPS.find((x) => x[0] === g);
-    return e ? e[1] : [];
-  };
-
   function build(g) {
     currentG = g;
     ensureSquads();
     const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
     const ptsLabel = isEn() ? "PTS" : "积分";
     const advLabel = isEn() ? "ADVANCE" : "出线率";
-    const rows = groupTeams(g).map((zh) => {
+    const rows = standingRowsForGroup(g).map(({ team: zh }) => {
       const pe = card && card.querySelector(`.gt-prob[data-team="${zh}"]`);
       const te = card && card.querySelector(`.gt-pts[data-team="${zh}"]`);
       const probTxt = pe ? pe.textContent.trim() : "—";
@@ -1190,18 +1219,36 @@ function simulateAdvance(byGroup, iters = 8000) {
   return out;
 }
 
-// 小组实时积分：按已出结果的比赛算（胜 3 平 1 负 0）；赛前无结果则全 0，赛后自动更新
-function computeStandings(ms) {
-  const pts = {};
+// 小组实时排名：按已出结果的比赛算；积分、净胜球、进球数排序，最后用赛程原顺序兜底。
+function computeStandings(ms, g) {
+  const table = new Map();
+  for (const team of groupSeedTeams(g)) {
+    table.set(team, { team, seed: groupSeedIndex(g, team), played: 0, pts: 0, gf: 0, ga: 0, gd: 0 });
+  }
+  const rowFor = (team) => {
+    if (!table.has(team)) table.set(team, { team, seed: groupSeedIndex(g, team), played: 0, pts: 0, gf: 0, ga: 0, gd: 0 });
+    return table.get(team);
+  };
   for (const mt of ms) {
     if (!mt.result) continue;
-    pts[mt.homeTeam] = pts[mt.homeTeam] || 0;
-    pts[mt.awayTeam] = pts[mt.awayTeam] || 0;
-    if (mt.result === "home") pts[mt.homeTeam] += 3;
-    else if (mt.result === "away") pts[mt.awayTeam] += 3;
-    else { pts[mt.homeTeam] += 1; pts[mt.awayTeam] += 1; }
+    const home = rowFor(mt.homeTeam);
+    const away = rowFor(mt.awayTeam);
+    const hs = Number(mt.homeScore);
+    const as = Number(mt.awayScore);
+    home.played++;
+    away.played++;
+    if (Number.isFinite(hs) && Number.isFinite(as)) {
+      home.gf += hs;
+      home.ga += as;
+      away.gf += as;
+      away.ga += hs;
+    }
+    if (mt.result === "home") home.pts += 3;
+    else if (mt.result === "away") away.pts += 3;
+    else { home.pts += 1; away.pts += 1; }
   }
-  return pts;
+  for (const row of table.values()) row.gd = row.gf - row.ga;
+  return [...table.values()].sort(compareStandings);
 }
 
 function computeAdvanceProb() {
@@ -1212,21 +1259,24 @@ function computeAdvanceProb() {
     if (!mm) continue;
     const mo = m.model || {};
     if (!(Number.isFinite(mo.home) && Number.isFinite(mo.draw) && Number.isFinite(mo.away))) continue;
-    (byGroup[mm[1]] ||= []).push({ homeTeam: m.home, awayTeam: m.away, home: mo.home, draw: mo.draw, away: mo.away, result: m.result });
+    (byGroup[mm[1]] ||= []).push({
+      homeTeam: m.home,
+      awayTeam: m.away,
+      home: mo.home,
+      draw: mo.draw,
+      away: mo.away,
+      result: m.result,
+      homeScore: m.homeScore,
+      awayScore: m.awayScore
+    });
   }
   const prob = simulateAdvance(byGroup);
-  for (const [g, teams] of WC_GROUPS) {
+  for (const [g] of WC_GROUPS) {
     const ms = byGroup[g];
     if (!ms || ms.length < 6) continue;
-    const pts = computeStandings(ms);
-    const card = document.querySelector(`.group-card[data-group="group-${g}"]`);
-    if (!card) continue;
-    teams.forEach((zh) => {
-      const pe = card.querySelector(`.gt-prob[data-team="${zh}"]`);
-      if (pe && prob[zh] != null) pe.textContent = `${Math.round(prob[zh] * 100)}%`;
-      const te = card.querySelector(`.gt-pts[data-team="${zh}"]`);
-      if (te) te.textContent = String(pts[zh] || 0);
-    });
+    const rows = computeStandings(ms, g);
+    groupStandingsState.set(g, rows);
+    renderGroupCardRows(g, rows, prob);
   }
 }
 

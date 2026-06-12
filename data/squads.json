@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-09T04:26:15.666456",
+  "updatedAt": "2026-06-12T18:55:08Z",
   "teams": {
     "阿根廷": {
       "iso": "ar",
@@ -570,7 +570,11 @@
           "caps": 70,
           "goals": 1,
           "club_zh": "弗拉门戈",
-          "club_en": "Flamengo"
+          "club_en": "Flamengo",
+          "tm_id": 145707,
+          "market_value_eur": 2500000,
+          "market_value_updated": "2025-12-10",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 14,
@@ -641,7 +645,11 @@
           "caps": 4,
           "goals": 2,
           "club_zh": "博塔弗戈",
-          "club_en": "Botafogo"
+          "club_en": "Botafogo",
+          "tm_id": 808509,
+          "market_value_eur": 22000000,
+          "market_value_updated": "2025-12-10",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 19,
@@ -764,8 +772,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 774400000,
-      "market_value_covered": 23,
+      "market_value_eur": 798900000,
+      "market_value_covered": 25,
       "market_value_players": 26
     },
     "法国": {
@@ -1609,7 +1617,11 @@
           "goals": 0,
           "club_en": "Bayer Leverkusen",
           "zh": "格里马尔多",
-          "club_zh": "勒沃库森"
+          "club_zh": "勒沃库森",
+          "tm_id": 193082,
+          "market_value_eur": 24000000,
+          "market_value_updated": "2025-12-19",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 4,
@@ -1957,8 +1969,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 1202800000,
-      "market_value_covered": 25,
+      "market_value_eur": 1226800000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "葡萄牙": {
@@ -3984,7 +3996,11 @@
           "goals": 8,
           "club_en": "Atlético Madrid",
           "zh": "何塞·马里亚·吉梅内斯",
-          "club_zh": "马德里竞技"
+          "club_zh": "马德里竞技",
+          "tm_id": 250845,
+          "market_value_eur": 22000000,
+          "market_value_updated": "2024-06-07",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 3,
@@ -4343,8 +4359,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 315300000,
-      "market_value_covered": 24,
+      "market_value_eur": 337300000,
+      "market_value_covered": 25,
       "market_value_players": 26
     },
     "美国": {
@@ -5721,7 +5737,11 @@
           "caps": 27,
           "goals": 1,
           "club_zh": "通德拉",
-          "club_en": "Tondela"
+          "club_en": "Tondela",
+          "tm_id": 401736,
+          "market_value_eur": 600000,
+          "market_value_updated": "2025-12-18",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 14,
@@ -5911,8 +5931,8 @@
           "club_en": "Kaizer Chiefs"
         }
       ],
-      "market_value_eur": 44650000,
-      "market_value_covered": 21,
+      "market_value_eur": 45250000,
+      "market_value_covered": 22,
       "market_value_players": 26
     },
     "韩国": {
@@ -5939,7 +5959,11 @@
           "caps": 8,
           "goals": 0,
           "club_zh": "中日德兰",
-          "club_en": "Midtjylland"
+          "club_en": "Midtjylland",
+          "tm_id": 706963,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2025-12-15",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 3,
@@ -5961,7 +5985,11 @@
           "caps": 79,
           "goals": 4,
           "club_zh": "拜仁慕尼黑",
-          "club_en": "Bayern Munich"
+          "club_en": "Bayern Munich",
+          "tm_id": 503482,
+          "market_value_eur": 25000000,
+          "market_value_updated": "2025-12-19",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 5,
@@ -5983,7 +6011,11 @@
           "caps": 73,
           "goals": 6,
           "club_zh": "费耶诺德",
-          "club_en": "Feyenoord"
+          "club_en": "Feyenoord",
+          "tm_id": 365394,
+          "market_value_eur": 4500000,
+          "market_value_updated": "2023-05-22",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 7,
@@ -5994,7 +6026,11 @@
           "caps": 144,
           "goals": 56,
           "club_zh": "洛杉矶",
-          "club_en": "Los Angeles FC"
+          "club_en": "Los Angeles FC",
+          "tm_id": 91845,
+          "market_value_eur": 17000000,
+          "market_value_updated": "2025-12-11",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 8,
@@ -6005,7 +6041,11 @@
           "caps": 27,
           "goals": 3,
           "club_zh": "伯明翰",
-          "club_en": "Birmingham City"
+          "club_en": "Birmingham City",
+          "tm_id": 282689,
+          "market_value_eur": 900000,
+          "market_value_updated": "2023-06-23",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 9,
@@ -6016,7 +6056,11 @@
           "caps": 44,
           "goals": 12,
           "club_zh": "中日德兰",
-          "club_en": "Midtjylland"
+          "club_en": "Midtjylland",
+          "tm_id": 652537,
+          "market_value_eur": 4500000,
+          "market_value_updated": "2024-06-10",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 10,
@@ -6027,7 +6071,11 @@
           "caps": 105,
           "goals": 15,
           "club_zh": "美因茨",
-          "club_en": "Mainz 05"
+          "club_en": "Mainz 05",
+          "tm_id": 314398,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2025-12-19",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 11,
@@ -6115,7 +6163,11 @@
           "caps": 27,
           "goals": 6,
           "club_zh": "贝希克塔什",
-          "club_en": "Beşiktaş"
+          "club_en": "Beşiktaş",
+          "tm_id": 639246,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2024-05-30",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 19,
@@ -6126,7 +6178,11 @@
           "caps": 47,
           "goals": 11,
           "club_zh": "巴黎圣日耳曼",
-          "club_en": "Paris Saint-Germain"
+          "club_en": "Paris Saint-Germain",
+          "tm_id": 557149,
+          "market_value_eur": 25000000,
+          "market_value_updated": "2025-12-15",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 20,
@@ -6210,8 +6266,8 @@
           "club_en": "Ulsan HD"
         }
       ],
-      "market_value_eur": 10000000,
-      "market_value_covered": 1,
+      "market_value_eur": 92500000,
+      "market_value_covered": 10,
       "market_value_players": 26
     },
     "波黑": {
@@ -8326,7 +8382,11 @@
           "caps": 4,
           "goals": 0,
           "club_zh": "富勒姆",
-          "club_en": "Fulham"
+          "club_en": "Fulham",
+          "tm_id": 272622,
+          "market_value_eur": 10000000,
+          "market_value_updated": "2025-12-09",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 15,
@@ -8501,8 +8561,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 478700000,
-      "market_value_covered": 22,
+      "market_value_eur": 488700000,
+      "market_value_covered": 23,
       "market_value_players": 26
     },
     "苏格兰": {
@@ -8548,7 +8608,11 @@
           "caps": 94,
           "goals": 4,
           "club_zh": "利物浦",
-          "club_en": "Liverpool"
+          "club_en": "Liverpool",
+          "tm_id": 234803,
+          "market_value_eur": 30000000,
+          "market_value_updated": "2024-05-27",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 4,
@@ -8888,8 +8952,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 159750000,
-      "market_value_covered": 23,
+      "market_value_eur": 189750000,
+      "market_value_covered": 24,
       "market_value_players": 26
     },
     "澳大利亚": {
@@ -12204,7 +12268,11 @@
           "caps": 45,
           "goals": 1,
           "club_zh": "伯恩利",
-          "club_en": "Burnley"
+          "club_en": "Burnley",
+          "tm_id": 607224,
+          "market_value_eur": 9000000,
+          "market_value_updated": "2024-06-07",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 11,
@@ -12405,7 +12473,11 @@
           "caps": 41,
           "goals": 4,
           "club_zh": "诺里奇城",
-          "club_en": "Norwich City"
+          "club_en": "Norwich City",
+          "tm_id": 546712,
+          "market_value_eur": 2500000,
+          "market_value_updated": "2024-05-27",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 26,
@@ -12423,8 +12495,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 44350000,
-      "market_value_covered": 18,
+      "market_value_eur": 55850000,
+      "market_value_covered": 20,
       "market_value_players": 26
     },
     "埃及": {
@@ -13112,7 +13184,11 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "标准列日",
-          "club_en": "Standard Liège"
+          "club_en": "Standard Liège",
+          "tm_id": 249303,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2025-12-10",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 25,
@@ -13137,8 +13213,8 @@
           "club_en": "Esteghlal"
         }
       ],
-      "market_value_eur": 20350000,
-      "market_value_covered": 14,
+      "market_value_eur": 22350000,
+      "market_value_covered": 15,
       "market_value_players": 26
     },
     "新西兰": {
@@ -13575,7 +13651,11 @@
           "caps": 30,
           "goals": 2,
           "club_zh": "巴塔伊赫",
-          "club_en": "Al Bataeh"
+          "club_en": "Al Bataeh",
+          "tm_id": 349570,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2023-10-12",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 4,
@@ -13612,7 +13692,11 @@
           "caps": 31,
           "goals": 3,
           "club_zh": "克拉斯诺达尔",
-          "club_en": "Krasnodar"
+          "club_en": "Krasnodar",
+          "tm_id": 544586,
+          "market_value_eur": 4500000,
+          "market_value_updated": "2025-12-16",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 7,
@@ -13653,7 +13737,11 @@
           "caps": 22,
           "goals": 6,
           "club_zh": "阿克龙",
-          "club_en": "Akron Tolyatti"
+          "club_en": "Akron Tolyatti",
+          "tm_id": 820252,
+          "market_value_eur": 650000,
+          "market_value_updated": "2023-06-28",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 10,
@@ -13899,8 +13987,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 46050000,
-      "market_value_covered": 17,
+      "market_value_eur": 52200000,
+      "market_value_covered": 20,
       "market_value_players": 26
     },
     "沙特阿拉伯": {
@@ -14670,11 +14758,15 @@
           "caps": 27,
           "goals": 0,
           "club_zh": "万隆",
-          "club_en": "Persib"
+          "club_en": "Persib",
+          "tm_id": 166460,
+          "market_value_eur": 400000,
+          "market_value_updated": "2023-09-25",
+          "market_value_source": "Transfermarkt dataset rematch"
         }
       ],
-      "market_value_eur": 19275000,
-      "market_value_covered": 22,
+      "market_value_eur": 19675000,
+      "market_value_covered": 23,
       "market_value_players": 26
     },
     "挪威": {
@@ -14900,7 +14992,11 @@
           "caps": 21,
           "goals": 1,
           "club_zh": "博多/格林特",
-          "club_en": "Bodø/Glimt"
+          "club_en": "Bodø/Glimt",
+          "tm_id": 364938,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2023-09-07",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 16,
@@ -14911,7 +15007,11 @@
           "caps": 32,
           "goals": 0,
           "club_zh": "都灵",
-          "club_en": "Torino"
+          "club_en": "Torino",
+          "tm_id": 583404,
+          "market_value_eur": 3500000,
+          "market_value_updated": "2025-12-23",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 17,
@@ -15064,8 +15164,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 582900000,
-      "market_value_covered": 24,
+      "market_value_eur": 588200000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "塞内加尔": {
@@ -15817,7 +15917,11 @@
           "caps": 5,
           "goals": 0,
           "club_zh": "沙勒罗瓦",
-          "club_en": "Charleroi"
+          "club_en": "Charleroi",
+          "tm_id": 748445,
+          "market_value_eur": 5000000,
+          "market_value_updated": "2025-12-10",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 25,
@@ -15850,8 +15954,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 248800000,
-      "market_value_covered": 23,
+      "market_value_eur": 253800000,
+      "market_value_covered": 24,
       "market_value_players": 26
     },
     "奥地利": {
@@ -16790,7 +16894,11 @@
           "caps": 54,
           "goals": 8,
           "club_zh": "卡利亚里",
-          "club_en": "Cagliari"
+          "club_en": "Cagliari",
+          "tm_id": 289446,
+          "market_value_eur": 3000000,
+          "market_value_updated": "2025-12-23",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 14,
@@ -16988,8 +17096,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 299850000,
-      "market_value_covered": 25,
+      "market_value_eur": 302850000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "刚果民主共和国": {
@@ -17005,7 +17113,11 @@
           "caps": 28,
           "goals": 0,
           "club_zh": "勒阿弗尔",
-          "club_en": "Le Havre"
+          "club_en": "Le Havre",
+          "tm_id": 164915,
+          "market_value_eur": 700000,
+          "market_value_updated": "2023-06-16",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 2,
@@ -17371,8 +17483,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 138200000,
-      "market_value_covered": 22,
+      "market_value_eur": 138900000,
+      "market_value_covered": 23,
       "market_value_players": 26
     },
     "乌兹别克斯坦": {
@@ -18115,7 +18227,11 @@
           "caps": 5,
           "goals": 0,
           "club_zh": "比尔森胜利",
-          "club_en": "Viktoria Plzeň"
+          "club_en": "Viktoria Plzeň",
+          "tm_id": 734799,
+          "market_value_eur": 3500000,
+          "market_value_updated": "2025-12-22",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 26,
@@ -18133,8 +18249,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 215250000,
-      "market_value_covered": 23,
+      "market_value_eur": 218750000,
+      "market_value_covered": 24,
       "market_value_players": 26
     },
     "巴拿马": {
@@ -18464,7 +18580,11 @@
           "caps": 94,
           "goals": 9,
           "club_zh": "贝希克塔什",
-          "club_en": "Beşiktaş"
+          "club_en": "Beşiktaş",
+          "tm_id": 354482,
+          "market_value_eur": 10000000,
+          "market_value_updated": "2025-12-15",
+          "market_value_source": "Transfermarkt dataset rematch"
         },
         {
           "no": 24,
@@ -18512,18 +18632,18 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 26350000,
-      "market_value_covered": 21,
+      "market_value_eur": 36350000,
+      "market_value_covered": 22,
       "market_value_players": 26
     }
   },
   "marketValues": {
-    "source": "Transfermarkt dataset + Transfermarkt API fallback",
+    "source": "Transfermarkt dataset + API fallback + local dataset rematch",
     "playerFile": "players.csv.gz",
     "valuationFile": "player_valuations.csv.gz",
-    "matchedPlayers": 1097,
+    "matchedPlayers": 1127,
     "totalPlayers": 1245,
-    "note": "Values are latest available market_value_in_eur matched by English player name with country/club disambiguation; unmatched players are displayed as pending.",
+    "note": "Values are latest available market_value_in_eur matched by English player name with country/club/position disambiguation; unmatched players remain pending.",
     "teamTotals": "market_value_eur is the sum of matched player market_value_eur for each squad; market_value_covered records coverage."
   }
 }
