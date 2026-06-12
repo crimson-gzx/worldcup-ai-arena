@@ -1,15 +1,17 @@
 const state = {
   matches: [],
   selectedId: null,
-  filter: "group-A",
+  filter: "recent",
   openDays: new Set(), // 当前展开的比赛日
   dayInitDone: false,
   squads: null,
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260612-results";
+const dataVersion = "20260613-recent";
 const SQUADS_DATA_VERSION = "20260611-team-values";
+const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
+const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
 
 // i18n（i18n.js 先于本模块执行）；缺失时退化为原样返回
 const _i18n = window.wcI18n || {};
@@ -91,8 +93,16 @@ function groupOf(match) {
   return m ? m[1] : null;
 }
 
+function isRecentMatch(match, now = Date.now()) {
+  const stamp = kickoffStamp(match);
+  if (stamp === Number.MAX_SAFE_INTEGER) return false;
+  if (matchScore(match)?.live) return true;
+  return stamp >= now - RECENT_PAST_MS && stamp <= now + RECENT_FUTURE_MS;
+}
+
 function matchesFilter(match) {
   const f = state.filter;
+  if (f === "recent") return isRecentMatch(match);
   if (f === "all") return true;
   if (f === "knockout") return match.tags.includes("knockout");
   if (f.startsWith("group-")) return groupOf(match) === f.slice(6);
@@ -147,9 +157,32 @@ function oddsLine(match) {
 }
 
 function sortedMatches() {
-  return [...state.matches]
+  const all = [...state.matches];
+  const filtered = all
     .filter(matchesFilter)
     .sort((a, b) => kickoffStamp(a) - kickoffStamp(b));
+  if (filtered.length || state.filter !== "recent") return filtered;
+
+  const now = Date.now();
+  const upcoming = all
+    .filter((match) => kickoffStamp(match) >= now)
+    .sort((a, b) => kickoffStamp(a) - kickoffStamp(b));
+  if (upcoming.length) return upcoming.slice(0, 8);
+
+  return all
+    .filter((match) => kickoffStamp(match) !== Number.MAX_SAFE_INTEGER)
+    .sort((a, b) => kickoffStamp(a) - kickoffStamp(b))
+    .slice(-8);
+}
+
+function defaultMatchForCurrentFilter() {
+  const matches = sortedMatches();
+  const now = Date.now();
+  return matches.find((match) => matchScore(match)?.live)
+    || matches.find((match) => kickoffStamp(match) >= now)
+    || matches.at(-1)
+    || state.matches[0]
+    || null;
 }
 
 let squadsLoadPromise = null;
@@ -290,9 +323,12 @@ function renderMatchCards() {
     }
     byDate.get(date).push(m);
   }
-  // 首次渲染默认展开最早一个比赛日
+  // 首次渲染优先展开当前选中比赛所在日期
   if (!state.dayInitDone) {
-    if (order[0]) state.openDays.add(order[0]);
+    const selected = all.find((match) => match.id === state.selectedId);
+    const selectedDate = selected?.kickoff.slice(0, 10);
+    if (selectedDate && byDate.has(selectedDate)) state.openDays.add(selectedDate);
+    else if (order[0]) state.openDays.add(order[0]);
     state.dayInitDone = true;
   }
 
@@ -562,7 +598,7 @@ async function loadData() {
   state.matches = payload.matches;
   state.updatedAt = payload.updatedAt || null;
   state.lotteryAt = (payload.lotterySource && payload.lotterySource.collectedAt) || null;
-  state.selectedId = payload.matches[0]?.id || null;
+  state.selectedId = defaultMatchForCurrentFilter()?.id || null;
   render();
   renderDataFreshness();
   computeAdvanceProb();
@@ -577,6 +613,7 @@ selectors.chips.forEach((chip) => {
     state.filter = chip.dataset.filter;
     state.openDays = new Set();
     state.dayInitDone = false;
+    state.selectedId = defaultMatchForCurrentFilter()?.id || state.selectedId;
     render();
   });
 });

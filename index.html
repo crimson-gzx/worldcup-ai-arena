@@ -23,7 +23,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="stylesheet" href="./styles.css?v=20260612-results" />
+    <link rel="stylesheet" href="./styles.css?v=20260613-recent" />
     
   </head>
   <body>
@@ -140,12 +140,13 @@
             <span class="sec-index">02</span>
             <p class="eyebrow" data-i18n="radar.eyebrow">盘口雷达</p>
             <h2 data-i18n="radar.h2">今日盘口雷达</h2>
-            <p data-i18n="radar.lead">默认按分组查看（A组起），点上方标签切换分组；每个比赛日可折叠，点日期标题展开当天比赛。</p>
+            <p data-i18n="radar.lead">默认显示刚结束、进行中和即将开打的比赛；也可以切到全部、分组或淘汰赛查看。</p>
             <p class="data-freshness" id="data-freshness" aria-live="polite"></p>
           </div>
           <div class="toolbar" role="group" aria-label="筛选比赛">
+            <button class="chip is-active" data-filter="recent" type="button" data-i18n="chip.recent">近期</button>
             <button class="chip" data-filter="all" type="button" data-i18n="chip.all">全部</button>
-            <button class="chip is-active" data-filter="group-A" type="button" data-i18n="chip.gA">A组</button>
+            <button class="chip" data-filter="group-A" type="button" data-i18n="chip.gA">A组</button>
             <button class="chip" data-filter="group-B" type="button" data-i18n="chip.gB">B组</button>
             <button class="chip" data-filter="group-C" type="button" data-i18n="chip.gC">C组</button>
             <button class="chip" data-filter="group-D" type="button" data-i18n="chip.gD">D组</button>
@@ -309,8 +310,8 @@
     <script src="./pixel-hero.js?v=20260610-fx2" defer></script>
 
     
-    <script src="./i18n.js?v=20260612-results"></script>
-    <script src="./app.js?v=20260612-results" type="module"></script>
+    <script src="./i18n.js?v=20260613-recent"></script>
+    <script src="./app.js?v=20260613-recent" type="module"></script>
 
     
   

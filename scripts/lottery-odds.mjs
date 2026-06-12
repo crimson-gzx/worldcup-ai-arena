@@ -9,6 +9,16 @@ import https from "node:https";
 
 const FILE = process.argv[2] || "data/matches.json";
 const API = "https://webapi.sporttery.cn/gateway/jc/football/getMatchCalculatorV1.qry";
+const SPORTTERY_HEADERS = {
+  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+  "Accept": "application/json, text/plain, */*",
+  "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+  "Origin": "https://www.sporttery.cn",
+  "Referer": "https://www.sporttery.cn/",
+  "Sec-Fetch-Dest": "empty",
+  "Sec-Fetch-Mode": "cors",
+  "Sec-Fetch-Site": "same-site"
+};
 // 竞彩简称 → matches.json 全称（仅差异项；其余队名两边一致）
 const ALIAS = { 阿尔及利: "阿尔及利亚", 刚果金: "刚果民主共和国", 乌兹别克: "乌兹别克斯坦", 沙特: "沙特阿拉伯" };
 const norm = (s) => ALIAS[s] || s;
@@ -20,7 +30,7 @@ const fmtHcap = (p) => (p > 0 ? "+" : "") + p;
 function getJSON(url) {
   return new Promise((resolve, reject) => {
     const req = https.get(url, {
-      headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)", Referer: "https://www.sporttery.cn/" },
+      headers: SPORTTERY_HEADERS,
       timeout: 15000
     }, (res) => {
       if (res.statusCode !== 200) { res.resume(); return reject(new Error(`HTTP ${res.statusCode}`)); }
