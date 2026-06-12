@@ -1719,6 +1719,23 @@ tr:last-child td {
 .agent-metric strong { font-variant-numeric: tabular-nums; }
 .agent-metric.pos strong { color: #46c98a; }
 .agent-metric.neg strong { color: var(--negative); }
+.agent-board-toggle {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+}
+.agent-board-toggle:hover {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
 
 /* ===================== 风险提示 + footer ===================== */
 .disclaimer {

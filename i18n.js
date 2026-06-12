@@ -148,6 +148,7 @@
     "正在读取排行榜。": "Loading leaderboard…",
     "未标注模型": "Unlabeled model", "虚拟资产": "Virtual assets",
     "收益率": "ROI", "连胜": "W", "命中": "Hit", "暂无战绩": "No record",
+    "查看完整榜单": "Full board", "收起榜单": "Collapse board",
     "赔率更新": "Odds", "竞彩更新": "Lottery",
     "赛事未开打，暂无结算战绩。": "Season hasn't started — no settled records yet.",
     "你押谁赢？": "Your call?", "平局": "Draw", "人类": "Humans", "票": " votes", "注": " bets", "暂无": "—",

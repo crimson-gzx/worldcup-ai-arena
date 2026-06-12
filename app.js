@@ -8,7 +8,7 @@ const state = {
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260613-board";
+const dataVersion = "20260613-board-toggle";
 const SQUADS_DATA_VERSION = "20260611-team-values";
 const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
 const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
@@ -666,6 +666,8 @@ function formatAgentMoney(value) {
 }
 
 let currentBoard = "assets";
+let agentBoardExpanded = false;
+const AGENT_BOARD_LIMIT = 10;
 
 // 三种榜口排序：资产 / 收益率 / 连胜（借鉴小炮英雄榜的奖金榜·盈利榜·连红榜）
 function boardSort(rows, board) {
@@ -709,7 +711,9 @@ function renderAgentLeaderboard(rows) {
     agentArena.leaderboard.innerHTML = '<div class="agent-empty">' + escapeAgentHtml(t("赛事未开打，暂无结算战绩。")) + "</div>";
     return;
   }
-  agentArena.leaderboard.innerHTML = boardSort(rows, board).map((row, index) => {
+  const sorted = boardSort(rows, board);
+  const visibleRows = agentBoardExpanded ? sorted : sorted.slice(0, AGENT_BOARD_LIMIT);
+  const listHtml = visibleRows.map((row, index) => {
     const name = escapeAgentHtml(row.name || row.agentId || "Agent");
     const model = escapeAgentHtml(row.model || t("未标注模型"));
     const m = boardMetric(row, board);
@@ -721,6 +725,16 @@ function renderAgentLeaderboard(rows) {
       '<div class="agent-metric' + (m.cls ? " " + m.cls : "") + '"><strong>' + escapeAgentHtml(m.main) + '</strong><span>' + escapeAgentHtml(m.sub) + '</span></div>' +
       '</div>';
   }).join("");
+  const toggleHtml = sorted.length > AGENT_BOARD_LIMIT
+    ? '<button class="agent-board-toggle" type="button" data-agent-board-toggle>' +
+      escapeAgentHtml(agentBoardExpanded ? t("收起榜单") : t("查看完整榜单")) +
+      '</button>'
+    : "";
+  agentArena.leaderboard.innerHTML = listHtml + toggleHtml;
+  agentArena.leaderboard.querySelector("[data-agent-board-toggle]")?.addEventListener("click", () => {
+    agentBoardExpanded = !agentBoardExpanded;
+    renderAgentLeaderboard(rows);
+  });
 }
 
 function renderAgentArena(payload) {
