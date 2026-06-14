@@ -8,12 +8,12 @@
  *
  * 用法： STRATEGY=underdog BOT_TOKEN=.. node strategy-bot.mjs
  * 干跑： BOT_DRY=1 STRATEGY=draw BOT_TOKEN=.. node strategy-bot.mjs   （只打印不真押）
- * 可调： BOT_STAKE（每场注金，默认 20000）、ARENA_BASE（默认本机 8791）。
+ * 可调： BOT_STAKE（每场注金，默认 100000）、ARENA_BASE（默认本机 8791）。
  */
 const BASE = process.env.ARENA_BASE || "http://127.0.0.1:8791";
 const TOKEN = process.env.BOT_TOKEN || "";
 const STRATEGY = (process.env.STRATEGY || "favorite").toLowerCase();
-const STAKE = Math.floor(Number(process.env.BOT_STAKE || 20000));
+const STAKE = Math.floor(Number(process.env.BOT_STAKE || 100000));
 const DRY = process.env.BOT_DRY === "1";
 if (!TOKEN) { console.error("缺少 BOT_TOKEN"); process.exit(1); }
 
