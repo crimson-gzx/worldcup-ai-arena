@@ -25,6 +25,7 @@ const norm = (s) => ALIAS[s] || s;
 const pairKey = (a, b) => [a, b].sort().join("::");
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : null; };
 const fmtHcap = (p) => (p > 0 ? "+" : "") + p;
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // 用 node:https（零依赖、兼容旧版 Node；中转机 CentOS7 只能跑 Node16、无全局 fetch）
 function getJSON(url) {
@@ -33,19 +34,36 @@ function getJSON(url) {
       headers: SPORTTERY_HEADERS,
       timeout: 15000
     }, (res) => {
-      if (res.statusCode !== 200) { res.resume(); return reject(new Error(`HTTP ${res.statusCode}`)); }
       let data = ""; res.setEncoding("utf8");
       res.on("data", (c) => (data += c));
-      res.on("end", () => { try { resolve(JSON.parse(data)); } catch (e) { reject(e); } });
+      res.on("end", () => {
+        if (res.statusCode !== 200) {
+          return reject(new Error(`HTTP ${res.statusCode}: ${data.slice(0, 160)}`));
+        }
+        try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
+      });
     });
     req.on("timeout", () => req.destroy(new Error("请求超时")));
     req.on("error", reject);
   });
 }
 async function fetchPool(poolCode) {
-  const d = await getJSON(`${API}?poolCode=${poolCode}&channel=c`);
-  if (!d?.value?.matchInfoList) throw new Error(`竞彩 ${poolCode} 返回结构异常`);
-  return d.value.matchInfoList;
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const d = await getJSON(`${API}?poolCode=${poolCode}&channel=c&_=${Date.now()}`);
+      if (!d?.value?.matchInfoList) throw new Error(`返回结构异常：${JSON.stringify(d).slice(0, 160)}`);
+      return d.value.matchInfoList;
+    } catch (err) {
+      lastErr = err;
+      if (attempt < 3) {
+        const delay = 1200 * attempt + Math.floor(Math.random() * 800);
+        console.error(`竞彩 ${poolCode} 第 ${attempt} 次失败：${err.message}，${delay}ms 后重试`);
+        await sleep(delay);
+      }
+    }
+  }
+  throw new Error(`竞彩 ${poolCode} 抓取失败：${lastErr?.message || lastErr}`);
 }
 function indexWCC(list) {
   const out = new Map();

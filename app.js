@@ -47,6 +47,10 @@ function hasOneXTwo(odds) {
   return ["home", "draw", "away"].every((key) => Number.isFinite(odds?.[key]));
 }
 
+function hasHandicapOdds(odds) {
+  return Boolean(odds?.line) && ["home", "draw", "away"].every((key) => Number.isFinite(odds?.[key]));
+}
+
 function hasModelProbabilities(model) {
   return ["home", "draw", "away"].every((key) => Number.isFinite(model?.[key]));
 }
@@ -405,7 +409,7 @@ function marketStatus(match) {
   if (score?.completed) return t("已完赛");
   if (score?.live) return t("进行中");
   if (marketReady(match)) return t("已接入");
-  if (hasOneXTwo(match.lottery?.oneXTwo) || hasOneXTwo(match.offshore?.oneXTwo)) return t("部分接入");
+  if (hasOneXTwo(match.lottery?.oneXTwo) || hasHandicapOdds(match.lottery?.handicap) || hasOneXTwo(match.offshore?.oneXTwo)) return t("部分接入");
   return t("待开盘");
 }
 
@@ -419,7 +423,12 @@ function marketLineLabel(market) {
 }
 
 function renderLotteryBlock(match) {
-  if (!hasOneXTwo(match.lottery?.oneXTwo)) {
+  const lo = match.lottery?.oneXTwo;
+  const hc = match.lottery?.handicap;
+  const hasMain = hasOneXTwo(lo);
+  const hasHandicap = hasHandicapOdds(hc);
+
+  if (!hasMain && !hasHandicap) {
     return `
       <section class="detail-block">
         <h3>${t("竞彩固定奖金")}</h3>
@@ -428,16 +437,16 @@ function renderLotteryBlock(match) {
     `;
   }
 
-  const lottery = impliedProbabilities(match.lottery.oneXTwo);
-  const lo = match.lottery.oneXTwo;
-  const hc = match.lottery.handicap;
+  const lottery = hasMain ? impliedProbabilities(lo) : null;
   return `
     <section class="detail-block">
       <h3>${t("竞彩固定奖金")}</h3>
-      <div class="odds-line"><span>${t("胜平负")}</span>${labeledOdds([[t("胜"), lo.home], [t("平"), lo.draw], [t("负"), lo.away]])}</div>
-      <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(lottery.fair.home)], [t("平"), percent(lottery.fair.draw)], [t("负"), percent(lottery.fair.away)]])}</div>
-      <div class="odds-line"><span>${t("返还率")}</span><strong>${percent(lottery.returnRate)}</strong></div>
-      <div class="odds-line"><span>${t("让球")} ${hc.line}</span>${labeledOdds([[t("胜"), hc.home], [t("平"), hc.draw], [t("负"), hc.away]])}</div>
+      ${hasMain ? `
+        <div class="odds-line"><span>${t("胜平负")}</span>${labeledOdds([[t("胜"), lo.home], [t("平"), lo.draw], [t("负"), lo.away]])}</div>
+        <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(lottery.fair.home)], [t("平"), percent(lottery.fair.draw)], [t("负"), percent(lottery.fair.away)]])}</div>
+        <div class="odds-line"><span>${t("返还率")}</span><strong>${percent(lottery.returnRate)}</strong></div>
+      ` : `<div class="odds-line"><span>${t("胜平负")}</span><strong>${t("待接入")}</strong></div>`}
+      ${hasHandicap ? `<div class="odds-line"><span>${t("让球")} ${hc.line}</span>${labeledOdds([[t("胜"), hc.home], [t("平"), hc.draw], [t("负"), hc.away]])}</div>` : ""}
     </section>
   `;
 }
