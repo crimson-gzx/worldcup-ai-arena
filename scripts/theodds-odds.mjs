@@ -25,6 +25,10 @@ const pairKey = (a, b) => [a, b].sort().join("::");
 const mean = (a) => (a.length ? Math.round((a.reduce((s, x) => s + x, 0) / a.length) * 100) / 100 : null);
 const mode = (a) => { const c = {}; a.forEach((x) => (c[x] = (c[x] || 0) + 1)); return Object.entries(c).sort((x, y) => y[1] - x[1])[0]?.[0]; };
 const fmtHcap = (p) => (p > 0 ? "+" : "") + p;
+const cleanNotes = (notes) => (Array.isArray(notes) ? notes : []).filter((note) => {
+  const text = String(note);
+  return !text.startsWith("海外欧赔") && !/竞彩固定奖金.*待接入|模型概率.*待接入|模型概率等待/.test(text);
+});
 
 const aggH2H = (e) => { const hs=[],ds=[],as=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="h2h");if(!mk)continue;const o=Object.fromEntries(mk.outcomes.map(x=>[x.name,x.price]));const h=o[e.home_team],a=o[e.away_team],d=o["Draw"];if([h,a,d].every(Number.isFinite)){hs.push(h);as.push(a);ds.push(d);}} return hs.length?{home:mean(hs),draw:mean(ds),away:mean(as),books:hs.length}:null; };
 const aggSpreads = (e) => { const r=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="spreads");if(!mk)continue;const H=mk.outcomes.find(o=>o.name===e.home_team),A=mk.outcomes.find(o=>o.name===e.away_team);if(H&&A&&Number.isFinite(H.price)&&Number.isFinite(A.price))r.push({hp:H.point,hpr:H.price,apr:A.price});} if(!r.length)return null; const c=Number(mode(r.map(x=>String(x.hp))));const at=r.filter(x=>x.hp===c);return{homePoint:c,home:mean(at.map(x=>x.hpr)),away:mean(at.map(x=>x.apr))}; };
@@ -66,8 +70,8 @@ for (const e of odds) {
   const prevOff = m.offshore || {};
   m.offshore = { source: "the-odds-api", desc: `${h.books} 家博彩均值`, regions: REGIONS, collectedAt, oneXTwo, asian: asian || prevOff.asian || null, totals: totals || prevOff.totals || null };
   m.model = m.model || {};
-  m.model.notes = (Array.isArray(m.model.notes) ? m.model.notes : []).filter((n) => !n.startsWith("海外欧赔"));
-  m.model.notes.push(`海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（${REGIONS}，${collectedAt.slice(0, 10)}）。模型概率仍待接入。`);
+  m.model.notes = cleanNotes(m.model.notes);
+  m.model.notes.push(`海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（${REGIONS}，${collectedAt.slice(0, 10)}）。`);
   matched++;
 }
 payload.updatedAt = collectedAt;
