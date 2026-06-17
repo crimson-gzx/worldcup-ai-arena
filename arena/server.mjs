@@ -4,7 +4,7 @@
  * 全程虚拟资金，不涉及任何真实购彩。
  */
 import http from "node:http";
-import { readFileSync, writeFileSync, renameSync, existsSync, mkdirSync } from "node:fs";
+import { appendFileSync, copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, unlinkSync, writeFileSync } from "node:fs";
 import { randomBytes, createHash, timingSafeEqual } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,8 +20,12 @@ const MAX_BODY = 8 * 1024;
 const STATE_FILE = join(DATA_DIR, "state.json");
 const MARKETS_FILE = join(DATA_DIR, "markets.json");
 const VOTES_FILE = join(DATA_DIR, "votes.json");
+const JOURNAL_FILE = join(DATA_DIR, "events.ndjson");
+const STATE_BACKUP_DIR = join(DATA_DIR, "backups");
+const STATE_BACKUP_KEEP = Math.max(5, Number(process.env.ARENA_STATE_BACKUP_KEEP || 120));
 
 mkdirSync(DATA_DIR, { recursive: true });
+mkdirSync(STATE_BACKUP_DIR, { recursive: true });
 
 // ---------- 持久化 ----------
 const loadJson = (file, fallback) => {
@@ -41,7 +45,27 @@ const saveAtomic = (file, obj) => {
   writeFileSync(tmp, JSON.stringify(obj, null, 2));
   renameSync(tmp, file);
 };
-const saveState = () => saveAtomic(STATE_FILE, state);
+const timestampId = () => new Date().toISOString().replace(/\D/g, "").slice(0, 17);
+const pruneStateBackups = () => {
+  const files = readdirSync(STATE_BACKUP_DIR)
+    .filter((name) => /^state\.\d{17}\.json$/.test(name))
+    .sort();
+  for (const name of files.slice(0, Math.max(0, files.length - STATE_BACKUP_KEEP))) {
+    unlinkSync(join(STATE_BACKUP_DIR, name));
+  }
+};
+const backupState = () => {
+  if (!existsSync(STATE_FILE)) return;
+  copyFileSync(STATE_FILE, join(STATE_BACKUP_DIR, `state.${timestampId()}.json`));
+  pruneStateBackups();
+};
+const journal = (entry) => {
+  appendFileSync(JOURNAL_FILE, JSON.stringify({ ts: now(), ...entry }) + "\n");
+};
+const saveState = () => {
+  backupState();
+  saveAtomic(STATE_FILE, state);
+};
 
 // ---------- 工具 ----------
 const sha = (s) => createHash("sha256").update(s).digest("hex");
@@ -246,17 +270,19 @@ async function route(req, res, path) {
     const model = clampStr(body.model, 40);
     if (name.length < 1) return send(res, 400, { error: "需要 name（队伍/Agent 名）" });
     const token = randomBytes(24).toString("hex");
+    const ts = now();
     const agent = {
       agentId: newId("a_"),
       name,
       model: model || "未标注模型",
       tokenHash: sha(token),
       cash: state.config.virtualCapital,
-      joinedAt: now(),
+      joinedAt: ts,
       ip
     };
     state.agents.push(agent);
-    state.events.push({ ts: now(), type: "register", agentId: agent.agentId, name });
+    state.events.push({ ts, type: "register", agentId: agent.agentId, name });
+    journal({ type: "register", agentId: agent.agentId, name: agent.name, model: agent.model, ip });
     saveState();
     return send(res, 201, {
       agentId: agent.agentId,
@@ -302,6 +328,7 @@ async function route(req, res, path) {
     if (!Number.isFinite(odds)) return send(res, 400, { error: "该选项赔率不可用" });
 
     agent.cash -= stake;
+    const placedAt = now();
     const bet = {
       betId: newId("b_"),
       agentId: agent.agentId,
@@ -310,10 +337,11 @@ async function route(req, res, path) {
       stake,
       odds,
       status: "open",
-      placedAt: now()
+      placedAt
     };
     state.bets.push(bet);
-    state.events.push({ ts: now(), type: "bet", agentId: agent.agentId, betId: bet.betId, matchId, selection, stake });
+    state.events.push({ ts: placedAt, type: "bet", agentId: agent.agentId, betId: bet.betId, matchId, selection, stake });
+    journal({ type: "bet", agentId: agent.agentId, betId: bet.betId, matchId, selection, stake, odds, cashAfter: agent.cash, ip });
     saveState();
     return send(res, 201, { bet, cash: agent.cash });
   }
@@ -339,6 +367,8 @@ async function route(req, res, path) {
     const result = clampStr(body.result, 10);
     if (!["home", "draw", "away", "void"].includes(result)) return send(res, 400, { error: "result 非法" });
     let settled = 0;
+    const settledAt = now();
+    const settledBetIds = [];
     for (const b of state.bets) {
       if (b.matchId !== matchId || b.status !== "open") continue;
       if (result === "void") {
@@ -352,13 +382,15 @@ async function route(req, res, path) {
       } else {
         b.status = "lost";
       }
-      b.settledAt = now();
+      b.settledAt = settledAt;
       settled++;
+      settledBetIds.push(b.betId);
     }
     const mk = markets.markets.find((m) => m.matchId === matchId);
     if (mk) mk.state = "closed";
     saveAtomic(MARKETS_FILE, markets);
-    state.events.push({ ts: now(), type: "settle", matchId, result, settled });
+    state.events.push({ ts: settledAt, type: "settle", matchId, result, settled });
+    journal({ type: "settle", matchId, result, settled, settledBetIds });
     saveState();
     return send(res, 200, { ok: true, matchId, result, settled });
   }
