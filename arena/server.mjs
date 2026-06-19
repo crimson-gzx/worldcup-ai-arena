@@ -140,6 +140,13 @@ const bettable = (m) => {
   return now >= cut - OPEN_HOURS_BEFORE * 3600000;
 };
 const openMarkets = () => markets.markets.filter(bettable);
+const marketById = (matchId) => markets.markets.find((m) => m.matchId === matchId);
+const voteClosed = (market) => {
+  if (!market) return false;
+  if (market.state === "closed") return true;
+  const cut = Date.parse(market.cutoffAt || "");
+  return Number.isFinite(cut) && Date.now() >= cut;
+};
 
 // ---------- 访客投票（人群 vs AI）----------
 const VOTE_SIDES = ["home", "draw", "away"];
@@ -253,6 +260,9 @@ async function route(req, res, path) {
     const matchId = clampStr(body.matchId, 40);
     const selection = clampStr(body.selection, 10);
     if (!/^[a-z0-9-]{3,40}$/.test(matchId)) return send(res, 400, { error: "matchId 非法" });
+    const market = marketById(matchId);
+    if (!market) return send(res, 400, { error: "matchId 不存在", matchId });
+    if (voteClosed(market)) return send(res, 409, { error: "该场投票已截止", matchId, cutoffAt: market.cutoffAt });
     if (!VOTE_SIDES.includes(selection)) return send(res, 400, { error: "selection 须为 home/draw/away" });
     const tally = (votes.tallies[matchId] ||= emptyTally());
     const voterKey = sha(ip) + ":" + matchId;

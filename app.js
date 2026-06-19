@@ -221,7 +221,8 @@ function myVotes() {
 }
 function setMyVote(matchId, side) {
   const m = myVotes();
-  m[matchId] = side;
+  if (side) m[matchId] = side;
+  else delete m[matchId];
   try { localStorage.setItem(MY_VOTES_KEY, JSON.stringify(m)); } catch {}
 }
 
@@ -242,14 +243,90 @@ function voteRow(label, tally, unit) {
       </div>`;
 }
 
+function voteTotal(tally) {
+  return VOTE_SIDES.reduce((sum, side) => sum + Number(tally?.[side] || 0), 0);
+}
+
+function votePercent(part, total) {
+  if (!total) return null;
+  return `${Math.round((part / total) * 100)}%`;
+}
+
+function voteSideLabel(match, side) {
+  if (side === "home") return tTeam(match.home);
+  if (side === "away") return tTeam(match.away);
+  return t("平局");
+}
+
+function isVoteLocked(match) {
+  const score = matchScore(match);
+  if (score?.completed || score?.live) return true;
+  return kickoffStamp(match) <= Date.now();
+}
+
+function voteBeatText(tally, result, label) {
+  const total = voteTotal(tally);
+  if (!total) return null;
+  const wrong = total - Number(tally?.[result] || 0);
+  return `${votePercent(wrong, total)} ${label}`;
+}
+
+function voteRightText(tally, result, label) {
+  const total = voteTotal(tally);
+  if (!total) return null;
+  const right = Number(tally?.[result] || 0);
+  return `${votePercent(right, total)} ${label}`;
+}
+
+function renderVoteFeedback(match, crowd, ai, mine) {
+  const result = matchResult(match);
+  if (!result) {
+    if (isVoteLocked(match)) {
+      return `<div class="vote-feedback is-pending"><span>${t("投票已截止，等赛果揭晓。")}</span></div>`;
+    }
+    return "";
+  }
+
+  const winner = voteSideLabel(match, result.result);
+  const score = `${result.homeScore}-${result.awayScore}`;
+  const crowdBeat = voteBeatText(crowd, result.result, t("人类"));
+  const aiBeat = voteBeatText(ai, result.result, t("AI注单"));
+  const crowdRight = voteRightText(crowd, result.result, t("人类"));
+  const aiRight = voteRightText(ai, result.result, t("AI注单"));
+  const beatText = [crowdBeat, aiBeat].filter(Boolean).join(" / ");
+  const rightText = [crowdRight, aiRight].filter(Boolean).join(" / ");
+  const resultText = `${t("赛果")} ${score} · ${t("正确选项")} ${winner}`;
+
+  if (!mine) {
+    return `<div class="vote-feedback is-watch">
+      <span>${t("赛后回看")}</span>
+      <strong>${t("你赛前没参与这场")}</strong>
+      <em>${resultText}${rightText ? ` · ${t("选中方占")} ${rightText}` : ""}</em>
+    </div>`;
+  }
+
+  const hit = mine === result.result;
+  const headline = hit ? t("你选中了") : t("这次没选中");
+  const detail = hit
+    ? `${resultText}${beatText ? ` · ${t("超越")} ${beatText}` : ""}`
+    : `${resultText}${rightText ? ` · ${t("选中方占")} ${rightText}` : ""}`;
+  return `<div class="vote-feedback${hit ? " is-hit" : " is-miss"}">
+    <span>${t("赛后回看")}</span>
+    <strong>${headline}</strong>
+    <em>${detail}</em>
+  </div>`;
+}
+
 function renderVoteBar(match) {
   const v = state.votes[match.id] || {};
   const crowd = v.crowd || emptyTally();
   const ai = v.ai || emptyTally();
   const mine = myVotes()[match.id];
+  const result = matchResult(match)?.result;
+  const locked = isVoteLocked(match);
   const btn = (side, label) =>
-    `<button class="vote-btn${mine === side ? " is-mine" : ""}" data-vmatch="${match.id}" data-vote="${side}" type="button">${label}</button>`;
-  return `<div class="vote-bar">
+    `<button class="vote-btn${mine === side ? " is-mine" : ""}${result === side ? " is-result" : ""}" data-vmatch="${match.id}" data-vote="${side}" type="button"${locked ? " disabled" : ""}>${label}</button>`;
+  return `<div class="vote-bar${locked ? " is-locked" : ""}">
       <div class="vote-q">${t("你押谁赢？")}</div>
       <div class="vote-buttons">
         ${btn("home", tTeam(match.home))}
@@ -260,11 +337,13 @@ function renderVoteBar(match) {
         ${voteRow(t("人类"), crowd, t("票"))}
         ${voteRow("AI", ai, t("注"))}
       </div>
+      ${renderVoteFeedback(match, crowd, ai, mine)}
     </div>`;
 }
 
 async function castVote(matchId, side) {
   if (!VOTE_SIDES.includes(side)) return;
+  const previous = myVotes()[matchId] || null;
   setMyVote(matchId, side);
   renderMatchCards(); // 乐观更新：先高亮我的选择
   try {
@@ -277,8 +356,14 @@ async function castVote(matchId, side) {
     if (r.ok) {
       state.votes[matchId] = { crowd: data.crowd, ai: data.ai };
       renderMatchCards();
+    } else {
+      setMyVote(matchId, previous);
+      renderMatchCards();
     }
-  } catch {}
+  } catch {
+    setMyVote(matchId, previous);
+    renderMatchCards();
+  }
 }
 
 function cardHtml(match) {

@@ -989,6 +989,18 @@ section.block {
   color: var(--accent-bright);
   font-weight: 600;
 }
+.vote-btn.is-result {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--ink));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.vote-bar.is-locked .vote-btn {
+  cursor: default;
+  opacity: 0.82;
+}
+.vote-bar.is-locked .vote-btn:hover {
+  transform: none;
+  box-shadow: none;
+}
 .vote-results {
   display: grid;
   gap: 6px;
@@ -1026,6 +1038,47 @@ section.block {
 .vote-row-empty {
   grid-column: 2 / -1;
   opacity: 0.5;
+}
+.vote-feedback {
+  display: grid;
+  gap: 4px;
+  padding: 10px 11px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--surface) 78%, var(--accent-soft));
+}
+.vote-feedback span {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.vote-feedback strong {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.25;
+}
+.vote-feedback em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.vote-feedback.is-hit {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+  background: color-mix(in srgb, var(--accent-soft) 72%, var(--surface));
+}
+.vote-feedback.is-hit strong {
+  color: var(--accent-bright);
+}
+.vote-feedback.is-miss strong {
+  color: var(--cool);
+}
+.vote-feedback.is-pending,
+.vote-feedback.is-watch {
+  background: var(--surface);
 }
 
 .match-card {

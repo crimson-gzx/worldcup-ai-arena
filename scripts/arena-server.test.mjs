@@ -180,6 +180,42 @@ test("arena server rejects stale auth and closed markets", async (t) => {
   assert.match(placed.body.error, /未开放投注/);
 });
 
+test("arena server locks public votes after kickoff", async (t) => {
+  const { base } = await withArena(t, {
+    markets: [
+      {
+        matchId: "wc26-vote-open",
+        state: "open",
+        cutoffAt: futureIso(24),
+        oneXTwo: { home: 2.1, draw: 3.2, away: 3.6 }
+      },
+      {
+        matchId: "wc26-vote-closed",
+        state: "open",
+        cutoffAt: futureIso(-1),
+        oneXTwo: { home: 1.8, draw: 3.4, away: 4.8 }
+      }
+    ]
+  });
+
+  const voted = await jsonFetch(`${base}/votes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ matchId: "wc26-vote-open", selection: "home" })
+  });
+  assert.equal(voted.response.status, 200);
+  assert.equal(voted.body.crowd.home, 1);
+  assert.equal(voted.body.mine, "home");
+
+  const late = await jsonFetch(`${base}/votes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ matchId: "wc26-vote-closed", selection: "home" })
+  });
+  assert.equal(late.response.status, 409);
+  assert.match(late.body.error, /投票已截止/);
+});
+
 test("arena server lets an Agent rename itself with token guardrails", async (t) => {
   const { base, dataDir } = await withArena(t);
 
