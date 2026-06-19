@@ -29,8 +29,32 @@ const cleanNotes = (notes) => (Array.isArray(notes) ? notes : []).filter((note) 
   const text = String(note);
   return !text.startsWith("海外欧赔") && !/竞彩固定奖金.*待接入|模型概率.*待接入|模型概率等待/.test(text);
 });
+const oddsOk = (value, max = 80) => Number.isFinite(value) && value > 1.01 && value <= max;
+const implied = (values) => values.reduce((sum, value) => sum + 1 / value, 0);
+const saneThreeWay = (odds) => {
+  const values = [odds.home, odds.draw, odds.away];
+  if (!values.every((value) => oddsOk(value))) return false;
+  const total = implied(values);
+  return total >= 0.9 && total <= 1.25;
+};
+const saneTotals = (row) => {
+  if (!row || !Number.isFinite(row.line) || row.line < 1.5 || row.line > 5.5) return false;
+  if (!oddsOk(row.over) || !oddsOk(row.under)) return false;
+  const total = implied([row.over, row.under]);
+  return total >= 0.9 && total <= 1.25;
+};
+const kickoffTime = (match) => {
+  const raw = String(match.kickoff || "").trim();
+  if (!raw) return NaN;
+  const iso = raw.includes("T") ? raw : raw.replace(" ", "T") + ":00+08:00";
+  return Date.parse(iso);
+};
+const hasStarted = (match, nowMs) => {
+  const ts = kickoffTime(match);
+  return Number.isFinite(ts) && nowMs >= ts;
+};
 
-const aggH2H = (e) => { const hs=[],ds=[],as=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="h2h");if(!mk)continue;const o=Object.fromEntries(mk.outcomes.map(x=>[x.name,x.price]));const h=o[e.home_team],a=o[e.away_team],d=o["Draw"];if([h,a,d].every(Number.isFinite)){hs.push(h);as.push(a);ds.push(d);}} return hs.length?{home:mean(hs),draw:mean(ds),away:mean(as),books:hs.length}:null; };
+const aggH2H = (e) => { const hs=[],ds=[],as=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="h2h");if(!mk)continue;const o=Object.fromEntries(mk.outcomes.map(x=>[x.name,x.price]));const h=o[e.home_team],a=o[e.away_team],d=o["Draw"];if(saneThreeWay({home:h,draw:d,away:a})){hs.push(h);as.push(a);ds.push(d);}} return hs.length?{home:mean(hs),draw:mean(ds),away:mean(as),books:hs.length}:null; };
 const aggSpreads = (e) => { const r=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="spreads");if(!mk)continue;const H=mk.outcomes.find(o=>o.name===e.home_team),A=mk.outcomes.find(o=>o.name===e.away_team);if(H&&A&&Number.isFinite(H.price)&&Number.isFinite(A.price))r.push({hp:H.point,hpr:H.price,apr:A.price});} if(!r.length)return null; const c=Number(mode(r.map(x=>String(x.hp))));const at=r.filter(x=>x.hp===c);return{homePoint:c,home:mean(at.map(x=>x.hpr)),away:mean(at.map(x=>x.apr))}; };
 const aggTotals = (e) => { const r=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="totals");if(!mk)continue;const O=mk.outcomes.find(o=>o.name==="Over"),U=mk.outcomes.find(o=>o.name==="Under");if(O&&U&&O.point===U.point&&Number.isFinite(O.price)&&Number.isFinite(U.price))r.push({pt:O.point,o:O.price,u:U.price});} if(!r.length)return null; const c=Number(mode(r.map(x=>String(x.pt))));const at=r.filter(x=>x.pt===c);return{line:c,over:mean(at.map(x=>x.o)),under:mean(at.map(x=>x.u))}; };
 
@@ -55,18 +79,21 @@ const byPair = new Map();
 for (const m of payload.matches) if (m.tags.includes("group")) byPair.set(pairKey(m.home, m.away), m);
 
 const collectedAt = new Date().toISOString();
-let matched = 0, asianN = 0, totalsN = 0;
+const nowMs = Date.now();
+let matched = 0, asianN = 0, totalsN = 0, skippedStarted = 0, rejectedOdds = 0;
 for (const e of odds) {
   const zhH = EN2ZH[e.home_team], zhA = EN2ZH[e.away_team];
   if (!zhH || !zhA) continue;
   const m = byPair.get(pairKey(zhH, zhA)); if (!m) continue;
-  const h = aggH2H(e); if (!h) continue;
+  if (hasStarted(m, nowMs)) { skippedStarted++; continue; }
+  const h = aggH2H(e); if (!h) { rejectedOdds++; continue; }
   const same = m.home === zhH && m.away === zhA;
   const oneXTwo = same ? { home: h.home, draw: h.draw, away: h.away } : { home: h.away, draw: h.draw, away: h.home };
+  if (!saneThreeWay(oneXTwo)) { rejectedOdds++; continue; }
   let asian = null; const sp = aggSpreads(e);
   if (sp) { asian = same ? { line: fmtHcap(sp.homePoint), home: sp.home, away: sp.away } : { line: fmtHcap(-sp.homePoint), home: sp.away, away: sp.home }; asianN++; }
   let totals = null; const to = aggTotals(e);
-  if (to) { totals = { line: to.line, over: to.over, under: to.under }; totalsN++; }
+  if (saneTotals(to)) { totals = { line: to.line, over: to.over, under: to.under }; totalsN++; }
   const prevOff = m.offshore || {};
   m.offshore = { source: "the-odds-api", desc: `${h.books} 家博彩均值`, regions: REGIONS, collectedAt, oneXTwo, asian: asian || prevOff.asian || null, totals: totals || prevOff.totals || null };
   m.model = m.model || {};
@@ -78,3 +105,4 @@ payload.updatedAt = collectedAt;
 payload.oddsSource = { name: "the-odds-api", market: "h2h+spreads+totals", regions: REGIONS, aggregation: "mean across books, consensus line", collectedAt, matched };
 fs.writeFileSync(FILE, JSON.stringify(payload, null, 2) + "\n");
 console.log(`已写入 ${FILE}：匹配 ${matched} 场（含亚盘 ${asianN}、大小球 ${totalsN}）`);
+if (skippedStarted || rejectedOdds) console.log(`保护跳过：已开赛 ${skippedStarted} 场，异常赔率 ${rejectedOdds} 场`);
