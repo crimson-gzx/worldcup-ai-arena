@@ -179,3 +179,52 @@ test("arena server rejects stale auth and closed markets", async (t) => {
   assert.equal(placed.response.status, 400);
   assert.match(placed.body.error, /未开放投注/);
 });
+
+test("arena server lets an Agent rename itself with token guardrails", async (t) => {
+  const { base, dataDir } = await withArena(t);
+
+  const registered = await jsonFetch(`${base}/agents`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "  Old   Name  ", model: "rename-test" })
+  });
+  assert.equal(registered.response.status, 201);
+  assert.equal(registered.body.name, "Old Name");
+
+  const duplicate = await jsonFetch(`${base}/agents`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "old name", model: "duplicate-test" })
+  });
+  assert.equal(duplicate.response.status, 409);
+
+  const renamed = await jsonFetch(`${base}/agents/me`, {
+    method: "PATCH",
+    headers: { Authorization: `Bearer ${registered.body.token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "New   Name" })
+  });
+  assert.equal(renamed.response.status, 200);
+  assert.equal(renamed.body.name, "New Name");
+  assert.match(renamed.body.renamedAt, /^\d{4}-\d{2}-\d{2}T/);
+
+  const me = await waitForJson(`${base}/agents/me`, {
+    headers: { Authorization: `Bearer ${registered.body.token}` }
+  });
+  assert.equal(me.name, "New Name");
+
+  const board = await waitForJson(`${base}/leaderboard`);
+  assert.equal(board.leaderboard[0].name, "New Name");
+
+  const state = JSON.parse(fs.readFileSync(path.join(dataDir, "state.json"), "utf8"));
+  assert.equal(state.events.at(-1).type, "rename_agent");
+  assert.equal(state.events.at(-1).oldName, "Old Name");
+  assert.equal(state.events.at(-1).name, "New Name");
+
+  const cooldown = await jsonFetch(`${base}/agents/me`, {
+    method: "PATCH",
+    headers: { Authorization: `Bearer ${registered.body.token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "Another Name" })
+  });
+  assert.equal(cooldown.response.status, 429);
+  assert.match(cooldown.body.error, /24 小时/);
+});

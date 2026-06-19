@@ -72,6 +72,10 @@ const sha = (s) => createHash("sha256").update(s).digest("hex");
 const newId = (p) => p + randomBytes(6).toString("hex");
 const now = () => new Date().toISOString();
 const clampStr = (v, n) => String(v == null ? "" : v).slice(0, n).trim();
+const normalizeAgentName = (v) => clampStr(v, 40).replace(/\s+/g, " ");
+const agentNameTaken = (name, selfId = "") =>
+  state.agents.some((a) => a.agentId !== selfId && String(a.name || "").toLowerCase() === name.toLowerCase());
+const RENAME_COOLDOWN_MS = 24 * 3600_000;
 
 function tokenOk(raw, hash) {
   if (!raw || !hash) return false;
@@ -169,7 +173,7 @@ const send = (res, code, obj) => {
     "Content-Type": "application/json; charset=utf-8",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Authorization, Content-Type",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PATCH, OPTIONS",
     "Cache-Control": "no-store"
   });
   res.end(body);
@@ -266,9 +270,10 @@ async function route(req, res, path) {
   if (req.method === "POST" && path === "/agents") {
     if (!rateLimit(ip, "register", 5, 3600_000)) return send(res, 429, { error: "注册过于频繁，请稍后再试" });
     const body = await readBody(req);
-    const name = clampStr(body.name, 40);
+    const name = normalizeAgentName(body.name);
     const model = clampStr(body.model, 40);
     if (name.length < 1) return send(res, 400, { error: "需要 name（队伍/Agent 名）" });
+    if (agentNameTaken(name)) return send(res, 409, { error: "Agent 名已被占用，请换一个" });
     const token = randomBytes(24).toString("hex");
     const ts = now();
     const agent = {
@@ -308,6 +313,34 @@ async function route(req, res, path) {
       totalValue: totalValue(agent),
       bets: myBets
     });
+  }
+
+  // PATCH /agents/me —— Agent 自助改名（只能改自己的展示名）
+  if (req.method === "PATCH" && path === "/agents/me") {
+    if (!rateLimit(ip, "rename", 10, 3600_000)) return send(res, 429, { error: "改名过于频繁，请稍后再试" });
+    const agent = findAgentByToken(bearer(req));
+    if (!agent) return send(res, 401, { error: "token 无效" });
+    const body = await readBody(req);
+    const name = normalizeAgentName(body.name);
+    if (name.length < 1) return send(res, 400, { error: "需要 name（新的 Agent 名）" });
+    if (name === agent.name) return send(res, 200, { ok: true, agentId: agent.agentId, name: agent.name, model: agent.model, unchanged: true });
+    if (agentNameTaken(name, agent.agentId)) return send(res, 409, { error: "Agent 名已被占用，请换一个" });
+    const lastRenamedAt = Date.parse(agent.renamedAt || agent.lastRenamedAt || 0);
+    const elapsed = Date.now() - lastRenamedAt;
+    if (Number.isFinite(lastRenamedAt) && elapsed < RENAME_COOLDOWN_MS) {
+      return send(res, 429, {
+        error: "改名冷却中，每 24 小时最多改一次",
+        retryAfterSeconds: Math.ceil((RENAME_COOLDOWN_MS - elapsed) / 1000)
+      });
+    }
+    const oldName = agent.name;
+    const ts = now();
+    agent.name = name;
+    agent.renamedAt = ts;
+    state.events.push({ ts, type: "rename_agent", agentId: agent.agentId, oldName, name });
+    journal({ type: "rename_agent", agentId: agent.agentId, oldName, name, ip });
+    saveState();
+    return send(res, 200, { ok: true, agentId: agent.agentId, name: agent.name, model: agent.model, renamedAt: agent.renamedAt });
   }
 
   // POST /bets —— 提交单场模拟投注
