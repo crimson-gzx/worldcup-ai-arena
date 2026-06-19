@@ -311,6 +311,7 @@ function renderVoteFeedback(match, crowd, ai, mine) {
     ? `${resultText}${beatText ? ` · ${t("超越")} ${beatText}` : ""}`
     : `${resultText}${rightText ? ` · ${t("选中方占")} ${rightText}` : ""}`;
   return `<div class="vote-feedback${hit ? " is-hit" : " is-miss"}">
+    ${hit ? '<i class="vote-hit-mark" aria-hidden="true">✓</i><i class="vote-hit-sparks" aria-hidden="true"><b></b><b></b><b></b></i>' : ""}
     <span>${t("赛后回看")}</span>
     <strong>${headline}</strong>
     <em>${detail}</em>
