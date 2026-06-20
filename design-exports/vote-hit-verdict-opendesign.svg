@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <title>World Cup AI Arena - Correct Vote Verdict Panel</title>
+  <desc>Editable visual export for OpenDesign. Text remains text; panel, seal, grid, and metric rail are separate layers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07080B"/>
+      <stop offset="0.55" stop-color="#111318"/>
+      <stop offset="1" stop-color="#08090C"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="308" y1="288" x2="1132" y2="604" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24211A"/>
+      <stop offset="0.46" stop-color="#17191F"/>
+      <stop offset="1" stop-color="#2A2416"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1022 350) rotate(133) scale(300 210)">
+      <stop stop-color="#F7D26B" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#F7D26B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 604) rotate(-34) scale(260 140)">
+      <stop stop-color="#5BCDFF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#5BCDFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scan" x1="316" y1="318" x2="1124" y2="318" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C24B" stop-opacity="0"/>
+      <stop offset="0.42" stop-color="#F0C24B" stop-opacity="0.72"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#F0C24B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="metricRail" x1="330" y1="560" x2="1110" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C24B" stop-opacity="0.2"/>
+      <stop offset="0.44" stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#F0C24B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="medal" x1="989" y1="373" x2="1051" y2="435" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE08B"/>
+      <stop offset="0.56" stop-color="#F0C24B"/>
+      <stop offset="1" stop-color="#F8E5A2"/>
+    </linearGradient>
+    <filter id="softShadow" x="248" y="238" width="944" height="436" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="34" flood-color="#000000" flood-opacity="0.44"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="26" flood-color="#F0C24B" flood-opacity="0.14"/>
+    </filter>
+    <filter id="textGlow" x="306" y="330" width="540" height="152" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#F0C24B" flood-opacity="0.34"/>
+    </filter>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" stroke="#F0C24B" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <g id="canvas-background">
+    <rect width="1440" height="900" fill="url(#bg)"/>
+    <circle cx="1120" cy="150" r="260" fill="#F0C24B" opacity="0.05"/>
+    <circle cx="230" cy="780" r="300" fill="#5BCDFF" opacity="0.05"/>
+  </g>
+
+  <g id="page-labels" font-family="Inter, Arial, sans-serif">
+    <text x="308" y="214" fill="#F8E8B0" font-size="24" font-weight="700">Correct Vote Verdict Panel</text>
+    <text x="308" y="247" fill="#8F9299" font-size="15">OpenDesign visual export · editable SVG layers · responsive target: match-card vote feedback</text>
+  </g>
+
+  <g id="verdict-panel" filter="url(#softShadow)">
+    <rect id="panel-base" x="308" y="288" width="824" height="316" rx="8" fill="url(#panel)" stroke="#B69435" stroke-opacity="0.55"/>
+    <rect id="panel-grid" x="308" y="288" width="824" height="316" rx="8" fill="url(#grid)" opacity="0.86"/>
+    <rect id="panel-gold-glow" x="308" y="288" width="824" height="316" rx="8" fill="url(#goldGlow)"/>
+    <rect id="panel-blue-glow" x="308" y="288" width="824" height="316" rx="8" fill="url(#blueGlow)"/>
+    <rect id="panel-inner-line" x="309.5" y="289.5" width="821" height="313" rx="6.5" stroke="white" stroke-opacity="0.08"/>
+    <path id="scan-line" d="M328 318H1112" stroke="url(#scan)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g id="verdict-seal">
+    <circle cx="1020" cy="404" r="68" stroke="#F0C24B" stroke-opacity="0.18"/>
+    <circle cx="1020" cy="404" r="52" stroke="#F0C24B" stroke-opacity="0.32" stroke-dasharray="4 10"/>
+    <circle cx="1020" cy="404" r="33" fill="url(#medal)" stroke="white" stroke-opacity="0.42"/>
+    <path d="M1005 404.5L1015.2 414.5L1037 389" stroke="#08090C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g id="micro-points" fill="#F0C24B" opacity="0.76">
+    <circle cx="948" cy="374" r="2.5"/>
+    <circle cx="968" cy="342" r="1.8"/>
+    <circle cx="1028" cy="329" r="2.2"/>
+    <circle cx="1081" cy="358" r="1.8"/>
+    <circle cx="1092" cy="417" r="2.5"/>
+    <circle cx="1053" cy="461" r="1.8"/>
+    <circle cx="999" cy="454" r="2.2"/>
+    <circle cx="958" cy="421" r="1.8"/>
+  </g>
+
+  <g id="verdict-copy" font-family="Inter, Arial, sans-serif">
+    <text id="kicker" x="330" y="354" fill="#D8B95E" font-size="13" font-weight="800" letter-spacing="2.2">赛后回看</text>
+    <text id="title" x="330" y="442" fill="#F7D26B" font-size="72" font-weight="900" filter="url(#textGlow)">你选中了</text>
+    <text id="detail" x="332" y="490" fill="#D9D7CE" font-size="18">赛果 2-0 · 正确选项 墨西哥</text>
+  </g>
+
+  <g id="metric-rail">
+    <rect x="330" y="534" width="780" height="52" fill="url(#metricRail)" stroke="#F0C24B" stroke-opacity="0.18"/>
+    <path d="M330 534H1110" stroke="#F0C24B" stroke-opacity="0.34"/>
+    <text x="348" y="566" fill="#888B91" font-family="Roboto Mono, Menlo, monospace" font-size="13" font-weight="700" letter-spacing="2">超越</text>
+    <text x="918" y="568" fill="#F7D26B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" text-anchor="end">30% 人类 / 40% AI注单</text>
+  </g>
+
+  <g id="mobile-guide" font-family="Inter, Arial, sans-serif">
+    <rect x="308" y="682" width="824" height="74" rx="8" fill="#15171D" stroke="#2D3038"/>
+    <text x="330" y="714" fill="#F8E8B0" font-size="15" font-weight="700">Responsive note</text>
+    <text x="330" y="739" fill="#8F9299" font-size="14">Mobile target keeps the large title, shrinks seal to 38px, and stacks the metric rail.</text>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vote Hit Verdict Preview</title>
+  <link rel="stylesheet" href="../styles.css?v=20260621-verdict-ticket">
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 36px;
+      background: var(--bg);
+    }
+    .export-frame {
+      width: min(824px, 100%);
+      display: grid;
+      gap: 18px;
+    }
+    .export-label {
+      margin: 0;
+      color: var(--muted);
+      font: 13px/1.5 var(--sans);
+    }
+  </style>
+</head>
+<body>
+  <main class="export-frame">
+    <p class="export-label">Correct vote verdict panel · live HTML/CSS reference</p>
+    <div class="vote-feedback is-hit">
+      <i class="vote-hit-aura" aria-hidden="true"></i>
+      <i class="vote-hit-mark" aria-hidden="true">✓</i>
+      <i class="vote-hit-burst" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i>
+      <i class="vote-hit-ribbon" aria-hidden="true"></i>
+      <span class="vote-win-kicker">赛后回看</span>
+      <strong class="vote-win-title">你选中了</strong>
+      <em class="vote-win-detail">赛果 2-0 · 正确选项 墨西哥</em>
+      <span class="vote-win-metric"><b>超越</b><i>30% 人类 / 40% AI注单</i></span>
+    </div>
+  </main>
+</body>
+</html>

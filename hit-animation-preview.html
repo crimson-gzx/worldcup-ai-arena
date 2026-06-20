@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猜中动画预览</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314151b'/%3E%3Cpath d='M8 17l5 5L24 9' fill='none' stroke='%23f0c24b' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css?v=20260621-verdict-ticket">
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+      background: var(--bg);
+    }
+    .preview-shell {
+      width: min(960px, 100%);
+      display: grid;
+      gap: 18px;
+    }
+    .preview-title {
+      margin: 0;
+      color: var(--ink);
+      font-size: 18px;
+    }
+    .preview-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .preview-replay {
+      justify-self: start;
+      padding: 9px 14px;
+      border: 1px solid var(--accent-line);
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      color: var(--accent-bright);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main class="preview-shell">
+    <h1 class="preview-title">猜中后的赛后反馈动画</h1>
+    <p class="preview-note">OpenDesign 票据版命中态：线上会出现在用户赛前投过、赛后猜中的比赛卡片下方。</p>
+    <div id="preview-card" class="vote-feedback is-hit verdict-ticket" aria-label="你选中了">
+      <div class="ticket-main">
+        <header class="ticket-header">
+          <div class="header-meta">
+            <span>SYS_ID: WC26-GRP-A-01</span>
+            <span>TIMESTAMP: 2026-06-12T09:00+08:00</span>
+          </div>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            最终判定
+          </div>
+        </header>
+        <h3 class="match-teams"><span>墨西哥</span><i>对阵</i><span>南非</span></h3>
+        <div class="match-result-pill">
+          <span class="label">系统选择</span>
+          <span class="value">墨西哥 (2-0)</span>
+        </div>
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="data-label">命中赔率 ODDS</div>
+            <div class="data-value accent"><span class="vote-ticket-counter" data-vote-counter="2.85" data-vote-counter-decimals="2">2.85</span><span>x</span></div>
+          </div>
+          <div class="data-item">
+            <div class="data-label">盈利率 YIELD</div>
+            <div class="data-value">+<span class="vote-ticket-counter" data-vote-counter="185" data-vote-counter-decimals="0">185</span><span>%</span></div>
+          </div>
+        </div>
+        <footer class="ticket-footer">
+          <div class="progress-track"><div class="progress-fill" style="--vote-progress:72.4%"></div></div>
+          <div class="progress-labels">
+            <div class="pl-left">超越 <strong>72.4%</strong> 人类玩家</div>
+            <div class="pl-right">CONF: 61%</div>
+          </div>
+          <div class="ticket-metric"><b>超越</b><i>72% 人类 / 50% AI注单</i></div>
+        </footer>
+      </div>
+      <aside class="ticket-aside">
+        <div class="seal-wrapper">
+          <svg class="seal-svg-text" viewBox="0 0 100 100" aria-hidden="true">
+            <path id="preview-text-curve" d="M 50,50 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" fill="transparent"></path>
+            <text font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.62" letter-spacing="2.5"><textPath href="#preview-text-curve"> VERIFIED ACCURATE · SYSTEM HIT · VERIFIED </textPath></text>
+          </svg>
+          <div class="seal-rings">
+            <div class="seal-content">
+              <svg class="seal-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <div class="seal-text">HIT</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <button class="preview-replay" type="button">重播动画</button>
+  </main>
+  <script>
+    function easeOutExpo(x) {
+      return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+    }
+    function runCounters(root) {
+      root.querySelectorAll('[data-vote-counter]').forEach((el) => {
+        const target = Number(el.dataset.voteCounter);
+        const decimals = Number(el.dataset.voteCounterDecimals || 0);
+        const start = performance.now();
+        const update = (now) => {
+          const progress = Math.min((now - start) / 1500, 1);
+          el.textContent = (target * easeOutExpo(progress)).toFixed(decimals);
+          if (progress < 1) requestAnimationFrame(update);
+        };
+        el.textContent = (0).toFixed(decimals);
+        requestAnimationFrame(update);
+      });
+    }
+    const card = document.querySelector('#preview-card');
+    runCounters(card);
+    document.querySelector('.preview-replay').addEventListener('click', () => {
+      card.classList.remove('is-hit');
+      void card.offsetWidth;
+      card.classList.add('is-hit');
+      runCounters(card);
+    });
+  </script>
+</body>
+</html>

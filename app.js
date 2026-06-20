@@ -3,7 +3,9 @@ const state = {
   selectedId: null,
   filter: "recent",
   openDays: new Set(), // 当前展开的比赛日
+  openLineups: new Set(), // 当前展开阵容身价的比赛卡
   dayInitDone: false,
+  squadsLoading: false,
   squads: null,
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
@@ -193,13 +195,16 @@ let squadsLoadPromise = null;
 function loadSquadsData() {
   if (state.squads) return Promise.resolve(state.squads);
   if (!squadsLoadPromise) {
+    state.squadsLoading = true;
     squadsLoadPromise = fetch(`./data/squads.json?v=${SQUADS_DATA_VERSION}`, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
         state.squads = (d && d.teams ? d.teams : d) || {};
+        state.squadsLoading = false;
         return state.squads;
       })
       .catch((error) => {
+        state.squadsLoading = false;
         squadsLoadPromise = null;
         throw error;
       });
@@ -211,8 +216,250 @@ function teamMarketData(teamName) {
   return state.squads && state.squads[teamName] ? state.squads[teamName] : null;
 }
 
+function playerName(player, en = false) {
+  return en ? (player?.en || player?.zh || "") : (player?.zh || player?.en || "");
+}
+
+function playerClub(player, en = false) {
+  return en ? (player?.club_en || player?.club_zh || "") : (player?.club_zh || player?.club_en || "");
+}
+
+function formatPlayerMarketValue(player, en = false) {
+  const value = Number(player?.market_value_eur);
+  if (!Number.isFinite(value) || value <= 0) return en ? "TM pending" : "德转待接入";
+  if (value >= 1000000) {
+    const millions = value / 1000000;
+    const digits = millions >= 100 ? 0 : millions >= 10 ? 1 : 2;
+    return `€${millions.toFixed(digits).replace(/\.0+$/, "")}M`;
+  }
+  return `€${Math.round(value / 1000)}K`;
+}
+
+function playerMarketValue(player) {
+  const value = Number(player?.market_value_eur);
+  return Number.isFinite(value) && value > 0 ? value : 0;
+}
+
+const LINEUP_SHAPES = [
+  { label: "4-3-3", counts: { GK: 1, DF: 4, MF: 3, FW: 3 } },
+  { label: "3-4-3", counts: { GK: 1, DF: 3, MF: 4, FW: 3 } },
+  { label: "4-4-2", counts: { GK: 1, DF: 4, MF: 4, FW: 2 } },
+  { label: "3-5-2", counts: { GK: 1, DF: 3, MF: 5, FW: 2 } },
+  { label: "4-5-1", counts: { GK: 1, DF: 4, MF: 5, FW: 1 } },
+  { label: "5-3-2", counts: { GK: 1, DF: 5, MF: 3, FW: 2 } }
+];
+
+function lineupSort(a, b) {
+  return playerMarketValue(b) - playerMarketValue(a)
+    || (Number(b.caps) || 0) - (Number(a.caps) || 0)
+    || (Number(a.no) || 99) - (Number(b.no) || 99);
+}
+
+function selectLineupForShape(players, counts) {
+  const selected = [];
+  const used = new Set();
+  for (const [pos, count] of Object.entries(counts)) {
+    players
+      .filter((p) => p.pos === pos)
+      .sort(lineupSort)
+      .slice(0, count)
+      .forEach((p) => {
+        selected.push(p);
+        used.add(p);
+      });
+  }
+  if (selected.length < 11) {
+    players
+      .filter((p) => !used.has(p))
+      .sort(lineupSort)
+      .slice(0, 11 - selected.length)
+      .forEach((p) => selected.push(p));
+  }
+  const order = { GK: 0, DF: 1, MF: 2, FW: 3 };
+  return selected
+    .slice(0, 11)
+    .sort((a, b) => (order[a.pos] ?? 9) - (order[b.pos] ?? 9) || (Number(a.no) || 99) - (Number(b.no) || 99));
+}
+
+function lineupShapeText(players, fallback = "—") {
+  if (!players.length) return fallback;
+  const counts = players.reduce((acc, player) => {
+    if (player.pos === "DF" || player.pos === "MF" || player.pos === "FW") acc[player.pos] += 1;
+    return acc;
+  }, { DF: 0, MF: 0, FW: 0 });
+  return [counts.DF, counts.MF, counts.FW].every((n) => n > 0) ? `${counts.DF}-${counts.MF}-${counts.FW}` : fallback;
+}
+
+function projectedLineupInfo(team) {
+  const players = Array.isArray(team?.players) ? team.players : [];
+  if (!players.length) return { players: [], shape: "—" };
+  const candidates = LINEUP_SHAPES.map((shape, index) => {
+    const lineup = selectLineupForShape(players, shape.counts);
+    const coverage = lineupCoverage(lineup);
+    return {
+      index,
+      lineup,
+      shape: lineupShapeText(lineup, shape.label),
+      covered: coverage.covered,
+      value: lineupMarketValue(lineup)
+    };
+  });
+  candidates.sort((a, b) => b.covered - a.covered || b.value - a.value || a.index - b.index);
+  const best = candidates[0] || { lineup: [], shape: "—" };
+  return { players: best.lineup, shape: best.shape };
+}
+
+function projectedLineup(team) {
+  return projectedLineupInfo(team).players;
+}
+
+function lineupMarketValue(players) {
+  return players.reduce((sum, player) => sum + playerMarketValue(player), 0);
+}
+
+function lineupCoverage(players) {
+  const total = players.length;
+  const covered = players.filter((player) => playerMarketValue(player) > 0).length;
+  return { total, covered, missing: total - covered };
+}
+
+function lineupValueText(players, en = false) {
+  const value = lineupMarketValue(players);
+  const coverage = lineupCoverage(players);
+  const formatted = formatMarketAmount(value, en, "—");
+  return coverage.missing > 0 && value > 0 ? `${formatted}+` : formatted;
+}
+
+function positionLabel(pos, en = false) {
+  const labels = en
+    ? { GK: "Goalkeeper", DF: "Defenders", MF: "Midfielders", FW: "Forwards" }
+    : { GK: "门将", DF: "后卫", MF: "中场", FW: "前锋" };
+  return labels[pos] || pos || (en ? "Other" : "其他");
+}
+
+function groupLineupByPosition(players) {
+  const order = ["GK", "DF", "MF", "FW"];
+  const byPos = new Map();
+  for (const player of players) {
+    const key = player.pos || "";
+    if (!byPos.has(key)) byPos.set(key, []);
+    byPos.get(key).push(player);
+  }
+  return order
+    .filter((pos) => byPos.has(pos))
+    .concat([...byPos.keys()].filter((pos) => !order.includes(pos)))
+    .map((pos) => [pos, byPos.get(pos)]);
+}
+
+function renderLineupPlayers(players, en = false) {
+  if (!players.length) {
+    return `<p class="lineup-empty">${t("名单身价待接入。")}</p>`;
+  }
+  return groupLineupByPosition(players).map(([pos, rows]) => `
+    <div class="lineup-pos-group">
+      <div class="lineup-pos-head"><span>${positionLabel(pos, en)}</span><b>${rows.length}</b></div>
+      ${rows.map((player) => {
+        const club = playerClub(player, en);
+        const hasValue = playerMarketValue(player) > 0;
+        const sub = [player.pos, club].filter(Boolean).join(" · ");
+        return `
+          <div class="lineup-player${hasValue ? "" : " is-pending"}">
+            <span class="lineup-no">${player.no || "—"}</span>
+            <span class="lineup-person">
+              <strong>${playerName(player, en)}</strong>
+              <small>${sub || t("俱乐部待接入")}</small>
+            </span>
+            <em>${formatPlayerMarketValue(player, en)}</em>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `).join("");
+}
+
+function renderLineupSide(teamName, team, en = false) {
+  const lineupInfo = projectedLineupInfo(team);
+  const lineup = lineupInfo.players;
+  const lineupStats = lineupCoverage(lineup);
+  const stars = Array.isArray(team?.players)
+    ? team.players.slice().sort((a, b) => playerMarketValue(b) - playerMarketValue(a)).slice(0, 3)
+    : [];
+  const coverage = teamMarketCoverage(team, en) || (en ? "coverage pending" : "覆盖待接入");
+  const lineupCoverageText = lineupStats.total ? `${lineupStats.covered}/${lineupStats.total}` : "—";
+  return `
+    <section class="lineup-side">
+      <div class="lineup-team-head">
+        <span class="lineup-flag">${isoToFlag(team?.iso || TEAM_ISO[teamName])}</span>
+        <span>
+          <strong>${tTeam(teamName)}</strong>
+          <small>${coverage}</small>
+        </span>
+      </div>
+      <div class="lineup-values">
+        <span><i>${t("全队身价")}</i><b>${formatTeamMarketValue(team, en)}</b></span>
+        <span><i>${t("首发估值")}</i><b>${lineupValueText(lineup, en)}</b></span>
+        <span><i>${t("身价覆盖")}</i><b>${lineupCoverageText}</b></span>
+        <span><i>${t("预计阵型")}</i><b>${lineupInfo.shape}</b></span>
+      </div>
+      <div class="lineup-list">${renderLineupPlayers(lineup, en)}</div>
+      <div class="lineup-stars">
+        <span>${t("高身价球员")}</span>
+        <strong>${stars.map((p) => `${playerName(p, en)} ${formatPlayerMarketValue(p, en)}`).join(" · ") || "—"}</strong>
+      </div>
+    </section>
+  `;
+}
+
+function renderLineupPanel(match) {
+  const en = _i18n.getLang && _i18n.getLang() === "en";
+  const homeTeam = teamMarketData(match.home);
+  const awayTeam = teamMarketData(match.away);
+  if (!homeTeam && !awayTeam && state.squadsLoading) {
+    return `<div class="lineup-panel"><p class="lineup-empty">${t("正在读取首发名单和德转身价。")}</p></div>`;
+  }
+  if (!homeTeam && !awayTeam) {
+    return `<div class="lineup-panel"><p class="lineup-empty">${t("两队名单和身价还没匹配到。")}</p></div>`;
+  }
+  const homeValue = Number(homeTeam?.market_value_eur) || 0;
+  const awayValue = Number(awayTeam?.market_value_eur) || 0;
+  return `
+    <div class="lineup-panel" id="lineup-${match.id}">
+      <div class="lineup-panel-head">
+        <span>${t("阵容身价参考")}</span>
+        <strong>${formatMarketDelta(homeValue - awayValue, en)} · ${marketValueEdgeText(match, homeValue, awayValue, en)}</strong>
+      </div>
+      <div class="lineup-sides">
+        ${renderLineupSide(match.home, homeTeam, en)}
+        ${renderLineupSide(match.away, awayTeam, en)}
+      </div>
+      <p class="lineup-note">${t("官方首发通常赛前约 1 小时公布；这里按位置和德转身价生成预计首发参考，仅作强弱观察。")}</p>
+      <p class="lineup-note lineup-note-sub">${t("若首发估值带 +，代表部分球员身价缺失，金额按已匹配球员累计。")}</p>
+    </div>
+  `;
+}
+
+function lineupToggleSummary(match, en = false) {
+  const homeTeam = teamMarketData(match.home);
+  const awayTeam = teamMarketData(match.away);
+  if (!homeTeam || !awayTeam) return t("查看预计首发");
+  const homeValue = lineupMarketValue(projectedLineup(homeTeam));
+  const awayValue = lineupMarketValue(projectedLineup(awayTeam));
+  if (!homeValue && !awayValue) return t("查看预计首发");
+  return `${formatMarketAmount(homeValue, en, "—")} vs ${formatMarketAmount(awayValue, en, "—")}`;
+}
+
 // ---------- 访客投票（人群 vs AI 押注）----------
-const ARENA_BASE = "/api/v1/arena";
+function arenaBaseUrl() {
+  const isLocalPreview = ["127.0.0.1", "localhost"].includes(window.location.hostname) && window.location.port !== "8787";
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const override = params.get("arenaApi") || localStorage.getItem("wc-arena-api") || "";
+    if (override.toLowerCase() === "off") return "";
+    if (override) return override.replace(/\/+$/, "");
+  } catch {}
+  return isLocalPreview ? "" : "/api/v1/arena";
+}
+const ARENA_BASE = arenaBaseUrl();
 const VOTE_SIDES = ["home", "draw", "away"];
 const emptyTally = () => ({ home: 0, draw: 0, away: 0 });
 const MY_VOTES_KEY = "wc_my_votes";
@@ -248,8 +495,39 @@ function voteTotal(tally) {
 }
 
 function votePercent(part, total) {
+  const value = votePercentValue(part, total);
+  return Number.isFinite(value) ? `${Math.round(value)}%` : null;
+}
+
+function votePercentValue(part, total) {
   if (!total) return null;
-  return `${Math.round((part / total) * 100)}%`;
+  return (Number(part || 0) / total) * 100;
+}
+
+function formatVotePercentLabel(value) {
+  if (!Number.isFinite(value)) return null;
+  const rounded = Math.abs(value - Math.round(value)) < 0.05 ? value.toFixed(0) : value.toFixed(1);
+  return `${rounded}%`;
+}
+
+function voteBeatValue(tally, result) {
+  const total = voteTotal(tally);
+  if (!total) return null;
+  const wrong = total - Number(tally?.[result] || 0);
+  return votePercentValue(wrong, total);
+}
+
+function hitOddsValue(match, side) {
+  const lottery = Number(match.lottery?.oneXTwo?.[side]);
+  if (Number.isFinite(lottery)) return lottery;
+  const offshore = Number(match.offshore?.oneXTwo?.[side]);
+  return Number.isFinite(offshore) ? offshore : null;
+}
+
+function counterValueHtml(value, decimals, suffix = "") {
+  if (!Number.isFinite(value)) return `--${suffix ? `<span>${suffix}</span>` : ""}`;
+  const text = value.toFixed(decimals);
+  return `<span class="vote-ticket-counter" data-vote-counter="${text}" data-vote-counter-decimals="${decimals}">${text}</span>${suffix ? `<span>${suffix}</span>` : ""}`;
 }
 
 function voteSideLabel(match, side) {
@@ -276,6 +554,23 @@ function voteRightText(tally, result, label) {
   if (!total) return null;
   const right = Number(tally?.[result] || 0);
   return `${votePercent(right, total)} ${label}`;
+}
+
+function voteCompareStats(tally, result) {
+  const total = voteTotal(tally);
+  if (!total) return { total: 0, beat: null, right: null };
+  const right = Number(tally?.[result] || 0);
+  return {
+    total,
+    beat: votePercentValue(total - right, total),
+    right: votePercentValue(right, total)
+  };
+}
+
+function ticketStatHtml(label, value, subValue) {
+  const main = formatVotePercentLabel(value) || "--";
+  const sub = Number.isFinite(subValue) ? `${t("选中占比")} ${formatVotePercentLabel(subValue)}` : t("样本不足");
+  return `<div class="ticket-stat"><span>${label}</span><strong>${main}</strong><em>${sub}</em></div>`;
 }
 
 function renderVoteFeedback(match, crowd, ai, mine) {
@@ -310,8 +605,74 @@ function renderVoteFeedback(match, crowd, ai, mine) {
   const detail = hit
     ? `${resultText}${beatText ? ` · ${t("超越")} ${beatText}` : ""}`
     : `${resultText}${rightText ? ` · ${t("选中方占")} ${rightText}` : ""}`;
+  if (hit) {
+    const curveId = `vote-curve-${String(match.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+    const odds = hitOddsValue(match, result.result);
+    const yieldRate = Number.isFinite(odds) ? Math.max(0, (odds - 1) * 100) : null;
+    const confidence = Number(match.model?.[result.result]);
+    const confidenceText = Number.isFinite(confidence) ? `${Math.round(confidence * 100)}%` : "--";
+    const crowdStats = voteCompareStats(crowd, result.result);
+    const aiStats = voteCompareStats(ai, result.result);
+    const progress = Number.isFinite(crowdStats.beat) ? Math.max(0, Math.min(100, crowdStats.beat)) : 0;
+    const crowdBeatLabel = formatVotePercentLabel(crowdStats.beat) || "--";
+    const metricText = beatText || rightText || "--";
+    return `<div class="vote-feedback is-hit verdict-ticket" aria-label="${headline}">
+      <div class="ticket-main">
+        <header class="ticket-header">
+          <div class="header-meta">
+            <span>SYS_ID: ${match.id}</span>
+            <span>TIMESTAMP: ${match.kickoff.replace(" ", "T")}+08:00</span>
+          </div>
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            ${t("最终判定")}
+          </div>
+        </header>
+        <h3 class="match-teams"><span>${tTeam(match.home)}</span><i>${t("对阵")}</i><span>${tTeam(match.away)}</span></h3>
+        <div class="match-result-pill">
+          <span class="label">${t("系统选择")}</span>
+          <span class="value">${winner} (${score})</span>
+        </div>
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="data-label">${t("命中赔率 ODDS")}</div>
+            <div class="data-value accent">${counterValueHtml(odds, 2, "x")}</div>
+          </div>
+          <div class="data-item">
+            <div class="data-label">${t("盈利率 YIELD")}</div>
+            <div class="data-value">${Number.isFinite(yieldRate) ? "+" : ""}${counterValueHtml(yieldRate, 0, "%")}</div>
+          </div>
+        </div>
+        <div class="ticket-stats">
+          ${ticketStatHtml(t("人类超越"), crowdStats.beat, crowdStats.right)}
+          ${ticketStatHtml(t("AI超越"), aiStats.beat, aiStats.right)}
+        </div>
+        <footer class="ticket-footer">
+          <div class="progress-track"><div class="progress-fill" data-vote-progress="${progress.toFixed(1)}" style="--vote-progress:${progress.toFixed(1)}%"></div></div>
+          <div class="progress-labels">
+            <div class="pl-left">${t("超越")} <strong>${crowdBeatLabel}</strong> ${t("人类玩家")}</div>
+            <div class="pl-right">CONF: ${confidenceText}</div>
+          </div>
+          <div class="ticket-metric"><b>${t("超越")}</b><i>${metricText}</i></div>
+        </footer>
+      </div>
+      <aside class="ticket-aside">
+        <div class="seal-wrapper">
+          <svg class="seal-svg-text" viewBox="0 0 100 100" aria-hidden="true">
+            <path id="${curveId}" d="M 50,50 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" fill="transparent"></path>
+            <text font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.62" letter-spacing="2.5"><textPath href="#${curveId}"> VERIFIED ACCURATE · SYSTEM HIT · VERIFIED </textPath></text>
+          </svg>
+          <div class="seal-rings">
+            <div class="seal-content">
+              <svg class="seal-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <div class="seal-text">HIT</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>`;
+  }
   return `<div class="vote-feedback${hit ? " is-hit" : " is-miss"}">
-    ${hit ? '<i class="vote-hit-mark" aria-hidden="true">✓</i><i class="vote-hit-sparks" aria-hidden="true"><b></b><b></b><b></b></i>' : ""}
     <span>${t("赛后回看")}</span>
     <strong>${headline}</strong>
     <em>${detail}</em>
@@ -346,6 +707,16 @@ async function castVote(matchId, side) {
   if (!VOTE_SIDES.includes(side)) return;
   const previous = myVotes()[matchId] || null;
   setMyVote(matchId, side);
+  if (!ARENA_BASE) {
+    const bucket = (state.votes[matchId] ||= {});
+    const crowd = (bucket.crowd ||= emptyTally());
+    if (previous !== side) {
+      if (previous && VOTE_SIDES.includes(previous) && crowd[previous] > 0) crowd[previous]--;
+      crowd[side]++;
+    }
+    renderMatchCards();
+    return;
+  }
   renderMatchCards(); // 乐观更新：先高亮我的选择
   try {
     const r = await fetch(`${ARENA_BASE}/votes`, {
@@ -369,11 +740,15 @@ async function castVote(matchId, side) {
 
 function cardHtml(match) {
   const selected = match.id === state.selectedId ? " is-selected" : "";
+  const lineupOpen = state.openLineups.has(match.id);
+  const result = matchResult(match);
+  const voteHit = result && myVotes()[match.id] === result.result;
+  const en = _i18n.getLang && _i18n.getLang() === "en";
   const xgText = hasXg(match.model)
     ? `${match.model.xgHome.toFixed(2)} : ${match.model.xgAway.toFixed(2)}`
     : t("待接入");
   return `
-    <div class="match-card-wrap">
+    <div class="match-card-wrap${lineupOpen ? " has-lineup" : ""}${voteHit ? " has-hit-feedback" : ""}">
     <button class="match-card spotlight${selected}" data-match-id="${match.id}" type="button">
       <span class="match-meta">
         <span>${tRound(match.round)}</span>
@@ -396,9 +771,43 @@ function cardHtml(match) {
         </span>
       </span>
     </button>
+    <button class="lineup-toggle${lineupOpen ? " is-open" : ""}" data-lineup-match="${match.id}" type="button" aria-expanded="${lineupOpen}" aria-controls="lineup-${match.id}">
+      <span>${t("首发名单")}</span>
+      <strong>${lineupOpen ? t("收起") : lineupToggleSummary(match, en)}</strong>
+    </button>
+    ${lineupOpen ? renderLineupPanel(match) : ""}
     ${renderVoteBar(match)}
     </div>
   `;
+}
+
+function formatCounterDisplay(value, decimals) {
+  if (!Number.isFinite(value)) return "--";
+  return value.toFixed(decimals);
+}
+
+function animateVoteVerdicts(root) {
+  if (!root) return;
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  root.querySelectorAll("[data-vote-counter]").forEach((el) => {
+    const target = Number(el.dataset.voteCounter);
+    const decimals = Number(el.dataset.voteCounterDecimals || 0);
+    if (!Number.isFinite(target)) return;
+    if (reduceMotion) {
+      el.textContent = formatCounterDisplay(target, decimals);
+      return;
+    }
+    const duration = 1500;
+    const start = performance.now();
+    const easeOutExpo = (x) => (x === 1 ? 1 : 1 - Math.pow(2, -10 * x));
+    const update = (now) => {
+      const progress = Math.max(0, Math.min((now - start) / duration, 1));
+      el.textContent = formatCounterDisplay(target * easeOutExpo(progress), decimals);
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    el.textContent = formatCounterDisplay(0, decimals);
+    requestAnimationFrame(update);
+  });
 }
 
 function renderMatchCards() {
@@ -452,6 +861,22 @@ function renderMatchCards() {
       castVote(btn.dataset.vmatch, btn.dataset.vote);
     });
   });
+  selectors.matchList.querySelectorAll("[data-lineup-match]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const matchId = btn.dataset.lineupMatch;
+      if (state.openLineups.has(matchId)) state.openLineups.delete(matchId);
+      else state.openLineups.add(matchId);
+      if (!state.squads) {
+        renderMatchCards();
+        loadSquadsData()
+          .catch(() => {})
+          .finally(() => renderMatchCards());
+      } else {
+        renderMatchCards();
+      }
+    });
+  });
   selectors.matchList.querySelectorAll("[data-day]").forEach((header) => {
     header.addEventListener("click", () => {
       const day = header.dataset.day;
@@ -460,6 +885,7 @@ function renderMatchCards() {
       renderMatchCards();
     });
   });
+  animateVoteVerdicts(selectors.matchList);
 }
 
 function probabilityRows(match) {
@@ -698,6 +1124,7 @@ async function loadData() {
   renderDataFreshness();
   computeAdvanceProb();
   loadSquadsData().then(() => {
+    renderMatchCards();
     renderDetail();
     window.__wcUpdateGroupMarketBadges?.();
   }).catch(() => {});
@@ -718,6 +1145,7 @@ loadData().catch((error) => {
 });
 
 async function loadVotes() {
+  if (!ARENA_BASE) return;
   try {
     const r = await fetch(`${ARENA_BASE}/votes`, { cache: "no-store" });
     if (!r.ok) return;
@@ -844,7 +1272,16 @@ function renderAgentArena(payload) {
 
 async function loadAgentArena() {
   if (!agentArena.root) return;
-  const response = await fetch("/api/v1/arena/home");
+  if (!ARENA_BASE) {
+    if (agentArena.openMarkets) agentArena.openMarkets.textContent = "0";
+    if (agentArena.capital) agentArena.capital.textContent = formatAgentMoney(1000000);
+    if (agentArena.count) agentArena.count.textContent = "0";
+    if (agentArena.leaderboard) {
+      agentArena.leaderboard.innerHTML = '<div class="agent-empty">' + escapeAgentHtml(t("本地预览模式：未连接竞技场接口。")) + "</div>";
+    }
+    return;
+  }
+  const response = await fetch(`${ARENA_BASE}/home`);
   if (!response.ok) throw new Error(t("竞技场接口未连接"));
   renderAgentArena(await response.json());
 }
