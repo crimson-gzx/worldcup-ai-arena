@@ -59,7 +59,7 @@
     // 离屏：实心文字（静止时即平滑实心字，非像素风）
     if (!txt) {
       txt = document.createElement("canvas");
-      txtCtx = txt.getContext("2d");
+      txtCtx = txt.getContext("2d", { willReadFrequently: true });
     }
     txt.width = W;
     txt.height = H;
