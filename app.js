@@ -4,6 +4,7 @@ const state = {
   filter: "recent",
   openDays: new Set(), // 当前展开的比赛日
   openLineups: new Set(), // 当前展开阵容身价的比赛卡
+  openVerdicts: new Set(), // 当前展开赛后命中大票据的比赛卡
   dayInitDone: false,
   squadsLoading: false,
   squads: null,
@@ -599,6 +600,74 @@ function ticketStatHtml(label, value, subValue) {
   return `<div class="ticket-stat"><span>${label}</span><strong>${main}</strong><em>${sub}</em></div>`;
 }
 
+function renderVerdictTicket(match, result, winner, score, beatText, rightText, crowd, ai) {
+  const curveId = `vote-curve-${String(match.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+  const odds = hitOddsValue(match, result.result);
+  const yieldRate = Number.isFinite(odds) ? Math.max(0, (odds - 1) * 100) : null;
+  const confidence = Number(match.model?.[result.result]);
+  const confidenceText = Number.isFinite(confidence) ? `${Math.round(confidence * 100)}%` : "--";
+  const crowdStats = voteCompareStats(crowd, result.result);
+  const aiStats = voteCompareStats(ai, result.result);
+  const progress = Number.isFinite(crowdStats.beat) ? Math.max(0, Math.min(100, crowdStats.beat)) : 0;
+  const crowdBeatLabel = formatVotePercentLabel(crowdStats.beat) || "--";
+  const metricText = beatText || rightText || "--";
+  return `<div class="vote-feedback is-hit verdict-ticket" id="verdict-${match.id}" aria-label="${t("你选中了")}">
+    <div class="ticket-main">
+      <header class="ticket-header">
+        <div class="header-meta">
+          <span>SYS_ID: ${match.id}</span>
+          <span>TIMESTAMP: ${match.kickoff.replace(" ", "T")}+08:00</span>
+        </div>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          ${t("最终判定")}
+        </div>
+      </header>
+      <h3 class="match-teams"><span>${tTeam(match.home)}</span><i>${t("对阵")}</i><span>${tTeam(match.away)}</span></h3>
+      <div class="match-result-pill">
+        <span class="label">${t("系统选择")}</span>
+        <span class="value">${winner} (${score})</span>
+      </div>
+      <div class="data-grid">
+        <div class="data-item">
+          <div class="data-label">${t("命中赔率 ODDS")}</div>
+          <div class="data-value accent">${counterValueHtml(odds, 2, "x")}</div>
+        </div>
+        <div class="data-item">
+          <div class="data-label">${t("盈利率 YIELD")}</div>
+          <div class="data-value">${Number.isFinite(yieldRate) ? "+" : ""}${counterValueHtml(yieldRate, 0, "%")}</div>
+        </div>
+      </div>
+      <div class="ticket-stats">
+        ${ticketStatHtml(t("人类超越"), crowdStats.beat, crowdStats.right)}
+        ${ticketStatHtml(t("AI超越"), aiStats.beat, aiStats.right)}
+      </div>
+      <footer class="ticket-footer">
+        <div class="progress-track"><div class="progress-fill" data-vote-progress="${progress.toFixed(1)}" style="--vote-progress:${progress.toFixed(1)}%"></div></div>
+        <div class="progress-labels">
+          <div class="pl-left">${t("超越")} <strong>${crowdBeatLabel}</strong> ${t("人类玩家")}</div>
+          <div class="pl-right">CONF: ${confidenceText}</div>
+        </div>
+        <div class="ticket-metric"><b>${t("超越")}</b><i>${metricText}</i></div>
+      </footer>
+    </div>
+    <aside class="ticket-aside">
+      <div class="seal-wrapper">
+        <svg class="seal-svg-text" viewBox="0 0 100 100" aria-hidden="true">
+          <path id="${curveId}" d="M 50,50 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" fill="transparent"></path>
+          <text font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.62" letter-spacing="2.5"><textPath href="#${curveId}"> VERIFIED ACCURATE · SYSTEM HIT · VERIFIED </textPath></text>
+        </svg>
+        <div class="seal-rings">
+          <div class="seal-content">
+            <svg class="seal-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+            <div class="seal-text">HIT</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>`;
+}
+
 function renderVoteFeedback(match, crowd, ai, mine) {
   const result = matchResult(match);
   if (!result) {
@@ -632,71 +701,18 @@ function renderVoteFeedback(match, crowd, ai, mine) {
     ? `${resultText}${beatText ? ` · ${t("超越")} ${beatText}` : ""}`
     : `${resultText}${rightText ? ` · ${t("选中方占")} ${rightText}` : ""}`;
   if (hit) {
-    const curveId = `vote-curve-${String(match.id).replace(/[^a-zA-Z0-9_-]/g, "-")}`;
-    const odds = hitOddsValue(match, result.result);
-    const yieldRate = Number.isFinite(odds) ? Math.max(0, (odds - 1) * 100) : null;
-    const confidence = Number(match.model?.[result.result]);
-    const confidenceText = Number.isFinite(confidence) ? `${Math.round(confidence * 100)}%` : "--";
-    const crowdStats = voteCompareStats(crowd, result.result);
-    const aiStats = voteCompareStats(ai, result.result);
-    const progress = Number.isFinite(crowdStats.beat) ? Math.max(0, Math.min(100, crowdStats.beat)) : 0;
-    const crowdBeatLabel = formatVotePercentLabel(crowdStats.beat) || "--";
-    const metricText = beatText || rightText || "--";
-    return `<div class="vote-feedback is-hit verdict-ticket" aria-label="${headline}">
-      <div class="ticket-main">
-        <header class="ticket-header">
-          <div class="header-meta">
-            <span>SYS_ID: ${match.id}</span>
-            <span>TIMESTAMP: ${match.kickoff.replace(" ", "T")}+08:00</span>
-          </div>
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            ${t("最终判定")}
-          </div>
-        </header>
-        <h3 class="match-teams"><span>${tTeam(match.home)}</span><i>${t("对阵")}</i><span>${tTeam(match.away)}</span></h3>
-        <div class="match-result-pill">
-          <span class="label">${t("系统选择")}</span>
-          <span class="value">${winner} (${score})</span>
-        </div>
-        <div class="data-grid">
-          <div class="data-item">
-            <div class="data-label">${t("命中赔率 ODDS")}</div>
-            <div class="data-value accent">${counterValueHtml(odds, 2, "x")}</div>
-          </div>
-          <div class="data-item">
-            <div class="data-label">${t("盈利率 YIELD")}</div>
-            <div class="data-value">${Number.isFinite(yieldRate) ? "+" : ""}${counterValueHtml(yieldRate, 0, "%")}</div>
-          </div>
-        </div>
-        <div class="ticket-stats">
-          ${ticketStatHtml(t("人类超越"), crowdStats.beat, crowdStats.right)}
-          ${ticketStatHtml(t("AI超越"), aiStats.beat, aiStats.right)}
-        </div>
-        <footer class="ticket-footer">
-          <div class="progress-track"><div class="progress-fill" data-vote-progress="${progress.toFixed(1)}" style="--vote-progress:${progress.toFixed(1)}%"></div></div>
-          <div class="progress-labels">
-            <div class="pl-left">${t("超越")} <strong>${crowdBeatLabel}</strong> ${t("人类玩家")}</div>
-            <div class="pl-right">CONF: ${confidenceText}</div>
-          </div>
-          <div class="ticket-metric"><b>${t("超越")}</b><i>${metricText}</i></div>
-        </footer>
+    const expanded = state.openVerdicts.has(match.id);
+    const ticket = expanded ? renderVerdictTicket(match, result, winner, score, beatText, rightText, crowd, ai) : "";
+    return `<div class="vote-feedback is-hit verdict-summary" aria-label="${headline}">
+      <div class="verdict-summary-copy">
+        <span>${headline}</span>
+        <strong>${winner} (${score})</strong>
+        <em>${detail}</em>
       </div>
-      <aside class="ticket-aside">
-        <div class="seal-wrapper">
-          <svg class="seal-svg-text" viewBox="0 0 100 100" aria-hidden="true">
-            <path id="${curveId}" d="M 50,50 m -44,0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" fill="transparent"></path>
-            <text font-family="monospace" font-size="10.5" fill="currentColor" opacity="0.62" letter-spacing="2.5"><textPath href="#${curveId}"> VERIFIED ACCURATE · SYSTEM HIT · VERIFIED </textPath></text>
-          </svg>
-          <div class="seal-rings">
-            <div class="seal-content">
-              <svg class="seal-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-              <div class="seal-text">HIT</div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>`;
+      <button class="verdict-toggle" data-verdict-match="${match.id}" type="button" aria-expanded="${expanded}" aria-controls="verdict-${match.id}">
+        <span>${expanded ? t("收起战报") : t("展开战报")}</span>
+      </button>
+    </div>${ticket}`;
   }
   return `<div class="vote-feedback${hit ? " is-hit" : " is-miss"}">
     <span>${t("赛后回看")}</span>
@@ -710,8 +726,14 @@ function renderVoteBar(match) {
   const crowd = v.crowd || emptyTally();
   const ai = v.ai || emptyTally();
   const mine = myVotes()[match.id];
-  const result = matchResult(match)?.result;
+  const settled = matchResult(match);
+  const result = settled?.result;
   const locked = isVoteLocked(match);
+  if (settled) {
+    return `<div class="vote-bar is-locked is-settled">
+      ${renderVoteFeedback(match, crowd, ai, mine)}
+    </div>`;
+  }
   const btn = (side, label) =>
     `<button class="vote-btn${mine === side ? " is-mine" : ""}${result === side ? " is-result" : ""}" data-vmatch="${match.id}" data-vote="${side}" type="button"${locked ? " disabled" : ""}>${label}</button>`;
   return `<div class="vote-bar${locked ? " is-locked" : ""}">
@@ -768,13 +790,13 @@ function cardHtml(match) {
   const selected = match.id === state.selectedId ? " is-selected" : "";
   const lineupOpen = state.openLineups.has(match.id);
   const result = matchResult(match);
-  const voteHit = result && myVotes()[match.id] === result.result;
+  const voteHitExpanded = result && myVotes()[match.id] === result.result && state.openVerdicts.has(match.id);
   const en = _i18n.getLang && _i18n.getLang() === "en";
   const xgText = hasXg(match.model)
     ? `${match.model.xgHome.toFixed(2)} : ${match.model.xgAway.toFixed(2)}`
     : t("待接入");
   return `
-    <div class="match-card-wrap${lineupOpen ? " has-lineup" : ""}${voteHit ? " has-hit-feedback" : ""}">
+    <div class="match-card-wrap${lineupOpen ? " has-lineup" : ""}${voteHitExpanded ? " has-hit-feedback" : ""}">
     <button class="match-card spotlight${selected}" data-match-id="${match.id}" type="button">
       <span class="match-meta">
         <span>${tRound(match.round)}</span>
@@ -898,6 +920,15 @@ function renderMatchCards() {
       } else {
         renderMatchCards();
       }
+    });
+  });
+  selectors.matchList.querySelectorAll("[data-verdict-match]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const matchId = btn.dataset.verdictMatch;
+      if (state.openVerdicts.has(matchId)) state.openVerdicts.delete(matchId);
+      else state.openVerdicts.add(matchId);
+      renderMatchCards();
     });
   });
   selectors.matchList.querySelectorAll("[data-day]").forEach((header) => {

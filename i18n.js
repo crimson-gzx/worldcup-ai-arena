@@ -168,6 +168,7 @@
     "正确选项": "Correct side", "超越": "Beat", "选中方占": "Correct side had",
     "AI注单": "AI bets",
     "最终判定": "Final verdict", "系统选择": "System pick", "命中赔率 ODDS": "Hit odds", "盈利率 YIELD": "Yield", "人类玩家": "human players",
+    "展开战报": "Open report", "收起战报": "Collapse report",
     "人类超越": "Beat humans", "AI超越": "Beat AI", "选中占比": "Correct share", "样本不足": "No sample",
     "竞技场接口未连接": "Arena API not connected",
     "本地预览模式：未连接竞技场接口。": "Local preview mode: arena API is not connected.",
