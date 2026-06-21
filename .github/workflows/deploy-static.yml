@@ -1,0 +1,86 @@
+name: Deploy static site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-static-site
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      REZZ_HOST: ${{ secrets.REZZ_HOST }}
+      REZZ_USER: ${{ secrets.REZZ_USER }}
+      REZZ_PORT: ${{ secrets.REZZ_PORT }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare static release
+        run: |
+          set -euo pipefail
+          rm -rf release
+          mkdir -p release/data
+          for file in index.html app.js styles.css i18n.js pixel-hero.js README.md skill.md hit-animation-preview.html; do
+            cp -a "$file" release/
+          done
+          for dir in assets fonts design-exports x-promo xhs-promo; do
+            if [ -d "$dir" ]; then cp -a "$dir" release/; fi
+          done
+          cp -a data/squads.json release/data/squads.json
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.REZZ_SSH_KEY }}
+
+      - name: Trust server host key
+        run: |
+          set -euo pipefail
+          port="${REZZ_PORT:-22}"
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$port" -H "$REZZ_HOST" >> ~/.ssh/known_hosts
+
+      - name: Sync static assets
+        run: |
+          set -euo pipefail
+          port="${REZZ_PORT:-22}"
+          rsync -az --delete -e "ssh -p $port" \
+            release/ "$REZZ_USER@$REZZ_HOST:/tmp/rezz-static-release/"
+
+      - name: Publish static assets
+        run: |
+          set -euo pipefail
+          port="${REZZ_PORT:-22}"
+          ssh -p "$port" "$REZZ_USER@$REZZ_HOST" 'set -euo pipefail
+            release=/tmp/rezz-static-release
+            target=/var/www/rezz
+            ts=$(date +%Y%m%d%H%M%S)
+            cd "$target"
+            mkdir -p ".frontend-backups/$ts"
+            for item in index.html app.js styles.css i18n.js pixel-hero.js README.md skill.md hit-animation-preview.html assets fonts design-exports x-promo xhs-promo data/squads.json; do
+              if [ -e "$item" ]; then
+                mkdir -p ".frontend-backups/$ts/$(dirname "$item")"
+                cp -a "$item" ".frontend-backups/$ts/$item"
+              fi
+            done
+            rsync -az --delete \
+              --exclude ".frontend-backups/" \
+              --exclude "data/matches.json" \
+              --exclude "data/arena/" \
+              --exclude "arena/data/" \
+              "$release/" "$target/"
+            chown -R www-data:www-data "$target"
+            find "$target" -type d -exec chmod 755 {} +
+            find "$target" -type f -exec chmod 644 {} +
+            rm -rf "$release"
+          '
+
+      - name: Verify deployed version
+        run: |
+          curl -fsS "https://www.rezz.asia/index.html" | grep -E 'app\.js\?v=|styles\.css\?v='
