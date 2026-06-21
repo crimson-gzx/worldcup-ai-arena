@@ -191,6 +191,32 @@ function defaultMatchForCurrentFilter() {
     || null;
 }
 
+function matchDate(match) {
+  return match.kickoff.slice(0, 10);
+}
+
+function initialOpenDaysForMatchList(matches, order, byDate) {
+  const open = new Set();
+  const selected = matches.find((match) => match.id === state.selectedId);
+  const selectedDate = selected ? matchDate(selected) : null;
+  if (selectedDate && byDate.has(selectedDate)) open.add(selectedDate);
+
+  if (state.filter === "recent") {
+    const now = Date.now();
+    let nextDate = null;
+    for (const match of matches) {
+      const date = matchDate(match);
+      const score = matchScore(match);
+      if (score?.completed || score?.live) open.add(date);
+      if (!nextDate && kickoffStamp(match) >= now && !score?.completed) nextDate = date;
+    }
+    if (nextDate && byDate.has(nextDate)) open.add(nextDate);
+  }
+
+  if (!open.size && order[0]) open.add(order[0]);
+  return new Set(order.filter((date) => open.has(date)));
+}
+
 let squadsLoadPromise = null;
 function loadSquadsData() {
   if (state.squads) return Promise.resolve(state.squads);
@@ -815,19 +841,16 @@ function renderMatchCards() {
   const order = [];
   const byDate = new Map();
   for (const m of all) {
-    const date = m.kickoff.slice(0, 10);
+    const date = matchDate(m);
     if (!byDate.has(date)) {
       byDate.set(date, []);
       order.push(date);
     }
     byDate.get(date).push(m);
   }
-  // 首次渲染优先展开当前选中比赛所在日期
+  // 近期视图默认展开刚完赛/进行中/下一场日期，方便用户进站直接看赛后回看。
   if (!state.dayInitDone) {
-    const selected = all.find((match) => match.id === state.selectedId);
-    const selectedDate = selected?.kickoff.slice(0, 10);
-    if (selectedDate && byDate.has(selectedDate)) state.openDays.add(selectedDate);
-    else if (order[0]) state.openDays.add(order[0]);
+    state.openDays = initialOpenDaysForMatchList(all, order, byDate);
     state.dayInitDone = true;
   }
 
@@ -837,7 +860,7 @@ function renderMatchCards() {
       const open = state.openDays.has(date);
       return `
         <section class="day-group">
-          <button class="day-header${open ? " is-open" : ""}" data-day="${date}" type="button">
+          <button class="day-header${open ? " is-open" : ""}" data-day="${date}" type="button" aria-expanded="${open}">
             <span class="day-date">${dayLabel(date)}</span>
             <span class="day-count">${matches.length} ${t("场")}</span>
             <span class="day-chevron" aria-hidden="true">${open ? "▾" : "▸"}</span>
