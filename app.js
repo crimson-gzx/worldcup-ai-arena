@@ -1246,17 +1246,32 @@ let currentBoard = "assets";
 let agentBoardExpanded = false;
 const AGENT_BOARD_LIMIT = 10;
 
+function agentBetCount(row) {
+  const explicit = Number(row.betCount);
+  if (Number.isFinite(explicit)) return explicit;
+  return Number(row.settled || 0) + Number(row.openBets || 0);
+}
+
+function agentHasBets(row) {
+  return agentBetCount(row) > 0;
+}
+
+function compareAgentActivity(a, b) {
+  return Number(agentHasBets(b)) - Number(agentHasBets(a));
+}
+
 // 三种榜口排序：资产 / 收益率 / 连胜（借鉴小炮英雄榜的奖金榜·盈利榜·连红榜）
 function boardSort(rows, board) {
   const r = rows.slice();
   if (board === "hit")
-    return r.sort((a, b) => (Number(b.hitRate) || 0) - (Number(a.hitRate) || 0) || (Number(b.settled) || 0) - (Number(a.settled) || 0) || (b.totalValue - a.totalValue));
+    return r.sort((a, b) => compareAgentActivity(a, b) || (Number(b.hitRate) || 0) - (Number(a.hitRate) || 0) || (Number(b.settled) || 0) - (Number(a.settled) || 0) || (b.totalValue - a.totalValue));
   if (board === "streak")
     return r.sort((a, b) =>
+      compareAgentActivity(a, b) ||
       (Number(b.streak) || 0) - (Number(a.streak) || 0) ||
       (Number(b.bestStreak) || 0) - (Number(a.bestStreak) || 0) ||
       (b.totalValue - a.totalValue));
-  return r.sort((a, b) => b.totalValue - a.totalValue);
+  return r.sort((a, b) => compareAgentActivity(a, b) || b.totalValue - a.totalValue);
 }
 
 // 每行右侧主数字 + 副标签随榜口变化
@@ -1273,7 +1288,7 @@ function boardMetric(row, board) {
     const sub = settled > 0 ? t("命中") + " " + (row.wins || 0) + "/" + settled : t("暂无战绩");
     return { main: s > 0 ? s + t("连胜") : "—", sub, cls: s > 0 ? "pos" : "" };
   }
-  return { main: formatAgentMoney(row.totalValue), sub: t("虚拟资产"), cls: "" };
+  return { main: formatAgentMoney(row.totalValue), sub: agentHasBets(row) ? t("虚拟资产") : t("待首注"), cls: agentHasBets(row) ? "" : "idle" };
 }
 
 function renderAgentLeaderboard(rows) {
@@ -1295,8 +1310,9 @@ function renderAgentLeaderboard(rows) {
     const model = escapeAgentHtml(row.model || t("未标注模型"));
     const m = boardMetric(row, board);
     const champ = index === 0 ? " is-champion" : "";
+    const idle = agentHasBets(row) ? "" : " is-idle";
     const nameCls = index === 0 ? ' class="wc-shiny"' : "";
-    return '<div class="agent-leader-row spotlight' + champ + '">' +
+    return '<div class="agent-leader-row spotlight' + champ + idle + '">' +
       '<b class="agent-rank">' + (index + 1) + '</b>' +
       '<div><strong' + nameCls + '>' + name + '</strong><span>' + model + '</span></div>' +
       '<div class="agent-metric' + (m.cls ? " " + m.cls : "") + '"><strong>' + escapeAgentHtml(m.main) + '</strong><span>' + escapeAgentHtml(m.sub) + '</span></div>' +

@@ -100,6 +100,7 @@ export function calculateSettlement(bet, result) {
 }
 
 export function rankLeaderboard(agents, bets) {
+  const hasPlacedBets = (row) => Number(row.betCount || 0) > 0;
   return agents
     .map((agent) => {
       const agentBets = bets.filter((bet) => bet.agentId === agent.id);
@@ -123,5 +124,10 @@ export function rankLeaderboard(agents, bets) {
         activeExposure: toMoney(reserved)
       };
     })
-    .sort((a, b) => b.totalValue - a.totalValue || b.roi - a.roi || b.betCount - a.betCount);
+    .sort((a, b) =>
+      Number(hasPlacedBets(b)) - Number(hasPlacedBets(a)) ||
+      b.totalValue - a.totalValue ||
+      b.roi - a.roi ||
+      b.betCount - a.betCount
+    );
 }

@@ -93,11 +93,13 @@ function findAgentByToken(raw) {
 const openStake = (agentId) =>
   state.bets.filter((b) => b.agentId === agentId && b.status === "open").reduce((s, b) => s + b.stake, 0);
 const totalValue = (a) => Math.round(a.cash + openStake(a.agentId));
+const hasPlacedBets = (row) => Number(row.betCount || 0) > 0;
 
 // 某 agent 已结算注单的战绩与当前连胜（按结算时间排序，从最近一场往前数连续命中）
 function agentStats(agentId) {
-  const settled = state.bets
-    .filter((b) => b.agentId === agentId && (b.status === "won" || b.status === "lost"))
+  const agentBets = state.bets.filter((b) => b.agentId === agentId);
+  const settled = agentBets
+    .filter((b) => b.status === "won" || b.status === "lost")
     .sort((a, b) => Date.parse(a.settledAt || 0) - Date.parse(b.settledAt || 0));
   let wins = 0, losses = 0, best = 0, run = 0;
   for (const b of settled) {
@@ -108,7 +110,15 @@ function agentStats(agentId) {
   for (let i = settled.length - 1; i >= 0; i--) {
     if (settled[i].status === "won") streak++; else break;
   }
-  return { wins, losses, settled: settled.length, streak, best };
+  return {
+    wins,
+    losses,
+    settled: settled.length,
+    streak,
+    best,
+    betCount: agentBets.length,
+    openBets: agentBets.filter((b) => b.status === "open").length
+  };
 }
 
 function leaderboard() {
@@ -124,10 +134,17 @@ function leaderboard() {
         roi: cap > 0 ? (tv - cap) / cap : 0,
         wins: s.wins, losses: s.losses, settled: s.settled,
         hitRate: s.settled > 0 ? s.wins / s.settled : 0,
-        streak: s.streak, bestStreak: s.best
+        streak: s.streak, bestStreak: s.best,
+        betCount: s.betCount, openBets: s.openBets
       };
     })
-    .sort((x, y) => y.totalValue - x.totalValue || 0);
+    .sort((x, y) =>
+      Number(hasPlacedBets(y)) - Number(hasPlacedBets(x)) ||
+      y.totalValue - x.totalValue ||
+      y.settled - x.settled ||
+      y.betCount - x.betCount ||
+      String(x.name || "").localeCompare(String(y.name || ""), "zh-Hans-CN")
+    );
 }
 const OPEN_HOURS_BEFORE = 48; // 每场默认开赛前多少小时开放投注（钩子场 openNow 除外）
 const bettable = (m) => {

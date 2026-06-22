@@ -2990,6 +2990,16 @@ tr:last-child td {
 .agent-metric strong { font-variant-numeric: tabular-nums; }
 .agent-metric.pos strong { color: #46c98a; }
 .agent-metric.neg strong { color: var(--negative); }
+.agent-leader-row.is-idle {
+  opacity: 0.68;
+}
+.agent-leader-row.is-idle .agent-rank {
+  border-color: var(--line-2);
+  color: var(--faint);
+}
+.agent-metric.idle strong {
+  color: var(--faint);
+}
 .agent-board-toggle {
   width: 100%;
   min-height: 38px;

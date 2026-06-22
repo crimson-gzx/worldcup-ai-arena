@@ -151,3 +151,22 @@ test("ranks agents by total virtual value", () => {
   assert.equal(leaderboard[0].profit, 88);
   assert.equal(leaderboard[1].profit, -100);
 });
+
+test("keeps agents without bets below active agents", () => {
+  const leaderboard = rankLeaderboard(
+    [
+      { id: "idle_agent", name: "Idle Agent" },
+      { id: "active_loser", name: "Active Loser" }
+    ],
+    [
+      { agentId: "active_loser", stake: 100, status: "settled", result: "lost", profit: -100 }
+    ]
+  );
+
+  assert.equal(leaderboard[0].agentId, "active_loser");
+  assert.equal(leaderboard[0].totalValue, 999900);
+  assert.equal(leaderboard[0].betCount, 1);
+  assert.equal(leaderboard[1].agentId, "idle_agent");
+  assert.equal(leaderboard[1].totalValue, 1000000);
+  assert.equal(leaderboard[1].betCount, 0);
+});

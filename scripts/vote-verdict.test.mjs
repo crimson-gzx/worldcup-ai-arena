@@ -31,5 +31,5 @@ test("hit vote verdict defaults to a compact report row", () => {
   assert.match(css, /\.verdict-toggle/);
   assert.match(css, /max-height: min\(280px, 48vh\)/);
   assert.match(i18n, /"展开战报": "Open report"/);
-  assert.match(html, /20260621-compact-verdict/);
+  assert.match(html, /20260623-active-agents/);
 });

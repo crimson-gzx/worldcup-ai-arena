@@ -81,6 +81,35 @@ jobs:
             rm -rf "$release"
           '
 
+      - name: Publish arena backend
+        run: |
+          set -euo pipefail
+          port="${REZZ_PORT:-22}"
+          rsync -az -e "ssh -p $port" arena/server.mjs "$REZZ_USER@$REZZ_HOST:/tmp/wc-arena-server.mjs"
+          ssh -p "$port" "$REZZ_USER@$REZZ_HOST" 'set -euo pipefail
+            source=/tmp/wc-arena-server.mjs
+            target=/opt/wc-arena/server.mjs
+            ts=$(date +%Y%m%d%H%M%S)
+            if [ ! -f "$source" ]; then
+              echo "missing backend release: $source" >&2
+              exit 1
+            fi
+            if [ -f "$target" ] && cmp -s "$source" "$target"; then
+              rm -f "$source"
+              echo "Arena backend unchanged"
+              exit 0
+            fi
+            mkdir -p /opt/wc-arena/backups
+            if [ -f "$target" ]; then
+              cp -a "$target" "/opt/wc-arena/backups/server.mjs.$ts"
+            fi
+            install -o root -g root -m 0644 "$source" "$target"
+            rm -f "$source"
+            systemctl restart wc-arena
+            systemctl is-active --quiet wc-arena
+          '
+
       - name: Verify deployed version
         run: |
           curl -fsS "https://www.rezz.asia/index.html" | grep -E 'app\.js\?v=|styles\.css\?v='
+          curl -fsS "https://www.rezz.asia/api/v1/arena/health"

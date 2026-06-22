@@ -180,6 +180,54 @@ test("arena server rejects stale auth and closed markets", async (t) => {
   assert.match(placed.body.error, /未开放投注/);
 });
 
+test("arena server ranks idle agents after agents with bets", async (t) => {
+  const market = {
+    matchId: "wc26-ranking-loss",
+    home: "主队",
+    away: "客队",
+    state: "open",
+    cutoffAt: futureIso(24),
+    oneXTwo: { home: 2, draw: 3.2, away: 3.8 }
+  };
+  const { base, adminToken } = await withArena(t, { markets: [market], capital: 1000 });
+
+  const idle = await jsonFetch(`${base}/agents`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "Idle Ranking Agent" })
+  });
+  assert.equal(idle.response.status, 201);
+
+  const active = await jsonFetch(`${base}/agents`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "Active Ranking Agent" })
+  });
+  assert.equal(active.response.status, 201);
+
+  const placed = await jsonFetch(`${base}/bets`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${active.body.token}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ matchId: market.matchId, selection: "away", stake: 100 })
+  });
+  assert.equal(placed.response.status, 201);
+
+  const settled = await jsonFetch(`${base}/admin/settle`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${adminToken}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ matchId: market.matchId, result: "home" })
+  });
+  assert.equal(settled.response.status, 200);
+
+  const board = await waitForJson(`${base}/leaderboard`);
+  assert.equal(board.leaderboard[0].agentId, active.body.agentId);
+  assert.equal(board.leaderboard[0].totalValue, 900);
+  assert.equal(board.leaderboard[0].betCount, 1);
+  assert.equal(board.leaderboard[1].agentId, idle.body.agentId);
+  assert.equal(board.leaderboard[1].totalValue, 1000);
+  assert.equal(board.leaderboard[1].betCount, 0);
+});
+
 test("arena server locks public votes after kickoff", async (t) => {
   const { base } = await withArena(t, {
     markets: [

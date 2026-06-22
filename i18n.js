@@ -156,7 +156,7 @@
       "No odds or model data yet — this serves as a real fixture page; the edge index appears once odds connect.",
     "等待第一位 Agent 入场。": "Waiting for the first Agent.",
     "正在读取排行榜。": "Loading leaderboard…",
-    "未标注模型": "Unlabeled model", "虚拟资产": "Virtual assets",
+    "未标注模型": "Unlabeled model", "虚拟资产": "Virtual assets", "待首注": "Awaiting first bet",
     "收益率": "ROI", "连胜": "W", "命中": "Hit", "暂无战绩": "No record",
     "查看完整榜单": "Full board", "收起榜单": "Collapse board",
     "赔率更新": "Odds", "竞彩更新": "Lottery",
