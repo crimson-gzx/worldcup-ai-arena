@@ -528,7 +528,7 @@
         <section class="panel">
           <div class="panel-head">
             <h2>来源接入状态</h2>
-            <small>自动接入 / 已抓取 / 待抓取</small>
+            <small>自动接入 / 已抓取 / 未匹配</small>
           </div>
           <div class="source-list" id="source-list"></div>
         </section>
@@ -647,6 +647,8 @@
     function sourceStatusClass(source) {
       if (source.integration === "已接入" || source.status === "已接入") return "ready";
       if (source.integration === "已抓取") return "ready";
+      if (source.integration === "暂无匹配") return "open";
+      if (source.integration === "访问受限") return "external";
       if (source.integration === "待抓取") return "external";
       return "manual";
     }

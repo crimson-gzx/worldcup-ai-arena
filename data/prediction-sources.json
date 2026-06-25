@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-25T16:45:00+08:00",
-  "note": "已接入源会进入比赛表计算；已抓取源会从 data/external-predictions.json 进入每场外部观点。",
+  "updatedAt": "2026-06-25T18:20:00+08:00",
+  "note": "已接入源会进入比赛表计算；已抓取源会从 data/external-predictions.json 进入每场外部观点；未匹配源会保留抓取状态，不让用户自行点开补信息。",
   "sources": [
     {
       "id": "market-odds",
@@ -44,11 +44,11 @@
       "kind": "free-site",
       "language": "英文",
       "url": "https://footystats.org/international/fifa-world-cup",
-      "status": "可打开",
-      "integration": "待抓取",
+      "status": "暂无今日匹配",
+      "integration": "暂无匹配",
       "access": "网页",
       "cadence": "赛前核对",
-      "summary": "偏数据表：进球、BTTS、大小球、球队趋势。后续可作为统计背景源抓入。"
+      "summary": "偏数据表：进球、BTTS、大小球、球队趋势。今天未匹配到可直接入表的单场预测。"
     },
     {
       "id": "forebet",
@@ -56,11 +56,11 @@
       "kind": "free-site",
       "language": "英文",
       "url": "https://www.forebet.com/en/football-tips-and-predictions-for-today",
-      "status": "需浏览器核对",
-      "integration": "待抓取",
+      "status": "暂无今日匹配",
+      "integration": "暂无匹配",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "算法比分和胜平负倾向。当前页面先接媒体观点，Forebet 单场抓取排在下一步。"
+      "summary": "算法比分和胜平负倾向。今天未匹配到可直接入表的 2026 世界杯单场页面。"
     },
     {
       "id": "predictz",
@@ -68,11 +68,11 @@
       "kind": "free-site",
       "language": "英文",
       "url": "https://www.predictz.com/predictions/",
-      "status": "需浏览器核对",
-      "integration": "待抓取",
+      "status": "暂无今日匹配",
+      "integration": "暂无匹配",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "免费比分预测站，内容简单。当前页面先接媒体观点，PredictZ 单场抓取排在下一步。"
+      "summary": "免费比分预测站，内容简单。今天未匹配到可直接入表的 2026 世界杯单场页面。"
     },
     {
       "id": "windrawwin",
@@ -80,11 +80,11 @@
       "kind": "free-site",
       "language": "英文",
       "url": "https://www.windrawwin.com/predictions/",
-      "status": "需浏览器核对",
-      "integration": "待抓取",
+      "status": "暂无今日匹配",
+      "integration": "暂无匹配",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "偏赛果倾向和胜率统计。当前页面先接媒体观点，WinDrawWin 单场抓取排在下一步。"
+      "summary": "偏赛果倾向和胜率统计。今天未匹配到可直接入表的 2026 世界杯单场页面。"
     },
     {
       "id": "sportsmole",
@@ -92,11 +92,11 @@
       "kind": "media",
       "language": "英文",
       "url": "https://www.sportsmole.co.uk/football/",
-      "status": "可浏览",
-      "integration": "待抓取",
+      "status": "暂无今日匹配",
+      "integration": "暂无匹配",
       "access": "网页",
       "cadence": "赛前核对",
-      "summary": "文章式前瞻，适合摘伤停、轮换、战意。后续可作为赛前情报源抓入。"
+      "summary": "文章式前瞻，适合摘伤停、轮换、战意。今天未匹配到可直接入表的单场文章。"
     },
     {
       "id": "sportytrader",
@@ -104,11 +104,11 @@
       "kind": "free-site",
       "language": "英文",
       "url": "https://www.sportytrader.com/en/betting-tips/football/",
-      "status": "需浏览器核对",
-      "integration": "待抓取",
+      "status": "访问受限",
+      "integration": "访问受限",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "免费投注建议站，能补充热门比赛观点。后续可作为补充观点源抓入。"
+      "summary": "免费投注建议站，能补充热门比赛观点；当前访问受限，暂未入表。"
     },
     {
       "id": "nypost",

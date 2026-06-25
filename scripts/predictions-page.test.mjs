@@ -26,7 +26,7 @@ test("prediction sources use real links and clear status", () => {
   assert.ok(sources.sources.length >= 8);
   assert.equal(sources.sources.filter((source) => source.integration === "已接入").length, 3);
   assert.ok(sources.sources.filter((source) => source.integration === "已抓取").length >= 3);
-  assert.ok(sources.sources.filter((source) => source.integration === "待抓取").length >= 5);
+  assert.ok(sources.sources.filter((source) => source.integration === "暂无匹配").length >= 5);
 
   const ids = new Set();
   for (const source of sources.sources) {
@@ -35,8 +35,8 @@ test("prediction sources use real links and clear status", () => {
     ids.add(source.id);
     assert.ok(source.name);
     assert.ok(source.summary);
-    assert.ok(["已接入", "已抓取", "可打开", "可浏览", "需浏览器核对"].includes(source.status));
-    assert.ok(["已接入", "已抓取", "待抓取"].includes(source.integration));
+    assert.ok(["已接入", "已抓取", "可打开", "可浏览", "需浏览器核对", "暂无今日匹配", "访问受限"].includes(source.status));
+    assert.ok(["已接入", "已抓取", "待抓取", "暂无匹配", "访问受限"].includes(source.integration));
 
     if (source.kind === "free-site" || source.kind === "media" || source.kind === "market" || source.kind === "value") {
       assert.match(source.url, /^https:\/\//, `${source.name} should use a full public URL`);
