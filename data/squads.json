@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-12T18:55:08Z",
+  "updatedAt": "2026-06-25T01:35:00+08:00",
   "teams": {
     "阿根廷": {
       "iso": "ar",
@@ -209,7 +209,11 @@
           "caps": 50,
           "goals": 6,
           "club_zh": "马德里竞技",
-          "club_en": "Atlético Madrid"
+          "club_en": "Atlético Madrid",
+          "tm_id": 486031,
+          "market_value_eur": 22000000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 16,
@@ -377,8 +381,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 760500000,
-      "market_value_covered": 24,
+      "market_value_eur": 782500000,
+      "market_value_covered": 25,
       "market_value_players": 25
     },
     "巴西": {
@@ -424,7 +428,11 @@
           "caps": 17,
           "goals": 1,
           "club_zh": "阿森纳",
-          "club_en": "Arsenal"
+          "club_en": "Arsenal",
+          "tm_id": 435338,
+          "market_value_eur": 75000000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 4,
@@ -772,8 +780,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 798900000,
-      "market_value_covered": 25,
+      "market_value_eur": 873900000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "法国": {
@@ -4266,7 +4274,11 @@
           "goals": 3,
           "club_en": "Sporting CP",
           "zh": "马克西米利亚诺·阿劳霍",
-          "club_zh": "葡萄牙体育"
+          "club_zh": "葡萄牙体育",
+          "tm_id": 572675,
+          "market_value_eur": 35000000,
+          "market_value_updated": "2026-05-28",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 21,
@@ -4359,8 +4371,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 337300000,
-      "market_value_covered": 25,
+      "market_value_eur": 372300000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "美国": {
@@ -4631,7 +4643,11 @@
           "caps": 20,
           "goals": 1,
           "club_zh": "哥伦布机员",
-          "club_en": "Columbus Crew"
+          "club_en": "Columbus Crew",
+          "tm_id": 993063,
+          "market_value_eur": 5000000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 19,
@@ -4747,11 +4763,15 @@
           "caps": 14,
           "goals": 2,
           "club_zh": "墨西哥美洲",
-          "club_en": "América"
+          "club_en": "América",
+          "tm_id": 351505,
+          "market_value_eur": 10000000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 370650000,
-      "market_value_covered": 24,
+      "market_value_eur": 385650000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "捷克": {
@@ -5715,7 +5735,11 @@
           "caps": 53,
           "goals": 12,
           "club_zh": "马梅洛迪日落",
-          "club_en": "Mamelodi Sundowns"
+          "club_en": "Mamelodi Sundowns",
+          "tm_id": 176578,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 12,
@@ -5726,7 +5750,11 @@
           "caps": 9,
           "goals": 1,
           "club_zh": "AEL利马索尔",
-          "club_en": "AEL Limassol"
+          "club_en": "AEL Limassol",
+          "tm_id": 983330,
+          "market_value_eur": 750000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -5857,7 +5885,11 @@
           "caps": 7,
           "goals": 1,
           "club_zh": "汉诺威96",
-          "club_en": "Hannover 96"
+          "club_en": "Hannover 96",
+          "tm_id": 1107265,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 22,
@@ -5928,11 +5960,15 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "凯萨酋长",
-          "club_en": "Kaizer Chiefs"
+          "club_en": "Kaizer Chiefs",
+          "tm_id": 555209,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 45250000,
-      "market_value_covered": 22,
+      "market_value_eur": 49250000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "韩国": {
@@ -5948,7 +5984,11 @@
           "caps": 87,
           "goals": 0,
           "club_zh": "东京",
-          "club_en": "FC Tokyo"
+          "club_en": "FC Tokyo",
+          "tm_id": 92076,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -5974,7 +6014,11 @@
           "caps": 3,
           "goals": 0,
           "club_zh": "江原",
-          "club_en": "Gangwon FC"
+          "club_en": "Gangwon FC",
+          "tm_id": 763349,
+          "market_value_eur": 800000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 4,
@@ -6000,7 +6044,11 @@
           "caps": 7,
           "goals": 0,
           "club_zh": "鹿岛鹿角",
-          "club_en": "Kashima Antlers"
+          "club_en": "Kashima Antlers",
+          "tm_id": 645847,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 6,
@@ -6086,7 +6134,11 @@
           "caps": 79,
           "goals": 17,
           "club_zh": "狼队",
-          "club_en": "Wolverhampton Wanderers"
+          "club_en": "Wolverhampton Wanderers",
+          "tm_id": 292246,
+          "market_value_eur": 6000000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 12,
@@ -6097,7 +6149,11 @@
           "caps": 3,
           "goals": 0,
           "club_zh": "全北现代",
-          "club_en": "Jeonbuk Hyundai Motors"
+          "club_en": "Jeonbuk Hyundai Motors",
+          "tm_id": 508237,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -6108,7 +6164,11 @@
           "caps": 15,
           "goals": 1,
           "club_zh": "奥地利维也纳",
-          "club_en": "Austria Wien"
+          "club_en": "Austria Wien",
+          "tm_id": 639027,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2026-05-26",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 14,
@@ -6119,7 +6179,11 @@
           "caps": 1,
           "goals": 0,
           "club_zh": "全北现代",
-          "club_en": "Jeonbuk Hyundai Motors"
+          "club_en": "Jeonbuk Hyundai Motors",
+          "tm_id": 550978,
+          "market_value_eur": 550000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 15,
@@ -6130,7 +6194,11 @@
           "caps": 35,
           "goals": 0,
           "club_zh": "大田韩亚市民",
-          "club_en": "Daejeon Hana Citizen"
+          "club_en": "Daejeon Hana Citizen",
+          "tm_id": 524592,
+          "market_value_eur": 750000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 16,
@@ -6141,7 +6209,11 @@
           "caps": 14,
           "goals": 1,
           "club_zh": "浙江",
-          "club_en": "Zhejiang"
+          "club_en": "Zhejiang",
+          "tm_id": 557469,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -6152,7 +6224,11 @@
           "caps": 13,
           "goals": 2,
           "club_zh": "斯托克城",
-          "club_en": "Stoke City"
+          "club_en": "Stoke City",
+          "tm_id": 912081,
+          "market_value_eur": 4000000,
+          "market_value_updated": "2026-05-28",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 18,
@@ -6193,7 +6269,11 @@
           "caps": 9,
           "goals": 0,
           "club_zh": "凯尔特人",
-          "club_en": "Celtic"
+          "club_en": "Celtic",
+          "tm_id": 853110,
+          "market_value_eur": 5000000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 21,
@@ -6204,7 +6284,11 @@
           "caps": 48,
           "goals": 0,
           "club_zh": "蔚山HD",
-          "club_en": "Ulsan HD"
+          "club_en": "Ulsan HD",
+          "tm_id": 260171,
+          "market_value_eur": 650000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 22,
@@ -6215,7 +6299,11 @@
           "caps": 34,
           "goals": 0,
           "club_zh": "贝尔格莱德红星",
-          "club_en": "Red Star Belgrade"
+          "club_en": "Red Star Belgrade",
+          "tm_id": 639414,
+          "market_value_eur": 6500000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 23,
@@ -6241,7 +6329,11 @@
           "caps": 22,
           "goals": 3,
           "club_zh": "全北现代",
-          "club_en": "Jeonbuk Hyundai Motors"
+          "club_en": "Jeonbuk Hyundai Motors",
+          "tm_id": 365377,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 25,
@@ -6252,7 +6344,11 @@
           "caps": 9,
           "goals": 2,
           "club_zh": "斯旺西",
-          "club_en": "Swansea City"
+          "club_en": "Swansea City",
+          "tm_id": 706968,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2026-05-28",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 26,
@@ -6263,11 +6359,15 @@
           "caps": 18,
           "goals": 4,
           "club_zh": "蔚山HD",
-          "club_en": "Ulsan HD"
+          "club_en": "Ulsan HD",
+          "tm_id": 558086,
+          "market_value_eur": 1600000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 92500000,
-      "market_value_covered": 10,
+      "market_value_eur": 127050000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "波黑": {
@@ -6448,7 +6548,11 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "巴尼亚卢卡战士",
-          "club_en": "Borac Banja Luka"
+          "club_en": "Borac Banja Luka",
+          "tm_id": 952692,
+          "market_value_eur": 700000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -6661,8 +6765,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 150900000,
-      "market_value_covered": 25,
+      "market_value_eur": 151600000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "加拿大": {
@@ -6963,7 +7067,11 @@
           "caps": 24,
           "goals": 1,
           "club_zh": "诺里奇城",
-          "club_en": "Norwich City"
+          "club_en": "Norwich City",
+          "tm_id": 995642,
+          "market_value_eur": 5000000,
+          "market_value_updated": "2026-05-28",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 21,
@@ -7034,11 +7142,15 @@
           "caps": 15,
           "goals": 2,
           "club_zh": "皇家安德莱赫特",
-          "club_en": "Anderlecht"
+          "club_en": "Anderlecht",
+          "tm_id": 842420,
+          "market_value_eur": 7500000,
+          "market_value_updated": "2026-06-04",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 184150000,
-      "market_value_covered": 23,
+      "market_value_eur": 196650000,
+      "market_value_covered": 25,
       "market_value_players": 25
     },
     "卡塔尔": {
@@ -7054,7 +7166,11 @@
           "caps": 5,
           "goals": 0,
           "club_zh": "艾雷恩",
-          "club_en": "Al-Rayyan"
+          "club_en": "Al-Rayyan",
+          "tm_id": 669629,
+          "market_value_eur": 400000,
+          "market_value_updated": "2026-05-14",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -7125,7 +7241,11 @@
           "caps": 117,
           "goals": 11,
           "club_zh": "艾雷恩",
-          "club_en": "Al-Rayyan"
+          "club_en": "Al-Rayyan",
+          "tm_id": 113915,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-05-14",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 7,
@@ -7181,7 +7301,11 @@
           "caps": 186,
           "goals": 41,
           "club_zh": "艾萨德",
-          "club_en": "Al-Sadd"
+          "club_en": "Al-Sadd",
+          "tm_id": 86286,
+          "market_value_eur": 300000,
+          "market_value_updated": "2026-05-14",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 11,
@@ -7237,7 +7361,11 @@
           "caps": 68,
           "goals": 3,
           "club_zh": "莱昂",
-          "club_en": "Cultural Leonesa"
+          "club_en": "Cultural Leonesa",
+          "tm_id": 556713,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 15,
@@ -7323,7 +7451,11 @@
           "caps": 48,
           "goals": 0,
           "club_zh": "阿拉比",
-          "club_en": "Al-Arabi"
+          "club_en": "Al-Arabi",
+          "tm_id": 251183,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-05-14",
+          "market_value_source": "Transfermarkt profile/API verified"
         },
         {
           "no": 21,
@@ -7379,7 +7511,11 @@
           "caps": 3,
           "goals": 0,
           "club_zh": "艾杜哈尼",
-          "club_en": "Al-Duhail"
+          "club_en": "Al-Duhail",
+          "tm_id": 1143849,
+          "market_value_eur": 200000,
+          "market_value_updated": "2026-05-14",
+          "market_value_source": "Transfermarkt profile/API verified"
         },
         {
           "no": 25,
@@ -7405,11 +7541,15 @@
           "caps": 10,
           "goals": 0,
           "club_zh": "艾沙玛",
-          "club_en": "Al-Shamal"
+          "club_en": "Al-Shamal",
+          "tm_id": 822935,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-05-14",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 17525000,
-      "market_value_covered": 19,
+      "market_value_eur": 19925000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "瑞士": {
@@ -7854,7 +7994,11 @@
           "caps": 1,
           "goals": 0,
           "club_zh": "年轻人",
-          "club_en": "Young Boys"
+          "club_en": "Young Boys",
+          "tm_id": 1061046,
+          "market_value_eur": 100000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 4,
@@ -7865,7 +8009,11 @@
           "caps": 59,
           "goals": 2,
           "club_zh": "基多利加",
-          "club_en": "LDU Quito"
+          "club_en": "LDU Quito",
+          "tm_id": 278145,
+          "market_value_eur": 300000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 5,
@@ -7891,7 +8039,11 @@
           "caps": 26,
           "goals": 0,
           "club_zh": "埃尔帕索机车",
-          "club_en": "El Paso Locomotive FC"
+          "club_en": "El Paso Locomotive FC",
+          "tm_id": 718244,
+          "market_value_eur": 125000,
+          "market_value_updated": "2026-04-30",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 7,
@@ -7917,7 +8069,11 @@
           "caps": 21,
           "goals": 0,
           "club_zh": "南锡",
-          "club_en": "Nancy"
+          "club_en": "Nancy",
+          "tm_id": 804885,
+          "market_value_eur": 350000,
+          "market_value_updated": "2026-05-26",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 9,
@@ -7988,7 +8144,11 @@
           "caps": 16,
           "goals": 3,
           "club_zh": "科罗拉多斯普林斯",
-          "club_en": "Colorado Springs Switchbacks FC"
+          "club_en": "Colorado Springs Switchbacks FC",
+          "tm_id": 375472,
+          "market_value_eur": 125000,
+          "market_value_updated": "2026-04-30",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 14,
@@ -7999,7 +8159,11 @@
           "caps": 33,
           "goals": 0,
           "club_zh": "维泽拉",
-          "club_en": "Vizela"
+          "club_en": "Vizela",
+          "tm_id": 552467,
+          "market_value_eur": 200000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 15,
@@ -8130,7 +8294,11 @@
           "caps": 6,
           "goals": 0,
           "club_zh": "科布伦茨",
-          "club_en": "Cosmos Koblenz"
+          "club_en": "Cosmos Koblenz",
+          "tm_id": 490369,
+          "market_value_eur": 50000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 24,
@@ -8171,11 +8339,15 @@
           "caps": 1,
           "goals": 0,
           "club_zh": "紫罗兰",
-          "club_en": "Violette"
+          "club_en": "Violette",
+          "tm_id": 1017735,
+          "market_value_eur": 100000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 54550000,
-      "market_value_covered": 18,
+      "market_value_eur": 55900000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "摩洛哥": {
@@ -8356,7 +8528,11 @@
           "caps": 53,
           "goals": 0,
           "club_zh": "贝尔卡内",
-          "club_en": "RS Berkane"
+          "club_en": "RS Berkane",
+          "tm_id": 97925,
+          "market_value_eur": 600000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -8487,7 +8663,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "法兰克福",
-          "club_en": "Eintracht Frankfurt"
+          "club_en": "Eintracht Frankfurt",
+          "tm_id": 799993,
+          "market_value_eur": 10000000,
+          "market_value_updated": "2026-05-27",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 22,
@@ -8498,7 +8678,11 @@
           "caps": 3,
           "goals": 0,
           "club_zh": "拉巴特皇家武装力量足球俱乐部",
-          "club_en": "AS FAR"
+          "club_en": "AS FAR",
+          "tm_id": 238997,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 23,
@@ -8561,8 +8745,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 488700000,
-      "market_value_covered": 23,
+      "market_value_eur": 500300000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "苏格兰": {
@@ -8683,7 +8867,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "曼联",
-          "club_en": "Manchester United"
+          "club_en": "Manchester United",
+          "tm_id": 1049911,
+          "market_value_eur": 1500000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 9,
@@ -8799,7 +8987,11 @@
           "caps": 4,
           "goals": 0,
           "club_zh": "雷克瑟姆",
-          "club_en": "Wrexham"
+          "club_en": "Wrexham",
+          "tm_id": 263268,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2026-05-28",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -8952,8 +9144,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 189750000,
-      "market_value_covered": 24,
+      "market_value_eur": 193250000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "澳大利亚": {
@@ -9368,7 +9560,11 @@
           "caps": 31,
           "goals": 0,
           "club_zh": "伽罗博腾诺",
-          "club_en": "Cerro Porteño"
+          "club_en": "Cerro Porteño",
+          "tm_id": 107318,
+          "market_value_eur": 100000,
+          "market_value_updated": "2026-05-18",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -9379,7 +9575,11 @@
           "caps": 13,
           "goals": 1,
           "club_zh": "伽罗博腾诺",
-          "club_en": "Cerro Porteño"
+          "club_en": "Cerro Porteño",
+          "tm_id": 389399,
+          "market_value_eur": 400000,
+          "market_value_updated": "2026-05-18",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 3,
@@ -9600,7 +9800,11 @@
           "caps": 33,
           "goals": 6,
           "club_zh": "艾因",
-          "club_en": "Al Ain"
+          "club_en": "Al Ain",
+          "tm_id": 355817,
+          "market_value_eur": 4500000,
+          "market_value_updated": "2026-05-26",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 18,
@@ -9671,7 +9875,11 @@
           "caps": 1,
           "goals": 0,
           "club_zh": "奥林匹亚",
-          "club_en": "Olimpia"
+          "club_en": "Olimpia",
+          "tm_id": 301722,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-05-18",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 23,
@@ -9734,8 +9942,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 148150000,
-      "market_value_covered": 22,
+      "market_value_eur": 153650000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "土耳其": {
@@ -10375,7 +10583,11 @@
           "caps": 22,
           "goals": 5,
           "club_zh": "贝弗伦",
-          "club_en": "Beveren"
+          "club_en": "Beveren",
+          "tm_id": 538958,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-04-30",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -10528,8 +10740,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 24775000,
-      "market_value_covered": 25,
+      "market_value_eur": 25775000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "厄瓜多尔": {
@@ -10860,7 +11072,11 @@
           "caps": 4,
           "goals": 0,
           "club_zh": "基多利加",
-          "club_en": "LDU Quito"
+          "club_en": "LDU Quito",
+          "tm_id": 351941,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 23,
@@ -10923,8 +11139,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 366900000,
-      "market_value_covered": 25,
+      "market_value_eur": 368700000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "科特迪瓦": {
@@ -12137,7 +12353,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "非洲人",
-          "club_en": "Club Africain"
+          "club_en": "Club Africain",
+          "tm_id": 584250,
+          "market_value_eur": 800000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -12328,7 +12548,11 @@
           "caps": 4,
           "goals": 0,
           "club_zh": "巴黎圣日耳曼",
-          "club_en": "Paris Saint-Germain"
+          "club_en": "Paris Saint-Germain",
+          "tm_id": 1198342,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 15,
@@ -12339,7 +12563,11 @@
           "caps": 9,
           "goals": 0,
           "club_zh": "卢加诺",
-          "club_en": "Lugano"
+          "club_en": "Lugano",
+          "tm_id": 673513,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 16,
@@ -12395,7 +12623,11 @@
           "caps": 30,
           "goals": 6,
           "club_zh": "非洲人",
-          "club_en": "Club Africain"
+          "club_en": "Club Africain",
+          "tm_id": 402087,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 20,
@@ -12421,7 +12653,11 @@
           "caps": 13,
           "goals": 0,
           "club_zh": "突尼斯希望",
-          "club_en": "Espérance de Tunis"
+          "club_en": "Espérance de Tunis",
+          "tm_id": 454495,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 22,
@@ -12462,7 +12698,11 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "莫纳斯提尔",
-          "club_en": "US Monastir"
+          "club_en": "US Monastir",
+          "tm_id": 1075790,
+          "market_value_eur": 600000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 25,
@@ -12495,8 +12735,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 55850000,
-      "market_value_covered": 20,
+      "market_value_eur": 62450000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "埃及": {
@@ -12632,7 +12872,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "巴塞罗那B队",
-          "club_en": "Barcelona B"
+          "club_en": "Barcelona B",
+          "tm_id": 1259085,
+          "market_value_eur": 1500000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 10,
@@ -12658,7 +12902,11 @@
           "caps": 2,
           "goals": 2,
           "club_zh": "金字塔",
-          "club_en": "Pyramids"
+          "club_en": "Pyramids",
+          "tm_id": 896616,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 12,
@@ -12729,7 +12977,11 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "扎马雷克",
-          "club_en": "Zamalek"
+          "club_en": "Zamalek",
+          "tm_id": 104951,
+          "market_value_eur": 150000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile/API verified"
         },
         {
           "no": 17,
@@ -12740,7 +12992,11 @@
           "caps": 23,
           "goals": 0,
           "club_zh": "金字塔",
-          "club_en": "Pyramids"
+          "club_en": "Pyramids",
+          "tm_id": 479682,
+          "market_value_eur": 3000000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 18,
@@ -12751,7 +13007,11 @@
           "caps": 12,
           "goals": 0,
           "club_zh": "奈杰马",
-          "club_en": "Al-Najma"
+          "club_en": "Al-Najma",
+          "tm_id": 479683,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-06-04",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 19,
@@ -12762,7 +13022,11 @@
           "caps": 34,
           "goals": 1,
           "club_zh": "阿赫利",
-          "club_en": "Al Ahly"
+          "club_en": "Al Ahly",
+          "tm_id": 734542,
+          "market_value_eur": 4000000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 20,
@@ -12818,7 +13082,11 @@
           "caps": 9,
           "goals": 0,
           "club_zh": "阿赫利",
-          "club_en": "Al Ahly"
+          "club_en": "Al Ahly",
+          "tm_id": 661455,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 24,
@@ -12829,7 +13097,11 @@
           "caps": 3,
           "goals": 0,
           "club_zh": "ZED",
-          "club_en": "ZED"
+          "club_en": "ZED",
+          "tm_id": 1087789,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 25,
@@ -12855,11 +13127,15 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "艾尔古纳",
-          "club_en": "El Gouna"
+          "club_en": "El Gouna",
+          "tm_id": 1307898,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 102375000,
-      "market_value_covered": 17,
+      "market_value_eur": 116475000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "伊朗": {
@@ -12890,7 +13166,11 @@
           "caps": 18,
           "goals": 1,
           "club_zh": "德黑兰独立",
-          "club_en": "Esteghlal"
+          "club_en": "Esteghlal",
+          "tm_id": 697155,
+          "market_value_eur": 800000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 3,
@@ -12916,7 +13196,11 @@
           "caps": 58,
           "goals": 2,
           "club_zh": "拖拉机",
-          "club_en": "Tractor"
+          "club_en": "Tractor",
+          "tm_id": 213715,
+          "market_value_eur": 100000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 5,
@@ -13047,7 +13331,11 @@
           "caps": 65,
           "goals": 6,
           "club_zh": "柏斯波利斯",
-          "club_en": "Persepolis"
+          "club_en": "Persepolis",
+          "tm_id": 249400,
+          "market_value_eur": 1600000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 14,
@@ -13073,7 +13361,11 @@
           "caps": 40,
           "goals": 3,
           "club_zh": "德黑兰独立",
-          "club_en": "Esteghlal"
+          "club_en": "Esteghlal",
+          "tm_id": 273879,
+          "market_value_eur": 450000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 16,
@@ -13084,7 +13376,11 @@
           "caps": 52,
           "goals": 7,
           "club_zh": "拖拉机",
-          "club_en": "Tractor"
+          "club_en": "Tractor",
+          "tm_id": 283833,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -13095,7 +13391,11 @@
           "caps": 14,
           "goals": 1,
           "club_zh": "塞帕汉",
-          "club_en": "Sepahan"
+          "club_en": "Sepahan",
+          "tm_id": 932724,
+          "market_value_eur": 1500000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 18,
@@ -13121,7 +13421,11 @@
           "caps": 17,
           "goals": 0,
           "club_zh": "富拉德",
-          "club_en": "Foolad"
+          "club_en": "Foolad",
+          "tm_id": 527092,
+          "market_value_eur": 550000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 20,
@@ -13132,7 +13436,11 @@
           "caps": 21,
           "goals": 2,
           "club_zh": "凯勒巴",
-          "club_en": "Kalba"
+          "club_en": "Kalba",
+          "tm_id": 357125,
+          "market_value_eur": 800000,
+          "market_value_updated": "2026-05-26",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 21,
@@ -13158,7 +13466,11 @@
           "caps": 13,
           "goals": 0,
           "club_zh": "塞帕汉",
-          "club_en": "Sepahan"
+          "club_en": "Sepahan",
+          "tm_id": 132561,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 23,
@@ -13199,7 +13511,11 @@
           "caps": 0,
           "goals": 0,
           "club_zh": "马拉万",
-          "club_en": "Malavan"
+          "club_en": "Malavan",
+          "tm_id": 1080301,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 26,
@@ -13210,11 +13526,15 @@
           "caps": 4,
           "goals": 0,
           "club_zh": "德黑兰独立",
-          "club_en": "Esteghlal"
+          "club_en": "Esteghlal",
+          "tm_id": 1051591,
+          "market_value_eur": 1200000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 22350000,
-      "market_value_covered": 15,
+      "market_value_eur": 32050000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "新西兰": {
@@ -13629,7 +13949,11 @@
           "caps": 86,
           "goals": 0,
           "club_zh": "查韦斯",
-          "club_en": "Chaves"
+          "club_en": "Chaves",
+          "tm_id": 242277,
+          "market_value_eur": 50000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -13640,7 +13964,11 @@
           "caps": 62,
           "goals": 4,
           "club_zh": "托雷恩斯",
-          "club_en": "Torreense"
+          "club_en": "Torreense",
+          "tm_id": 80486,
+          "market_value_eur": 50000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 3,
@@ -13666,7 +13994,11 @@
           "caps": 45,
           "goals": 0,
           "club_zh": "三叶草流浪者",
-          "club_en": "Shamrock Rovers"
+          "club_en": "Shamrock Rovers",
+          "tm_id": 166158,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 5,
@@ -13782,7 +14114,11 @@
           "caps": 11,
           "goals": 0,
           "club_zh": "蒙大拿州",
-          "club_en": "Montana"
+          "club_en": "Montana",
+          "tm_id": 398048,
+          "market_value_eur": 350000,
+          "market_value_updated": "2026-05-22",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -13838,7 +14174,11 @@
           "caps": 10,
           "goals": 1,
           "club_zh": "法伦斯",
-          "club_en": "Farense"
+          "club_en": "Farense",
+          "tm_id": 620307,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -13969,7 +14309,11 @@
           "caps": 5,
           "goals": 1,
           "club_zh": "SJK塞伊奈约基",
-          "club_en": "SJK"
+          "club_en": "SJK",
+          "tm_id": 662119,
+          "market_value_eur": 400000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 26,
@@ -13987,8 +14331,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 52200000,
-      "market_value_covered": 20,
+      "market_value_eur": 53550000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "沙特阿拉伯": {
@@ -14064,7 +14408,11 @@
           "caps": 51,
           "goals": 1,
           "club_zh": "利雅得新月",
-          "club_en": "Al-Hilal"
+          "club_en": "Al-Hilal",
+          "tm_id": 509897,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2026-06-04",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 6,
@@ -14255,7 +14603,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "新未来城",
-          "club_en": "Neom"
+          "club_en": "Neom",
+          "tm_id": 443937,
+          "market_value_eur": 300000,
+          "market_value_updated": "2026-06-04",
+          "market_value_source": "Transfermarkt profile/API verified"
         },
         {
           "no": 19,
@@ -14378,8 +14730,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 38575000,
-      "market_value_covered": 24,
+      "market_value_eur": 40675000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "伊拉克": {
@@ -14455,7 +14807,11 @@
           "caps": 13,
           "goals": 1,
           "club_zh": "扎乌拉",
-          "club_en": "Al-Zawraa"
+          "club_en": "Al-Zawraa",
+          "tm_id": 933541,
+          "market_value_eur": 700000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 6,
@@ -14601,7 +14957,11 @@
           "caps": 6,
           "goals": 0,
           "club_zh": "卡尔马",
-          "club_en": "Al-Karma"
+          "club_en": "Al-Karma",
+          "tm_id": 881506,
+          "market_value_eur": 450000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 16,
@@ -14702,7 +15062,11 @@
           "caps": 15,
           "goals": 0,
           "club_zh": "警察",
-          "club_en": "Al-Shorta"
+          "club_en": "Al-Shorta",
+          "tm_id": 560952,
+          "market_value_eur": 450000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 23,
@@ -14765,8 +15129,8 @@
           "market_value_source": "Transfermarkt dataset rematch"
         }
       ],
-      "market_value_eur": 19675000,
-      "market_value_covered": 23,
+      "market_value_eur": 21275000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "挪威": {
@@ -15580,7 +15944,11 @@
           "caps": 1,
           "goals": 0,
           "club_zh": "尼永",
-          "club_en": "Stade Nyonnais"
+          "club_en": "Stade Nyonnais",
+          "tm_id": 534398,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-02",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -15801,7 +16169,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "USM阿尔及尔",
-          "club_en": "USM Alger"
+          "club_en": "USM Alger",
+          "tm_id": 437982,
+          "market_value_eur": 850000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -15954,8 +16326,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 253800000,
-      "market_value_covered": 24,
+      "market_value_eur": 254900000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "奥地利": {
@@ -16370,7 +16742,11 @@
           "caps": 56,
           "goals": 1,
           "club_zh": "卡尔马",
-          "club_en": "Al-Karma"
+          "club_en": "Al-Karma",
+          "tm_id": 895249,
+          "market_value_eur": 400000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 3,
@@ -16441,7 +16817,11 @@
           "caps": 41,
           "goals": 5,
           "club_zh": "拉贾",
-          "club_en": "Raja Casablanca"
+          "club_en": "Raja Casablanca",
+          "tm_id": 677986,
+          "market_value_eur": 700000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 8,
@@ -16482,7 +16862,11 @@
           "caps": 92,
           "goals": 24,
           "club_zh": "雷恩",
-          "club_en": "Rennes"
+          "club_en": "Rennes",
+          "tm_id": 551505,
+          "market_value_eur": 10000000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 11,
@@ -16493,7 +16877,11 @@
           "caps": 10,
           "goals": 1,
           "club_zh": "金字塔",
-          "club_en": "Pyramids"
+          "club_en": "Pyramids",
+          "tm_id": 1252820,
+          "market_value_eur": 350000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 12,
@@ -16504,7 +16892,11 @@
           "caps": 5,
           "goals": 0,
           "club_zh": "费萨利",
-          "club_en": "Al-Faisaly"
+          "club_en": "Al-Faisaly",
+          "tm_id": 261837,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -16545,7 +16937,11 @@
           "caps": 57,
           "goals": 3,
           "club_zh": "卡尔马",
-          "club_en": "Al-Karma"
+          "club_en": "Al-Karma",
+          "tm_id": 709974,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 16,
@@ -16556,7 +16952,11 @@
           "caps": 18,
           "goals": 0,
           "club_zh": "雪兰莪",
-          "club_en": "Selangor"
+          "club_en": "Selangor",
+          "tm_id": 658052,
+          "market_value_eur": 350000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -16567,7 +16967,11 @@
           "caps": 11,
           "goals": 0,
           "club_zh": "侯赛因",
-          "club_en": "Al-Hussein"
+          "club_en": "Al-Hussein",
+          "tm_id": 658807,
+          "market_value_eur": 100000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 18,
@@ -16653,7 +17057,11 @@
           "caps": 92,
           "goals": 2,
           "club_zh": "侯赛因",
-          "club_en": "Al-Hussein"
+          "club_en": "Al-Hussein",
+          "tm_id": 310943,
+          "market_value_eur": 300000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 24,
@@ -16694,11 +17102,15 @@
           "caps": 1,
           "goals": 0,
           "club_zh": "费萨利",
-          "club_en": "Al-Faisaly"
+          "club_en": "Al-Faisaly",
+          "tm_id": 1378902,
+          "market_value_eur": 200000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         }
       ],
-      "market_value_eur": 8150000,
-      "market_value_covered": 16,
+      "market_value_eur": 21300000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "哥伦比亚": {
@@ -17233,7 +17645,11 @@
           "caps": 7,
           "goals": 0,
           "club_zh": "卡斯特利翁",
-          "club_en": "Castellón"
+          "club_en": "Castellón",
+          "tm_id": 700565,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 10,
@@ -17289,7 +17705,11 @@
           "caps": 68,
           "goals": 12,
           "club_zh": "阿兰亚体育",
-          "club_en": "Alanyaspor"
+          "club_en": "Alanyaspor",
+          "tm_id": 423678,
+          "market_value_eur": 1500000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 14,
@@ -17375,7 +17795,11 @@
           "caps": 37,
           "goals": 6,
           "club_zh": "金字塔",
-          "club_en": "Pyramids"
+          "club_en": "Pyramids",
+          "tm_id": 727157,
+          "market_value_eur": 1800000,
+          "market_value_updated": "2026-05-20",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 20,
@@ -17483,8 +17907,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 138900000,
-      "market_value_covered": 23,
+      "market_value_eur": 144200000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "乌兹别克斯坦": {
@@ -17530,7 +17954,11 @@
           "caps": 40,
           "goals": 2,
           "club_zh": "帕赫塔科尔",
-          "club_en": "Pakhtakor"
+          "club_en": "Pakhtakor",
+          "tm_id": 492558,
+          "market_value_eur": 1300000,
+          "market_value_updated": "2026-05-13",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 4,
@@ -17616,7 +18044,11 @@
           "caps": 72,
           "goals": 1,
           "club_zh": "拖拉机",
-          "club_en": "Tractor"
+          "club_en": "Tractor",
+          "tm_id": 288915,
+          "market_value_eur": 1000000,
+          "market_value_updated": "2026-05-21",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 10,
@@ -17657,7 +18089,11 @@
           "caps": 8,
           "goals": 0,
           "club_zh": "拿萨夫",
-          "club_en": "Nasaf"
+          "club_en": "Nasaf",
+          "tm_id": 527866,
+          "market_value_eur": 1500000,
+          "market_value_updated": "2026-05-13",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -17758,7 +18194,11 @@
           "caps": 19,
           "goals": 0,
           "club_zh": "巴塔伊赫",
-          "club_en": "Al Bataeh"
+          "club_en": "Al Bataeh",
+          "tm_id": 431911,
+          "market_value_eur": 2000000,
+          "market_value_updated": "2026-05-26",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 20,
@@ -17769,7 +18209,11 @@
           "caps": 12,
           "goals": 2,
           "club_zh": "撒马尔罕迪纳摩",
-          "club_en": "Dinamo Samarqand"
+          "club_en": "Dinamo Samarqand",
+          "tm_id": 517918,
+          "market_value_eur": 500000,
+          "market_value_updated": "2026-05-13",
+          "market_value_source": "Transfermarkt profile/API verified"
         },
         {
           "no": 21,
@@ -17825,7 +18269,11 @@
           "caps": 2,
           "goals": 0,
           "club_zh": "苏尔洪",
-          "club_en": "Surkhon Termiz"
+          "club_en": "Surkhon Termiz",
+          "tm_id": 1106187,
+          "market_value_eur": 350000,
+          "market_value_updated": "2026-05-13",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 25,
@@ -17858,8 +18306,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 78675000,
-      "market_value_covered": 20,
+      "market_value_eur": 85325000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "加纳": {
@@ -18010,7 +18458,11 @@
           "caps": 8,
           "goals": 1,
           "club_zh": "考文垂",
-          "club_en": "Coventry City"
+          "club_en": "Coventry City",
+          "tm_id": 451747,
+          "market_value_eur": 16000000,
+          "market_value_updated": "2026-05-28",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 11,
@@ -18096,7 +18548,11 @@
           "caps": 11,
           "goals": 0,
           "club_zh": "橡树之心",
-          "club_en": "Hearts of Oak"
+          "club_en": "Hearts of Oak",
+          "tm_id": 837368,
+          "market_value_eur": 100000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 17,
@@ -18249,8 +18705,8 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 218750000,
-      "market_value_covered": 24,
+      "market_value_eur": 234850000,
+      "market_value_covered": 26,
       "market_value_players": 26
     },
     "巴拿马": {
@@ -18266,7 +18722,11 @@
           "caps": 56,
           "goals": 0,
           "club_zh": "纳西奥纳尔",
-          "club_en": "Nacional"
+          "club_en": "Nacional",
+          "tm_id": 76715,
+          "market_value_eur": 150000,
+          "market_value_updated": "2026-06-01",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 2,
@@ -18427,7 +18887,11 @@
           "caps": 5,
           "goals": 0,
           "club_zh": "马拉松",
-          "club_en": "Marathón"
+          "club_en": "Marathón",
+          "tm_id": 865550,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 13,
@@ -18498,7 +18962,11 @@
           "caps": 68,
           "goals": 17,
           "club_zh": "天主教大学",
-          "club_en": "Universidad Católica"
+          "club_en": "Universidad Católica",
+          "tm_id": 546803,
+          "market_value_eur": 550000,
+          "market_value_updated": "2026-06-03",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 18,
@@ -18509,7 +18977,11 @@
           "caps": 55,
           "goals": 15,
           "club_zh": "康塞普西翁大学",
-          "club_en": "Universidad de Concepción"
+          "club_en": "Universidad de Concepción",
+          "tm_id": 177064,
+          "market_value_eur": 250000,
+          "market_value_updated": "2026-06-05",
+          "market_value_source": "Transfermarkt profile verified"
         },
         {
           "no": 19,
@@ -18632,18 +19104,18 @@
           "market_value_source": "Transfermarkt API"
         }
       ],
-      "market_value_eur": 36350000,
-      "market_value_covered": 22,
+      "market_value_eur": 37550000,
+      "market_value_covered": 26,
       "market_value_players": 26
     }
   },
   "marketValues": {
-    "source": "Transfermarkt dataset + API fallback + local dataset rematch",
+    "source": "Transfermarkt public dataset + Transfermarkt profile/API verification",
     "playerFile": "players.csv.gz",
     "valuationFile": "player_valuations.csv.gz",
-    "matchedPlayers": 1127,
+    "matchedPlayers": 1245,
     "totalPlayers": 1245,
-    "note": "Values are latest available market_value_in_eur matched by English player name with country/club/position disambiguation; unmatched players remain pending.",
-    "teamTotals": "market_value_eur is the sum of matched player market_value_eur for each squad; market_value_covered records coverage."
+    "note": "Values are latest visible Transfermarkt market values matched by player name, country, club, position and age; every listed squad player has a tm_id and market_value_eur.",
+    "teamTotals": "market_value_eur is the sum of player market_value_eur for each squad; market_value_covered records coverage."
   }
 }

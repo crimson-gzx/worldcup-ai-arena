@@ -12,7 +12,7 @@ const state = {
 };
 
 const dataVersion = "20260613-standings";
-const SQUADS_DATA_VERSION = "20260613-team-values";
+const SQUADS_DATA_VERSION = "20260625-full-team-values";
 const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
 const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
 

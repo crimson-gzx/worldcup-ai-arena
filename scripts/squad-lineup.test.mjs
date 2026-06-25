@@ -78,6 +78,12 @@ test("squad value data covers every finalist", () => {
     assert.ok(Array.isArray(team.players), `${name} has no players array`);
     assert.ok(team.players.length >= 11, `${name} has fewer than 11 players`);
     assert.ok(Number(team.market_value_eur) > 0, `${name} has no squad market value`);
+    const playerValueTotal = team.players.reduce((sum, player) => sum + playerValue(player), 0);
+    const coveredPlayers = team.players.filter((player) => playerValue(player) > 0).length;
+    assert.equal(coveredPlayers, team.players.length, `${name} has missing player market values`);
+    assert.equal(Number(team.market_value_eur), playerValueTotal, `${name} squad market value does not match player sum`);
+    assert.equal(Number(team.market_value_covered), coveredPlayers, `${name} covered count is stale`);
+    assert.equal(Number(team.market_value_players), team.players.length, `${name} player count is stale`);
   }
 });
 
@@ -92,7 +98,7 @@ test("projected lineups are complete and use the best valued common shape", () =
 
     assert.equal(lineup.players.length, 11, `${name} projected XI is incomplete`);
     assert.equal(lineup.covered, bestPossible, `${name} projected XI does not maximize valued players`);
-    assert.ok(lineup.covered >= 10, `${name} projected XI only has ${lineup.covered}/11 market values`);
+    assert.equal(lineup.covered, 11, `${name} projected XI only has ${lineup.covered}/11 market values`);
     assert.ok(lineup.value > 0, `${name} projected XI has no market value`);
   }
 });
