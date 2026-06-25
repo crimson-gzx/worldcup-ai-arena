@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-25T18:35:00+08:00",
-  "note": "外部媒体预测已抓入本站结构化数据；页面直接展示观点，原文链接只做溯源。",
+  "updatedAt": "2026-06-26T00:25:00+08:00",
+  "note": "外部媒体预测和已接入市场信号已抓入本站结构化数据；页面直接展示观点，原文链接只做溯源。",
   "sources": [
     {
       "id": "nypost",
@@ -81,6 +81,14 @@
       "language": "英文",
       "status": "已抓取",
       "url": "https://www.theguardian.com/football/2026/jun/25/socceroos-australia-paraguay-game-permutations-last-32-world-cup"
+    },
+    {
+      "id": "market-odds",
+      "name": "市场赔率均值",
+      "kind": "market-signal",
+      "language": "数据",
+      "status": "已接入",
+      "url": "https://the-odds-api.com/"
     }
   ],
   "predictions": [
@@ -496,6 +504,138 @@
       "market": "赛事情报",
       "confidence": "中",
       "summary": "澳大利亚掌握晋级主动，平局即可确保出线，外部报道强调他们会以稳定和比赛管理为核心。"
+    },
+    {
+      "matchId": "wc26-m041",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "埃及胜方向",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "海外均值给到埃及 2.30、平 2.99、伊朗 3.34，市场略偏埃及；模型只给埃及 36%，这场更像小优势而不是稳胆。"
+    },
+    {
+      "matchId": "wc26-m042",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "比利时胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "比利时客胜均值 1.28，模型胜率 74%，身价也大幅领先；市场、模型、身价三条线同向。"
+    },
+    {
+      "matchId": "wc26-m047",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "佛得角微热",
+      "market": "赔率信号",
+      "confidence": "中低",
+      "summary": "主胜 2.49、客胜 2.80，市场只轻微偏佛得角；模型反而略偏沙特，属于分歧局，适合重点核对首发。"
+    },
+    {
+      "matchId": "wc26-m048",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "西班牙胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "西班牙客胜均值 1.62，模型胜率 49%，德转总身价约为乌拉圭 3.3 倍；强弱方向清楚，但乌拉圭不是低阻力对手。"
+    },
+    {
+      "matchId": "wc26-m053",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "法国胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "法国客胜均值 1.79，模型胜率 52%；挪威身价不低但整体厚度差一档，重点看法国是否轮换。"
+    },
+    {
+      "matchId": "wc26-m054",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "塞内加尔胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "塞内加尔主胜均值 1.45，模型胜率 54%，身价优势接近 22 倍；方向同向，但赔率已经压低。"
+    },
+    {
+      "matchId": "wc26-m059",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "奥地利胜方向",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "奥地利客胜均值 2.21，模型也偏奥地利 41%；身价接近，主要差异来自整体稳定性和市场定价。"
+    },
+    {
+      "matchId": "wc26-m060",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "阿根廷胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "阿根廷客胜均值 1.19，模型胜率 81%，身价优势极大；风险点主要是轮换和让球深度。"
+    },
+    {
+      "matchId": "wc26-m065",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "葡萄牙胜方向",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "葡萄牙客胜均值 2.14，模型胜率 49%，德转身价约为哥伦比亚 3.3 倍；市场给得不算深，说明哥伦比亚有拉扯空间。"
+    },
+    {
+      "matchId": "wc26-m066",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "刚果民主共和国微热",
+      "market": "赔率信号",
+      "confidence": "中低",
+      "summary": "主胜 2.35、客胜 2.97，市场偏刚果民主共和国；模型略偏乌兹别克斯坦，是 6 月 28 日最值得复核的分歧场之一。"
+    },
+    {
+      "matchId": "wc26-m071",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "英格兰胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "英格兰客胜均值 1.29，模型胜率 80%，身价优势超过 36 倍；常规胜负方向很一致，重点看让球和进球线。"
+    },
+    {
+      "matchId": "wc26-m072",
+      "sourceId": "market-odds",
+      "sourceName": "市场赔率均值",
+      "publishedAt": "2026-06-26T00:25:00+08:00",
+      "url": "https://the-odds-api.com/",
+      "pick": "克罗地亚胜",
+      "market": "赔率信号",
+      "confidence": "中",
+      "summary": "克罗地亚主胜均值 1.71，模型胜率 48%，身价和经验都偏主队；加纳具备身体对抗，比分可能不会太轻松。"
     }
   ]
 }

@@ -473,7 +473,7 @@
         <h1>中文足球预测信息集合</h1>
         <div class="deck">
           <span class="pill">已接入：赔率 / 模型 / 身价</span>
-          <span class="pill">外部源：已抓入单场观点</span>
+          <span class="pill">外部源：媒体观点 / 市场信号分开显示</span>
           <span class="pill" id="updated-at">读取中</span>
         </div>
       </div>
@@ -481,7 +481,7 @@
         <input id="date-filter" type="date" value="2026-06-25">
         <select id="scope-filter">
           <option value="day">当天比赛</option>
-          <option value="48h">未来 48 小时</option>
+          <option value="48h" selected>未来 48 小时</option>
           <option value="all">全部比赛</option>
           <option value="gap">高分歧</option>
         </select>
@@ -507,7 +507,7 @@
                 <th>市场</th>
                 <th>模型</th>
                 <th>身价</th>
-                <th>外部观点</th>
+                <th>观点/信号</th>
                 <th>读法</th>
               </tr>
             </thead>
@@ -528,7 +528,7 @@
         <section class="panel">
           <div class="panel-head">
             <h2>来源接入状态</h2>
-            <small>自动接入 / 已抓取 / 未匹配</small>
+            <small>自动接入 / 媒体抓取 / 未匹配</small>
           </div>
           <div class="source-list" id="source-list"></div>
         </section>
@@ -710,9 +710,9 @@
       return `<div class="external-picks">${picks.slice(0, 4).map((pick) => `
         <div class="external-pick">
           <b>${esc(pick.sourceName)}：${esc(pick.pick)}</b>
-          <small>${esc(pick.market || "观点")} · 置信 ${esc(pick.confidence || "中")}${pick.score ? ` · 比分 ${esc(pick.score)}` : ""}</small>
+          <small>${esc(pick.market || "观点")} · 信号强度 ${esc(pick.confidence || "中")}${pick.score ? ` · 比分 ${esc(pick.score)}` : ""}</small>
           <small>${esc(pick.summary || "")}</small>
-          <a href="${esc(pick.url)}" target="_blank" rel="noreferrer">原文</a>
+          <a href="${esc(pick.url)}" target="_blank" rel="noreferrer">来源</a>
         </div>
       `).join("")}</div>`;
     }
@@ -748,14 +748,17 @@
           <td data-label="市场"><div class="stack">${oddsHtml(match)}</div></td>
           <td data-label="模型"><div class="stack">${modelHtml(match)}</div></td>
           <td data-label="身价"><div class="stack">${valueHtml(match)}</div></td>
-          <td data-label="外部观点">${externalPredictionsHtml(match)}</td>
+          <td data-label="观点/信号">${externalPredictionsHtml(match)}</td>
           <td data-label="读法">${readHtml(match)}</td>
         </tr>
       `).join("");
     }
 
     function renderBrief(rows) {
+      const now = Date.now();
       const top = rows.slice().sort((a, b) => {
+        const priority = compareMatchPriority(a, b, now);
+        if (priority) return priority;
         const av = (gapLevel(a)[0] === "high" ? 0.35 : 0) + a.gap + Math.min(a.value.ratio || 0, 8) / 100;
         const bv = (gapLevel(b)[0] === "high" ? 0.35 : 0) + b.gap + Math.min(b.value.ratio || 0, 8) / 100;
         return bv - av;
@@ -790,7 +793,22 @@
         if (el.scope.value === "all") return true;
         if (el.scope.value === "gap") return gapLevel(match)[0] === "high";
         return match.kickoffDate >= start && match.kickoffDate < end;
-      }).sort((a, b) => a.kickoffDate - b.kickoffDate);
+      }).sort((a, b) => compareMatchPriority(a, b));
+    }
+
+    function matchPriorityBucket(match, now = Date.now()) {
+      if (match.completed === true || (match.result && match.score)) return 2;
+      const kickoff = match.kickoffDate.getTime();
+      if (kickoff >= now) return 0;
+      return now - kickoff <= 130 * 60 * 1000 ? 1 : 2;
+    }
+
+    function compareMatchPriority(a, b, now = Date.now()) {
+      const aBucket = matchPriorityBucket(a, now);
+      const bBucket = matchPriorityBucket(b, now);
+      if (aBucket !== bBucket) return aBucket - bBucket;
+      if (aBucket === 2) return b.kickoffDate - a.kickoffDate;
+      return a.kickoffDate - b.kickoffDate;
     }
 
     function render() {
@@ -799,7 +817,7 @@
       renderMetrics(rows);
       renderRows(rows);
       renderBrief(rows);
-      el.tableNote.textContent = `${rows.length} 场 · 按开球时间排序`;
+      el.tableNote.textContent = `${rows.length} 场 · 未开赛优先`;
     }
 
     function copyBrief() {
