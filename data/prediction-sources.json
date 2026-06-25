@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T18:20:00+08:00",
+  "updatedAt": "2026-06-25T18:35:00+08:00",
   "note": "已接入源会进入比赛表计算；已抓取源会从 data/external-predictions.json 进入每场外部观点；未匹配源会保留抓取状态，不让用户自行点开补信息。",
   "sources": [
     {
@@ -157,6 +157,78 @@
       "access": "搜索抓取",
       "cadence": "每日更新",
       "summary": "已抓入 6 场串关专家观点和 AI 对照观点，进入比赛表的外部观点栏。"
+    },
+    {
+      "id": "thesun-curacao",
+      "name": "The Sun Curacao-Ivory Coast",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.thesun.co.uk/sport/39497615/curacao-ivory-coast-betting-tips-predictions-odds/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入库拉索对科特迪瓦单场玩法观点，进入比赛表外部观点栏。"
+    },
+    {
+      "id": "bavarianfootballworks",
+      "name": "Bavarian Football Works",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.bavarianfootballworks.com/fifa-world-cup/220354/world-cup-matchday-preview-ecuador-vs-germany",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入厄瓜多尔对德国比分观点，进入比赛表外部观点栏。"
+    },
+    {
+      "id": "thesun-acca-0625",
+      "name": "The Sun ACCA 25 Jun",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.thesun.co.uk/betting/39527326/world-cup-2026-acca-tips-25-june/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入 6 月 26 日多场串关专家观点和 AI 对照观点。"
+    },
+    {
+      "id": "thesun-japan-sweden",
+      "name": "The Sun Japan-Sweden",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.thesun.ie/sport/17175229/japan-sweden-betting-tips-predictions-odds-world-cup/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入日本对瑞典单场观点，进入比赛表外部观点栏。"
+    },
+    {
+      "id": "timesunion",
+      "name": "Times Union",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.timesunion.com/sports/article/2026-fifa-world-cup-team-usa-soccer-turkiye-22317813.php",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入美国对土耳其赛事情报，作为外部观点补充。"
+    },
+    {
+      "id": "guardian",
+      "name": "The Guardian",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.theguardian.com/football/2026/jun/25/socceroos-australia-paraguay-game-permutations-last-32-world-cup",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入澳大利亚对巴拉圭晋级形势报道，作为外部观点补充。"
     }
   ]
 }

@@ -74,14 +74,17 @@ test("external predictions are structured and match site fixtures", () => {
   }
 });
 
-test("external predictions cover the current default day", () => {
+test("external predictions cover the next two match days", () => {
   const matches = JSON.parse(fs.readFileSync("data/matches.json", "utf8")).matches || [];
-  const currentDay = matches.filter((match) => String(match.kickoff).startsWith("2026-06-25"));
+  const coveredDays = ["2026-06-25", "2026-06-26"];
   const covered = new Set(externalPredictions.predictions.map((prediction) => prediction.matchId));
 
-  assert.equal(currentDay.length, 6);
-  for (const match of currentDay) {
-    assert.ok(covered.has(match.id), `${match.home} 对 ${match.away} 缺少外部观点`);
+  for (const day of coveredDays) {
+    const dayMatches = matches.filter((match) => String(match.kickoff).startsWith(day));
+    assert.equal(dayMatches.length, 6, `${day} 比赛数应为 6`);
+    for (const match of dayMatches) {
+      assert.ok(covered.has(match.id), `${day} ${match.home} 对 ${match.away} 缺少外部观点`);
+    }
   }
 });
 

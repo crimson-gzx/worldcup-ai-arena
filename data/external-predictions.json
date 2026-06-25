@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T18:05:00+08:00",
+  "updatedAt": "2026-06-25T18:35:00+08:00",
   "note": "外部媒体预测已抓入本站结构化数据；页面直接展示观点，原文链接只做溯源。",
   "sources": [
     {
@@ -33,6 +33,54 @@
       "language": "英文",
       "status": "已抓取",
       "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/"
+    },
+    {
+      "id": "thesun-curacao",
+      "name": "The Sun Curacao-Ivory Coast",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.thesun.co.uk/sport/39497615/curacao-ivory-coast-betting-tips-predictions-odds/"
+    },
+    {
+      "id": "bavarianfootballworks",
+      "name": "Bavarian Football Works",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.bavarianfootballworks.com/fifa-world-cup/220354/world-cup-matchday-preview-ecuador-vs-germany"
+    },
+    {
+      "id": "thesun-acca-0625",
+      "name": "The Sun ACCA 25 Jun",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.thesun.co.uk/betting/39527326/world-cup-2026-acca-tips-25-june/"
+    },
+    {
+      "id": "thesun-japan-sweden",
+      "name": "The Sun Japan-Sweden",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.thesun.ie/sport/17175229/japan-sweden-betting-tips-predictions-odds-world-cup/"
+    },
+    {
+      "id": "timesunion",
+      "name": "Times Union",
+      "kind": "media-info",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.timesunion.com/sports/article/2026-fifa-world-cup-team-usa-soccer-turkiye-22317813.php"
+    },
+    {
+      "id": "guardian",
+      "name": "The Guardian",
+      "kind": "media-info",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.theguardian.com/football/2026/jun/25/socceroos-australia-paraguay-game-permutations-last-32-world-cup"
     }
   ],
   "predictions": [
@@ -257,6 +305,197 @@
       "market": "零封",
       "confidence": "中",
       "summary": "AI 串关更看重实力差，倾向摩洛哥防守端不丢球。"
+    },
+    {
+      "matchId": "wc26-m029",
+      "sourceId": "thesun-curacao",
+      "sourceName": "The Sun",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.thesun.co.uk/sport/39497615/curacao-ivory-coast-betting-tips-predictions-odds/",
+      "pick": "科特迪瓦上下半场均胜",
+      "market": "半全场/半场结果",
+      "confidence": "中",
+      "summary": "科特迪瓦被视为争二主动方，外部观点认为库拉索必须冒险，反而会给科特迪瓦速度型前场留下空间。"
+    },
+    {
+      "matchId": "wc26-m029",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4356443/curacao-vs-ivory-coast-odds-tips-2026/",
+      "pick": "科特迪瓦进球 1.5+",
+      "market": "球队进球",
+      "confidence": "中",
+      "summary": "库拉索必须赢球会推高比赛开放度，TalkSport 更看好科特迪瓦利用反击和边路速度打出多个进球。"
+    },
+    {
+      "matchId": "wc26-m030",
+      "sourceId": "bavarianfootballworks",
+      "sourceName": "Bavarian Football Works",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.bavarianfootballworks.com/fifa-world-cup/220354/world-cup-matchday-preview-ecuador-vs-germany",
+      "pick": "德国胜",
+      "score": "3-1",
+      "market": "比分",
+      "confidence": "中",
+      "summary": "德国可能轮换但板凳深度仍占优，外部前瞻给出德国 3-1，认为厄瓜多尔会进球但难守住。"
+    },
+    {
+      "matchId": "wc26-m030",
+      "sourceId": "thesun-acca-0625",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39527326/world-cup-2026-acca-tips-25-june/",
+      "pick": "小球方向",
+      "market": "大小球",
+      "confidence": "中",
+      "summary": "The Sun 专家串关对这场更谨慎，认为德国已锁定出线后节奏可能下降，进球数未必过热。"
+    },
+    {
+      "matchId": "wc26-m030",
+      "sourceId": "thesun-acca-0625",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39527326/world-cup-2026-acca-tips-25-june/",
+      "pick": "大比分方向",
+      "market": "大小球",
+      "confidence": "中",
+      "summary": "The Sun 的 AI 对照更看重实力差和厄瓜多尔必须抢分的局面，倾向比赛被拉开。"
+    },
+    {
+      "matchId": "wc26-m035",
+      "sourceId": "thesun-japan-sweden",
+      "sourceName": "The Sun",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.thesun.ie/sport/17175229/japan-sweden-betting-tips-predictions-odds-world-cup/",
+      "pick": "日本胜 + 大 2.5",
+      "market": "组合玩法",
+      "confidence": "中",
+      "summary": "日本状态更稳，瑞典必须赢球会压上，The Sun 倾向日本利用瑞典防线空当打出胜利和大球。"
+    },
+    {
+      "matchId": "wc26-m035",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4360111/japan-vs-sweden-odds-tips-2026/",
+      "pick": "日本胜",
+      "score": "2-1",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "TalkSport 预测日本 2-1，逻辑是瑞典必须进攻，日本反击和整体组织更容易惩罚对手。"
+    },
+    {
+      "matchId": "wc26-m035",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4360111/japan-vs-sweden-odds-tips-2026/",
+      "pick": "日本进球 1.5+",
+      "market": "球队进球",
+      "confidence": "中",
+      "summary": "同一前瞻还给出日本至少 2 球方向，认为瑞典追分时后场空间会放大。"
+    },
+    {
+      "matchId": "wc26-m036",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4356944/tunisia-vs-netherlands-odds-tips-2026/",
+      "pick": "荷兰 -2",
+      "market": "让球",
+      "confidence": "中",
+      "summary": "突尼斯已连续大败且进攻乏力，TalkSport 看好荷兰为小组头名继续发力，甚至打穿深盘。"
+    },
+    {
+      "matchId": "wc26-m036",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4356944/tunisia-vs-netherlands-odds-tips-2026/",
+      "pick": "荷兰零封",
+      "market": "零封",
+      "confidence": "中",
+      "summary": "外部观点认为突尼斯威胁有限，荷兰有机会同时拿下胜利和零封。"
+    },
+    {
+      "matchId": "wc26-m036",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4356944/tunisia-vs-netherlands-odds-tips-2026/",
+      "pick": "加克波进球",
+      "market": "球员进球",
+      "confidence": "中",
+      "summary": "TalkSport 单独点名 Gakpo 延续进球势头，理由是荷兰边路和禁区前压制明显。"
+    },
+    {
+      "matchId": "wc26-m023",
+      "sourceId": "nypost",
+      "sourceName": "NY Post",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://nypost.com/2026/06/24/sports/inside-look-at-how-usmnt-turkey-world-cup-showdown-will-play-out/",
+      "pick": "美国胜",
+      "score": "3-0",
+      "market": "比分",
+      "confidence": "中",
+      "summary": "美国已锁定头名但仍被认为不会放松，NY Post 预测美国 3-0，土耳其可能以无进球结束小组赛。"
+    },
+    {
+      "matchId": "wc26-m023",
+      "sourceId": "thesun-acca-0625",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39527326/world-cup-2026-acca-tips-25-june/",
+      "pick": "双方进球",
+      "market": "BTTS",
+      "confidence": "中",
+      "summary": "The Sun 专家和 AI 在土耳其对美国这场都偏向双方进球，和 NY Post 的零封判断形成分歧。"
+    },
+    {
+      "matchId": "wc26-m023",
+      "sourceId": "timesunion",
+      "sourceName": "Times Union",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.timesunion.com/sports/article/2026-fifa-world-cup-team-usa-soccer-turkiye-22317813.php",
+      "pick": "美国不放松",
+      "market": "赛事情报",
+      "confidence": "中",
+      "summary": "美国已晋级但训练强度和赛前表态都强调保持势头，这支持美国仍会主动争胜。"
+    },
+    {
+      "matchId": "wc26-m024",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4360485/paraguay-vs-australia-odds-tips-2026/",
+      "pick": "平局",
+      "score": "0-0",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "澳大利亚只需平局即可晋级，巴拉圭缺少阿尔米隆，TalkSport 预测 0-0。"
+    },
+    {
+      "matchId": "wc26-m024",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://talksport.com/betting/4360485/paraguay-vs-australia-odds-tips-2026/",
+      "pick": "小 1.5 球",
+      "market": "大小球",
+      "confidence": "中",
+      "summary": "同一前瞻认为两队防守优先、进攻创造力有限，小比分更合理。"
+    },
+    {
+      "matchId": "wc26-m024",
+      "sourceId": "guardian",
+      "sourceName": "The Guardian",
+      "publishedAt": "2026-06-25T00:00:00Z",
+      "url": "https://www.theguardian.com/football/2026/jun/25/socceroos-australia-paraguay-game-permutations-last-32-world-cup",
+      "pick": "澳大利亚不败倾向",
+      "market": "赛事情报",
+      "confidence": "中",
+      "summary": "澳大利亚掌握晋级主动，平局即可确保出线，外部报道强调他们会以稳定和比赛管理为核心。"
     }
   ]
 }
