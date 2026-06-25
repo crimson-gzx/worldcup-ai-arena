@@ -278,6 +278,29 @@
       font-weight: 820;
     }
 
+    .source-chip {
+      display: inline-grid;
+      gap: 2px;
+      min-width: 88px;
+      padding: 6px 7px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .source-chip small {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 820;
+    }
+
+    .source-chip.ready { border-color: #b7dfcc; background: #eefaf4; color: var(--green); }
+    .source-chip.external { border-color: #f1d48a; background: #fff8df; color: #8a5a00; }
+    .source-note { color: #8a5a00; border-color: #f1d48a; background: #fff8df; }
+
     .pick {
       display: inline-flex;
       align-items: center;
@@ -356,6 +379,7 @@
 
     .status { min-height: 26px; border-radius: 6px; font-size: 12px; font-weight: 900; }
     .status.ready { color: var(--green); border-color: #b7dfcc; background: #eefaf4; }
+    .status.external { color: #8a5a00; border-color: #f1d48a; background: #fff8df; }
     .status.manual { color: #8a5a00; border-color: #f1d48a; background: #fff8df; }
     .status.open { color: var(--blue); border-color: #bfd3ee; background: #eef5ff; }
 
@@ -414,8 +438,8 @@
       <div>
         <h1>中文足球预测信息集合</h1>
         <div class="deck">
-          <span class="pill">公开来源</span>
-          <span class="pill">赔率 / 模型 / 身价 / 免费站</span>
+          <span class="pill">已接入：赔率 / 模型 / 身价</span>
+          <span class="pill">外部源：仅入口，待人工核对</span>
           <span class="pill" id="updated-at">读取中</span>
         </div>
       </div>
@@ -449,7 +473,7 @@
                 <th>市场</th>
                 <th>模型</th>
                 <th>身价</th>
-                <th>外部源</th>
+                <th>外部源状态</th>
                 <th>读法</th>
               </tr>
             </thead>
@@ -469,8 +493,8 @@
 
         <section class="panel">
           <div class="panel-head">
-            <h2>预测者清单</h2>
-            <small>免费源和内部信号</small>
+            <h2>来源接入状态</h2>
+            <small>自动接入 / 外链核对</small>
           </div>
           <div class="source-list" id="source-list"></div>
         </section>
@@ -587,9 +611,14 @@
     }
 
     function sourceStatusClass(source) {
-      if (source.status === "已接入") return "ready";
-      if (source.status === "可打开" || source.status === "可浏览") return "open";
+      if (source.integration === "已接入" || source.status === "已接入") return "ready";
+      if (source.integration === "外链待核对") return "external";
       return "manual";
+    }
+
+    function sourceIntegrationLabel(source) {
+      if (source.integration) return source.integration;
+      return source.status === "已接入" ? "已接入" : "外链待核对";
     }
 
     function readLine(match) {
@@ -639,8 +668,8 @@
     }
 
     function sourcesHtml() {
-      const free = state.sources.filter((source) => ["free-site", "media"].includes(source.kind)).slice(0, 4);
-      return `<div class="source-row">${free.map((source) => `<a class="link-btn" href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.name)}</a>`).join("")}</div><span class="mini">单场结果需人工核对</span>`;
+      const external = state.sources.filter((source) => ["free-site", "media"].includes(source.kind)).slice(0, 4);
+      return `<div class="source-row">${external.map((source) => `<a class="source-chip ${sourceStatusClass(source)}" href="${esc(source.url)}" target="_blank" rel="noreferrer"><span>${esc(source.name)}</span><small>${esc(sourceIntegrationLabel(source))}</small></a>`).join("")}</div><span class="mini source-note">未自动入表，点开核对</span>`;
     }
 
     function readHtml(match) {
@@ -650,16 +679,14 @@
 
     function renderMetrics(rows) {
       const withMarket = rows.filter((match) => match.market.active).length;
-      const aligned = rows.filter((match) => match.marketPick.key && match.marketPick.key === match.modelPick.key).length;
-      const highGap = rows.filter((match) => gapLevel(match)[0] === "high").length;
-      const sourceReady = state.sources.filter((source) => source.status === "已接入" || source.status === "可打开" || source.status === "可浏览").length;
+      const connected = state.sources.filter((source) => sourceIntegrationLabel(source) === "已接入").length;
+      const external = state.sources.filter((source) => sourceIntegrationLabel(source) === "外链待核对").length;
       const items = [
         ["当前比赛", rows.length],
         ["赔率覆盖", `${withMarket}/${rows.length}`],
-        ["市场模型同向", `${aligned}/${rows.length}`],
-        ["来源可用", `${sourceReady}/${state.sources.length}`]
+        ["已接入源", `${connected}/${state.sources.length}`],
+        ["外链核对", external]
       ];
-      if (highGap) items[2] = ["重点分歧", highGap];
       el.metrics.innerHTML = items.map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join("");
     }
 
@@ -675,7 +702,7 @@
           <td data-label="市场"><div class="stack">${oddsHtml(match)}</div></td>
           <td data-label="模型"><div class="stack">${modelHtml(match)}</div></td>
           <td data-label="身价"><div class="stack">${valueHtml(match)}</div></td>
-          <td data-label="外部源">${sourcesHtml(match)}</td>
+          <td data-label="外部源状态">${sourcesHtml(match)}</td>
           <td data-label="读法">${readHtml(match)}</td>
         </tr>
       `).join("");
@@ -700,9 +727,9 @@
     function renderSources() {
       el.sourceList.innerHTML = state.sources.map((source) => `
         <article class="source-card">
-          <div class="source-top"><span>${esc(source.name)}</span><span class="status ${sourceStatusClass(source)}">${esc(source.status)}</span></div>
+          <div class="source-top"><span>${esc(source.name)}</span><span class="status ${sourceStatusClass(source)}">${esc(sourceIntegrationLabel(source))}</span></div>
           <small>${esc(source.summary)}</small>
-          <div class="source-meta"><span class="mini">${esc(source.language)}</span><span class="mini">${esc(source.cadence)}</span><a class="link-btn" href="${esc(source.url)}" target="_blank" rel="noreferrer">打开</a></div>
+          <div class="source-meta"><span class="mini">${esc(source.status)}</span><span class="mini">${esc(source.access || source.language)}</span><span class="mini">${esc(source.cadence)}</span><a class="link-btn" href="${esc(source.url)}" target="_blank" rel="noreferrer">打开</a></div>
         </article>
       `).join("");
     }

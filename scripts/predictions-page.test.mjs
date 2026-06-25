@@ -9,7 +9,9 @@ test("prediction page is a standalone Chinese information view", () => {
   assert.match(html, /<title>中文足球预测信息集合<\/title>/);
   assert.match(html, /比赛信号表/);
   assert.match(html, /今日先看/);
-  assert.match(html, /预测者清单/);
+  assert.match(html, /来源接入状态/);
+  assert.match(html, /外部源：仅入口，待人工核对/);
+  assert.match(html, /未自动入表，点开核对/);
   assert.match(html, /data\/matches\.json/);
   assert.match(html, /data\/squads\.json/);
   assert.match(html, /data\/prediction-sources\.json/);
@@ -17,8 +19,11 @@ test("prediction page is a standalone Chinese information view", () => {
 
 test("prediction sources use real links and clear status", () => {
   assert.match(sources.note, /不生成假预测/);
+  assert.match(sources.note, /已接入源会进入比赛表/);
   assert.ok(Array.isArray(sources.sources));
   assert.ok(sources.sources.length >= 8);
+  assert.equal(sources.sources.filter((source) => source.integration === "已接入").length, 3);
+  assert.ok(sources.sources.filter((source) => source.integration === "外链待核对").length >= 5);
 
   const ids = new Set();
   for (const source of sources.sources) {
@@ -28,6 +33,7 @@ test("prediction sources use real links and clear status", () => {
     assert.ok(source.name);
     assert.ok(source.summary);
     assert.ok(["已接入", "可打开", "可浏览", "需浏览器核对"].includes(source.status));
+    assert.ok(["已接入", "外链待核对"].includes(source.integration));
 
     if (source.kind === "free-site" || source.kind === "media" || source.kind === "market" || source.kind === "value") {
       assert.match(source.url, /^https:\/\//, `${source.name} should use a full public URL`);
@@ -38,7 +44,7 @@ test("prediction sources use real links and clear status", () => {
 test("prediction page keeps copy compact", () => {
   assert.doesNotMatch(html, /首先|其次|最后|总的来说|综上所述/);
   assert.doesNotMatch(html, /\s+vs\s+/i);
-  assert.match(html, /单场结果需人工核对/);
+  assert.match(html, /未自动入表，点开核对/);
 });
 
 test("main site exposes the prediction hub", () => {
