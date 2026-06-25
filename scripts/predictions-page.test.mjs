@@ -50,6 +50,13 @@ test("prediction page keeps copy compact", () => {
   assert.match(html, /暂无抓取观点/);
 });
 
+test("external predictions are optional at runtime", () => {
+  assert.match(html, /fetchJsonRequired\("\.\/data\/matches\.json"\)/);
+  assert.match(html, /fetchJsonRequired\("\.\/data\/squads\.json"\)/);
+  assert.match(html, /fetchJsonRequired\("\.\/data\/prediction-sources\.json"\)/);
+  assert.match(html, /fetchJsonOptional\("\.\/data\/external-predictions\.json", \{ predictions: \[\] \}\)/);
+});
+
 test("external predictions are structured and match site fixtures", () => {
   const matches = JSON.parse(fs.readFileSync("data/matches.json", "utf8")).matches || [];
   const matchIds = new Set(matches.map((match) => match.id));

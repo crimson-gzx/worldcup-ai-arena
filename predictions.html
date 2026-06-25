@@ -822,18 +822,30 @@
       el.date.value = exact || next || available[0] || "2026-06-25";
     }
 
+    async function fetchJsonRequired(url) {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`${url} ${response.status}`);
+      return response.json();
+    }
+
+    async function fetchJsonOptional(url, fallback) {
+      try {
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) return fallback;
+        return await response.json();
+      } catch (error) {
+        return fallback;
+      }
+    }
+
     async function init() {
       try {
-        const [matchesRes, squadsRes, sourcesRes, externalRes] = await Promise.all([
-          fetch("./data/matches.json", { cache: "no-store" }),
-          fetch("./data/squads.json", { cache: "no-store" }),
-          fetch("./data/prediction-sources.json", { cache: "no-store" }),
-          fetch("./data/external-predictions.json", { cache: "no-store" })
+        const [matchesData, squadsData, sourcesData, externalData] = await Promise.all([
+          fetchJsonRequired("./data/matches.json"),
+          fetchJsonRequired("./data/squads.json"),
+          fetchJsonRequired("./data/prediction-sources.json"),
+          fetchJsonOptional("./data/external-predictions.json", { predictions: [] })
         ]);
-        const matchesData = await matchesRes.json();
-        const squadsData = await squadsRes.json();
-        const sourcesData = await sourcesRes.json();
-        const externalData = await externalRes.json();
         state.squads = squadsData.teams || {};
         state.sources = sourcesData.sources || [];
         state.externalPredictions = (externalData.predictions || []).reduce((map, prediction) => {
