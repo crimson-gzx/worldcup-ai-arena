@@ -1,0 +1,262 @@
+{
+  "updatedAt": "2026-06-25T18:05:00+08:00",
+  "note": "外部媒体预测已抓入本站结构化数据；页面直接展示观点，原文链接只做溯源。",
+  "sources": [
+    {
+      "id": "nypost",
+      "name": "NY Post Betting",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://nypost.com/betting/"
+    },
+    {
+      "id": "talksport",
+      "name": "talkSPORT",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://talksport.com/betting/"
+    },
+    {
+      "id": "fourfourtwo",
+      "name": "FourFourTwo",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.fourfourtwo.com/"
+    },
+    {
+      "id": "thesun-acca",
+      "name": "The Sun ACCA",
+      "kind": "media-pick",
+      "language": "英文",
+      "status": "已抓取",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/"
+    }
+  ],
+  "predictions": [
+    {
+      "matchId": "wc26-m005",
+      "sourceId": "nypost",
+      "sourceName": "NY Post Betting",
+      "publishedAt": "2026-06-24T14:00:00Z",
+      "url": "https://nypost.com/2026/06/24/betting/mexico-vs-czechia-world-cup-prediction-odds-picks-best-bets-for-group-a-match/",
+      "pick": "双方进球",
+      "market": "BTTS",
+      "confidence": "中",
+      "summary": "墨西哥可能轮换，捷克必须压出来抢分，外部观点更看重双方进攻风险。"
+    },
+    {
+      "matchId": "wc26-m006",
+      "sourceId": "nypost",
+      "sourceName": "NY Post Betting",
+      "publishedAt": "2026-06-24T14:00:00Z",
+      "url": "https://nypost.com/2026/06/24/betting/south-africa-vs-south-korea-prediction-odds-world-cup-picks-best-bet-for-group-a/",
+      "pick": "李刚仁进球或助攻",
+      "market": "球员参与进球",
+      "confidence": "中",
+      "summary": "韩国被视为进攻端更稳定的一方，外部观点把重心放在李刚仁的创造力。"
+    },
+    {
+      "matchId": "wc26-m011",
+      "sourceId": "nypost",
+      "sourceName": "NY Post Betting",
+      "publishedAt": "2026-06-24T14:00:00Z",
+      "url": "https://nypost.com/2026/06/24/betting/switzerland-vs-canada-prediction-world-cup-odds-picks-best-bets/",
+      "pick": "瑞士胜",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "加拿大中场伤停被放大，外部观点认为瑞士紧凑防线和反击更适合这场。"
+    },
+    {
+      "matchId": "wc26-m011",
+      "sourceId": "talksport",
+      "sourceName": "talkSPORT",
+      "publishedAt": "2026-06-24T10:26:32Z",
+      "url": "https://talksport.com/betting/4358492/switzerland-vs-canada-odds-tips-2026/",
+      "pick": "平局",
+      "score": "1-1",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "加拿大只需不败即可争取头名，外部观点认为比赛会偏谨慎，比分倾向 1-1。"
+    },
+    {
+      "matchId": "wc26-m011",
+      "sourceId": "fourfourtwo",
+      "sourceName": "FourFourTwo",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.fourfourtwo.com/competition/switzerland-vs-canada-prediction-can-world-cup-co-hosts-seal-top-spot-in-group-b",
+      "pick": "平局",
+      "score": "1-1",
+      "market": "比分",
+      "confidence": "中",
+      "summary": "双方都有小组名次诉求，外部观点给出 1-1，认为加拿大至少有机会守住不败。"
+    },
+    {
+      "matchId": "wc26-m012",
+      "sourceId": "nypost",
+      "sourceName": "NY Post Betting",
+      "publishedAt": "2026-06-24T15:00:00Z",
+      "url": "https://nypost.com/2026/06/24/betting/bosnia-herzegovina-vs-qatar-prediction-odds-world-cup-picks-best-bet-for-group-b/",
+      "pick": "波黑胜 + 总进球大 3.5",
+      "market": "组合玩法",
+      "confidence": "中",
+      "summary": "卡塔尔防线和纪律问题明显，波黑需要净胜球，外部观点倾向波黑主动拉开比分。"
+    },
+    {
+      "matchId": "wc26-m017",
+      "sourceId": "nypost",
+      "sourceName": "NY Post Betting",
+      "publishedAt": "2026-06-24T14:00:00Z",
+      "url": "https://nypost.com/2026/06/24/betting/brazil-vs-scotland-world-cup-prediction-odds-pick-can-the-tartan-army-pull-the-upset/",
+      "pick": "苏格兰进球",
+      "market": "球队进球",
+      "confidence": "中",
+      "summary": "巴西仍被看作明显强队，但外部观点认为其防线有空当，苏格兰至少有进球窗口。"
+    },
+    {
+      "matchId": "wc26-m018",
+      "sourceId": "nypost",
+      "sourceName": "NY Post Betting",
+      "publishedAt": "2026-06-24T14:00:00Z",
+      "url": "https://nypost.com/2026/06/24/betting/morocco-vs-haiti-world-cup-prediction-odds-picks-best-bet-for-group-c-clash/",
+      "pick": "总进球大 4.5",
+      "market": "大小球",
+      "confidence": "中",
+      "summary": "摩洛哥需要进球争排名，海地虽弱但有反击意愿，外部观点倾向大比分。"
+    },
+    {
+      "matchId": "wc26-m005",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "墨西哥胜",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "专家串关观点看墨西哥延续小组强势，捷克必须压出来但防线风险更高。"
+    },
+    {
+      "matchId": "wc26-m005",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "小 2.5 球",
+      "market": "大小球",
+      "confidence": "中",
+      "summary": "AI 串关更保守，倾向墨西哥控节奏、捷克进攻效率不足。"
+    },
+    {
+      "matchId": "wc26-m006",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "韩国进球 1.5+",
+      "market": "球队进球",
+      "confidence": "中",
+      "summary": "专家串关认为韩国进攻端仍有质量，南非防线压力会比较大。"
+    },
+    {
+      "matchId": "wc26-m006",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "孙兴慜进球",
+      "market": "球员进球",
+      "confidence": "中",
+      "summary": "AI 串关把韩国进攻集中到核心球员，倾向孙兴慜承担终结。"
+    },
+    {
+      "matchId": "wc26-m011",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "平局",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "专家串关同样倾向瑞士和加拿大互相制衡，比赛不易被单边打穿。"
+    },
+    {
+      "matchId": "wc26-m011",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "加拿大 +0.5",
+      "market": "让球",
+      "confidence": "中",
+      "summary": "AI 串关站在加拿大不败方向，认为主场和小组形势能支撑守住结果。"
+    },
+    {
+      "matchId": "wc26-m012",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "双方进球：否",
+      "market": "BTTS",
+      "confidence": "中",
+      "summary": "专家串关认为波黑更可能控制局面，卡塔尔破门难度较高。"
+    },
+    {
+      "matchId": "wc26-m012",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "波黑胜",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "AI 串关方向与市场强弱接近，倾向波黑拿下比赛。"
+    },
+    {
+      "matchId": "wc26-m017",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "双方进球：否",
+      "market": "BTTS",
+      "confidence": "中",
+      "summary": "专家串关更看重巴西控制力，认为苏格兰破门并不容易。"
+    },
+    {
+      "matchId": "wc26-m017",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "巴西胜",
+      "market": "胜平负",
+      "confidence": "中",
+      "summary": "AI 串关直接站在巴西胜方向，和身价、市场大方向一致。"
+    },
+    {
+      "matchId": "wc26-m018",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun ACCA",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "摩洛哥进球 2.5+",
+      "market": "球队进球",
+      "confidence": "中",
+      "summary": "专家串关认为摩洛哥会主动追净胜球，海地防线承压。"
+    },
+    {
+      "matchId": "wc26-m018",
+      "sourceId": "thesun-acca",
+      "sourceName": "The Sun AI",
+      "publishedAt": "2026-06-24T00:00:00Z",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "pick": "摩洛哥零封",
+      "market": "零封",
+      "confidence": "中",
+      "summary": "AI 串关更看重实力差，倾向摩洛哥防守端不丢球。"
+    }
+  ]
+}

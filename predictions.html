@@ -301,6 +301,40 @@
     .source-chip.external { border-color: #f1d48a; background: #fff8df; color: #8a5a00; }
     .source-note { color: #8a5a00; border-color: #f1d48a; background: #fff8df; }
 
+    .external-picks {
+      display: grid;
+      gap: 6px;
+      min-width: 190px;
+    }
+
+    .external-pick {
+      display: grid;
+      gap: 4px;
+      padding: 8px;
+      border: 1px solid #d8c6f4;
+      border-radius: 6px;
+      background: #f7f2ff;
+      color: #37255f;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .external-pick b {
+      font-size: 12.5px;
+      font-weight: 920;
+    }
+
+    .external-pick small {
+      color: #6f6290;
+      font-weight: 820;
+      line-height: 1.4;
+    }
+
+    .external-pick a {
+      color: #5946a8;
+      font-weight: 900;
+    }
+
     .pick {
       display: inline-flex;
       align-items: center;
@@ -439,7 +473,7 @@
         <h1>中文足球预测信息集合</h1>
         <div class="deck">
           <span class="pill">已接入：赔率 / 模型 / 身价</span>
-          <span class="pill">外部源：仅入口，待人工核对</span>
+          <span class="pill">外部源：已抓入单场观点</span>
           <span class="pill" id="updated-at">读取中</span>
         </div>
       </div>
@@ -473,7 +507,7 @@
                 <th>市场</th>
                 <th>模型</th>
                 <th>身价</th>
-                <th>外部源状态</th>
+                <th>外部观点</th>
                 <th>读法</th>
               </tr>
             </thead>
@@ -494,7 +528,7 @@
         <section class="panel">
           <div class="panel-head">
             <h2>来源接入状态</h2>
-            <small>自动接入 / 外链核对</small>
+            <small>自动接入 / 已抓取 / 待抓取</small>
           </div>
           <div class="source-list" id="source-list"></div>
         </section>
@@ -504,7 +538,7 @@
 
   <script>
     const PICK_TEXT = { home: "主胜", draw: "平局", away: "客胜" };
-    const state = { matches: [], squads: {}, sources: [], visible: [] };
+    const state = { matches: [], squads: {}, sources: [], externalPredictions: {}, visible: [] };
 
     const el = {
       updatedAt: document.querySelector("#updated-at"),
@@ -612,13 +646,14 @@
 
     function sourceStatusClass(source) {
       if (source.integration === "已接入" || source.status === "已接入") return "ready";
-      if (source.integration === "外链待核对") return "external";
+      if (source.integration === "已抓取") return "ready";
+      if (source.integration === "待抓取") return "external";
       return "manual";
     }
 
     function sourceIntegrationLabel(source) {
       if (source.integration) return source.integration;
-      return source.status === "已接入" ? "已接入" : "外链待核对";
+      return source.status === "已接入" ? "已接入" : "待抓取";
     }
 
     function readLine(match) {
@@ -667,9 +702,17 @@
       `;
     }
 
-    function sourcesHtml() {
-      const external = state.sources.filter((source) => ["free-site", "media"].includes(source.kind)).slice(0, 4);
-      return `<div class="source-row">${external.map((source) => `<a class="source-chip ${sourceStatusClass(source)}" href="${esc(source.url)}" target="_blank" rel="noreferrer"><span>${esc(source.name)}</span><small>${esc(sourceIntegrationLabel(source))}</small></a>`).join("")}</div><span class="mini source-note">未自动入表，点开核对</span>`;
+    function externalPredictionsHtml(match) {
+      const picks = state.externalPredictions[match.id] || [];
+      if (!picks.length) return `<span class="mini source-note">暂无抓取观点</span>`;
+      return `<div class="external-picks">${picks.slice(0, 4).map((pick) => `
+        <div class="external-pick">
+          <b>${esc(pick.sourceName)}：${esc(pick.pick)}</b>
+          <small>${esc(pick.market || "观点")} · 置信 ${esc(pick.confidence || "中")}${pick.score ? ` · 比分 ${esc(pick.score)}` : ""}</small>
+          <small>${esc(pick.summary || "")}</small>
+          <a href="${esc(pick.url)}" target="_blank" rel="noreferrer">原文</a>
+        </div>
+      `).join("")}</div>`;
     }
 
     function readHtml(match) {
@@ -680,12 +723,13 @@
     function renderMetrics(rows) {
       const withMarket = rows.filter((match) => match.market.active).length;
       const connected = state.sources.filter((source) => sourceIntegrationLabel(source) === "已接入").length;
-      const external = state.sources.filter((source) => sourceIntegrationLabel(source) === "外链待核对").length;
+      const fetched = state.sources.filter((source) => sourceIntegrationLabel(source) === "已抓取").length;
+      const pickCount = Object.values(state.externalPredictions).reduce((sum, picks) => sum + picks.length, 0);
       const items = [
         ["当前比赛", rows.length],
         ["赔率覆盖", `${withMarket}/${rows.length}`],
         ["已接入源", `${connected}/${state.sources.length}`],
-        ["外链核对", external]
+        ["外部观点", pickCount ? `${pickCount}条` : `${fetched}源`]
       ];
       el.metrics.innerHTML = items.map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join("");
     }
@@ -702,7 +746,7 @@
           <td data-label="市场"><div class="stack">${oddsHtml(match)}</div></td>
           <td data-label="模型"><div class="stack">${modelHtml(match)}</div></td>
           <td data-label="身价"><div class="stack">${valueHtml(match)}</div></td>
-          <td data-label="外部源状态">${sourcesHtml(match)}</td>
+          <td data-label="外部观点">${externalPredictionsHtml(match)}</td>
           <td data-label="读法">${readHtml(match)}</td>
         </tr>
       `).join("");
@@ -780,16 +824,24 @@
 
     async function init() {
       try {
-        const [matchesRes, squadsRes, sourcesRes] = await Promise.all([
+        const [matchesRes, squadsRes, sourcesRes, externalRes] = await Promise.all([
           fetch("./data/matches.json", { cache: "no-store" }),
           fetch("./data/squads.json", { cache: "no-store" }),
-          fetch("./data/prediction-sources.json", { cache: "no-store" })
+          fetch("./data/prediction-sources.json", { cache: "no-store" }),
+          fetch("./data/external-predictions.json", { cache: "no-store" })
         ]);
         const matchesData = await matchesRes.json();
         const squadsData = await squadsRes.json();
         const sourcesData = await sourcesRes.json();
+        const externalData = await externalRes.json();
         state.squads = squadsData.teams || {};
         state.sources = sourcesData.sources || [];
+        state.externalPredictions = (externalData.predictions || []).reduce((map, prediction) => {
+          const key = prediction.matchId;
+          if (!map[key]) map[key] = [];
+          map[key].push(prediction);
+          return map;
+        }, {});
         state.matches = (matchesData.matches || []).map(enrich);
         setDefaultDate(state.matches);
         el.updatedAt.textContent = `数据 ${String(matchesData.updatedAt || "").slice(0, 10) || "已读取"}`;

@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-06-25T16:45:00+08:00",
-  "note": "已接入源会进入比赛表计算；外部免费预测源目前只做入口和中文摘要，未核对到单场结果时不生成假预测。",
+  "note": "已接入源会进入比赛表计算；已抓取源会从 data/external-predictions.json 进入每场外部观点。",
   "sources": [
     {
       "id": "market-odds",
@@ -45,10 +45,10 @@
       "language": "英文",
       "url": "https://footystats.org/international/fifa-world-cup",
       "status": "可打开",
-      "integration": "外链待核对",
+      "integration": "待抓取",
       "access": "网页",
       "cadence": "赛前核对",
-      "summary": "偏数据表：进球、BTTS、大小球、球队趋势。现在只放入口，未自动进入比赛表。"
+      "summary": "偏数据表：进球、BTTS、大小球、球队趋势。后续可作为统计背景源抓入。"
     },
     {
       "id": "forebet",
@@ -57,10 +57,10 @@
       "language": "英文",
       "url": "https://www.forebet.com/en/football-tips-and-predictions-for-today",
       "status": "需浏览器核对",
-      "integration": "外链待核对",
+      "integration": "待抓取",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "算法比分和胜平负倾向。现在只放入口，世界杯单场上线后再人工摘取核对。"
+      "summary": "算法比分和胜平负倾向。当前页面先接媒体观点，Forebet 单场抓取排在下一步。"
     },
     {
       "id": "predictz",
@@ -69,10 +69,10 @@
       "language": "英文",
       "url": "https://www.predictz.com/predictions/",
       "status": "需浏览器核对",
-      "integration": "外链待核对",
+      "integration": "待抓取",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "免费比分预测站，内容简单。现在只放入口，适合人工和 Forebet 对方向。"
+      "summary": "免费比分预测站，内容简单。当前页面先接媒体观点，PredictZ 单场抓取排在下一步。"
     },
     {
       "id": "windrawwin",
@@ -81,10 +81,10 @@
       "language": "英文",
       "url": "https://www.windrawwin.com/predictions/",
       "status": "需浏览器核对",
-      "integration": "外链待核对",
+      "integration": "待抓取",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "偏赛果倾向和胜率统计。现在只放入口，可作为第三个免费预测源人工核对。"
+      "summary": "偏赛果倾向和胜率统计。当前页面先接媒体观点，WinDrawWin 单场抓取排在下一步。"
     },
     {
       "id": "sportsmole",
@@ -93,10 +93,10 @@
       "language": "英文",
       "url": "https://www.sportsmole.co.uk/football/",
       "status": "可浏览",
-      "integration": "外链待核对",
+      "integration": "待抓取",
       "access": "网页",
       "cadence": "赛前核对",
-      "summary": "文章式前瞻，适合摘伤停、轮换、战意。现在只放入口，不直接当模型源。"
+      "summary": "文章式前瞻，适合摘伤停、轮换、战意。后续可作为赛前情报源抓入。"
     },
     {
       "id": "sportytrader",
@@ -105,10 +105,58 @@
       "language": "英文",
       "url": "https://www.sportytrader.com/en/betting-tips/football/",
       "status": "需浏览器核对",
-      "integration": "外链待核对",
+      "integration": "待抓取",
       "access": "网页拦截命令行",
       "cadence": "当天核对",
-      "summary": "免费投注建议站，能补充热门比赛观点。现在只放入口，命令行访问会被拦。"
+      "summary": "免费投注建议站，能补充热门比赛观点。后续可作为补充观点源抓入。"
+    },
+    {
+      "id": "nypost",
+      "name": "NY Post Betting",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://nypost.com/betting/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入当日世界杯单场观点，进入比赛表的外部观点栏。"
+    },
+    {
+      "id": "talksport",
+      "name": "talkSPORT",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://talksport.com/betting/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入可匹配单场的比分/玩法观点，进入比赛表的外部观点栏。"
+    },
+    {
+      "id": "fourfourtwo",
+      "name": "FourFourTwo",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.fourfourtwo.com/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入可匹配单场的比分观点，进入比赛表的外部观点栏。"
+    },
+    {
+      "id": "thesun-acca",
+      "name": "The Sun ACCA",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.thesun.co.uk/betting/39514166/world-cup-2026-acca-tips-24-25-june/",
+      "status": "已抓取",
+      "integration": "已抓取",
+      "access": "搜索抓取",
+      "cadence": "每日更新",
+      "summary": "已抓入 6 场串关专家观点和 AI 对照观点，进入比赛表的外部观点栏。"
     }
   ]
 }
