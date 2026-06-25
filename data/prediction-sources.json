@@ -1,0 +1,105 @@
+{
+  "updatedAt": "2026-06-25T10:10:00+08:00",
+  "note": "外部免费预测源只做入口和中文摘要；未核对到单场结果时不生成假预测。",
+  "sources": [
+    {
+      "id": "market-odds",
+      "name": "市场赔率均值",
+      "kind": "market",
+      "language": "数据",
+      "url": "https://the-odds-api.com/",
+      "status": "已接入",
+      "access": "API",
+      "cadence": "赔率刷新时更新",
+      "summary": "多家海外公司胜平负、亚盘、大小球均值，适合看市场共识和异常分歧。"
+    },
+    {
+      "id": "local-model",
+      "name": "自建概率模型",
+      "kind": "model",
+      "language": "中文",
+      "url": "./data/matches.json",
+      "status": "已接入",
+      "access": "本地数据",
+      "cadence": "随数据文件更新",
+      "summary": "不喂赔率，按球队强弱、近况、阵容质量估胜平负和 xG，主要用来和市场对照。"
+    },
+    {
+      "id": "transfermarkt",
+      "name": "德转身价",
+      "kind": "value",
+      "language": "数据",
+      "url": "https://www.transfermarkt.com/",
+      "status": "已接入",
+      "access": "整理数据",
+      "cadence": "名单补齐后更新",
+      "summary": "48 队球员身价已补满，可作为阵容纸面实力参考。"
+    },
+    {
+      "id": "footystats",
+      "name": "FootyStats",
+      "kind": "free-site",
+      "language": "英文",
+      "url": "https://footystats.org/international/fifa-world-cup",
+      "status": "可打开",
+      "access": "网页",
+      "cadence": "赛前核对",
+      "summary": "偏数据表：进球、BTTS、大小球、球队趋势。适合拿来补统计背景。"
+    },
+    {
+      "id": "forebet",
+      "name": "Forebet",
+      "kind": "free-site",
+      "language": "英文",
+      "url": "https://www.forebet.com/en/football-tips-and-predictions-for-today",
+      "status": "需浏览器核对",
+      "access": "网页拦截命令行",
+      "cadence": "当天核对",
+      "summary": "算法比分和胜平负倾向。世界杯单场上线后，适合摘取比分预测和倾向。"
+    },
+    {
+      "id": "predictz",
+      "name": "PredictZ",
+      "kind": "free-site",
+      "language": "英文",
+      "url": "https://www.predictz.com/predictions/",
+      "status": "需浏览器核对",
+      "access": "网页拦截命令行",
+      "cadence": "当天核对",
+      "summary": "免费比分预测站，内容简单，适合和 Forebet 对方向。"
+    },
+    {
+      "id": "windrawwin",
+      "name": "WinDrawWin",
+      "kind": "free-site",
+      "language": "英文",
+      "url": "https://www.windrawwin.com/predictions/",
+      "status": "需浏览器核对",
+      "access": "网页拦截命令行",
+      "cadence": "当天核对",
+      "summary": "偏赛果倾向和胜率统计，可作为第三个免费预测源。"
+    },
+    {
+      "id": "sportsmole",
+      "name": "Sports Mole",
+      "kind": "media",
+      "language": "英文",
+      "url": "https://www.sportsmole.co.uk/football/",
+      "status": "可浏览",
+      "access": "网页",
+      "cadence": "赛前核对",
+      "summary": "文章式前瞻，适合摘伤停、轮换、战意，不适合直接当模型源。"
+    },
+    {
+      "id": "sportytrader",
+      "name": "SportyTrader",
+      "kind": "free-site",
+      "language": "英文",
+      "url": "https://www.sportytrader.com/en/betting-tips/football/",
+      "status": "需浏览器核对",
+      "access": "网页拦截命令行",
+      "cadence": "当天核对",
+      "summary": "免费投注建议站，能补充热门比赛观点；命令行访问会被拦。"
+    }
+  ]
+}

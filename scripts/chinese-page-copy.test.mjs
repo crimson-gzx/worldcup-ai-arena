@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import test from "node:test";
 
-const visibleCopyFiles = ["index.html"];
+const visibleCopyFiles = ["index.html", "predictions.html"];
 
 function unpackVisibleHtml(file) {
   const raw = fs.readFileSync(file, "utf8");

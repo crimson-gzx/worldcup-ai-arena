@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="中文足球预测信息集合：把赛程、赔率、模型、德转身价和免费预测源放在一张表里，方便赛前核对。">
+  <title>中文足球预测信息集合</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111827'/%3E%3Cpath d='M7 20h18v4H7z' fill='%23ffffff'/%3E%3Cpath d='M7 14h12v4H7z' fill='%23f0c24b'/%3E%3Cpath d='M7 8h8v4H7z' fill='%23225ea8'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f5f8;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #657184;
+      --line: #d9dee7;
+      --soft: #eef2f6;
+      --blue: #225ea8;
+      --green: #05734e;
+      --amber: #a86609;
+      --red: #b93631;
+      --violet: #5946a8;
+      --shadow: 0 14px 30px rgba(23, 31, 47, 0.07);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #ffffff 0, rgba(255,255,255,0) 220px),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(1440px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 16px 0 36px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: end;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .deck {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .pill,
+    .status,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .controls input,
+    .controls select,
+    .copy-btn,
+    .link-btn {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 10px;
+      outline: none;
+    }
+
+    .copy-btn {
+      background: #111827;
+      color: #fff;
+      border-color: #111827;
+      font-weight: 850;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .metric,
+    .panel,
+    .brief-card,
+    .source-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .metric {
+      min-height: 74px;
+      padding: 12px 14px;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 27px;
+      line-height: 1;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .panel { overflow: hidden; }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .panel-head small {
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      min-width: 1040px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #f8fafc;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 920;
+    }
+
+    tbody tr:hover { background: #fbfdff; }
+
+    .time {
+      min-width: 76px;
+      color: var(--muted);
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .match-name {
+      display: grid;
+      gap: 7px;
+      min-width: 182px;
+      font-weight: 920;
+    }
+
+    .team-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flag {
+      width: 22px;
+      height: 16px;
+      border: 1px solid rgba(17, 24, 39, 0.12);
+      border-radius: 3px;
+      object-fit: cover;
+      background: var(--soft);
+      flex: 0 0 auto;
+    }
+
+    .round {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 820;
+      line-height: 1.4;
+    }
+
+    .stack {
+      display: grid;
+      gap: 7px;
+      min-width: 154px;
+    }
+
+    .line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .line b { font-weight: 920; }
+    .muted { color: var(--muted); }
+
+    .odds-row,
+    .source-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .odds-row span,
+    .mini {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 7px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 820;
+    }
+
+    .pick {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 8px;
+      border-radius: 6px;
+      color: #fff;
+      background: #1f2937;
+      font-size: 12px;
+      font-weight: 920;
+    }
+
+    .pick.market { background: var(--blue); }
+    .pick.model { background: var(--green); }
+    .pick.value { background: var(--amber); }
+    .pick.source { background: var(--violet); }
+    .pick.none { background: #8b95a5; }
+
+    .gap-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 9px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 920;
+      background: #eef2f6;
+      color: #1f2937;
+    }
+
+    .gap-badge.high { background: #fde8e6; color: var(--red); }
+    .gap-badge.mid { background: #fff3d6; color: #8a5a00; }
+    .gap-badge.low { background: #e7f5ee; color: var(--green); }
+
+    .side-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .brief-list,
+    .source-list {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .brief-card,
+    .source-card {
+      display: grid;
+      gap: 7px;
+      padding: 11px;
+      box-shadow: none;
+    }
+
+    .brief-top,
+    .source-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 920;
+    }
+
+    .brief-card small,
+    .source-card small {
+      color: var(--muted);
+      font-weight: 760;
+      line-height: 1.45;
+    }
+
+    .source-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .status { min-height: 26px; border-radius: 6px; font-size: 12px; font-weight: 900; }
+    .status.ready { color: var(--green); border-color: #b7dfcc; background: #eefaf4; }
+    .status.manual { color: #8a5a00; border-color: #f1d48a; background: #fff8df; }
+    .status.open { color: var(--blue); border-color: #bfd3ee; background: #eef5ff; }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 9px;
+      color: #111827;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .empty {
+      padding: 22px;
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    @media (max-width: 1120px) {
+      .topbar,
+      .layout { grid-template-columns: 1fr; }
+      .controls { justify-content: flex-start; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .shell { width: min(100% - 18px, 1440px); padding-top: 12px; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .metric { min-height: 66px; padding: 10px; }
+      .metric strong { font-size: 22px; }
+      .panel-head { align-items: flex-start; flex-direction: column; }
+      table { min-width: 0; }
+      thead { display: none; }
+      tbody, tr, td { display: block; width: 100%; }
+      tbody tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+      td { border-bottom: 0; padding: 7px 12px; }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 5px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 920;
+      }
+      .match-name, .stack { min-width: 0; }
+      .controls input[type="search"] { width: min(100%, 220px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <h1>中文足球预测信息集合</h1>
+        <div class="deck">
+          <span class="pill">公开来源</span>
+          <span class="pill">赔率 / 模型 / 身价 / 免费站</span>
+          <span class="pill" id="updated-at">读取中</span>
+        </div>
+      </div>
+      <div class="controls" aria-label="筛选比赛">
+        <input id="date-filter" type="date" value="2026-06-25">
+        <select id="scope-filter">
+          <option value="day">当天比赛</option>
+          <option value="48h">未来 48 小时</option>
+          <option value="all">全部比赛</option>
+          <option value="gap">高分歧</option>
+        </select>
+        <input id="team-filter" type="search" placeholder="搜球队 / 小组">
+        <button class="copy-btn" id="copy-brief" type="button">复制今日清单</button>
+      </div>
+    </header>
+
+    <section class="metrics" id="metrics" aria-label="今日概览"></section>
+
+    <section class="layout">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>比赛信号表</h2>
+          <small id="table-note">按开球时间排序</small>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>比赛</th>
+                <th>市场</th>
+                <th>模型</th>
+                <th>身价</th>
+                <th>外部源</th>
+                <th>读法</th>
+              </tr>
+            </thead>
+            <tbody id="match-body"><tr><td colspan="7" class="empty">正在读取数据...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="side-stack">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>今日先看</h2>
+            <small>分歧和身价差</small>
+          </div>
+          <div class="brief-list" id="brief-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>预测者清单</h2>
+            <small>免费源和内部信号</small>
+          </div>
+          <div class="source-list" id="source-list"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const PICK_TEXT = { home: "主胜", draw: "平局", away: "客胜" };
+    const state = { matches: [], squads: {}, sources: [], visible: [] };
+
+    const el = {
+      updatedAt: document.querySelector("#updated-at"),
+      metrics: document.querySelector("#metrics"),
+      body: document.querySelector("#match-body"),
+      briefList: document.querySelector("#brief-list"),
+      sourceList: document.querySelector("#source-list"),
+      date: document.querySelector("#date-filter"),
+      scope: document.querySelector("#scope-filter"),
+      team: document.querySelector("#team-filter"),
+      tableNote: document.querySelector("#table-note"),
+      copy: document.querySelector("#copy-brief")
+    };
+
+    function esc(value) {
+      return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[char]));
+    }
+
+    function parseKickoff(value) {
+      return new Date(String(value).replace(" ", "T") + ":00+08:00");
+    }
+
+    function dateKey(value) {
+      return String(value || "").slice(0, 10);
+    }
+
+    function timeLabel(value) {
+      const [, time] = String(value).split(" ");
+      return time || "--:--";
+    }
+
+    function flag(team) {
+      const iso = state.squads[team]?.iso;
+      if (!iso) return "";
+      return `<img class="flag" src="./assets/flags/4x3/${esc(iso)}.svg" alt="">`;
+    }
+
+    function valueAmount(team) {
+      return Number(state.squads[team]?.market_value_eur || 0);
+    }
+
+    function marketMoney(value) {
+      const n = Number(value || 0);
+      if (!n) return "待补";
+      if (n >= 1e9) return `€${(n / 1e9).toFixed(2)}B`;
+      if (n >= 100e6) return `€${(n / 100e6).toFixed(1)}亿`;
+      return `€${(n / 1e6).toFixed(1)}M`;
+    }
+
+    function percent(value) {
+      const n = Number(value);
+      if (!Number.isFinite(n)) return "--";
+      return `${Math.round(n * 100)}%`;
+    }
+
+    function fairProbs(odds) {
+      if (!odds || !odds.home || !odds.draw || !odds.away) return null;
+      const raw = { home: 1 / odds.home, draw: 1 / odds.draw, away: 1 / odds.away };
+      const total = raw.home + raw.draw + raw.away;
+      return { home: raw.home / total, draw: raw.draw / total, away: raw.away / total };
+    }
+
+    function topPick(obj) {
+      if (!obj) return { key: null, value: null };
+      return ["home", "draw", "away"].reduce((best, key) => {
+        const value = Number(obj[key]);
+        return Number.isFinite(value) && value > Number(best.value ?? -1) ? { key, value } : best;
+      }, { key: null, value: null });
+    }
+
+    function matchMarket(match) {
+      const lottery = match.lottery?.oneXTwo || null;
+      const offshore = match.offshore?.oneXTwo || null;
+      return { active: lottery || offshore, source: lottery ? "竞彩" : offshore ? "海外" : "待抓取" };
+    }
+
+    function valuePick(match) {
+      const home = valueAmount(match.home);
+      const away = valueAmount(match.away);
+      if (!home && !away) return { key: null, home, away, ratio: 0 };
+      if (home === away) return { key: "draw", home, away, ratio: 1 };
+      const bigger = Math.max(home, away);
+      const smaller = Math.max(1, Math.min(home || 1, away || 1));
+      return { key: home > away ? "home" : "away", home, away, ratio: bigger / smaller };
+    }
+
+    function enrich(match) {
+      const market = matchMarket(match);
+      const fair = fairProbs(market.active);
+      const marketPick = topPick(fair);
+      const modelPick = topPick(match.model);
+      const value = valuePick(match);
+      const gap = fair ? Math.max(...["home", "draw", "away"].map((key) => Math.abs(Number(match.model?.[key] || 0) - Number(fair[key] || 0)))) : 0;
+      return { ...match, market, fair, marketPick, modelPick, value, gap, kickoffDate: parseKickoff(match.kickoff) };
+    }
+
+    function gapLevel(match) {
+      const directionDiff = match.marketPick.key && match.modelPick.key && match.marketPick.key !== match.modelPick.key;
+      if (directionDiff || match.gap >= 0.18) return ["high", "重点看", directionDiff ? "方向不同" : `最大差 ${percent(match.gap)}`];
+      if (match.gap >= 0.10) return ["mid", "有分歧", `最大差 ${percent(match.gap)}`];
+      return ["low", "同向", `最大差 ${percent(match.gap)}`];
+    }
+
+    function sourceStatusClass(source) {
+      if (source.status === "已接入") return "ready";
+      if (source.status === "可打开" || source.status === "可浏览") return "open";
+      return "manual";
+    }
+
+    function readLine(match) {
+      const [level, label, note] = gapLevel(match);
+      const pieces = [];
+      if (match.marketPick.key && match.modelPick.key && match.marketPick.key === match.modelPick.key) {
+        pieces.push(`市场和模型同向：${PICK_TEXT[match.modelPick.key]}`);
+      } else if (match.marketPick.key && match.modelPick.key) {
+        pieces.push(`市场看${PICK_TEXT[match.marketPick.key]}，模型看${PICK_TEXT[match.modelPick.key]}`);
+      } else {
+        pieces.push("等赔率或模型补齐");
+      }
+      if (match.value.key && match.value.ratio >= 1.4) pieces.push(`身价偏${PICK_TEXT[match.value.key]} ${match.value.ratio.toFixed(1)}x`);
+      return { level, label, note, text: pieces.join("；") };
+    }
+
+    function teamLine(team) {
+      return `<span class="team-line">${flag(team)}<span>${esc(team)}</span></span>`;
+    }
+
+    function oddsHtml(match) {
+      const active = match.market.active;
+      if (!active) return `<span class="pick none">赔率待抓取</span>`;
+      return `
+        <div class="line"><span class="pick market">${match.market.source} ${PICK_TEXT[match.marketPick.key]}</span><b>${percent(match.marketPick.value)}</b></div>
+        <div class="odds-row"><span>胜 ${Number(active.home).toFixed(2)}</span><span>平 ${Number(active.draw).toFixed(2)}</span><span>负 ${Number(active.away).toFixed(2)}</span></div>
+      `;
+    }
+
+    function modelHtml(match) {
+      if (!match.modelPick.key) return `<span class="pick none">模型待算</span>`;
+      return `
+        <div class="line"><span class="pick model">模型 ${PICK_TEXT[match.modelPick.key]}</span><b>${percent(match.modelPick.value)}</b></div>
+        <div class="odds-row"><span>主 ${percent(match.model?.home)}</span><span>平 ${percent(match.model?.draw)}</span><span>客 ${percent(match.model?.away)}</span></div>
+        <div class="line muted"><span>xG</span><b>${Number(match.model?.xgHome || 0).toFixed(1)} - ${Number(match.model?.xgAway || 0).toFixed(1)}</b></div>
+      `;
+    }
+
+    function valueHtml(match) {
+      const value = match.value;
+      const label = value.key ? PICK_TEXT[value.key] : "待补";
+      const ratioText = value.ratio > 1 ? `${value.ratio.toFixed(1)}x` : "接近";
+      return `
+        <div class="line"><span class="pick value">身价 ${label}</span><b>${ratioText}</b></div>
+        <div class="odds-row"><span>${esc(match.home)} ${marketMoney(value.home)}</span><span>${esc(match.away)} ${marketMoney(value.away)}</span></div>
+      `;
+    }
+
+    function sourcesHtml() {
+      const free = state.sources.filter((source) => ["free-site", "media"].includes(source.kind)).slice(0, 4);
+      return `<div class="source-row">${free.map((source) => `<a class="link-btn" href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.name)}</a>`).join("")}</div><span class="mini">单场结果需人工核对</span>`;
+    }
+
+    function readHtml(match) {
+      const read = readLine(match);
+      return `<span class="gap-badge ${read.level}">${read.label}</span><div class="muted" style="margin-top:7px;font-size:12px;font-weight:820">${esc(read.text)}</div><div class="muted" style="margin-top:5px;font-size:12px">${esc(read.note)}</div>`;
+    }
+
+    function renderMetrics(rows) {
+      const withMarket = rows.filter((match) => match.market.active).length;
+      const aligned = rows.filter((match) => match.marketPick.key && match.marketPick.key === match.modelPick.key).length;
+      const highGap = rows.filter((match) => gapLevel(match)[0] === "high").length;
+      const sourceReady = state.sources.filter((source) => source.status === "已接入" || source.status === "可打开" || source.status === "可浏览").length;
+      const items = [
+        ["当前比赛", rows.length],
+        ["赔率覆盖", `${withMarket}/${rows.length}`],
+        ["市场模型同向", `${aligned}/${rows.length}`],
+        ["来源可用", `${sourceReady}/${state.sources.length}`]
+      ];
+      if (highGap) items[2] = ["重点分歧", highGap];
+      el.metrics.innerHTML = items.map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join("");
+    }
+
+    function renderRows(rows) {
+      if (!rows.length) {
+        el.body.innerHTML = `<tr><td colspan="7" class="empty">没有匹配比赛</td></tr>`;
+        return;
+      }
+      el.body.innerHTML = rows.map((match) => `
+        <tr>
+          <td data-label="时间"><div class="time">${dateKey(match.kickoff).slice(5)}<br>${timeLabel(match.kickoff)}</div></td>
+          <td data-label="比赛"><div class="match-name">${teamLine(match.home)}${teamLine(match.away)}<span class="round">${esc(match.round)} · ${esc(match.venue)}</span></div></td>
+          <td data-label="市场"><div class="stack">${oddsHtml(match)}</div></td>
+          <td data-label="模型"><div class="stack">${modelHtml(match)}</div></td>
+          <td data-label="身价"><div class="stack">${valueHtml(match)}</div></td>
+          <td data-label="外部源">${sourcesHtml(match)}</td>
+          <td data-label="读法">${readHtml(match)}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderBrief(rows) {
+      const top = rows.slice().sort((a, b) => {
+        const av = (gapLevel(a)[0] === "high" ? 0.35 : 0) + a.gap + Math.min(a.value.ratio || 0, 8) / 100;
+        const bv = (gapLevel(b)[0] === "high" ? 0.35 : 0) + b.gap + Math.min(b.value.ratio || 0, 8) / 100;
+        return bv - av;
+      }).slice(0, 6);
+      el.briefList.innerHTML = top.map((match, index) => {
+        const read = readLine(match);
+        return `<article class="brief-card">
+          <div class="brief-top"><span>${index + 1}. ${esc(match.home)} 对 ${esc(match.away)}</span><span class="gap-badge ${read.level}">${read.label}</span></div>
+          <small>${esc(read.text)}</small>
+          <small>时间：${esc(dateKey(match.kickoff))} ${esc(timeLabel(match.kickoff))}</small>
+        </article>`;
+      }).join("") || `<div class="empty">暂无可读比赛</div>`;
+    }
+
+    function renderSources() {
+      el.sourceList.innerHTML = state.sources.map((source) => `
+        <article class="source-card">
+          <div class="source-top"><span>${esc(source.name)}</span><span class="status ${sourceStatusClass(source)}">${esc(source.status)}</span></div>
+          <small>${esc(source.summary)}</small>
+          <div class="source-meta"><span class="mini">${esc(source.language)}</span><span class="mini">${esc(source.cadence)}</span><a class="link-btn" href="${esc(source.url)}" target="_blank" rel="noreferrer">打开</a></div>
+        </article>
+      `).join("");
+    }
+
+    function selectedRows() {
+      const selectedDate = el.date.value || "2026-06-25";
+      const text = el.team.value.trim();
+      const start = new Date(`${selectedDate}T00:00:00+08:00`);
+      const end = new Date(start.getTime() + (el.scope.value === "48h" ? 48 : 24) * 60 * 60 * 1000);
+      return state.matches.filter((match) => {
+        if (text && !`${match.home}${match.away}${match.round}${match.venue}`.includes(text)) return false;
+        if (el.scope.value === "all") return true;
+        if (el.scope.value === "gap") return gapLevel(match)[0] === "high";
+        return match.kickoffDate >= start && match.kickoffDate < end;
+      }).sort((a, b) => a.kickoffDate - b.kickoffDate);
+    }
+
+    function render() {
+      const rows = selectedRows();
+      state.visible = rows;
+      renderMetrics(rows);
+      renderRows(rows);
+      renderBrief(rows);
+      el.tableNote.textContent = `${rows.length} 场 · 按开球时间排序`;
+    }
+
+    function copyBrief() {
+      const lines = state.visible.slice(0, 12).map((match) => {
+        const read = readLine(match);
+        return `${dateKey(match.kickoff)} ${timeLabel(match.kickoff)} ${match.home} 对 ${match.away}｜${read.text}`;
+      });
+      const text = [`中文足球预测信息集合`, `日期：${el.date.value}`, ...lines, `来源入口：https://www.rezz.asia/predictions.html`].join("\n");
+      navigator.clipboard?.writeText(text).then(() => {
+        el.copy.textContent = "已复制";
+        setTimeout(() => { el.copy.textContent = "复制今日清单"; }, 1200);
+      }).catch(() => {
+        window.prompt("复制下面内容", text);
+      });
+    }
+
+    function setDefaultDate(matches) {
+      const available = Array.from(new Set(matches.map((match) => dateKey(match.kickoff)))).sort();
+      const today = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" });
+      const exact = available.find((date) => date === today);
+      const next = available.find((date) => date >= today);
+      el.date.value = exact || next || available[0] || "2026-06-25";
+    }
+
+    async function init() {
+      try {
+        const [matchesRes, squadsRes, sourcesRes] = await Promise.all([
+          fetch("./data/matches.json", { cache: "no-store" }),
+          fetch("./data/squads.json", { cache: "no-store" }),
+          fetch("./data/prediction-sources.json", { cache: "no-store" })
+        ]);
+        const matchesData = await matchesRes.json();
+        const squadsData = await squadsRes.json();
+        const sourcesData = await sourcesRes.json();
+        state.squads = squadsData.teams || {};
+        state.sources = sourcesData.sources || [];
+        state.matches = (matchesData.matches || []).map(enrich);
+        setDefaultDate(state.matches);
+        el.updatedAt.textContent = `数据 ${String(matchesData.updatedAt || "").slice(0, 10) || "已读取"}`;
+        renderSources();
+        render();
+      } catch (error) {
+        el.body.innerHTML = `<tr><td colspan="7" class="empty">数据读取失败：${esc(error.message)}</td></tr>`;
+      }
+    }
+
+    [el.date, el.scope, el.team].forEach((node) => node.addEventListener("input", render));
+    el.copy.addEventListener("click", copyBrief);
+    init();
+  </script>
+</body>
+</html>

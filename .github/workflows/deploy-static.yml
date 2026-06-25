@@ -26,13 +26,14 @@ jobs:
           set -euo pipefail
           rm -rf release
           mkdir -p release/data
-          for file in index.html app.js styles.css i18n.js pixel-hero.js README.md skill.md hit-animation-preview.html; do
+          for file in index.html predictions.html app.js styles.css i18n.js pixel-hero.js README.md skill.md hit-animation-preview.html; do
             cp -a "$file" release/
           done
           for dir in assets fonts design-exports x-promo xhs-promo; do
             if [ -d "$dir" ]; then cp -a "$dir" release/; fi
           done
           cp -a data/squads.json release/data/squads.json
+          cp -a data/prediction-sources.json release/data/prediction-sources.json
 
       - name: Start SSH agent
         uses: webfactory/ssh-agent@v0.9.0
@@ -63,7 +64,7 @@ jobs:
             ts=$(date +%Y%m%d%H%M%S)
             cd "$target"
             mkdir -p ".frontend-backups/$ts"
-            for item in index.html app.js styles.css i18n.js pixel-hero.js README.md skill.md hit-animation-preview.html assets fonts design-exports x-promo xhs-promo data/squads.json; do
+            for item in index.html predictions.html app.js styles.css i18n.js pixel-hero.js README.md skill.md hit-animation-preview.html assets fonts design-exports x-promo xhs-promo data/squads.json data/prediction-sources.json; do
               if [ -e "$item" ]; then
                 mkdir -p ".frontend-backups/$ts/$(dirname "$item")"
                 cp -a "$item" ".frontend-backups/$ts/$item"
@@ -112,4 +113,6 @@ jobs:
       - name: Verify deployed version
         run: |
           curl -fsS "https://www.rezz.asia/index.html" | grep -E 'app\.js\?v=|styles\.css\?v='
+          curl -fsS "https://www.rezz.asia/predictions.html" | grep '中文足球预测信息集合'
+          curl -fsS "https://www.rezz.asia/data/prediction-sources.json" | grep 'prediction-sources\|外部免费预测源\|sources'
           curl -fsS "https://www.rezz.asia/api/v1/arena/health"
