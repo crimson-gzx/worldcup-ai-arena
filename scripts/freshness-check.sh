@@ -1,13 +1,14 @@
 #!/bin/bash
 # 数据新鲜度监控：检查生产 matches.json 的竞彩/海外更新时间，超阈值告警。
-# 由美国服务器 cron 每小时跑。竞彩正常每 12h 更新一次，超 16h 视为中转链路异常。
+# 由美国服务器 cron 每小时跑。竞彩按小时更新，海外赔率可低频更新，二者分开告警。
 # 告警渠道：填了 SERVERCHAN_KEY 就推 Server酱（方糖）；否则只记日志。
 set -uo pipefail
 DIR=/opt/wc-odds
 MATCHES=/var/www/rezz/data/matches.json
 LOG=$DIR/freshness.log
 NODE=/usr/bin/node
-THRESHOLD_H=16
+LOTTERY_THRESHOLD_H=${LOTTERY_THRESHOLD_H:-4}
+ODDS_THRESHOLD_H=${ODDS_THRESHOLD_H:-30}
 SERVERCHAN_KEY="${SERVERCHAN_KEY:-}"   # 可选：在本文件或 odds.env 里填，填了即启用主动推送
 ts() { date '+%F %T %z'; }
 
@@ -23,11 +24,12 @@ try{
 }catch(e){ console.log("9999","9999","读取失败:"+e.message); }
 ' "$MATCHES")"
 
-WORST=$(awk -v a="$LOTT_H" -v b="$ODDS_H" "BEGIN{print (a>b)?a:b}")
-STALE=$(awk -v h="$WORST" -v t="$THRESHOLD_H" "BEGIN{print (h>t)?1:0}")
+LOTT_STALE=$(awk -v h="$LOTT_H" -v t="$LOTTERY_THRESHOLD_H" "BEGIN{print (h>t)?1:0}")
+ODDS_STALE=$(awk -v h="$ODDS_H" -v t="$ODDS_THRESHOLD_H" "BEGIN{print (h>t)?1:0}")
+STALE=$(awk -v a="$LOTT_STALE" -v b="$ODDS_STALE" "BEGIN{print (a==1 || b==1)?1:0}")
 
 if [ "$STALE" = "1" ]; then
-  MSG="世界杯站数据陈旧：竞彩 ${LOTT_H}h / 海外 ${ODDS_H}h 未更新（阈值 ${THRESHOLD_H}h）。$DETAIL。排查：VPS(wc-cn) relay.sh 日志、cron、网络。"
+  MSG="世界杯站数据陈旧：竞彩 ${LOTT_H}h（阈值 ${LOTTERY_THRESHOLD_H}h）/ 海外 ${ODDS_H}h（阈值 ${ODDS_THRESHOLD_H}h）。$DETAIL。排查：VPS(wc-cn) lottery cron、current-lottery-raw.json 同步、/opt/wc-odds refresh.log。"
   echo "[$(ts)] ⚠️ $MSG" >> "$LOG"
   if [ -n "$SERVERCHAN_KEY" ]; then
     curl -s -m 10 "https://sctapi.ftqq.com/${SERVERCHAN_KEY}.send" \

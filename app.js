@@ -11,7 +11,7 @@ const state = {
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260613-standings";
+const dataVersion = "20260629-lottery-pools";
 const SQUADS_DATA_VERSION = "20260625-full-team-values";
 const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
 const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
@@ -46,8 +46,38 @@ const selectors = {
 
 const percent = (value) => (Number.isFinite(value) ? `${(value * 100).toFixed(1)}%` : t("待接入"));
 
+const htmlEscape = (value) => String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;"
+}[char]));
+
 function hasOneXTwo(odds) {
   return ["home", "draw", "away"].every((key) => Number.isFinite(odds?.[key]));
+}
+
+function offshoreBookmakers(match) {
+  return (Array.isArray(match.offshore?.bookmakers) ? match.offshore.bookmakers : []).filter(hasOneXTwo);
+}
+
+function lotteryPools(match) {
+  const pools = match.lottery?.pools || {};
+  return ["had", "hhad", "ttg", "crs", "hafu"].map((key) => pools[key]).filter((pool) => pool && Array.isArray(pool.options) && pool.options.length);
+}
+
+function lotteryHasPrices(match) {
+  return hasOneXTwo(match.lottery?.oneXTwo) || hasHandicapOdds(match.lottery?.handicap) || lotteryPools(match).length > 0;
+}
+
+function offshoreHasPrices(match) {
+  return hasOneXTwo(match.offshore?.oneXTwo) || offshoreBookmakers(match).length > 0;
+}
+
+function oddsValue(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toFixed(2) : t("待接入");
 }
 
 function hasHandicapOdds(odds) {
@@ -63,7 +93,7 @@ function hasXg(model) {
 }
 
 function marketReady(match) {
-  return hasOneXTwo(match.offshore?.oneXTwo) && hasModelProbabilities(match.model);
+  return (lotteryHasPrices(match) || offshoreHasPrices(match)) && hasModelProbabilities(match.model);
 }
 
 function kickoffStamp(match) {
@@ -120,7 +150,8 @@ function signalText(match) {
   const score = matchScore(match);
   if (score?.completed) return t("已完赛");
   if (score?.live) return t("进行中");
-  if (hasOneXTwo(match.offshore?.oneXTwo)) return t("海外欧赔已接入");
+  if (lotteryHasPrices(match)) return t("竞彩已接入");
+  if (offshoreHasPrices(match)) return t("海外欧赔已接入");
   return match.tags.includes("knockout") ? t("赛程席位待定") : t("真实赛程");
 }
 
@@ -158,9 +189,19 @@ function labeledOdds(pairs) {
 }
 
 function oddsLine(match) {
+  const books = offshoreBookmakers(match);
+  if (books.length > 1) return `<strong>${books.length} ${t("公司")}</strong>`;
+  if (books.length === 1) return labeledOdds([[t("胜"), oddsValue(books[0].home)], [t("平"), oddsValue(books[0].draw)], [t("负"), oddsValue(books[0].away)]]);
   const o = match.offshore?.oneXTwo;
   if (!hasOneXTwo(o)) return `<strong>${t("待开盘")}</strong>`;
-  return labeledOdds([[t("胜"), o.home], [t("平"), o.draw], [t("负"), o.away]]);
+  return labeledOdds([[t("胜"), oddsValue(o.home)], [t("平"), oddsValue(o.draw)], [t("负"), oddsValue(o.away)]]);
+}
+
+function lotteryLine(match) {
+  const odds = match.lottery?.oneXTwo;
+  if (hasOneXTwo(odds)) return labeledOdds([[t("胜"), oddsValue(odds.home)], [t("平"), oddsValue(odds.draw)], [t("负"), oddsValue(odds.away)]]);
+  const pools = lotteryPools(match);
+  return `<strong>${pools.length ? `${pools.length} ${t("玩法")}` : t("待开盘")}</strong>`;
 }
 
 function sortedMatches() {
@@ -810,6 +851,10 @@ function cardHtml(match) {
       <span class="signal">${signalText(match)}</span>
       <span class="metric-stack">
         <span class="metric-row">
+          <span>${t("竞彩")}</span>
+          ${lotteryLine(match)}
+        </span>
+        <span class="metric-row">
           <span>${t("欧赔")}</span>
           ${oddsLine(match)}
         </span>
@@ -942,6 +987,19 @@ function renderMatchCards() {
   animateVoteVerdicts(selectors.matchList);
 }
 
+function offshoreProbabilityText(match, side) {
+  const values = offshoreBookmakers(match)
+    .map((book) => impliedProbabilities(book)?.fair?.[side])
+    .filter(Number.isFinite);
+  if (values.length) {
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    return Math.abs(max - min) < 0.0005 ? percent(min) : `${percent(min)}-${percent(max)}`;
+  }
+  const offshore = hasOneXTwo(match.offshore?.oneXTwo) ? impliedProbabilities(match.offshore.oneXTwo) : null;
+  return percent(offshore?.fair?.[side]);
+}
+
 function probabilityRows(match) {
   if (!marketReady(match)) {
     return `
@@ -950,11 +1008,10 @@ function probabilityRows(match) {
   }
 
   const lottery = hasOneXTwo(match.lottery?.oneXTwo) ? impliedProbabilities(match.lottery.oneXTwo) : null;
-  const offshore = impliedProbabilities(match.offshore.oneXTwo);
   const rows = [
-    [t("主胜"), lottery?.fair.home ?? null, offshore.fair.home, match.model.home],
-    [t("平局"), lottery?.fair.draw ?? null, offshore.fair.draw, match.model.draw],
-    [t("客胜"), lottery?.fair.away ?? null, offshore.fair.away, match.model.away]
+    [t("主胜"), lottery?.fair.home ?? null, offshoreProbabilityText(match, "home"), match.model.home],
+    [t("平局"), lottery?.fair.draw ?? null, offshoreProbabilityText(match, "draw"), match.model.draw],
+    [t("客胜"), lottery?.fair.away ?? null, offshoreProbabilityText(match, "away"), match.model.away]
   ];
 
   return rows
@@ -963,7 +1020,7 @@ function probabilityRows(match) {
       return `
         <div class="model-row">
           <span>${label}</span>
-          ${labeledOdds([[h[0], percent(lotteryProb)], [h[1], percent(offshoreProb)], [h[2], percent(modelProb)]])}
+          ${labeledOdds([[h[0], percent(lotteryProb)], [h[1], offshoreProb], [h[2], percent(modelProb)]])}
         </div>
       `;
     })
@@ -975,26 +1032,67 @@ function marketStatus(match) {
   if (score?.completed) return t("已完赛");
   if (score?.live) return t("进行中");
   if (marketReady(match)) return t("已接入");
-  if (hasOneXTwo(match.lottery?.oneXTwo) || hasHandicapOdds(match.lottery?.handicap) || hasOneXTwo(match.offshore?.oneXTwo)) return t("部分接入");
+  if (lotteryHasPrices(match) || offshoreHasPrices(match)) return t("部分接入");
   return t("待开盘");
 }
 
 function marketLine(market, labels) {
   if (!market) return t("待接入");
-  return labels.map((label) => market[label] ?? t("待接入")).join(" / ");
+  return labels.map((label) => oddsValue(market[label])).join(" / ");
 }
 
 function marketLineLabel(market) {
   return market?.line || t("待接入");
 }
 
-function renderLotteryBlock(match) {
-  const lo = match.lottery?.oneXTwo;
-  const hc = match.lottery?.handicap;
-  const hasMain = hasOneXTwo(lo);
-  const hasHandicap = hasHandicapOdds(hc);
+function renderBookmakerRows(match) {
+  const books = offshoreBookmakers(match);
+  if (!books.length) return "";
+  return `
+    <div class="bookmaker-table" role="table" aria-label="${t("海外分源赔率")}">
+      <div class="bookmaker-row bookmaker-head" role="row">
+        <span role="columnheader">${t("公司")}</span>
+        <strong role="columnheader">${t("主胜")}</strong>
+        <strong role="columnheader">${t("平局")}</strong>
+        <strong role="columnheader">${t("客胜")}</strong>
+      </div>
+      ${books.map((book) => `
+        <div class="bookmaker-row" role="row">
+          <span role="cell"><b>${htmlEscape(book.title || book.key || t("公司"))}</b>${book.lastUpdate ? `<em>${htmlEscape(book.lastUpdate)}</em>` : ""}</span>
+          <strong role="cell">${oddsValue(book.home)}</strong>
+          <strong role="cell">${oddsValue(book.draw)}</strong>
+          <strong role="cell">${oddsValue(book.away)}</strong>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
 
-  if (!hasMain && !hasHandicap) {
+function renderLotteryPool(pool) {
+  const options = pool.options || [];
+  const line = pool.line ? ` · ${htmlEscape(pool.line)}` : "";
+  const updated = pool.updateAt ? `${t("更新")} ${htmlEscape(pool.updateAt)}` : "";
+  const label = pool.pool === "crs" ? t("正确比分") : t(pool.label);
+  const long = options.length > 12 ? " is-long" : "";
+  return `
+    <div class="lottery-pool">
+      <div class="lottery-pool-head"><strong>${htmlEscape(label)}${line}</strong><span>${updated}</span></div>
+      <div class="lottery-grid${long}">
+        ${options.map((item) => `
+          <span class="lottery-odd">
+            <span>${htmlEscape(t(item.label))}</span>
+            <strong>${oddsValue(item.odds)}<i class="lottery-trend" title="${htmlEscape(item.trend?.label || "")}">${htmlEscape(item.trend?.symbol || "")}</i></strong>
+          </span>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderLotteryBlock(match) {
+  const pools = lotteryPools(match);
+
+  if (!pools.length) {
     return `
       <section class="detail-block">
         <h3>${t("竞彩固定奖金")}</h3>
@@ -1003,40 +1101,35 @@ function renderLotteryBlock(match) {
     `;
   }
 
-  const lottery = hasMain ? impliedProbabilities(lo) : null;
+  const lottery = hasOneXTwo(match.lottery?.oneXTwo) ? impliedProbabilities(match.lottery.oneXTwo) : null;
   return `
     <section class="detail-block">
       <h3>${t("竞彩固定奖金")}</h3>
-      ${hasMain ? `
-        <div class="odds-line"><span>${t("胜平负")}</span>${labeledOdds([[t("胜"), lo.home], [t("平"), lo.draw], [t("负"), lo.away]])}</div>
-        <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(lottery.fair.home)], [t("平"), percent(lottery.fair.draw)], [t("负"), percent(lottery.fair.away)]])}</div>
-        <div class="odds-line"><span>${t("返还率")}</span><strong>${percent(lottery.returnRate)}</strong></div>
-      ` : `<div class="odds-line"><span>${t("胜平负")}</span><strong>${t("待接入")}</strong></div>`}
-      ${hasHandicap ? `<div class="odds-line"><span>${t("让球")} ${hc.line}</span>${labeledOdds([[t("胜"), hc.home], [t("平"), hc.draw], [t("负"), hc.away]])}</div>` : ""}
+      <div class="lottery-pools">${pools.map(renderLotteryPool).join("")}</div>
+      ${lottery ? `<div class="odds-line"><span>${t("去水概率")}</span><strong>${percent(lottery.fair.home)} / ${percent(lottery.fair.draw)} / ${percent(lottery.fair.away)}</strong></div><div class="odds-line"><span>${t("返还率")}</span><strong>${percent(lottery.returnRate)}</strong></div>` : ""}
     </section>
   `;
 }
 
 function renderOffshoreBlock(match) {
-  if (!hasOneXTwo(match.offshore?.oneXTwo)) {
+  const books = offshoreBookmakers(match);
+  const hasConsensus = hasOneXTwo(match.offshore?.oneXTwo);
+  if (!books.length && !hasConsensus) {
     return `
       <section class="detail-block">
-        <h3>${t("海外市场均值")}</h3>
+        <h3>${t("海外分源赔率")}</h3>
         <p class="empty-state">${t("待赔率接口接入。后续可用接口密钥定时写入欧赔、亚盘和大小球。")}</p>
       </section>
     `;
   }
 
-  const offshore = impliedProbabilities(match.offshore.oneXTwo);
-  const o = match.offshore.oneXTwo;
-  const v = (m, k) => m?.[k] ?? t("待接入");
+  const consensus = match.offshore?.oneXTwo;
   return `
     <section class="detail-block">
-      <h3>${t("海外市场均值")}</h3>
-      <div class="odds-line"><span>${t("欧赔")}</span>${labeledOdds([[t("胜"), o.home], [t("平"), o.draw], [t("负"), o.away]])}</div>
-      <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(offshore.fair.home)], [t("平"), percent(offshore.fair.draw)], [t("负"), percent(offshore.fair.away)]])}</div>
-      <div class="odds-line"><span>${t("亚盘")} ${marketLineLabel(match.offshore.asian)}</span>${labeledOdds([[t("主"), v(match.offshore.asian, "home")], [t("客"), v(match.offshore.asian, "away")]])}</div>
-      <div class="odds-line"><span>${t("大小")} ${marketLineLabel(match.offshore.totals)}</span>${labeledOdds([[t("大"), v(match.offshore.totals, "over")], [t("小"), v(match.offshore.totals, "under")]])}</div>
+      <h3>${t("海外分源赔率")}</h3>
+      ${books.length ? renderBookmakerRows(match) : `<div class="odds-line"><span>${t("欧赔")} · ${t("兼容共识价")}</span><strong>${oddsValue(consensus.home)} / ${oddsValue(consensus.draw)} / ${oddsValue(consensus.away)}</strong></div>`}
+      <div class="odds-line"><span>${t("亚盘")} ${marketLineLabel(match.offshore.asian)}</span><strong>${marketLine(match.offshore.asian, ["home", "away"])}</strong></div>
+      <div class="odds-line"><span>${t("大小")} ${marketLineLabel(match.offshore.totals)}</span><strong>${marketLine(match.offshore.totals, ["over", "under"])}</strong></div>
     </section>
   `;
 }
@@ -1119,7 +1212,7 @@ function renderDetail() {
         <h3>${t("模型输出")}</h3>
         ${probabilityRows(match)}
         <div class="odds-line"><span>${t("凯利温度")}</span><strong>${
-          marketReady(match) ? kellyTemperature(match.model.home, match.offshore.oneXTwo.home) : t("待接入")
+          marketReady(match) ? kellyTemperature(match.model.home, hitOddsValue(match, "home")) : t("待接入")
         }</strong></div>
       </section>
     </div>
@@ -1139,20 +1232,20 @@ function renderChips() {
   });
 }
 
-function fmtFresh(iso) {
+function fmtFresh(iso, staleHours = 26) {
   const d = iso ? new Date(iso) : null;
   if (!d || isNaN(d.getTime())) return null;
   const pad = (n) => String(n).padStart(2, "0");
   return {
     label: `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`,
-    stale: (Date.now() - d.getTime()) / 3600000 > 26
+    stale: (Date.now() - d.getTime()) / 3600000 > staleHours
   };
 }
 function renderDataFreshness() {
   const el = document.getElementById("data-freshness");
   if (!el) return;
-  const odds = fmtFresh(state.updatedAt);
-  const lott = fmtFresh(state.lotteryAt);
+  const odds = fmtFresh(state.updatedAt, 30);
+  const lott = fmtFresh(state.lotteryAt, 4);
   const parts = [];
   if (odds) parts.push(`<span class="${odds.stale ? "fresh-stale" : ""}">${t("赔率更新")} ${odds.label}</span>`);
   if (lott) parts.push(`<span class="${lott.stale ? "fresh-stale" : ""}">${t("竞彩更新")} ${lott.label}</span>`);
