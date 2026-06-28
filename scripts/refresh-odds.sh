@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# 世界杯赔率刷新（由 root crontab 调用，部署在服务器 /opt/wc-odds/refresh.sh）。
-# 流程：抓 the-odds-api 分源赔率 → 可选导入 current-lottery-raw.json 竞彩快照
-#       → 写回 /var/www/rezz/data/matches.json → 重建 arena 盘口 → 重启 wc-arena。
+# 世界杯海外赔率每日刷新（由 root crontab 调用，部署在服务器 /opt/wc-odds/refresh.sh）。
+# 流程：抓 the-odds-api 多家均值 → 写回 /var/www/rezz/data/matches.json
+#       → 重建 arena 盘口（保留开幕战 openNow / 已结算场）→ 重启 wc-arena。
 # the-odds-api 失败时脚本会抛错且不写坏 matches.json；本脚本另存一份 prev 兜底回滚。
 set -uo pipefail
 DIR=/opt/wc-odds
 LOG="$DIR/refresh.log"
 MATCHES=/var/www/rezz/data/matches.json
 MARKETS=/opt/wc-arena/data/markets.json
-LOTTERY_RAW_JSON="${LOTTERY_RAW_JSON:-$DIR/current-lottery-raw.json}"
 NODE=/usr/bin/node
 ts() { date '+%F %T %z'; }
 
@@ -19,16 +18,8 @@ echo "[$(ts)] === refresh start ===" >> "$LOG"
 cp -f "$MATCHES" "$DIR/matches.prev.json"
 
 if "$NODE" "$DIR/theodds-odds.mjs" "$MATCHES" >> "$LOG" 2>&1; then
-  if [ -s "$LOTTERY_RAW_JSON" ]; then
-    if LOTTERY_RAW_JSON="$LOTTERY_RAW_JSON" "$NODE" "$DIR/lottery-odds.mjs" "$MATCHES" >> "$LOG" 2>&1; then
-      echo "[$(ts)] OK — 竞彩快照已导入 matches.json：$LOTTERY_RAW_JSON" >> "$LOG"
-    else
-      echo "[$(ts)] LOTTERY 导入失败（保留 the-odds 更新，继续重建盘口）" >> "$LOG"
-    fi
-  else
-    echo "[$(ts)] LOTTERY 跳过：未找到 $LOTTERY_RAW_JSON" >> "$LOG"
-  fi
   chown www-data:www-data "$MATCHES"
+  # 注：竞彩固定奖金由国内 VPS 抓取后直接推回 matches.json（美国 IP 被 sporttery 567 拦截）。
   if MATCHES_JSON="$MATCHES" MARKETS_OUT="$MARKETS" "$NODE" "$DIR/build-markets.mjs" >> "$LOG" 2>&1; then
     chown www-data:www-data "$MARKETS"
     systemctl restart wc-arena

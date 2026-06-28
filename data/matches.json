@@ -21,7 +21,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -49,7 +49,7 @@
         "notes": [
           "主场实力占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -67,7 +67,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "38 家历史兼容共识价",
+        "desc": "38 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -95,7 +95,7 @@
         "notes": [
           "双方接近",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -113,7 +113,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -141,7 +141,7 @@
         "notes": [
           "捷克更稳",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -159,7 +159,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -187,7 +187,7 @@
         "notes": [
           "墨西哥小优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -205,7 +205,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -233,7 +233,7 @@
         "notes": [
           "墨西哥稍强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -251,7 +251,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -279,7 +279,7 @@
         "notes": [
           "韩国速度占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -297,7 +297,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -325,7 +325,7 @@
         "notes": [
           "主场加成",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -343,7 +343,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -371,7 +371,7 @@
         "notes": [
           "瑞士实力强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -389,7 +389,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -417,7 +417,7 @@
         "notes": [
           "瑞士控制力佳",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -435,7 +435,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -463,7 +463,7 @@
         "notes": [
           "加拿大更快",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -481,7 +481,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -509,7 +509,7 @@
         "notes": [
           "瑞士经验优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -527,7 +527,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -555,7 +555,7 @@
         "notes": [
           "波黑锋线优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -573,7 +573,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -601,7 +601,7 @@
         "notes": [
           "巴西天赋强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -619,7 +619,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -647,7 +647,7 @@
         "notes": [
           "苏格兰更硬",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -665,7 +665,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -693,7 +693,7 @@
         "notes": [
           "摩洛哥小优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -711,7 +711,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "31 家历史兼容共识价",
+        "desc": "31 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -739,7 +739,7 @@
         "notes": [
           "强弱分明",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -757,7 +757,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "32 家历史兼容共识价",
+        "desc": "32 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -785,7 +785,7 @@
         "notes": [
           "巴西优势大",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -803,7 +803,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "31 家历史兼容共识价",
+        "desc": "31 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -831,7 +831,7 @@
         "notes": [
           "摩洛哥稳胜",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -849,7 +849,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -877,7 +877,7 @@
         "notes": [
           "美国主场优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -895,7 +895,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "38 家历史兼容共识价",
+        "desc": "38 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -923,7 +923,7 @@
         "notes": [
           "土耳其技术优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -941,7 +941,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -969,7 +969,7 @@
         "notes": [
           "美国冲击强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -987,7 +987,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "32 家历史兼容共识价",
+        "desc": "32 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1015,7 +1015,7 @@
         "notes": [
           "土耳其稍优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1033,7 +1033,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "29 家历史兼容共识价",
+        "desc": "29 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1061,7 +1061,7 @@
         "notes": [
           "美国阵容深",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1079,7 +1079,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1107,7 +1107,7 @@
         "notes": [
           "势均力敌",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1125,7 +1125,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1153,7 +1153,7 @@
         "notes": [
           "德国实力碾压",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1171,7 +1171,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "38 家历史兼容共识价",
+        "desc": "38 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1199,7 +1199,7 @@
         "notes": [
           "厄瓜多尔略优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1217,7 +1217,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1245,7 +1245,7 @@
         "notes": [
           "德国攻守更稳",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1263,7 +1263,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1291,7 +1291,7 @@
         "notes": [
           "厄瓜多尔占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1309,7 +1309,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "29 家历史兼容共识价",
+        "desc": "29 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1337,7 +1337,7 @@
         "notes": [
           "科特迪瓦更强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1355,7 +1355,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1383,7 +1383,7 @@
         "notes": [
           "德国优势明显",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1401,7 +1401,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "38 家历史兼容共识价",
+        "desc": "38 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1429,7 +1429,7 @@
         "notes": [
           "荷兰纸面更强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1447,7 +1447,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "38 家历史兼容共识价",
+        "desc": "38 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1475,7 +1475,7 @@
         "notes": [
           "瑞典身体占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1493,7 +1493,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1521,7 +1521,7 @@
         "notes": [
           "荷兰控制力强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1539,7 +1539,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1567,7 +1567,7 @@
         "notes": [
           "日本节奏更佳",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1585,7 +1585,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1613,7 +1613,7 @@
         "notes": [
           "日本小幅占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1631,7 +1631,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "29 家历史兼容共识价",
+        "desc": "29 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1659,7 +1659,7 @@
         "notes": [
           "荷兰优势大",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1677,7 +1677,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "38 家历史兼容共识价",
+        "desc": "38 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1705,7 +1705,7 @@
         "notes": [
           "比利时火力优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1723,7 +1723,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "35 家历史兼容共识价",
+        "desc": "35 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1751,7 +1751,7 @@
         "notes": [
           "伊朗经验占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1769,7 +1769,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1797,7 +1797,7 @@
         "notes": [
           "比利时压制",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1815,7 +1815,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "31 家历史兼容共识价",
+        "desc": "31 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1843,7 +1843,7 @@
         "notes": [
           "埃及锋线更强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1861,7 +1861,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "29 家历史兼容共识价",
+        "desc": "29 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1889,7 +1889,7 @@
         "notes": [
           "双方接近",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1907,7 +1907,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "28 家历史兼容共识价",
+        "desc": "28 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1935,7 +1935,7 @@
         "notes": [
           "比利时明显强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1953,7 +1953,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "36 家历史兼容共识价",
+        "desc": "36 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -1981,7 +1981,7 @@
         "notes": [
           "西班牙掌控局",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -1999,7 +1999,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2027,7 +2027,7 @@
         "notes": [
           "乌拉圭硬度强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2045,7 +2045,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2073,7 +2073,7 @@
         "notes": [
           "西班牙优势大",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2091,7 +2091,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2119,7 +2119,7 @@
         "notes": [
           "乌拉圭更全面",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2137,7 +2137,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2165,7 +2165,7 @@
         "notes": [
           "实力较均衡",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2183,7 +2183,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2211,7 +2211,7 @@
         "notes": [
           "西班牙略占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2229,7 +2229,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "37 家历史兼容共识价",
+        "desc": "37 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2257,7 +2257,7 @@
         "notes": [
           "法国实力占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2275,7 +2275,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "37 家历史兼容共识价",
+        "desc": "37 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2303,7 +2303,7 @@
         "notes": [
           "挪威锋线强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2321,7 +2321,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "32 家历史兼容共识价",
+        "desc": "32 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2349,7 +2349,7 @@
         "notes": [
           "法国优势明显",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2367,7 +2367,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "32 家历史兼容共识价",
+        "desc": "32 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2395,7 +2395,7 @@
         "notes": [
           "对抗较均衡",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2413,7 +2413,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "29 家历史兼容共识价",
+        "desc": "29 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2441,7 +2441,7 @@
         "notes": [
           "法国整体更稳",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2459,7 +2459,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2487,7 +2487,7 @@
         "notes": [
           "塞内加尔占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2505,7 +2505,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "39 家历史兼容共识价",
+        "desc": "39 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2533,7 +2533,7 @@
         "notes": [
           "阿根廷控制强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2551,7 +2551,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "37 家历史兼容共识价",
+        "desc": "37 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2579,7 +2579,7 @@
         "notes": [
           "奥地利更成熟",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2597,7 +2597,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2625,7 +2625,7 @@
         "notes": [
           "阿根廷稍优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2643,7 +2643,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2671,7 +2671,7 @@
         "notes": [
           "阿尔及利亚强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2689,7 +2689,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "29 家历史兼容共识价",
+        "desc": "29 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2717,7 +2717,7 @@
         "notes": [
           "奥地利略强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2735,7 +2735,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2763,7 +2763,7 @@
         "notes": [
           "阿根廷碾压",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2781,7 +2781,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "36 家历史兼容共识价",
+        "desc": "36 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2809,7 +2809,7 @@
         "notes": [
           "葡萄牙火力强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2827,7 +2827,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "36 家历史兼容共识价",
+        "desc": "36 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2855,7 +2855,7 @@
         "notes": [
           "哥伦比亚更强",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2873,7 +2873,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "33 家历史兼容共识价",
+        "desc": "33 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2901,7 +2901,7 @@
         "notes": [
           "葡萄牙优势大",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2919,7 +2919,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "34 家历史兼容共识价",
+        "desc": "34 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2947,7 +2947,7 @@
         "notes": [
           "哥伦比亚占先",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -2965,7 +2965,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -2993,7 +2993,7 @@
         "notes": [
           "葡萄牙略优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3011,7 +3011,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "31 家历史兼容共识价",
+        "desc": "31 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3039,7 +3039,7 @@
         "notes": [
           "胜负接近",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3057,7 +3057,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "36 家历史兼容共识价",
+        "desc": "36 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3085,7 +3085,7 @@
         "notes": [
           "英格兰阵容深",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3103,7 +3103,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "37 家历史兼容共识价",
+        "desc": "37 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3131,7 +3131,7 @@
         "notes": [
           "加纳身体占优",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3149,7 +3149,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "35 家历史兼容共识价",
+        "desc": "35 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3177,7 +3177,7 @@
         "notes": [
           "英格兰优势足",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3195,7 +3195,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "35 家历史兼容共识价",
+        "desc": "35 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3223,7 +3223,7 @@
         "notes": [
           "克罗地亚稳",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3241,7 +3241,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3269,7 +3269,7 @@
         "notes": [
           "英格兰压制",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3287,7 +3287,7 @@
       "lottery": null,
       "offshore": {
         "source": "the-odds-api",
-        "desc": "30 家历史兼容共识价",
+        "desc": "30 家博彩均值",
         "regions": "eu,uk,us",
         "collectedAt": "2026-06-04T15:52:52.421Z",
         "oneXTwo": {
@@ -3315,7 +3315,7 @@
         "notes": [
           "克罗地亚经验足",
           "模型胜平负概率由 gpt-5.5 独立估计（未参考市场赔率），仅供研究。",
-          "历史海外赔率来自 the-odds-api 兼容共识价（eu,uk,us，2026-06-04）；后续刷新会按 bookmaker 分源保存，竞彩只在官方开售场次导入。"
+          "海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（eu,uk,us，2026-06-04）。竞彩固定奖金与模型概率仍待接入。"
         ]
       }
     },
@@ -3324,666 +3324,13 @@
       "round": "三十二强赛",
       "kickoff": "2026-06-29 03:00",
       "venue": "洛杉矶（英格尔伍德）",
-      "home": "南非",
-      "away": "加拿大",
+      "home": "A组第2名",
+      "away": "B组第2名",
       "tags": [
         "fixture",
         "knockout"
       ],
-      "lottery": {
-        "source": "中国体育彩票·竞彩足球",
-        "collectedAt": "2026-06-28T17:02:36.018Z",
-        "matchNum": "周日073",
-        "sportteryMatchId": "2040327",
-        "matchStatus": "Selling",
-        "oneXTwo": {
-          "home": 5.8,
-          "draw": 3.45,
-          "away": 1.5
-        },
-        "handicap": {
-          "line": "+1",
-          "home": 2.25,
-          "draw": 3,
-          "away": 2.84
-        },
-        "pools": {
-          "had": {
-            "pool": "had",
-            "label": "胜平负",
-            "line": "",
-            "updateAt": "2026-06-28 21:37:37",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "主胜",
-                "odds": 5.8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "平局",
-                "odds": 3.45,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "客胜",
-                "odds": 1.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hhad": {
-            "pool": "hhad",
-            "label": "让球胜平负",
-            "line": "+1",
-            "updateAt": "2026-06-28 19:37:04",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "让胜",
-                "odds": 2.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "让平",
-                "odds": 3,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "让负",
-                "odds": 2.84,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "ttg": {
-            "pool": "ttg",
-            "label": "总进球",
-            "line": "",
-            "updateAt": "2026-06-28 19:12:57",
-            "options": [
-              {
-                "key": "s0",
-                "rawKey": "s0",
-                "label": "总0球",
-                "odds": 9.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1",
-                "rawKey": "s1",
-                "label": "总1球",
-                "odds": 4.3,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s2",
-                "rawKey": "s2",
-                "label": "总2球",
-                "odds": 2.95,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s3",
-                "rawKey": "s3",
-                "label": "总3球",
-                "odds": 3.75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s4",
-                "rawKey": "s4",
-                "label": "总4球",
-                "odds": 6.35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s5",
-                "rawKey": "s5",
-                "label": "总5球",
-                "odds": 12.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s6",
-                "rawKey": "s6",
-                "label": "总6球",
-                "odds": 24,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s7",
-                "rawKey": "s7",
-                "label": "总7+球",
-                "odds": 36,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "crs": {
-            "pool": "crs",
-            "label": "比分",
-            "line": "",
-            "updateAt": "2026-06-28 18:44:44",
-            "options": [
-              {
-                "key": "s00s00",
-                "rawKey": "s00s00",
-                "label": "0-0",
-                "odds": 9.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s01",
-                "rawKey": "s00s01",
-                "label": "0-1",
-                "odds": 5.9,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s02",
-                "rawKey": "s00s02",
-                "label": "0-2",
-                "odds": 6.4,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s03",
-                "rawKey": "s00s03",
-                "label": "0-3",
-                "odds": 13.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s04",
-                "rawKey": "s00s04",
-                "label": "0-4",
-                "odds": 34,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s05",
-                "rawKey": "s00s05",
-                "label": "0-5",
-                "odds": 90,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s00",
-                "rawKey": "s01s00",
-                "label": "1-0",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s01",
-                "rawKey": "s01s01",
-                "label": "1-1",
-                "odds": 6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s02",
-                "rawKey": "s01s02",
-                "label": "1-2",
-                "odds": 5.8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s03",
-                "rawKey": "s01s03",
-                "label": "1-3",
-                "odds": 10,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s04",
-                "rawKey": "s01s04",
-                "label": "1-4",
-                "odds": 31,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s05",
-                "rawKey": "s01s05",
-                "label": "1-5",
-                "odds": 95,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s00",
-                "rawKey": "s02s00",
-                "label": "2-0",
-                "odds": 34,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s01",
-                "rawKey": "s02s01",
-                "label": "2-1",
-                "odds": 16,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s02",
-                "rawKey": "s02s02",
-                "label": "2-2",
-                "odds": 16.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s03",
-                "rawKey": "s02s03",
-                "label": "2-3",
-                "odds": 27,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s04",
-                "rawKey": "s02s04",
-                "label": "2-4",
-                "odds": 60,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s05",
-                "rawKey": "s02s05",
-                "label": "2-5",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s00",
-                "rawKey": "s03s00",
-                "label": "3-0",
-                "odds": 90,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s01",
-                "rawKey": "s03s01",
-                "label": "3-1",
-                "odds": 70,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s02",
-                "rawKey": "s03s02",
-                "label": "3-2",
-                "odds": 75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s03",
-                "rawKey": "s03s03",
-                "label": "3-3",
-                "odds": 55,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s00",
-                "rawKey": "s04s00",
-                "label": "4-0",
-                "odds": 250,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s01",
-                "rawKey": "s04s01",
-                "label": "4-1",
-                "odds": 200,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s02",
-                "rawKey": "s04s02",
-                "label": "4-2",
-                "odds": 250,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s00",
-                "rawKey": "s05s00",
-                "label": "5-0",
-                "odds": 700,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s01",
-                "rawKey": "s05s01",
-                "label": "5-1",
-                "odds": 600,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s02",
-                "rawKey": "s05s02",
-                "label": "5-2",
-                "odds": 700,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sh",
-                "rawKey": "s1sh",
-                "label": "主胜其他",
-                "odds": 300,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sd",
-                "rawKey": "s1sd",
-                "label": "平局其他",
-                "odds": 250,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sa",
-                "rawKey": "s1sa",
-                "label": "客胜其他",
-                "odds": 75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hafu": {
-            "pool": "hafu",
-            "label": "半全场",
-            "line": "",
-            "updateAt": "2026-06-28 21:08:59",
-            "options": [
-              {
-                "key": "hh",
-                "rawKey": "hh",
-                "label": "半主/全主",
-                "odds": 11,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "hd",
-                "rawKey": "hd",
-                "label": "半主/全平",
-                "odds": 14.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ha",
-                "rawKey": "ha",
-                "label": "半主/全客",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dh",
-                "rawKey": "dh",
-                "label": "半平/全主",
-                "odds": 12.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dd",
-                "rawKey": "dd",
-                "label": "半平/全平",
-                "odds": 5.4,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "da",
-                "rawKey": "da",
-                "label": "半平/全客",
-                "odds": 3.55,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ah",
-                "rawKey": "ah",
-                "label": "半客/全主",
-                "odds": 35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ad",
-                "rawKey": "ad",
-                "label": "半客/全平",
-                "odds": 14.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "aa",
-                "rawKey": "aa",
-                "label": "半客/全客",
-                "odds": 2.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          }
-        }
-      },
+      "lottery": null,
       "offshore": null,
       "model": {
         "home": null,
@@ -3992,678 +3339,23 @@
         "xgHome": null,
         "xgAway": null,
         "notes": [
-          "开球时间按北京时间展示，方便国内用户阅读。",
-          "竞彩已接入：胜平负、让球胜平负、总进球、比分、半全场；官方固定奖金按玩法分开展示，不做赔率平均。"
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
         ]
-      },
-      "originalHome": "A组第2名",
-      "originalAway": "B组第2名"
+      }
     },
     {
       "id": "wc26-m074",
       "round": "三十二强赛",
       "kickoff": "2026-06-30 04:30",
       "venue": "波士顿（福克斯伯勒）",
-      "home": "德国",
-      "away": "巴拉圭",
+      "home": "E组第1名",
+      "away": "A/B/C/D/F组第3名",
       "tags": [
         "fixture",
         "knockout"
       ],
-      "lottery": {
-        "source": "中国体育彩票·竞彩足球",
-        "collectedAt": "2026-06-28T17:02:36.018Z",
-        "matchNum": "周一075",
-        "sportteryMatchId": "2040344",
-        "matchStatus": "Selling",
-        "oneXTwo": {
-          "home": 1.22,
-          "draw": 5.1,
-          "away": 8.8
-        },
-        "handicap": {
-          "line": "-1",
-          "home": 1.78,
-          "draw": 3.7,
-          "away": 3.36
-        },
-        "pools": {
-          "had": {
-            "pool": "had",
-            "label": "胜平负",
-            "line": "",
-            "updateAt": "2026-06-28 22:29:16",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "主胜",
-                "odds": 1.22,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "平局",
-                "odds": 5.1,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "客胜",
-                "odds": 8.8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hhad": {
-            "pool": "hhad",
-            "label": "让球胜平负",
-            "line": "-1",
-            "updateAt": "2026-06-28 22:29:26",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "让胜",
-                "odds": 1.78,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "让平",
-                "odds": 3.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "让负",
-                "odds": 3.36,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "ttg": {
-            "pool": "ttg",
-            "label": "总进球",
-            "line": "",
-            "updateAt": "2026-06-28 20:40:25",
-            "options": [
-              {
-                "key": "s0",
-                "rawKey": "s0",
-                "label": "总0球",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1",
-                "rawKey": "s1",
-                "label": "总1球",
-                "odds": 6.1,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s2",
-                "rawKey": "s2",
-                "label": "总2球",
-                "odds": 3.9,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s3",
-                "rawKey": "s3",
-                "label": "总3球",
-                "odds": 3.4,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s4",
-                "rawKey": "s4",
-                "label": "总4球",
-                "odds": 4.6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s5",
-                "rawKey": "s5",
-                "label": "总5球",
-                "odds": 8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s6",
-                "rawKey": "s6",
-                "label": "总6球",
-                "odds": 13,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s7",
-                "rawKey": "s7",
-                "label": "总7+球",
-                "odds": 19,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "crs": {
-            "pool": "crs",
-            "label": "比分",
-            "line": "",
-            "updateAt": "2026-06-28 21:18:57",
-            "options": [
-              {
-                "key": "s00s00",
-                "rawKey": "s00s00",
-                "label": "0-0",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s01",
-                "rawKey": "s00s01",
-                "label": "0-1",
-                "odds": 23,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s02",
-                "rawKey": "s00s02",
-                "label": "0-2",
-                "odds": 60,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s03",
-                "rawKey": "s00s03",
-                "label": "0-3",
-                "odds": 175,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s04",
-                "rawKey": "s00s04",
-                "label": "0-4",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s05",
-                "rawKey": "s00s05",
-                "label": "0-5",
-                "odds": 800,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s00",
-                "rawKey": "s01s00",
-                "label": "1-0",
-                "odds": 7.2,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s01",
-                "rawKey": "s01s01",
-                "label": "1-1",
-                "odds": 8.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s02",
-                "rawKey": "s01s02",
-                "label": "1-2",
-                "odds": 24,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s03",
-                "rawKey": "s01s03",
-                "label": "1-3",
-                "odds": 100,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s04",
-                "rawKey": "s01s04",
-                "label": "1-4",
-                "odds": 350,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s05",
-                "rawKey": "s01s05",
-                "label": "1-5",
-                "odds": 800,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s00",
-                "rawKey": "s02s00",
-                "label": "2-0",
-                "odds": 6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s01",
-                "rawKey": "s02s01",
-                "label": "2-1",
-                "odds": 7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s02",
-                "rawKey": "s02s02",
-                "label": "2-2",
-                "odds": 18,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s03",
-                "rawKey": "s02s03",
-                "label": "2-3",
-                "odds": 85,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s04",
-                "rawKey": "s02s04",
-                "label": "2-4",
-                "odds": 350,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s05",
-                "rawKey": "s02s05",
-                "label": "2-5",
-                "odds": 800,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s00",
-                "rawKey": "s03s00",
-                "label": "3-0",
-                "odds": 7.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s01",
-                "rawKey": "s03s01",
-                "label": "3-1",
-                "odds": 8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s02",
-                "rawKey": "s03s02",
-                "label": "3-2",
-                "odds": 24,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s03",
-                "rawKey": "s03s03",
-                "label": "3-3",
-                "odds": 80,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s00",
-                "rawKey": "s04s00",
-                "label": "4-0",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s01",
-                "rawKey": "s04s01",
-                "label": "4-1",
-                "odds": 16,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s02",
-                "rawKey": "s04s02",
-                "label": "4-2",
-                "odds": 45,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s00",
-                "rawKey": "s05s00",
-                "label": "5-0",
-                "odds": 30,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s01",
-                "rawKey": "s05s01",
-                "label": "5-1",
-                "odds": 40,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s02",
-                "rawKey": "s05s02",
-                "label": "5-2",
-                "odds": 90,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sh",
-                "rawKey": "s1sh",
-                "label": "主胜其他",
-                "odds": 23,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sd",
-                "rawKey": "s1sd",
-                "label": "平局其他",
-                "odds": 400,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sa",
-                "rawKey": "s1sa",
-                "label": "客胜其他",
-                "odds": 350,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hafu": {
-            "pool": "hafu",
-            "label": "半全场",
-            "line": "",
-            "updateAt": "2026-06-28 22:29:49",
-            "options": [
-              {
-                "key": "hh",
-                "rawKey": "hh",
-                "label": "半主/全主",
-                "odds": 1.65,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "hd",
-                "rawKey": "hd",
-                "label": "半主/全平",
-                "odds": 21,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ha",
-                "rawKey": "ha",
-                "label": "半主/全客",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dh",
-                "rawKey": "dh",
-                "label": "半平/全主",
-                "odds": 3.9,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dd",
-                "rawKey": "dd",
-                "label": "半平/全平",
-                "odds": 8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "da",
-                "rawKey": "da",
-                "label": "半平/全客",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ah",
-                "rawKey": "ah",
-                "label": "半客/全主",
-                "odds": 22,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ad",
-                "rawKey": "ad",
-                "label": "半客/全平",
-                "odds": 21,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "aa",
-                "rawKey": "aa",
-                "label": "半客/全客",
-                "odds": 18,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          }
-        }
-      },
+      "lottery": null,
       "offshore": null,
       "model": {
         "home": null,
@@ -4672,678 +3364,23 @@
         "xgHome": null,
         "xgAway": null,
         "notes": [
-          "开球时间按北京时间展示，方便国内用户阅读。",
-          "竞彩已接入：胜平负、让球胜平负、总进球、比分、半全场；官方固定奖金按玩法分开展示，不做赔率平均。"
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
         ]
-      },
-      "originalHome": "E组第1名",
-      "originalAway": "A/B/C/D/F组第3名"
+      }
     },
     {
       "id": "wc26-m075",
       "round": "三十二强赛",
       "kickoff": "2026-06-30 09:00",
       "venue": "蒙特雷（瓜达卢佩）",
-      "home": "荷兰",
-      "away": "摩洛哥",
+      "home": "F组第1名",
+      "away": "C组第2名",
       "tags": [
         "fixture",
         "knockout"
       ],
-      "lottery": {
-        "source": "中国体育彩票·竞彩足球",
-        "collectedAt": "2026-06-28T17:02:36.018Z",
-        "matchNum": "周一076",
-        "sportteryMatchId": "2040338",
-        "matchStatus": "Selling",
-        "oneXTwo": {
-          "home": 1.89,
-          "draw": 3.07,
-          "away": 3.64
-        },
-        "handicap": {
-          "line": "-1",
-          "home": 3.83,
-          "draw": 3.48,
-          "away": 1.72
-        },
-        "pools": {
-          "had": {
-            "pool": "had",
-            "label": "胜平负",
-            "line": "",
-            "updateAt": "2026-06-28 22:17:36",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "主胜",
-                "odds": 1.89,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "平局",
-                "odds": 3.07,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "客胜",
-                "odds": 3.64,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hhad": {
-            "pool": "hhad",
-            "label": "让球胜平负",
-            "line": "-1",
-            "updateAt": "2026-06-28 22:17:46",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "让胜",
-                "odds": 3.83,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "让平",
-                "odds": 3.48,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "让负",
-                "odds": 1.72,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "ttg": {
-            "pool": "ttg",
-            "label": "总进球",
-            "line": "",
-            "updateAt": "2026-06-28 20:43:35",
-            "options": [
-              {
-                "key": "s0",
-                "rawKey": "s0",
-                "label": "总0球",
-                "odds": 8.75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1",
-                "rawKey": "s1",
-                "label": "总1球",
-                "odds": 4.6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s2",
-                "rawKey": "s2",
-                "label": "总2球",
-                "odds": 3.2,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s3",
-                "rawKey": "s3",
-                "label": "总3球",
-                "odds": 3.6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s4",
-                "rawKey": "s4",
-                "label": "总4球",
-                "odds": 5.8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s5",
-                "rawKey": "s5",
-                "label": "总5球",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s6",
-                "rawKey": "s6",
-                "label": "总6球",
-                "odds": 22,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s7",
-                "rawKey": "s7",
-                "label": "总7+球",
-                "odds": 33,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "crs": {
-            "pool": "crs",
-            "label": "比分",
-            "line": "",
-            "updateAt": "2026-06-28 20:46:00",
-            "options": [
-              {
-                "key": "s00s00",
-                "rawKey": "s00s00",
-                "label": "0-0",
-                "odds": 8.75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s01",
-                "rawKey": "s00s01",
-                "label": "0-1",
-                "odds": 10.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s02",
-                "rawKey": "s00s02",
-                "label": "0-2",
-                "odds": 22,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s03",
-                "rawKey": "s00s03",
-                "label": "0-3",
-                "odds": 55,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s04",
-                "rawKey": "s00s04",
-                "label": "0-4",
-                "odds": 200,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s05",
-                "rawKey": "s00s05",
-                "label": "0-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s00",
-                "rawKey": "s01s00",
-                "label": "1-0",
-                "odds": 6.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s01",
-                "rawKey": "s01s01",
-                "label": "1-1",
-                "odds": 5.75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s02",
-                "rawKey": "s01s02",
-                "label": "1-2",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s03",
-                "rawKey": "s01s03",
-                "label": "1-3",
-                "odds": 36,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s04",
-                "rawKey": "s01s04",
-                "label": "1-4",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s05",
-                "rawKey": "s01s05",
-                "label": "1-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s00",
-                "rawKey": "s02s00",
-                "label": "2-0",
-                "odds": 8.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s01",
-                "rawKey": "s02s01",
-                "label": "2-1",
-                "odds": 6.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s02",
-                "rawKey": "s02s02",
-                "label": "2-2",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s03",
-                "rawKey": "s02s03",
-                "label": "2-3",
-                "odds": 45,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s04",
-                "rawKey": "s02s04",
-                "label": "2-4",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s05",
-                "rawKey": "s02s05",
-                "label": "2-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s00",
-                "rawKey": "s03s00",
-                "label": "3-0",
-                "odds": 17,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s01",
-                "rawKey": "s03s01",
-                "label": "3-1",
-                "odds": 13,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s02",
-                "rawKey": "s03s02",
-                "label": "3-2",
-                "odds": 24,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s03",
-                "rawKey": "s03s03",
-                "label": "3-3",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s00",
-                "rawKey": "s04s00",
-                "label": "4-0",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s01",
-                "rawKey": "s04s01",
-                "label": "4-1",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s02",
-                "rawKey": "s04s02",
-                "label": "4-2",
-                "odds": 80,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s00",
-                "rawKey": "s05s00",
-                "label": "5-0",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s01",
-                "rawKey": "s05s01",
-                "label": "5-1",
-                "odds": 125,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s02",
-                "rawKey": "s05s02",
-                "label": "5-2",
-                "odds": 175,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sh",
-                "rawKey": "s1sh",
-                "label": "主胜其他",
-                "odds": 80,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sd",
-                "rawKey": "s1sd",
-                "label": "平局其他",
-                "odds": 300,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sa",
-                "rawKey": "s1sa",
-                "label": "客胜其他",
-                "odds": 250,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hafu": {
-            "pool": "hafu",
-            "label": "半全场",
-            "line": "",
-            "updateAt": "2026-06-28 20:43:28",
-            "options": [
-              {
-                "key": "hh",
-                "rawKey": "hh",
-                "label": "半主/全主",
-                "odds": 3.1,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "hd",
-                "rawKey": "hd",
-                "label": "半主/全平",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ha",
-                "rawKey": "ha",
-                "label": "半主/全客",
-                "odds": 27,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dh",
-                "rawKey": "dh",
-                "label": "半平/全主",
-                "odds": 4.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dd",
-                "rawKey": "dd",
-                "label": "半平/全平",
-                "odds": 5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "da",
-                "rawKey": "da",
-                "label": "半平/全客",
-                "odds": 7.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ah",
-                "rawKey": "ah",
-                "label": "半客/全主",
-                "odds": 21,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ad",
-                "rawKey": "ad",
-                "label": "半客/全平",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "aa",
-                "rawKey": "aa",
-                "label": "半客/全客",
-                "odds": 6.3,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          }
-        }
-      },
+      "lottery": null,
       "offshore": null,
       "model": {
         "home": null,
@@ -5352,678 +3389,23 @@
         "xgHome": null,
         "xgAway": null,
         "notes": [
-          "开球时间按北京时间展示，方便国内用户阅读。",
-          "竞彩已接入：胜平负、让球胜平负、总进球、比分、半全场；官方固定奖金按玩法分开展示，不做赔率平均。"
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
         ]
-      },
-      "originalHome": "F组第1名",
-      "originalAway": "C组第2名"
+      }
     },
     {
       "id": "wc26-m076",
       "round": "三十二强赛",
       "kickoff": "2026-06-30 01:00",
       "venue": "休斯敦",
-      "home": "巴西",
-      "away": "日本",
+      "home": "C组第1名",
+      "away": "F组第2名",
       "tags": [
         "fixture",
         "knockout"
       ],
-      "lottery": {
-        "source": "中国体育彩票·竞彩足球",
-        "collectedAt": "2026-06-28T17:02:36.018Z",
-        "matchNum": "周一074",
-        "sportteryMatchId": "2040337",
-        "matchStatus": "Selling",
-        "oneXTwo": {
-          "home": 1.5,
-          "draw": 3.67,
-          "away": 5.25
-        },
-        "handicap": {
-          "line": "-1",
-          "home": 2.73,
-          "draw": 3.2,
-          "away": 2.22
-        },
-        "pools": {
-          "had": {
-            "pool": "had",
-            "label": "胜平负",
-            "line": "",
-            "updateAt": "2026-06-28 21:02:13",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "主胜",
-                "odds": 1.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "平局",
-                "odds": 3.67,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "客胜",
-                "odds": 5.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hhad": {
-            "pool": "hhad",
-            "label": "让球胜平负",
-            "line": "-1",
-            "updateAt": "2026-06-28 21:02:19",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "让胜",
-                "odds": 2.73,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "让平",
-                "odds": 3.2,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "让负",
-                "odds": 2.22,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "ttg": {
-            "pool": "ttg",
-            "label": "总进球",
-            "line": "",
-            "updateAt": "2026-06-28 20:08:36",
-            "options": [
-              {
-                "key": "s0",
-                "rawKey": "s0",
-                "label": "总0球",
-                "odds": 11,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1",
-                "rawKey": "s1",
-                "label": "总1球",
-                "odds": 5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s2",
-                "rawKey": "s2",
-                "label": "总2球",
-                "odds": 3.4,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s3",
-                "rawKey": "s3",
-                "label": "总3球",
-                "odds": 3.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s4",
-                "rawKey": "s4",
-                "label": "总4球",
-                "odds": 5.3,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s5",
-                "rawKey": "s5",
-                "label": "总5球",
-                "odds": 10,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s6",
-                "rawKey": "s6",
-                "label": "总6球",
-                "odds": 18,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s7",
-                "rawKey": "s7",
-                "label": "总7+球",
-                "odds": 26,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "crs": {
-            "pool": "crs",
-            "label": "比分",
-            "line": "",
-            "updateAt": "2026-06-28 21:19:05",
-            "options": [
-              {
-                "key": "s00s00",
-                "rawKey": "s00s00",
-                "label": "0-0",
-                "odds": 11,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s01",
-                "rawKey": "s00s01",
-                "label": "0-1",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s02",
-                "rawKey": "s00s02",
-                "label": "0-2",
-                "odds": 32,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s03",
-                "rawKey": "s00s03",
-                "label": "0-3",
-                "odds": 90,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s04",
-                "rawKey": "s00s04",
-                "label": "0-4",
-                "odds": 350,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s05",
-                "rawKey": "s00s05",
-                "label": "0-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s00",
-                "rawKey": "s01s00",
-                "label": "1-0",
-                "odds": 7.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s01",
-                "rawKey": "s01s01",
-                "label": "1-1",
-                "odds": 7.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s02",
-                "rawKey": "s01s02",
-                "label": "1-2",
-                "odds": 16,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s03",
-                "rawKey": "s01s03",
-                "label": "1-3",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s04",
-                "rawKey": "s01s04",
-                "label": "1-4",
-                "odds": 200,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s05",
-                "rawKey": "s01s05",
-                "label": "1-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s00",
-                "rawKey": "s02s00",
-                "label": "2-0",
-                "odds": 7.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s01",
-                "rawKey": "s02s01",
-                "label": "2-1",
-                "odds": 5.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s02",
-                "rawKey": "s02s02",
-                "label": "2-2",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s03",
-                "rawKey": "s02s03",
-                "label": "2-3",
-                "odds": 46,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s04",
-                "rawKey": "s02s04",
-                "label": "2-4",
-                "odds": 200,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s05",
-                "rawKey": "s02s05",
-                "label": "2-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s00",
-                "rawKey": "s03s00",
-                "label": "3-0",
-                "odds": 13,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s01",
-                "rawKey": "s03s01",
-                "label": "3-1",
-                "odds": 9,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s02",
-                "rawKey": "s03s02",
-                "label": "3-2",
-                "odds": 17,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s03",
-                "rawKey": "s03s03",
-                "label": "3-3",
-                "odds": 45,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s00",
-                "rawKey": "s04s00",
-                "label": "4-0",
-                "odds": 31,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s01",
-                "rawKey": "s04s01",
-                "label": "4-1",
-                "odds": 30,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s02",
-                "rawKey": "s04s02",
-                "label": "4-2",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s00",
-                "rawKey": "s05s00",
-                "label": "5-0",
-                "odds": 90,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s01",
-                "rawKey": "s05s01",
-                "label": "5-1",
-                "odds": 90,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s02",
-                "rawKey": "s05s02",
-                "label": "5-2",
-                "odds": 125,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sh",
-                "rawKey": "s1sh",
-                "label": "主胜其他",
-                "odds": 55,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sd",
-                "rawKey": "s1sd",
-                "label": "平局其他",
-                "odds": 250,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sa",
-                "rawKey": "s1sa",
-                "label": "客胜其他",
-                "odds": 200,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hafu": {
-            "pool": "hafu",
-            "label": "半全场",
-            "line": "",
-            "updateAt": "2026-06-28 21:46:36",
-            "options": [
-              {
-                "key": "hh",
-                "rawKey": "hh",
-                "label": "半主/全主",
-                "odds": 2.47,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "hd",
-                "rawKey": "hd",
-                "label": "半主/全平",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ha",
-                "rawKey": "ha",
-                "label": "半主/全客",
-                "odds": 32,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dh",
-                "rawKey": "dh",
-                "label": "半平/全主",
-                "odds": 4.1,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dd",
-                "rawKey": "dd",
-                "label": "半平/全平",
-                "odds": 5.6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "da",
-                "rawKey": "da",
-                "label": "半平/全客",
-                "odds": 10.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ah",
-                "rawKey": "ah",
-                "label": "半客/全主",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ad",
-                "rawKey": "ad",
-                "label": "半客/全平",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "aa",
-                "rawKey": "aa",
-                "label": "半客/全客",
-                "odds": 8.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          }
-        }
-      },
+      "lottery": null,
       "offshore": null,
       "model": {
         "home": null,
@@ -6032,678 +3414,23 @@
         "xgHome": null,
         "xgAway": null,
         "notes": [
-          "开球时间按北京时间展示，方便国内用户阅读。",
-          "竞彩已接入：胜平负、让球胜平负、总进球、比分、半全场；官方固定奖金按玩法分开展示，不做赔率平均。"
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
         ]
-      },
-      "originalHome": "C组第1名",
-      "originalAway": "F组第2名"
+      }
     },
     {
       "id": "wc26-m077",
       "round": "三十二强赛",
       "kickoff": "2026-07-01 05:00",
       "venue": "纽约/新泽西（东拉瑟福德）",
-      "home": "法国",
-      "away": "瑞典",
+      "home": "I组第1名",
+      "away": "C/D/F/G/H组第3名",
       "tags": [
         "fixture",
         "knockout"
       ],
-      "lottery": {
-        "source": "中国体育彩票·竞彩足球",
-        "collectedAt": "2026-06-28T17:02:36.018Z",
-        "matchNum": "周二078",
-        "sportteryMatchId": "2040346",
-        "matchStatus": "Selling",
-        "oneXTwo": {
-          "home": 1.18,
-          "draw": 5.5,
-          "away": 10
-        },
-        "handicap": {
-          "line": "-1",
-          "home": 1.67,
-          "draw": 3.85,
-          "away": 3.7
-        },
-        "pools": {
-          "had": {
-            "pool": "had",
-            "label": "胜平负",
-            "line": "",
-            "updateAt": "2026-06-28 20:16:29",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "主胜",
-                "odds": 1.18,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "平局",
-                "odds": 5.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "客胜",
-                "odds": 10,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hhad": {
-            "pool": "hhad",
-            "label": "让球胜平负",
-            "line": "-1",
-            "updateAt": "2026-06-28 20:16:23",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "让胜",
-                "odds": 1.67,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "让平",
-                "odds": 3.85,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "让负",
-                "odds": 3.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "ttg": {
-            "pool": "ttg",
-            "label": "总进球",
-            "line": "",
-            "updateAt": "2026-06-28 09:40:38",
-            "options": [
-              {
-                "key": "s0",
-                "rawKey": "s0",
-                "label": "总0球",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1",
-                "rawKey": "s1",
-                "label": "总1球",
-                "odds": 6.85,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s2",
-                "rawKey": "s2",
-                "label": "总2球",
-                "odds": 4.2,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s3",
-                "rawKey": "s3",
-                "label": "总3球",
-                "odds": 3.45,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s4",
-                "rawKey": "s4",
-                "label": "总4球",
-                "odds": 4.35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s5",
-                "rawKey": "s5",
-                "label": "总5球",
-                "odds": 7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s6",
-                "rawKey": "s6",
-                "label": "总6球",
-                "odds": 11,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s7",
-                "rawKey": "s7",
-                "label": "总7+球",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "crs": {
-            "pool": "crs",
-            "label": "比分",
-            "line": "",
-            "updateAt": "2026-06-28 16:01:12",
-            "options": [
-              {
-                "key": "s00s00",
-                "rawKey": "s00s00",
-                "label": "0-0",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s01",
-                "rawKey": "s00s01",
-                "label": "0-1",
-                "odds": 24,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s02",
-                "rawKey": "s00s02",
-                "label": "0-2",
-                "odds": 55,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s03",
-                "rawKey": "s00s03",
-                "label": "0-3",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s04",
-                "rawKey": "s00s04",
-                "label": "0-4",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s05",
-                "rawKey": "s00s05",
-                "label": "0-5",
-                "odds": 800,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s00",
-                "rawKey": "s01s00",
-                "label": "1-0",
-                "odds": 8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s01",
-                "rawKey": "s01s01",
-                "label": "1-1",
-                "odds": 9,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s02",
-                "rawKey": "s01s02",
-                "label": "1-2",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s03",
-                "rawKey": "s01s03",
-                "label": "1-3",
-                "odds": 70,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s04",
-                "rawKey": "s01s04",
-                "label": "1-4",
-                "odds": 300,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s05",
-                "rawKey": "s01s05",
-                "label": "1-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s00",
-                "rawKey": "s02s00",
-                "label": "2-0",
-                "odds": 7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s01",
-                "rawKey": "s02s01",
-                "label": "2-1",
-                "odds": 7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s02",
-                "rawKey": "s02s02",
-                "label": "2-2",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s03",
-                "rawKey": "s02s03",
-                "label": "2-3",
-                "odds": 55,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s04",
-                "rawKey": "s02s04",
-                "label": "2-4",
-                "odds": 300,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s05",
-                "rawKey": "s02s05",
-                "label": "2-5",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s00",
-                "rawKey": "s03s00",
-                "label": "3-0",
-                "odds": 8.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s01",
-                "rawKey": "s03s01",
-                "label": "3-1",
-                "odds": 8.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s02",
-                "rawKey": "s03s02",
-                "label": "3-2",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s03",
-                "rawKey": "s03s03",
-                "label": "3-3",
-                "odds": 60,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s00",
-                "rawKey": "s04s00",
-                "label": "4-0",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s01",
-                "rawKey": "s04s01",
-                "label": "4-1",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s02",
-                "rawKey": "s04s02",
-                "label": "4-2",
-                "odds": 35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s00",
-                "rawKey": "s05s00",
-                "label": "5-0",
-                "odds": 30,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s01",
-                "rawKey": "s05s01",
-                "label": "5-1",
-                "odds": 35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s02",
-                "rawKey": "s05s02",
-                "label": "5-2",
-                "odds": 70,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sh",
-                "rawKey": "s1sh",
-                "label": "主胜其他",
-                "odds": 18,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sd",
-                "rawKey": "s1sd",
-                "label": "平局其他",
-                "odds": 400,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sa",
-                "rawKey": "s1sa",
-                "label": "客胜其他",
-                "odds": 200,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hafu": {
-            "pool": "hafu",
-            "label": "半全场",
-            "line": "",
-            "updateAt": "2026-06-28 13:44:18",
-            "options": [
-              {
-                "key": "hh",
-                "rawKey": "hh",
-                "label": "半主/全主",
-                "odds": 1.65,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "hd",
-                "rawKey": "hd",
-                "label": "半主/全平",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ha",
-                "rawKey": "ha",
-                "label": "半主/全客",
-                "odds": 45,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dh",
-                "rawKey": "dh",
-                "label": "半平/全主",
-                "odds": 4,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dd",
-                "rawKey": "dd",
-                "label": "半平/全平",
-                "odds": 8.8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "da",
-                "rawKey": "da",
-                "label": "半平/全客",
-                "odds": 19,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ah",
-                "rawKey": "ah",
-                "label": "半客/全主",
-                "odds": 23,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ad",
-                "rawKey": "ad",
-                "label": "半客/全平",
-                "odds": 20,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "aa",
-                "rawKey": "aa",
-                "label": "半客/全客",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          }
-        }
-      },
+      "lottery": null,
       "offshore": null,
       "model": {
         "home": null,
@@ -6712,678 +3439,23 @@
         "xgHome": null,
         "xgAway": null,
         "notes": [
-          "开球时间按北京时间展示，方便国内用户阅读。",
-          "竞彩已接入：胜平负、让球胜平负、总进球、比分、半全场；官方固定奖金按玩法分开展示，不做赔率平均。"
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
         ]
-      },
-      "originalHome": "I组第1名",
-      "originalAway": "C/D/F/G/H组第3名"
+      }
     },
     {
       "id": "wc26-m078",
       "round": "三十二强赛",
       "kickoff": "2026-07-01 01:00",
       "venue": "达拉斯（阿灵顿）",
-      "home": "科特迪瓦",
-      "away": "挪威",
+      "home": "E组第2名",
+      "away": "I组第2名",
       "tags": [
         "fixture",
         "knockout"
       ],
-      "lottery": {
-        "source": "中国体育彩票·竞彩足球",
-        "collectedAt": "2026-06-28T17:02:36.018Z",
-        "matchNum": "周二077",
-        "sportteryMatchId": "2040345",
-        "matchStatus": "Selling",
-        "oneXTwo": {
-          "home": 3.7,
-          "draw": 3.33,
-          "away": 1.79
-        },
-        "handicap": {
-          "line": "+1",
-          "home": 1.79,
-          "draw": 3.7,
-          "away": 3.33
-        },
-        "pools": {
-          "had": {
-            "pool": "had",
-            "label": "胜平负",
-            "line": "",
-            "updateAt": "2026-06-28 19:57:07",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "主胜",
-                "odds": 3.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "平局",
-                "odds": 3.33,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "客胜",
-                "odds": 1.79,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hhad": {
-            "pool": "hhad",
-            "label": "让球胜平负",
-            "line": "+1",
-            "updateAt": "2026-06-28 19:57:15",
-            "options": [
-              {
-                "key": "home",
-                "rawKey": "h",
-                "label": "让胜",
-                "odds": 1.79,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "draw",
-                "rawKey": "d",
-                "label": "让平",
-                "odds": 3.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "away",
-                "rawKey": "a",
-                "label": "让负",
-                "odds": 3.33,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "ttg": {
-            "pool": "ttg",
-            "label": "总进球",
-            "line": "",
-            "updateAt": "2026-06-28 09:40:38",
-            "options": [
-              {
-                "key": "s0",
-                "rawKey": "s0",
-                "label": "总0球",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1",
-                "rawKey": "s1",
-                "label": "总1球",
-                "odds": 5.1,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s2",
-                "rawKey": "s2",
-                "label": "总2球",
-                "odds": 3.35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s3",
-                "rawKey": "s3",
-                "label": "总3球",
-                "odds": 3.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s4",
-                "rawKey": "s4",
-                "label": "总4球",
-                "odds": 5.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s5",
-                "rawKey": "s5",
-                "label": "总5球",
-                "odds": 10,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s6",
-                "rawKey": "s6",
-                "label": "总6球",
-                "odds": 17,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s7",
-                "rawKey": "s7",
-                "label": "总7+球",
-                "odds": 24,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "crs": {
-            "pool": "crs",
-            "label": "比分",
-            "line": "",
-            "updateAt": "2026-06-28 09:40:38",
-            "options": [
-              {
-                "key": "s00s00",
-                "rawKey": "s00s00",
-                "label": "0-0",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s01",
-                "rawKey": "s00s01",
-                "label": "0-1",
-                "odds": 7.25,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s02",
-                "rawKey": "s00s02",
-                "label": "0-2",
-                "odds": 8.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s03",
-                "rawKey": "s00s03",
-                "label": "0-3",
-                "odds": 15,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s04",
-                "rawKey": "s00s04",
-                "label": "0-4",
-                "odds": 35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s00s05",
-                "rawKey": "s00s05",
-                "label": "0-5",
-                "odds": 100,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s00",
-                "rawKey": "s01s00",
-                "label": "1-0",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s01",
-                "rawKey": "s01s01",
-                "label": "1-1",
-                "odds": 6.2,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s02",
-                "rawKey": "s01s02",
-                "label": "1-2",
-                "odds": 6.75,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s03",
-                "rawKey": "s01s03",
-                "label": "1-3",
-                "odds": 13,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s04",
-                "rawKey": "s01s04",
-                "label": "1-4",
-                "odds": 35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s01s05",
-                "rawKey": "s01s05",
-                "label": "1-5",
-                "odds": 100,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s00",
-                "rawKey": "s02s00",
-                "label": "2-0",
-                "odds": 19,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s01",
-                "rawKey": "s02s01",
-                "label": "2-1",
-                "odds": 10.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s02",
-                "rawKey": "s02s02",
-                "label": "2-2",
-                "odds": 12,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s03",
-                "rawKey": "s02s03",
-                "label": "2-3",
-                "odds": 23,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s04",
-                "rawKey": "s02s04",
-                "label": "2-4",
-                "odds": 60,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s02s05",
-                "rawKey": "s02s05",
-                "label": "2-5",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s00",
-                "rawKey": "s03s00",
-                "label": "3-0",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s01",
-                "rawKey": "s03s01",
-                "label": "3-1",
-                "odds": 30,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s02",
-                "rawKey": "s03s02",
-                "label": "3-2",
-                "odds": 35,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s03s03",
-                "rawKey": "s03s03",
-                "label": "3-3",
-                "odds": 50,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s00",
-                "rawKey": "s04s00",
-                "label": "4-0",
-                "odds": 175,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s01",
-                "rawKey": "s04s01",
-                "label": "4-1",
-                "odds": 100,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s04s02",
-                "rawKey": "s04s02",
-                "label": "4-2",
-                "odds": 125,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s00",
-                "rawKey": "s05s00",
-                "label": "5-0",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s01",
-                "rawKey": "s05s01",
-                "label": "5-1",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s05s02",
-                "rawKey": "s05s02",
-                "label": "5-2",
-                "odds": 500,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sh",
-                "rawKey": "s1sh",
-                "label": "主胜其他",
-                "odds": 150,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sd",
-                "rawKey": "s1sd",
-                "label": "平局其他",
-                "odds": 300,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "s1sa",
-                "rawKey": "s1sa",
-                "label": "客胜其他",
-                "odds": 60,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          },
-          "hafu": {
-            "pool": "hafu",
-            "label": "半全场",
-            "line": "",
-            "updateAt": "2026-06-28 09:40:38",
-            "options": [
-              {
-                "key": "hh",
-                "rawKey": "hh",
-                "label": "半主/全主",
-                "odds": 6,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "hd",
-                "rawKey": "hd",
-                "label": "半主/全平",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ha",
-                "rawKey": "ha",
-                "label": "半主/全客",
-                "odds": 23,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dh",
-                "rawKey": "dh",
-                "label": "半平/全主",
-                "odds": 7.5,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "dd",
-                "rawKey": "dd",
-                "label": "半平/全平",
-                "odds": 5.7,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "da",
-                "rawKey": "da",
-                "label": "半平/全客",
-                "odds": 4.8,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ah",
-                "rawKey": "ah",
-                "label": "半客/全主",
-                "odds": 30,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "ad",
-                "rawKey": "ad",
-                "label": "半客/全平",
-                "odds": 14,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              },
-              {
-                "key": "aa",
-                "rawKey": "aa",
-                "label": "半客/全客",
-                "odds": 2.85,
-                "trend": {
-                  "code": "0",
-                  "label": "平",
-                  "symbol": "·"
-                }
-              }
-            ]
-          }
-        }
-      },
+      "lottery": null,
       "offshore": null,
       "model": {
         "home": null,
@@ -7392,12 +3464,10 @@
         "xgHome": null,
         "xgAway": null,
         "notes": [
-          "开球时间按北京时间展示，方便国内用户阅读。",
-          "竞彩已接入：胜平负、让球胜平负、总进球、比分、半全场；官方固定奖金按玩法分开展示，不做赔率平均。"
+          "真实赛程已导入；赔率、竞彩固定奖金和模型概率等待数据源接入。",
+          "开球时间按北京时间展示，方便国内用户阅读。"
         ]
-      },
-      "originalHome": "E组第2名",
-      "originalAway": "I组第2名"
+      }
     },
     {
       "id": "wc26-m079",
@@ -8054,31 +4124,8 @@
     "name": "the-odds-api",
     "market": "h2h+spreads+totals",
     "regions": "eu,uk,us",
-    "aggregation": "legacy compatibility consensus; future h2h fetch stores bookmaker rows; spreads/totals use consensus line",
+    "aggregation": "mean across books, consensus line",
     "collectedAt": "2026-06-04T15:52:52.421Z",
     "matched": 72
-  },
-  "lotterySource": {
-    "name": "中国体育彩票·竞彩足球",
-    "league": "世界杯(WCC)",
-    "market": "胜平负(had)+让球胜平负(hhad)+总进球(ttg)+比分(crs)+半全场(hafu)",
-    "collectedAt": "2026-06-28T17:02:36.018Z",
-    "matched": 6,
-    "oneXTwo": 6,
-    "poolRows": 30,
-    "poolCounts": {
-      "had": 6,
-      "hhad": 6,
-      "ttg": 6,
-      "crs": 6,
-      "hafu": 6
-    },
-    "errors": {
-      "had": null,
-      "hhad": null,
-      "ttg": null,
-      "crs": null,
-      "hafu": null
-    }
   }
 }

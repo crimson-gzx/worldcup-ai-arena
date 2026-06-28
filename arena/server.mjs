@@ -255,11 +255,7 @@ async function route(req, res, path) {
         home: m.home,
         away: m.away,
         state: m.state,
-        source: m.source || null,
         oneXTwo: m.oneXTwo,
-        lottery: m.lottery || null,
-        offshore: m.offshore || null,
-        bookmakers: Array.isArray(m.bookmakers) ? m.bookmakers : [],
         cutoffAt: m.cutoffAt
       }))
     });

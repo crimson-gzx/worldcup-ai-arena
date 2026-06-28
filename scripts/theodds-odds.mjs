@@ -1,8 +1,7 @@
 /**
  * 从 the-odds-api 拉 FIFA 世界杯小组赛 欧赔(h2h)+亚盘(spreads)+大小球(totals)，
- * 欧赔按 bookmaker 分源保存；oneXTwo 仅保留兼容共识价。
- * 亚盘/大小球仍取「共识线（众数）」再对该线均价。
- * 写入 data/matches.json 的 match.offshore.{bookmakers,oneXTwo,asian,totals}。
+ * 聚合多家博彩公司：欧赔取均价；亚盘/大小球取「共识线（众数）」再对该线均价。
+ * 写入 data/matches.json 的 match.offshore.{oneXTwo,asian,totals}。
  *
  * 用法： ODDS_API_KEY=你的key node scripts/theodds-odds.mjs [data/matches.json]
  * 免费档 500 次/月；本脚本每次消耗 = 区域数 × 市场数（eu,uk,us × 3 = 9 次）。
@@ -23,7 +22,6 @@ const EN2ZH = {
   Algeria:"阿尔及利亚",Argentina:"阿根廷",Australia:"澳大利亚",Austria:"奥地利",Belgium:"比利时","Bosnia & Herzegovina":"波黑",Brazil:"巴西",Canada:"加拿大","Cape Verde":"佛得角",Colombia:"哥伦比亚",Croatia:"克罗地亚","Curaçao":"库拉索",Curacao:"库拉索","Czech Republic":"捷克","DR Congo":"刚果民主共和国","D.R. Congo":"刚果民主共和国",Ecuador:"厄瓜多尔",Egypt:"埃及",England:"英格兰",France:"法国",Germany:"德国",Ghana:"加纳",Haiti:"海地",Iran:"伊朗",Iraq:"伊拉克","Ivory Coast":"科特迪瓦",Japan:"日本",Jordan:"约旦","Korea Republic":"韩国","South Korea":"韩国",Mexico:"墨西哥",Morocco:"摩洛哥",Netherlands:"荷兰","New Zealand":"新西兰",Norway:"挪威",Panama:"巴拿马",Paraguay:"巴拉圭",Portugal:"葡萄牙",Qatar:"卡塔尔","Saudi Arabia":"沙特阿拉伯",Scotland:"苏格兰",Senegal:"塞内加尔","South Africa":"南非",Spain:"西班牙",Sweden:"瑞典",Switzerland:"瑞士",Tunisia:"突尼斯",Turkey:"土耳其",USA:"美国",Uruguay:"乌拉圭",Uzbekistan:"乌兹别克斯坦"
 };
 const pairKey = (a, b) => [a, b].sort().join("::");
-const roundPrice = (value) => Math.round(Number(value) * 100) / 100;
 const mean = (a) => (a.length ? Math.round((a.reduce((s, x) => s + x, 0) / a.length) * 100) / 100 : null);
 const mode = (a) => { const c = {}; a.forEach((x) => (c[x] = (c[x] || 0) + 1)); return Object.entries(c).sort((x, y) => y[1] - x[1])[0]?.[0]; };
 const fmtHcap = (p) => (p > 0 ? "+" : "") + p;
@@ -56,20 +54,7 @@ const hasStarted = (match, nowMs) => {
   return Number.isFinite(ts) && nowMs >= ts;
 };
 
-const bookmakerName = (b) => b.title || b.key || "bookmaker";
-const aggH2H = (e) => {
-  const rows = [];
-  for (const b of e.bookmakers) {
-    const mk = b.markets.find((x) => x.key === "h2h");
-    if (!mk) continue;
-    const o = Object.fromEntries(mk.outcomes.map((x) => [x.name, x.price]));
-    const h = o[e.home_team], a = o[e.away_team], d = o["Draw"];
-    if (saneThreeWay({ home: h, draw: d, away: a })) {
-      rows.push({ key: b.key, title: bookmakerName(b), home: roundPrice(h), draw: roundPrice(d), away: roundPrice(a), lastUpdate: mk.last_update || b.last_update || null });
-    }
-  }
-  return rows.length ? { home: mean(rows.map((x) => x.home)), draw: mean(rows.map((x) => x.draw)), away: mean(rows.map((x) => x.away)), books: rows.length, bookmakers: rows } : null;
-};
+const aggH2H = (e) => { const hs=[],ds=[],as=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="h2h");if(!mk)continue;const o=Object.fromEntries(mk.outcomes.map(x=>[x.name,x.price]));const h=o[e.home_team],a=o[e.away_team],d=o["Draw"];if(saneThreeWay({home:h,draw:d,away:a})){hs.push(h);as.push(a);ds.push(d);}} return hs.length?{home:mean(hs),draw:mean(ds),away:mean(as),books:hs.length}:null; };
 const aggSpreads = (e) => { const r=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="spreads");if(!mk)continue;const H=mk.outcomes.find(o=>o.name===e.home_team),A=mk.outcomes.find(o=>o.name===e.away_team);if(H&&A&&Number.isFinite(H.price)&&Number.isFinite(A.price))r.push({hp:H.point,hpr:H.price,apr:A.price});} if(!r.length)return null; const c=Number(mode(r.map(x=>String(x.hp))));const at=r.filter(x=>x.hp===c);return{homePoint:c,home:mean(at.map(x=>x.hpr)),away:mean(at.map(x=>x.apr))}; };
 const aggTotals = (e) => { const r=[]; for(const b of e.bookmakers){const mk=b.markets.find(x=>x.key==="totals");if(!mk)continue;const O=mk.outcomes.find(o=>o.name==="Over"),U=mk.outcomes.find(o=>o.name==="Under");if(O&&U&&O.point===U.point&&Number.isFinite(O.price)&&Number.isFinite(U.price))r.push({pt:O.point,o:O.price,u:U.price});} if(!r.length)return null; const c=Number(mode(r.map(x=>String(x.pt))));const at=r.filter(x=>x.pt===c);return{line:c,over:mean(at.map(x=>x.o)),under:mean(at.map(x=>x.u))}; };
 
@@ -105,20 +90,19 @@ for (const e of odds) {
   const same = m.home === zhH && m.away === zhA;
   const oneXTwo = same ? { home: h.home, draw: h.draw, away: h.away } : { home: h.away, draw: h.draw, away: h.home };
   if (!saneThreeWay(oneXTwo)) { rejectedOdds++; continue; }
-  const bookmakers = h.bookmakers.map((book) => same ? book : { ...book, home: book.away, away: book.home });
   let asian = null; const sp = aggSpreads(e);
   if (sp) { asian = same ? { line: fmtHcap(sp.homePoint), home: sp.home, away: sp.away } : { line: fmtHcap(-sp.homePoint), home: sp.away, away: sp.home }; asianN++; }
   let totals = null; const to = aggTotals(e);
   if (saneTotals(to)) { totals = { line: to.line, over: to.over, under: to.under }; totalsN++; }
   const prevOff = m.offshore || {};
-  m.offshore = { source: "the-odds-api", desc: `${h.books} 家博彩分源赔率`, regions: REGIONS, collectedAt, oneXTwo, bookmakers, asian: asian || prevOff.asian || null, totals: totals || prevOff.totals || null };
+  m.offshore = { source: "the-odds-api", desc: `${h.books} 家博彩均值`, regions: REGIONS, collectedAt, oneXTwo, asian: asian || prevOff.asian || null, totals: totals || prevOff.totals || null };
   m.model = m.model || {};
   m.model.notes = cleanNotes(m.model.notes);
-  m.model.notes.push(`海外欧赔 = the-odds-api 分博彩公司保存；oneXTwo 仅作兼容共识价，亚盘/大小仍保留共识线（${REGIONS}，${collectedAt.slice(0, 10)}）。模型概率仍待接入。`);
+  m.model.notes.push(`海外欧赔/亚盘/大小 = the-odds-api 聚合多家博彩均值（${REGIONS}，${collectedAt.slice(0, 10)}）。`);
   matched++;
 }
 payload.updatedAt = collectedAt;
-payload.oddsSource = { name: "the-odds-api", market: "h2h+spreads+totals", regions: REGIONS, aggregation: "h2h stored by bookmaker; oneXTwo kept as compatibility consensus; spreads/totals use consensus line", collectedAt, matched };
+payload.oddsSource = { name: "the-odds-api", market: "h2h+spreads+totals", regions: REGIONS, aggregation: "mean across books, consensus line", collectedAt, matched };
 fs.writeFileSync(FILE, JSON.stringify(payload, null, 2) + "\n");
 console.log(`已写入 ${FILE}：匹配 ${matched} 场（含亚盘 ${asianN}、大小球 ${totalsN}）`);
 if (skippedStarted || rejectedOdds) console.log(`保护跳过：已开赛 ${skippedStarted} 场，异常赔率 ${rejectedOdds} 场`);

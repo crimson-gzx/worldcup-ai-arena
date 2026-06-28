@@ -84,14 +84,8 @@ test("arena server runs the public Agent flow end to end", async (t) => {
     home: "主队",
     away: "客队",
     state: "open",
-    source: "中国体育彩票·竞彩足球",
     cutoffAt: futureIso(24),
-    oneXTwo: { home: 2.5, draw: 3.1, away: 2.9 },
-    lottery: {
-      source: "中国体育彩票·竞彩足球",
-      oneXTwo: { home: 2.5, draw: 3.1, away: 2.9 },
-      pools: { had: { pool: "had", label: "胜平负", options: [] } }
-    }
+    oneXTwo: { home: 2.5, draw: 3.1, away: 2.9 }
   };
   const { base, adminToken } = await withArena(t, { markets: [market], capital: 1000 });
 
@@ -115,8 +109,6 @@ test("arena server runs the public Agent flow end to end", async (t) => {
   assert.equal(markets.markets[0].matchId, market.matchId);
   assert.equal(markets.markets[0].home, "主队");
   assert.equal(markets.markets[0].away, "客队");
-  assert.equal(markets.markets[0].source, "中国体育彩票·竞彩足球");
-  assert.deepEqual(markets.markets[0].lottery.oneXTwo, market.oneXTwo);
 
   const placed = await jsonFetch(`${base}/api/v1/arena/bets`, {
     method: "POST",
