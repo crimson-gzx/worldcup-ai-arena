@@ -11,7 +11,7 @@ const state = {
   votes: {} // matchId -> { crowd:{home,draw,away}, ai:{home,draw,away} }
 };
 
-const dataVersion = "20260613-standings";
+const dataVersion = "20260629-ko-lottery";
 const SQUADS_DATA_VERSION = "20260625-full-team-values";
 const RECENT_PAST_MS = 36 * 60 * 60 * 1000;
 const RECENT_FUTURE_MS = 72 * 60 * 60 * 1000;
@@ -54,6 +54,28 @@ function hasHandicapOdds(odds) {
   return Boolean(odds?.line) && ["home", "draw", "away"].every((key) => Number.isFinite(odds?.[key]));
 }
 
+function offshoreBookmakers(match) {
+  return (Array.isArray(match.offshore?.bookmakers) ? match.offshore.bookmakers : []).filter(hasOneXTwo);
+}
+
+function lotteryPools(match) {
+  const pools = match.lottery?.pools || {};
+  return ["had", "hhad", "ttg", "crs", "hafu"].map((key) => pools[key]).filter((pool) => pool && Array.isArray(pool.options) && pool.options.length);
+}
+
+function lotteryHasPrices(match) {
+  return hasOneXTwo(match.lottery?.oneXTwo) || hasHandicapOdds(match.lottery?.handicap) || lotteryPools(match).length > 0;
+}
+
+function offshoreHasPrices(match) {
+  return hasOneXTwo(match.offshore?.oneXTwo) || offshoreBookmakers(match).length > 0;
+}
+
+function oddsValue(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toFixed(2) : t("待接入");
+}
+
 function hasModelProbabilities(model) {
   return ["home", "draw", "away"].every((key) => Number.isFinite(model?.[key]));
 }
@@ -63,7 +85,7 @@ function hasXg(model) {
 }
 
 function marketReady(match) {
-  return hasOneXTwo(match.offshore?.oneXTwo) && hasModelProbabilities(match.model);
+  return (lotteryHasPrices(match) || offshoreHasPrices(match)) && hasModelProbabilities(match.model);
 }
 
 function kickoffStamp(match) {
@@ -120,7 +142,8 @@ function signalText(match) {
   const score = matchScore(match);
   if (score?.completed) return t("已完赛");
   if (score?.live) return t("进行中");
-  if (hasOneXTwo(match.offshore?.oneXTwo)) return t("海外欧赔已接入");
+  if (lotteryHasPrices(match)) return t("竞彩已接入");
+  if (offshoreHasPrices(match)) return t("海外欧赔已接入");
   return match.tags.includes("knockout") ? t("赛程席位待定") : t("真实赛程");
 }
 
@@ -157,10 +180,27 @@ function labeledOdds(pairs) {
   return `<strong class="odds-1x2">${cells}</strong>`;
 }
 
+function htmlEscape(value) {
+  return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[char]));
+}
+
+function lotteryLine(match) {
+  const odds = match.lottery?.oneXTwo;
+  if (hasOneXTwo(odds)) return labeledOdds([[t("胜"), oddsValue(odds.home)], [t("平"), oddsValue(odds.draw)], [t("负"), oddsValue(odds.away)]]);
+  const pools = lotteryPools(match);
+  return `<strong>${pools.length ? `${pools.length} ${t("玩法")}` : t("待开盘")}</strong>`;
+}
+
 function oddsLine(match) {
   const o = match.offshore?.oneXTwo;
   if (!hasOneXTwo(o)) return `<strong>${t("待开盘")}</strong>`;
-  return labeledOdds([[t("胜"), o.home], [t("平"), o.draw], [t("负"), o.away]]);
+  return labeledOdds([[t("胜"), oddsValue(o.home)], [t("平"), oddsValue(o.draw)], [t("负"), oddsValue(o.away)]]);
 }
 
 function sortedMatches() {
@@ -810,6 +850,10 @@ function cardHtml(match) {
       <span class="signal">${signalText(match)}</span>
       <span class="metric-stack">
         <span class="metric-row">
+          <span>${t("竞彩")}</span>
+          ${lotteryLine(match)}
+        </span>
+        <span class="metric-row">
           <span>${t("欧赔")}</span>
           ${oddsLine(match)}
         </span>
@@ -950,11 +994,11 @@ function probabilityRows(match) {
   }
 
   const lottery = hasOneXTwo(match.lottery?.oneXTwo) ? impliedProbabilities(match.lottery.oneXTwo) : null;
-  const offshore = impliedProbabilities(match.offshore.oneXTwo);
+  const offshore = hasOneXTwo(match.offshore?.oneXTwo) ? impliedProbabilities(match.offshore.oneXTwo) : null;
   const rows = [
-    [t("主胜"), lottery?.fair.home ?? null, offshore.fair.home, match.model.home],
-    [t("平局"), lottery?.fair.draw ?? null, offshore.fair.draw, match.model.draw],
-    [t("客胜"), lottery?.fair.away ?? null, offshore.fair.away, match.model.away]
+    [t("主胜"), lottery?.fair.home ?? null, offshore?.fair.home ?? null, match.model.home],
+    [t("平局"), lottery?.fair.draw ?? null, offshore?.fair.draw ?? null, match.model.draw],
+    [t("客胜"), lottery?.fair.away ?? null, offshore?.fair.away ?? null, match.model.away]
   ];
 
   return rows
@@ -975,7 +1019,7 @@ function marketStatus(match) {
   if (score?.completed) return t("已完赛");
   if (score?.live) return t("进行中");
   if (marketReady(match)) return t("已接入");
-  if (hasOneXTwo(match.lottery?.oneXTwo) || hasHandicapOdds(match.lottery?.handicap) || hasOneXTwo(match.offshore?.oneXTwo)) return t("部分接入");
+  if (lotteryHasPrices(match) || offshoreHasPrices(match)) return t("部分接入");
   return t("待开盘");
 }
 
@@ -988,13 +1032,34 @@ function marketLineLabel(market) {
   return market?.line || t("待接入");
 }
 
+function renderLotteryPool(pool) {
+  const options = pool.options || [];
+  const line = pool.line ? ` · ${htmlEscape(pool.line)}` : "";
+  const updated = pool.updateAt ? `${t("更新")} ${htmlEscape(pool.updateAt)}` : "";
+  const long = options.length > 12 ? " is-long" : "";
+  return `
+    <div class="lottery-pool">
+      <div class="lottery-pool-head"><strong>${htmlEscape(t(pool.label))}${line}</strong><span>${updated}</span></div>
+      <div class="lottery-grid${long}">
+        ${options.map((item) => `
+          <span class="lottery-odd">
+            <span>${htmlEscape(t(item.label))}</span>
+            <strong>${oddsValue(item.odds)}<i class="lottery-trend" title="${htmlEscape(item.trend?.label || "")}">${htmlEscape(item.trend?.symbol || "")}</i></strong>
+          </span>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderLotteryBlock(match) {
+  const pools = lotteryPools(match);
   const lo = match.lottery?.oneXTwo;
   const hc = match.lottery?.handicap;
   const hasMain = hasOneXTwo(lo);
   const hasHandicap = hasHandicapOdds(hc);
 
-  if (!hasMain && !hasHandicap) {
+  if (!pools.length && !hasMain && !hasHandicap) {
     return `
       <section class="detail-block">
         <h3>${t("竞彩固定奖金")}</h3>
@@ -1007,12 +1072,13 @@ function renderLotteryBlock(match) {
   return `
     <section class="detail-block">
       <h3>${t("竞彩固定奖金")}</h3>
+      ${pools.length ? `<div class="lottery-pools">${pools.map(renderLotteryPool).join("")}</div>` : ""}
       ${hasMain ? `
-        <div class="odds-line"><span>${t("胜平负")}</span>${labeledOdds([[t("胜"), lo.home], [t("平"), lo.draw], [t("负"), lo.away]])}</div>
+        ${pools.length ? "" : `<div class="odds-line"><span>${t("胜平负")}</span>${labeledOdds([[t("胜"), oddsValue(lo.home)], [t("平"), oddsValue(lo.draw)], [t("负"), oddsValue(lo.away)]])}</div>`}
         <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(lottery.fair.home)], [t("平"), percent(lottery.fair.draw)], [t("负"), percent(lottery.fair.away)]])}</div>
         <div class="odds-line"><span>${t("返还率")}</span><strong>${percent(lottery.returnRate)}</strong></div>
       ` : `<div class="odds-line"><span>${t("胜平负")}</span><strong>${t("待接入")}</strong></div>`}
-      ${hasHandicap ? `<div class="odds-line"><span>${t("让球")} ${hc.line}</span>${labeledOdds([[t("胜"), hc.home], [t("平"), hc.draw], [t("负"), hc.away]])}</div>` : ""}
+      ${hasHandicap && !pools.length ? `<div class="odds-line"><span>${t("让球")} ${hc.line}</span>${labeledOdds([[t("胜"), oddsValue(hc.home)], [t("平"), oddsValue(hc.draw)], [t("负"), oddsValue(hc.away)]])}</div>` : ""}
     </section>
   `;
 }
@@ -1033,7 +1099,7 @@ function renderOffshoreBlock(match) {
   return `
     <section class="detail-block">
       <h3>${t("海外市场均值")}</h3>
-      <div class="odds-line"><span>${t("欧赔")}</span>${labeledOdds([[t("胜"), o.home], [t("平"), o.draw], [t("负"), o.away]])}</div>
+      <div class="odds-line"><span>${t("欧赔")}</span>${labeledOdds([[t("胜"), oddsValue(o.home)], [t("平"), oddsValue(o.draw)], [t("负"), oddsValue(o.away)]])}</div>
       <div class="odds-line"><span>${t("去水概率")}</span>${labeledOdds([[t("胜"), percent(offshore.fair.home)], [t("平"), percent(offshore.fair.draw)], [t("负"), percent(offshore.fair.away)]])}</div>
       <div class="odds-line"><span>${t("亚盘")} ${marketLineLabel(match.offshore.asian)}</span>${labeledOdds([[t("主"), v(match.offshore.asian, "home")], [t("客"), v(match.offshore.asian, "away")]])}</div>
       <div class="odds-line"><span>${t("大小")} ${marketLineLabel(match.offshore.totals)}</span>${labeledOdds([[t("大"), v(match.offshore.totals, "over")], [t("小"), v(match.offshore.totals, "under")]])}</div>
@@ -1119,7 +1185,7 @@ function renderDetail() {
         <h3>${t("模型输出")}</h3>
         ${probabilityRows(match)}
         <div class="odds-line"><span>${t("凯利温度")}</span><strong>${
-          marketReady(match) ? kellyTemperature(match.model.home, match.offshore.oneXTwo.home) : t("待接入")
+          marketReady(match) ? kellyTemperature(match.model.home, hitOddsValue(match, "home")) : t("待接入")
         }</strong></div>
       </section>
     </div>
@@ -1158,10 +1224,159 @@ function renderDataFreshness() {
   if (lott) parts.push(`<span class="${lott.stale ? "fresh-stale" : ""}">${t("竞彩更新")} ${lott.label}</span>`);
   el.innerHTML = parts.join('<i class="fresh-dot">·</i>');
 }
+
+const KO_ROUND_META = [
+  { key: "r32", round: "三十二强赛", zh: "32 强", en: "Round of 32" },
+  { key: "r16", round: "十六强赛", zh: "16 强", en: "Round of 16" },
+  { key: "qf", round: "四分之一决赛", zh: "1/4 决赛", en: "Quarter-finals" },
+  { key: "sf", round: "半决赛", zh: "半决赛", en: "Semi-finals" },
+  { key: "final", round: "决赛", zh: "决赛", en: "Final" }
+];
+const KO_ROUND_INDEX = new Map(KO_ROUND_META.map((meta, index) => [meta.round, index]));
+const KO_SOURCE_RE = /^第(\d+)场(胜|负)者$/;
+
+function koIsEn() {
+  return _i18n.getLang && _i18n.getLang() === "en";
+}
+
+function koMatchNumber(match) {
+  const idMatch = String(match?.id || "").match(/m0*(\d+)$/);
+  return idMatch ? Number(idMatch[1]) : null;
+}
+
+function koMatchCode(match) {
+  const no = koMatchNumber(match);
+  if (!no) return htmlEscape(match?.id || "");
+  return koIsEn() ? `M${no}` : `第${no}场`;
+}
+
+function koSourceNumber(slot, outcome = "胜") {
+  const m = String(slot || "").match(KO_SOURCE_RE);
+  return m && m[2] === outcome ? Number(m[1]) : null;
+}
+
+function koRoundMeta(round) {
+  return KO_ROUND_META.find((meta) => meta.round === round);
+}
+
+function koTime(kickoff) {
+  const m = String(kickoff || "").match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}:\d{2})/);
+  if (!m) return htmlEscape(kickoff || "");
+  const monthIndex = Math.max(0, Math.min(11, Number(m[2]) - 1));
+  return koIsEn() ? `${MONTHS_EN[monthIndex]} ${Number(m[3])} · ${m[4]} CST` : `${Number(m[2])}月${Number(m[3])}日 ${m[4]}`;
+}
+
+function koSlotHtml(name) {
+  const iso = TEAM_ISO[name];
+  return `<span class="ko-side${iso ? " has-flag" : " is-slot"}">` +
+    `${iso ? `<span class="ko-flag">${isoToFlag(iso)}</span>` : '<span class="ko-slot-dot" aria-hidden="true"></span>'}` +
+    `<span>${htmlEscape(tTeam(name))}</span></span>`;
+}
+
+function koMatchButtonHtml(match, extraClass = "") {
+  const selected = match.id === state.selectedId ? " is-selected" : "";
+  const className = `ko-match${extraClass ? ` ${extraClass}` : ""}${selected}`;
+  const label = `${tRound(match.round)} ${tTeam(match.home)} ${t("对阵")} ${tTeam(match.away)}`;
+  return `<button class="${className}" type="button" data-ko-match="${htmlEscape(match.id)}" aria-label="${htmlEscape(label)}">` +
+    `<span class="ko-match-top"><b>${koMatchCode(match)}</b><i>${htmlEscape(koTime(match.kickoff))}</i></span>` +
+    `<span class="ko-sides">${koSlotHtml(match.home)}<span class="ko-vs">${htmlEscape(t("对阵"))}</span>${koSlotHtml(match.away)}</span>` +
+    `<span class="ko-venue">${htmlEscape(tVenue(match.venue))}</span>` +
+    `</button>`;
+}
+
+function buildKoNode(match, byNo, seen = new Set()) {
+  const no = koMatchNumber(match);
+  if (!match || seen.has(no)) return null;
+  const nextSeen = new Set(seen);
+  nextSeen.add(no);
+  const children = [match.home, match.away]
+    .map((slot) => koSourceNumber(slot, "胜"))
+    .filter(Boolean)
+    .map((sourceNo) => buildKoNode(byNo.get(sourceNo), byNo, nextSeen))
+    .filter(Boolean);
+  return { match, children, span: 2, row: 1 };
+}
+
+function assignKoRows(node, startRow = 1) {
+  node.row = startRow;
+  if (!node.children.length) {
+    node.span = 2;
+    return node.span;
+  }
+  let cursor = startRow;
+  node.span = node.children.reduce((total, child) => {
+    const childSpan = assignKoRows(child, cursor);
+    cursor += childSpan;
+    return total + childSpan;
+  }, 0);
+  return node.span;
+}
+
+function collectKoNodes(node, out = []) {
+  if (!node) return out;
+  out.push(node);
+  node.children.forEach((child) => collectKoNodes(child, out));
+  return out;
+}
+
+function renderKnockoutBracket() {
+  const el = document.getElementById("knockout-bracket");
+  if (!el) return;
+  const knockout = state.matches.filter((match) => match.tags?.includes("knockout"));
+  if (!knockout.length) {
+    el.innerHTML = `<p class="empty-state">${htmlEscape(t("数据加载失败"))}</p>`;
+    return;
+  }
+  const byNo = new Map(knockout.map((match) => [koMatchNumber(match), match]).filter(([no]) => Number.isFinite(no)));
+  const finalMatch = knockout.find((match) => match.round === "决赛");
+  const root = finalMatch && buildKoNode(finalMatch, byNo);
+  if (!root) {
+    el.innerHTML = `<p class="empty-state">${htmlEscape(koIsEn() ? "Knockout fixtures are not ready." : "淘汰赛赛程尚未就绪。")}</p>`;
+    return;
+  }
+  assignKoRows(root);
+  const nodes = collectKoNodes(root).sort((a, b) => (KO_ROUND_INDEX.get(a.match.round) - KO_ROUND_INDEX.get(b.match.round)) || (a.row - b.row));
+  const labels = KO_ROUND_META.map((meta) => {
+    const count = nodes.filter((node) => node.match.round === meta.round).length;
+    const label = koIsEn() ? meta.en : meta.zh;
+    const unit = koIsEn() ? (count === 1 ? "match" : "matches") : "场";
+    return `<span class="ko-round-label"><b>${htmlEscape(label)}</b><i>${count} ${unit}</i></span>`;
+  }).join("");
+  const cards = nodes.map((node) => {
+    const meta = koRoundMeta(node.match.round);
+    const col = (KO_ROUND_INDEX.get(node.match.round) ?? 0) + 1;
+    const cls = meta ? ` ko-node-${meta.key}` : "";
+    return `<div class="ko-node${cls}" style="grid-column:${col};grid-row:${node.row} / span ${node.span}">` + koMatchButtonHtml(node.match) + `</div>`;
+  }).join("");
+  const thirdPlace = knockout.find((match) => match.round === "三四名决赛");
+  const thirdHtml = thirdPlace ? `<div class="ko-third"><span>${htmlEscape(koIsEn() ? "Third-place play-off" : "三四名决赛")}</span>${koMatchButtonHtml(thirdPlace, "ko-third-card")}</div>` : "";
+  const stats = [
+    { value: knockout.length, label: koIsEn() ? "knockout fixtures" : "场淘汰赛" },
+    { value: nodes.length, label: koIsEn() ? "title path" : "场争冠路径" },
+    { value: new Set(knockout.map((match) => match.venue)).size, label: koIsEn() ? "venues" : "座球场" }
+  ].map((item) => `<span><b>${item.value}</b><i>${htmlEscape(item.label)}</i></span>`).join("");
+  el.innerHTML = `<div class="ko-summary"><div><span>${htmlEscape(koIsEn() ? "Live fixture tree" : "真实赛程树")}</span><strong>${htmlEscape(koIsEn() ? "2026 knockout route" : "2026 淘汰赛路径")}</strong></div><div class="ko-stats">${stats}</div></div>` +
+    `<div class="ko-scroll" tabindex="0"><div class="ko-chart" style="--ko-rows:${root.span}"><div class="ko-rounds">${labels}</div><div class="ko-grid">${cards}</div></div></div>` +
+    thirdHtml;
+  el.querySelectorAll("[data-ko-match]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const match = state.matches.find((item) => item.id === button.dataset.koMatch);
+      if (!match) return;
+      state.selectedId = match.id;
+      state.filter = "knockout";
+      state.openDays = new Set([match.kickoff.slice(0, 10)]);
+      state.dayInitDone = true;
+      render();
+      const detail = document.querySelector("#match-detail");
+      if (detail) detail.scrollIntoView({ block: "start" });
+    });
+  });
+}
 function render() {
   renderChips();
   renderMatchCards();
   renderDetail();
+  renderKnockoutBracket();
 }
 
 async function loadData() {
@@ -1456,7 +1671,7 @@ function setupReveal() {
 }
 setupReveal();
 
-/* ===================== 48 强巡礼：小组卡片墙 ===================== */
+/* ===================== 历史小组卡片墙（保留给小组视图复用） ===================== */
 const TEAM_ISO = {
   "阿根廷": "AR", "巴西": "BR", "法国": "FR", "西班牙": "ES", "英格兰": "GB-ENG",
   "葡萄牙": "PT", "荷兰": "NL", "德国": "DE", "比利时": "BE", "克罗地亚": "HR",

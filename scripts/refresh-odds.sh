@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 世界杯海外赔率每日刷新（由 root crontab 调用，部署在服务器 /opt/wc-odds/refresh.sh）。
-# 流程：抓 the-odds-api 多家均值 → 写回 /var/www/rezz/data/matches.json
-#       → 重建 arena 盘口（保留开幕战 openNow / 已结算场）→ 重启 wc-arena。
+# 流程：抓 the-odds-api 多家均值 → 叠加本机 current-lottery-raw.json 的竞彩固定奖金
+#       → 写回 /var/www/rezz/data/matches.json → 重建 arena 盘口 → 重启 wc-arena。
 # the-odds-api 失败时脚本会抛错且不写坏 matches.json；本脚本另存一份 prev 兜底回滚。
 set -uo pipefail
 DIR=/opt/wc-odds
@@ -18,8 +18,16 @@ echo "[$(ts)] === refresh start ===" >> "$LOG"
 cp -f "$MATCHES" "$DIR/matches.prev.json"
 
 if "$NODE" "$DIR/theodds-odds.mjs" "$MATCHES" >> "$LOG" 2>&1; then
+  if [ -f "$DIR/current-lottery-raw.json" ]; then
+    if LOTTERY_RAW_JSON="$DIR/current-lottery-raw.json" "$NODE" "$DIR/lottery-odds.mjs" "$MATCHES" >> "$LOG" 2>&1; then
+      echo "[$(ts)] 竞彩固定奖金已叠加" >> "$LOG"
+    else
+      echo "[$(ts)] LOTTERY 失败（保留海外赔率结果继续重建盘口）" >> "$LOG"
+    fi
+  else
+    echo "[$(ts)] 未发现 $DIR/current-lottery-raw.json，跳过竞彩叠加" >> "$LOG"
+  fi
   chown www-data:www-data "$MATCHES"
-  # 注：竞彩固定奖金由国内 VPS 抓取后直接推回 matches.json（美国 IP 被 sporttery 567 拦截）。
   if MATCHES_JSON="$MATCHES" MARKETS_OUT="$MARKETS" "$NODE" "$DIR/build-markets.mjs" >> "$LOG" 2>&1; then
     chown www-data:www-data "$MARKETS"
     systemctl restart wc-arena

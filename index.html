@@ -2,10 +2,10 @@
 <html lang="zh-CN" data-theme="dark"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="世界杯盘口研究所：对比竞彩固定奖金、海外市场赔率和自建模型概率，做赛事数据研究。">
+    <meta name="description" content="世界杯盘口研究所：对比竞彩固定奖金、海外市场赔率、自建模型概率和淘汰赛对阵图，做赛事数据研究。">
     <meta property="og:type" content="website">
     <meta property="og:title" content="世界杯盘口研究所 · 竞彩 × 海外 × 模型">
-    <meta property="og:description" content="把竞彩固定奖金、海外市场均值和自建模型概率并排对比，盘口异动、出线率推演一站看齐。全程数据研究，不涉及投注。">
+    <meta property="og:description" content="把竞彩固定奖金、海外市场均值、自建模型概率和淘汰赛路径并排看齐。全程数据研究，不涉及投注。">
     <meta property="og:url" content="https://www.rezz.asia/">
     <meta property="og:image" content="https://www.rezz.asia/assets/og-cover.png">
     <meta property="og:locale" content="zh_CN">
@@ -23,7 +23,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link rel="stylesheet" href="./styles.css?v=20260623-active-agents" />
+    <link rel="stylesheet" href="./styles.css?v=20260629-ko-lottery" />
     
   </head>
   <body>
@@ -198,16 +198,16 @@
         <div class="shell muster-shell">
           <div class="muster-side">
             <span class="sec-index">04</span>
-            <h2 class="muster-title" aria-label="48 强巡礼">
-              <span class="muster-num wc-shiny">48</span>
-              <span class="muster-word" data-i18n="muster.word">强巡礼</span>
+            <h2 class="muster-title" aria-label="淘汰赛对阵图 / Knockout bracket">
+              <span class="muster-num wc-shiny">KO</span>
+              <span class="muster-word" data-i18n="muster.word">对阵图</span>
             </h2>
-            <p class="eyebrow muster-eyebrow" data-i18n="muster.eyebrow">参赛巡礼</p>
+            <p class="eyebrow muster-eyebrow" data-i18n="muster.eyebrow">淘汰赛</p>
           </div>
           <div class="muster-main">
-            <p class="muster-lead" data-i18n="muster.lead">2026 世界杯 12 个小组、48 支球队，点任意小组直达该组盘口。</p>
-            <div class="group-grid" id="group-grid" aria-label="12 个小组"></div>
-            <p class="group-note" data-i18n="muster.note">出线率为自建模型蒙特卡洛推演的晋级 32 强概率（每组前 2 + 8 个最佳第 3）；积分按真实赛果实时更新。仅供研究，不构成预测或投注建议。</p>
+            <p class="muster-lead" data-i18n="muster.lead">从三十二强赛到决赛，按真实赛程席位生成完整晋级路线。</p>
+            <div class="knockout-board" id="knockout-bracket" aria-label="淘汰赛对阵图" aria-live="polite"></div>
+            <p class="group-note" data-i18n="muster.note">对阵来自已导入赛程席位；球队确定和赔率接入后，对阵图会随数据源同步更新。仅供赛程研究，不构成预测或投注建议。</p>
           </div>
         </div>
         <div id="group-modal" class="group-modal" hidden>
@@ -312,8 +312,8 @@
     <script src="./pixel-hero.js?v=20260621-canvas-read" defer></script>
 
     
-    <script src="./i18n.js?v=20260625-predictions"></script>
-    <script src="./app.js?v=20260625-full-team-values" type="module"></script>
+    <script src="./i18n.js?v=20260629-ko-lottery"></script>
+    <script src="./app.js?v=20260629-ko-lottery" type="module"></script>
 
     
   

@@ -1,6 +1,6 @@
 /**
  * 从 ../data/matches.json 生成 arena 的 data/markets.json：
- * 小组赛且有 offshore 赔率 → state=open（带 cutoffAt=开球、oneXTwo=海外均值）；其余 → scheduled。
+ * 有竞彩胜平负 → state=open（oneXTwo=竞彩固定奖金）；无竞彩时用 offshore 赔率兜底；其余 → scheduled。
  * 用法： node arena/build-markets.mjs   （在仓库根目录跑）
  * 刷新赔率后重建盘口：先跑 scripts/theodds-odds.mjs，再跑本脚本，再 scp arena/data/markets.json → /opt/wc-arena/data/ 并 systemctl restart wc-arena。
  */
@@ -21,16 +21,18 @@ try {
 
 const markets = matches.matches.map((m) => {
   if (prev[m.id] && prev[m.id].state === "closed") return prev[m.id]; // 已结算原样保留
-  const grp = m.tags.includes("group");
-  const odds = m.offshore && m.offshore.oneXTwo;
+  const lotteryOdds = m.lottery && m.lottery.oneXTwo;
+  const offshoreOdds = m.offshore && m.offshore.oneXTwo;
+  const odds = lotteryOdds || offshoreOdds;
+  const completed = m.completed === true;
   return {
     matchId: m.id,
     home: m.home,
     away: m.away,
-    state: grp && odds ? "open" : "scheduled",
-    source: odds ? "the-odds-api 多家均值" : "official-sporttery",
+    state: odds && !completed ? "open" : "scheduled",
+    source: lotteryOdds ? "中国体育彩票·竞彩足球" : (offshoreOdds ? "the-odds-api 多家均值" : "official-sporttery"),
     cutoffAt: m.kickoff.replace(" ", "T") + ":00+08:00",
-    oneXTwo: odds ? m.offshore.oneXTwo : null
+    oneXTwo: odds || null
   };
 });
 
